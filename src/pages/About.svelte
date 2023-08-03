@@ -34,7 +34,7 @@
             data-aos-duration="500"
             data-aos-delay="200"
             src="/images/me.webp"
-            alt="A guy (me) posing with a University of Toronto hoodie."
+            alt="A guy (me) posing before going to a wedding."
           />
         </div>
       </div>
@@ -54,20 +54,19 @@
           class="text-gray-600 dark:text-gray-300 lg:text-lg space-y-5"
         >
           <p class="first-letter:text-4xl first-letter:font-bold">
-            What's up? I’m Bob, a student specializing in Computer Science at
-            University of Toronto, and also working as a part-time software
-            developer.
+            Hey, What's up? I’m Chaitanya, a student specializing in 
+	    Software Engineering and Data Science at
+            North Carolina State University.
           </p>
           <p>
-            &emsp;&emsp; The passion to create and innovate has always been in
+            &emsp;&emsp; The passion to create and Analyze has always been in
             me. I strive to build quality, intuitive, and robust software with
             the goal of learning and improving my skills.
           </p>
           <p>
-            &emsp;&emsp; My expertise include JavaScript, CSS, and the MERN
-            stack. Recently I have been intrigue with blockchain tech and Web3.
-            Aside from coding, I enjoy playing table tennis, video games, and
-            the drums.
+            &emsp;&emsp; My expertise includes Python, Java, and Machine Learning. 
+            Recently I have been intrigued with Data Engineering and Cloud Engineering.
+            Aside from coding, I enjoy catching up with my favorite series, and playing video games.
           </p>
         </div>
         <!-- <Link
