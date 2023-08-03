@@ -45,6 +45,7 @@ const resume = {
     "MongoDB",
     "AWS",
     "Postgres",
+    "Docker",
     "Django",
     "Github Actions",
     "Apache Kafka (in progress)",
