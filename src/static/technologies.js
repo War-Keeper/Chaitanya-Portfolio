@@ -1,146 +1,94 @@
 export default [
   {
-    tech: "react",
-    link: "https://reactjs.org/",
+    tech: "Pytorch",
+    link: "https://pytorch.org/docs/stable/index.html",
   },
   {
-    tech: "vue",
-    link: "https://vuejs.org/",
+    tech: "SKlearn",
+    link: "https://scikit-learn.org/stable/",
   },
   {
-    tech: "svelte",
+    tech: "Numpy",
+    link: "https://numpy.org/doc/stable/",
+  },
+  {
+    tech: "Pandas",
+    link: "https://pandas.pydata.org/docs/",
+  },
+  {
+    tech: "NetworkX",
+    link: "https://networkx.org/",
+  },
+  {
+    tech: "Apache Spark",
+    link: "https://spark.apache.org/docs/latest/",
+  },
+  {
+    tech: "Svelte",
     link: "https://svelte.dev/",
   },
   {
-    tech: "html",
-    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-  },
-  {
-    tech: "css",
-    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-  },
-  {
-    tech: "javascript",
-    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-  },
-  {
-    tech: "scss",
-    link: "https://sass-lang.com/documentation/syntax",
-  },
-  {
-    tech: "tailwindcss",
-    link: "https://tailwindcss.com/",
-  },
-  {
-    tech: "redux",
-    link: "https://redux.js.org/",
-  },
-  {
-    tech: "jest",
-    link: "https://jestjs.io/",
-  },
-  {
-    tech: "npm",
-    link: "https://www.npmjs.com/",
-  },
-  {
-    tech: "node.js",
-    link: "https://nodejs.org/",
-  },
-  {
-    tech: "docker",
-    link: "https://www.docker.com/",
-  },
-  {
-    tech: "express",
-    link: "https://expressjs.com/",
-  },
-  {
-    tech: "mongodb",
-    link: "https://www.mongodb.com/",
-  },
-  {
-    tech: "cloudinary",
-    link: "https://cloudinary.com/",
-  },
-  {
-    tech: "socket.io",
-    link: "https://socket.io/",
-  },
-  {
-    tech: "buefy",
-    link: "https://buefy.org/",
-  },
-  {
-    tech: "bulma",
-    link: "https://bulma.io/",
-  },
-  {
-    tech: "graphql",
-    link: "https://graphql.org/",
-  },
-  {
-    tech: "hasura",
-    link: "https://hasura.io/",
-  },
-  {
-    tech: "postgresql",
-    link: "https://www.postgresql.org/",
-  },
-  {
-    tech: "netlify",
-    link: "https://www.netlify.com/",
-  },
-  {
-    tech: "heroku",
-    link: "https://www.heroku.com/",
-  },
-  {
-    tech: "firebase",
-    link: "https://firebase.google.com/",
-  },
-  {
-    tech: "unity",
+    tech: "Unity Engine",
     link: "https://unity.com/",
   },
   {
-    tech: "c#",
-    link: "https://docs.microsoft.com/en-us/dotnet/csharp/",
+    tech: "Git",
+    link: "https://git-scm.com/doc",
   },
   {
-    tech: "c",
-    link: "https://en.wikipedia.org/wiki/C_(programming_language)",
+    tech: "MongoDB",
+    link: "https://www.mongodb.com/docs/",
   },
   {
-    tech: "c++",
-    link: "https://www.cplusplus.com/",
+    tech: "AWS",
+    link: "https://docs.aws.amazon.com/",
   },
   {
-    tech: "webgl",
-    link: "https://get.webgl.org/",
+    tech: "Postgres",
+    link: "https://www.postgresql.org/docs/",
   },
   {
-    tech: "java",
-    link: "https://www.java.com/",
+    tech: "docker",
+    link: "https://docs.docker.com/reference/",
   },
   {
-    tech: "eclipse",
-    link: "https://www.eclipse.org/ide/",
+    tech: "Django",
+    link: "https://docs.djangoproject.com/en/4.2/",
   },
   {
-    tech: "visual studio",
-    link: "https://visualstudio.microsoft.com/",
+    tech: "Github Actions",
+    link: "https://docs.github.com/en/actions",
   },
   {
-    tech: "photoshop",
-    link: "https://www.adobe.com/ca/products/photoshop.html",
+    tech: "Apache Kafka",
+    link: "https://kafka.apache.org/quickstart",
   },
   {
-    tech: "mips assembly",
-    link: "https://en.wikipedia.org/wiki/MIPS_architecture",
+    tech: "Python",
+    link: "https://www.python.org/",
   },
   {
-    tech: "mars simulator",
-    link: "http://courses.missouristate.edu/kenvollmar/mars/",
+    tech: "Java",
+    link: "https://docs.oracle.com/en/java/",
+  },
+  {
+    tech: "C(++)",
+    link: "https://learn.microsoft.com/en-us/cpp/?view=msvc-170",
+  },
+  {
+    tech: "JavaScript",
+    link: "https://www.javascript.com/",
+  },
+  {
+    tech: "C#",
+    link: "https://learn.microsoft.com/en-us/dotnet/csharp/",
+  },
+  {
+    tech: "SQL",
+    link: "https://dev.mysql.com/doc/",
+  },
+  {
+    tech: "Ruby",
+    link: "https://www.ruby-lang.org/en/documentation/",
   },
 ];
