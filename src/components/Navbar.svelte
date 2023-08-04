@@ -44,15 +44,15 @@
     href="/#home"
     data-aos="flip-up"
     data-aos-duration="700"
-    class="overflow-hidden bg-gradient-to-br from-purple-400 to-red-400 w-6 h-6 relative"
+    class="overflow-hidden bg-gradient-to-br from-cyan-400 to-pink-400 w-6 h-6 relative"
   >
     <p
       class="logo-type text-white dark:text-gray-900 text-3xl font-black absolute bottom-0"
     >
-      B
+      C
     </p>
   </a>
-  <a href="/#home" data-aos="flip-up" class="nav-text-home">Ng Bob Shoaun</a>
+  <a href="/#home" data-aos="flip-up" class="nav-text-home">Chaitanya Patel</a>
 
   <div use:links class="hidden lg:flex gap-9 items-center ml-auto">
     <Router>
@@ -107,7 +107,7 @@
       >
 
       <a
-        href="/Resume - Bob Shoaun Ng.pdf"
+        href="/Chaitanya_Patel_Resume.pdf"
         data-aos="zoom-in"
         data-aos-delay="700"
         class="nav-text"

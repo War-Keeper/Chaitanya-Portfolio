@@ -23,7 +23,7 @@
       contactForm.reset();
     } else {
       alert(
-        "Uh oh... message failed to send. You can email me directly at ngbobshoaun2000@gmail.com"
+        "Uh oh... message failed to send. You can email me directly at thechikkipatel@gmail.com"
       );
     }
   }

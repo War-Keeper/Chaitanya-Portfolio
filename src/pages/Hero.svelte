@@ -46,7 +46,7 @@
         <TextReveal
           delay={1000}
           once
-          text="My name is Bob, I build and design industry standard web applications."
+          text="My name is Chaitanya, I build and design industry standard data and machine learning applications."
         />
       </p>
 
