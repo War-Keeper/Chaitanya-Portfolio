@@ -4,7 +4,7 @@
   export let wrapperClasses = "moving-gradient-1";
   export let headingText = "Projects";
   export let subtitleText =
-    "I have industry experience working as a fullstack web developer, here are some featured projects.";
+    "I have experience working as a Software Developer with a concentration in Data Science, here are some featured projects.";
 </script>
 
 <header class={`py-24 text-center relative overflow-hidden`}>

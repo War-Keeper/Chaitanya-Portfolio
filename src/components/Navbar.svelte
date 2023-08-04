@@ -78,7 +78,7 @@
         data-aos-delay="300"
         data-aos-duration="700"
         class="nav-text"
-        noroute>Web dev</a
+        noroute>Projects</a
       >
       <a
         href="/#contact"
