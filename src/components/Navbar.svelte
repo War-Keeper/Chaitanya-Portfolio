@@ -80,23 +80,6 @@
         class="nav-text"
         noroute>Web dev</a
       >
-
-      <a
-        href="/#game-development"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-        data-aos-duration="700"
-        class="nav-text"
-        noroute>Game dev</a
-      >
-      <a
-        href="/#graphic-design"
-        data-aos="zoom-in"
-        data-aos-delay="500"
-        data-aos-duration="700"
-        class="nav-text"
-        noroute>Design</a
-      >
       <a
         href="/#contact"
         data-aos="zoom-in"

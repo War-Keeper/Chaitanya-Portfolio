@@ -44,7 +44,7 @@
       href="https://github.com/War-Keeper/Chaitanya-Portfolio"
       target="_blank"
     >
-      Designed & Built by Chaitanya Patel &copy; <time>2022</time>
+      Designed & Built by Chaitanya Patel &copy; <time>2023</time>
     </a>
   </div>
 </footer>
