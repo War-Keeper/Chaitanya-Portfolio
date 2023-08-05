@@ -1,7 +1,7 @@
 [
   {
     "name": "Genova Diagnostics",
-    "logo": "/images/genova.png",
+    "logo": "/images/genova.webp",
     "background": "bg-white",
     "position": "Immunology Lab Researcher",
     "start": "May 2019",
@@ -18,7 +18,7 @@
   },
   {
     "name": "University of North Carolina Asheville",
-    "logo": "/images/unca.png",
+    "logo": "/images/unca.webp",
     "background": "moving-gradient-2",
     "blend": "multiply",
     "position": "Physical Chemistry Researcher",
