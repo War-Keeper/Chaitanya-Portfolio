@@ -168,28 +168,9 @@
         class="block bg-gray-50 dark:bg-gray-800 p-5"
         href="/#web-development"
       >
-        Web Development
+        Projects
       </a>
 
-      <a
-        on:click={() => (open = false)}
-        data-aos="slide-right"
-        data-aos-delay="200"
-        class="block bg-gray-50 dark:bg-gray-800 p-5"
-        href="/#game-development"
-      >
-        Game Development
-      </a>
-
-      <a
-        on:click={() => (open = false)}
-        data-aos="slide-left"
-        data-aos-delay="200"
-        class="block bg-gray-50 dark:bg-gray-800 p-5"
-        href="/#graphic-design"
-      >
-        Graphic Design
-      </a>
       <a
         on:click={() => (open = false)}
         data-aos="slide-right"
@@ -206,7 +187,7 @@
         data-aos-delay="200"
         class="block bg-gray-50 dark:bg-gray-800 p-5"
         target="_blank"
-        href="/Resume - Bob Shoaun Ng.pdf"
+        href="/Chaitanya_Patel_Resume.pdf"
       >
         Resume
       </a>
