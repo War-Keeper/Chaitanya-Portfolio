@@ -3,7 +3,6 @@
   import Main from "./pages/Main.svelte";
   import Footer from "./components/Footer.svelte";
   import Resume from "./pages/Resume.svelte";
-  import FunFacts from "./pages/FunFacts.svelte";
   import Article from "./pages/Article.svelte";
 
   import { Router, Route } from "svelte-routing";
@@ -45,8 +44,6 @@
       component={Article}
     />
 
-    <Route path="Facts" component={FunFacts} />
-    <Route path="facts" component={FunFacts} />
   </Router>
   <Footer />
 </div>

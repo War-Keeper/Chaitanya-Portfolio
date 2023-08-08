@@ -1,2 +1,16483 @@
-var app=function(){"use strict";function e(){}const t=e=>e;function n(e,t){for(const n in t)e[n]=t[n];return e}function a(e){return e()}function r(){return Object.create(null)}function s(e){e.forEach(a)}function o(e){return"function"==typeof e}function i(e,t){return e!=e?t==t:e!==t||e&&"object"==typeof e||"function"==typeof e}function l(t,...n){if(null==t)return e;const a=t.subscribe(...n);return a.unsubscribe?()=>a.unsubscribe():a}function u(e,t,n){e.$$.on_destroy.push(l(t,n))}function c(e,t,n,a){if(e){const r=f(e,t,n,a);return e[0](r)}}function f(e,t,a,r){return e[1]&&r?n(a.ctx.slice(),e[1](r(t))):a.ctx}function h(e,t,n,a,r,s,o){const i=function(e,t,n,a){if(e[2]&&a){const r=e[2](a(n));if(void 0===t.dirty)return r;if("object"==typeof r){const e=[],n=Math.max(t.dirty.length,r.length);for(let a=0;a<n;a+=1)e[a]=t.dirty[a]|r[a];return e}return t.dirty|r}return t.dirty}(t,a,r,s);if(i){const r=f(t,n,a,o);e.p(r,i)}}function d(e){const t={};for(const n in e)"$"!==n[0]&&(t[n]=e[n]);return t}function p(e,t){const n={};t=new Set(t);for(const a in e)t.has(a)||"$"===a[0]||(n[a]=e[a]);return n}function g(e){return null==e?"":e}const m="undefined"!=typeof window;let D=m?()=>window.performance.now():()=>Date.now(),b=m?e=>requestAnimationFrame(e):e;const x=new Set;function y(e){x.forEach((t=>{t.c(e)||(x.delete(t),t.f())})),0!==x.size&&b(y)}function E(e,t){e.appendChild(t)}function v(e,t,n){e.insertBefore(t,n||null)}function k(e){e.parentNode.removeChild(e)}function w(e,t){for(let n=0;n<e.length;n+=1)e[n]&&e[n].d(t)}function A(e){return document.createElement(e)}function $(e){return document.createTextNode(e)}function C(){return $(" ")}function F(){return $("")}function B(e,t,n,a){return e.addEventListener(t,n,a),()=>e.removeEventListener(t,n,a)}function S(e,t,n){null==n?e.removeAttribute(t):e.getAttribute(t)!==n&&e.setAttribute(t,n)}function _(e,t){const n=Object.getOwnPropertyDescriptors(e.__proto__);for(const a in t)null==t[a]?e.removeAttribute(a):"style"===a?e.style.cssText=t[a]:"__value"===a?e.value=e[a]=t[a]:n[a]&&n[a].set?e[a]=t[a]:S(e,a,t[a])}function T(e){return Array.from(e.childNodes)}function I(e,t,n,a){for(let a=0;a<e.length;a+=1){const r=e[a];if(r.nodeName===t){let t=0;const s=[];for(;t<r.attributes.length;){const e=r.attributes[t++];n[e.name]||s.push(e.name)}for(let e=0;e<s.length;e++)r.removeAttribute(s[e]);return e.splice(a,1)[0]}}return a?function(e){return document.createElementNS("http://www.w3.org/2000/svg",e)}(t):A(t)}function O(e,t){for(let n=0;n<e.length;n+=1){const a=e[n];if(3===a.nodeType)return a.data=""+t,e.splice(n,1)[0]}return $(t)}function R(e){return O(e," ")}function P(e,t){t=""+t,e.wholeText!==t&&(e.data=t)}function N(e,t,n,a){e.style.setProperty(t,n,a?"important":"")}function j(e,t){const n=document.createEvent("CustomEvent");return n.initCustomEvent(e,!1,!1,t),n}class z{constructor(e=null){this.a=e,this.e=this.n=null}m(e,t,n=null){this.e||(this.e=A(t.nodeName),this.t=t,this.h(e)),this.i(n)}h(e){this.e.innerHTML=e,this.n=Array.from(this.e.childNodes)}i(e){for(let t=0;t<this.n.length;t+=1)v(this.t,this.n[t],e)}p(e){this.d(),this.h(e),this.i(this.a)}d(){this.n.forEach(k)}}const L=new Set;let U,M=0;function q(e,t,n,a,r,s,o,i=0){const l=16.666/a;let u="{\n";for(let e=0;e<=1;e+=l){const a=t+(n-t)*s(e);u+=100*e+`%{${o(a,1-a)}}\n`}const c=u+`100% {${o(n,1-n)}}\n}`,f=`__svelte_${function(e){let t=5381,n=e.length;for(;n--;)t=(t<<5)-t^e.charCodeAt(n);return t>>>0}(c)}_${i}`,h=e.ownerDocument;L.add(h);const d=h.__svelte_stylesheet||(h.__svelte_stylesheet=h.head.appendChild(A("style")).sheet),p=h.__svelte_rules||(h.__svelte_rules={});p[f]||(p[f]=!0,d.insertRule(`@keyframes ${f} ${c}`,d.cssRules.length));const g=e.style.animation||"";return e.style.animation=`${g?`${g}, `:""}${f} ${a}ms linear ${r}ms 1 both`,M+=1,f}function V(e,t){const n=(e.style.animation||"").split(", "),a=n.filter(t?e=>e.indexOf(t)<0:e=>-1===e.indexOf("__svelte")),r=n.length-a.length;r&&(e.style.animation=a.join(", "),M-=r,M||b((()=>{M||(L.forEach((e=>{const t=e.__svelte_stylesheet;let n=t.cssRules.length;for(;n--;)t.deleteRule(n);e.__svelte_rules={}})),L.clear())})))}function H(e){U=e}function G(){if(!U)throw new Error("Function called outside component initialization");return U}function W(e){G().$$.on_mount.push(e)}function J(){const e=G();return(t,n)=>{const a=e.$$.callbacks[t];if(a){const r=j(t,n);a.slice().forEach((t=>{t.call(e,r)}))}}}function K(e,t){G().$$.context.set(e,t)}function Z(e){return G().$$.context.get(e)}const Q=[],X=[],Y=[],ee=[],te=Promise.resolve();let ne=!1;function ae(e){Y.push(e)}function re(e){ee.push(e)}let se=!1;const oe=new Set;function ie(){if(!se){se=!0;do{for(let e=0;e<Q.length;e+=1){const t=Q[e];H(t),le(t.$$)}for(H(null),Q.length=0;X.length;)X.pop()();for(let e=0;e<Y.length;e+=1){const t=Y[e];oe.has(t)||(oe.add(t),t())}Y.length=0}while(Q.length);for(;ee.length;)ee.pop()();ne=!1,se=!1,oe.clear()}}function le(e){if(null!==e.fragment){e.update(),s(e.before_update);const t=e.dirty;e.dirty=[-1],e.fragment&&e.fragment.p(e.ctx,t),e.after_update.forEach(ae)}}let ue;function ce(e,t,n){e.dispatchEvent(j(`${t?"intro":"outro"}${n}`))}const fe=new Set;let he;function de(){he={r:0,c:[],p:he}}function pe(){he.r||s(he.c),he=he.p}function ge(e,t){e&&e.i&&(fe.delete(e),e.i(t))}function me(e,t,n,a){if(e&&e.o){if(fe.has(e))return;fe.add(e),he.c.push((()=>{fe.delete(e),a&&(n&&e.d(1),a())})),e.o(t)}}const De={duration:0};function be(n,a,r,i){let l=a(n,r),u=i?0:1,c=null,f=null,h=null;function d(){h&&V(n,h)}function p(e,t){const n=e.b-u;return t*=Math.abs(n),{a:u,b:e.b,d:n,duration:t,start:e.start,end:e.start+t,group:e.group}}function g(a){const{delay:r=0,duration:o=300,easing:i=t,tick:g=e,css:m}=l||De,E={start:D()+r,b:a};a||(E.group=he,he.r+=1),c||f?f=E:(m&&(d(),h=q(n,u,a,o,r,i,m)),a&&g(0,1),c=p(E,o),ae((()=>ce(n,a,"start"))),function(e){let t;0===x.size&&b(y),new Promise((n=>{x.add(t={c:e,f:n})}))}((e=>{if(f&&e>f.start&&(c=p(f,o),f=null,ce(n,c.b,"start"),m&&(d(),h=q(n,u,c.b,c.duration,0,i,l.css))),c)if(e>=c.end)g(u=c.b,1-u),ce(n,c.b,"end"),f||(c.b?d():--c.group.r||s(c.group.c)),c=null;else if(e>=c.start){const t=e-c.start;u=c.a+c.d*i(t/c.duration),g(u,1-u)}return!(!c&&!f)})))}return{run(e){o(l)?(ue||(ue=Promise.resolve(),ue.then((()=>{ue=null}))),ue).then((()=>{l=l(),g(e)})):g(e)},end(){d(),c=f=null}}}function xe(e,t){const n={},a={},r={$$scope:1};let s=e.length;for(;s--;){const o=e[s],i=t[s];if(i){for(const e in o)e in i||(a[e]=1);for(const e in i)r[e]||(n[e]=i[e],r[e]=1);e[s]=i}else for(const e in o)r[e]=1}for(const e in a)e in n||(n[e]=void 0);return n}function ye(e){return"object"==typeof e&&null!==e?e:{}}function Ee(e,t,n){const a=e.$$.props[t];void 0!==a&&(e.$$.bound[a]=n,n(e.$$.ctx[a]))}function ve(e){e&&e.c()}function ke(e,t){e&&e.l(t)}function we(e,t,n){const{fragment:r,on_mount:i,on_destroy:l,after_update:u}=e.$$;r&&r.m(t,n),ae((()=>{const t=i.map(a).filter(o);l?l.push(...t):s(t),e.$$.on_mount=[]})),u.forEach(ae)}function Ae(e,t){const n=e.$$;null!==n.fragment&&(s(n.on_destroy),n.fragment&&n.fragment.d(t),n.on_destroy=n.fragment=null,n.ctx=[])}function $e(e,t){-1===e.$$.dirty[0]&&(Q.push(e),ne||(ne=!0,te.then(ie)),e.$$.dirty.fill(0)),e.$$.dirty[t/31|0]|=1<<t%31}function Ce(t,n,a,o,i,l,u=[-1]){const c=U;H(t);const f=n.props||{},h=t.$$={fragment:null,ctx:null,props:l,update:e,not_equal:i,bound:r(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(c?c.$$.context:[]),callbacks:r(),dirty:u,skip_bound:!1};let d=!1;if(h.ctx=a?a(t,f,((e,n,...a)=>{const r=a.length?a[0]:n;return h.ctx&&i(h.ctx[e],h.ctx[e]=r)&&(!h.skip_bound&&h.bound[e]&&h.bound[e](r),d&&$e(t,e)),n})):[],h.update(),d=!0,s(h.before_update),h.fragment=!!o&&o(h.ctx),n.target){if(n.hydrate){const e=T(n.target);h.fragment&&h.fragment.l(e),e.forEach(k)}else h.fragment&&h.fragment.c();n.intro&&ge(t.$$.fragment),we(t,n.target,n.anchor),ie()}H(c)}class Fe{$destroy(){Ae(this,1),this.$destroy=e}$on(e,t){const n=this.$$.callbacks[e]||(this.$$.callbacks[e]=[]);return n.push(t),()=>{const e=n.indexOf(t);-1!==e&&n.splice(e,1)}}$set(e){var t;this.$$set&&(t=e,0!==Object.keys(t).length)&&(this.$$.skip_bound=!0,this.$$set(e),this.$$.skip_bound=!1)}}function Be(e){const t=e-1;return t*t*t+1}function Se(e,{delay:n=0,duration:a=400,easing:r=t}){const s=+getComputedStyle(e).opacity;return{delay:n,duration:a,easing:r,css:e=>"opacity: "+e*s}}function _e(e,{delay:t=0,duration:n=400,easing:a=Be}){const r=getComputedStyle(e),s=+r.opacity,o=parseFloat(r.height),i=parseFloat(r.paddingTop),l=parseFloat(r.paddingBottom),u=parseFloat(r.marginTop),c=parseFloat(r.marginBottom),f=parseFloat(r.borderTopWidth),h=parseFloat(r.borderBottomWidth);return{delay:t,duration:n,easing:a,css:e=>`overflow: hidden;opacity: ${Math.min(20*e,1)*s};height: ${e*o}px;padding-top: ${e*i}px;padding-bottom: ${e*l}px;margin-top: ${e*u}px;margin-bottom: ${e*c}px;border-top-width: ${e*f}px;border-bottom-width: ${e*h}px;`}}const Te=[];function Ie(t,n=e){let a;const r=[];function s(e){if(i(t,e)&&(t=e,a)){const e=!Te.length;for(let e=0;e<r.length;e+=1){const n=r[e];n[1](),Te.push(n,t)}if(e){for(let e=0;e<Te.length;e+=2)Te[e][0](Te[e+1]);Te.length=0}}}return{set:s,update:function(e){s(e(t))},subscribe:function(o,i=e){const l=[o,i];return r.push(l),1===r.length&&(a=n(s)||e),o(t),()=>{const e=r.indexOf(l);-1!==e&&r.splice(e,1),0===r.length&&(a(),a=null)}}}}function Oe(t,n,a){const r=!Array.isArray(t),i=r?[t]:t,u=n.length<2;return{subscribe:Ie(a,(t=>{let a=!1;const c=[];let f=0,h=e;const d=()=>{if(f)return;h();const a=n(r?c[0]:c,t);u?t(a):h=o(a)?a:e},p=i.map(((e,t)=>l(e,(e=>{c[t]=e,f&=~(1<<t),a&&d()}),(()=>{f|=1<<t}))));return a=!0,d(),function(){s(p),h()}})).subscribe}}const Re={},Pe={};function Ne(e){return{...e.location,state:e.history.state,key:e.history.state&&e.history.state.key||"initial"}}const je=function(e,t){const n=[];let a=Ne(e);return{get location(){return a},listen(t){n.push(t);const r=()=>{a=Ne(e),t({location:a,action:"POP"})};return e.addEventListener("popstate",r),()=>{e.removeEventListener("popstate",r);const a=n.indexOf(t);n.splice(a,1)}},navigate(t,{state:r,replace:s=!1}={}){r={...r,key:Date.now()+""};try{s?e.history.replaceState(r,null,t):e.history.pushState(r,null,t)}catch(n){e.location[s?"replace":"assign"](t)}a=Ne(e),n.forEach((e=>e({location:a,action:"PUSH"})))}}}(Boolean("undefined"!=typeof window&&window.document&&window.document.createElement)?window:function(e="/"){let t=0;const n=[{pathname:e,search:""}],a=[];return{get location(){return n[t]},addEventListener(e,t){},removeEventListener(e,t){},history:{get entries(){return n},get index(){return t},get state(){return a[t]},pushState(e,r,s){const[o,i=""]=s.split("?");t++,n.push({pathname:o,search:i}),a.push(e)},replaceState(e,r,s){const[o,i=""]=s.split("?");n[t]={pathname:o,search:i},a[t]=e}}}}()),{navigate:ze}=je,Le=/^:(.+)/;function Ue(e,t){return e.substr(0,t.length)===t}function Me(e){return"*"===e[0]}function qe(e){return e.replace(/(^\/+|\/+$)/g,"").split("/")}function Ve(e){return e.replace(/(^\/+|\/+$)/g,"")}function He(e,t){return{route:e,score:e.default?0:qe(e.path).reduce(((e,t)=>(e+=4,!function(e){return""===e}(t)?!function(e){return Le.test(e)}(t)?Me(t)?e-=5:e+=3:e+=2:e+=1,e)),0),index:t}}function Ge(e,t){let n,a;const[r]=t.split("?"),s=qe(r),o=""===s[0],i=function(e){return e.map(He).sort(((e,t)=>e.score<t.score?1:e.score>t.score?-1:e.index-t.index))}(e);for(let e=0,r=i.length;e<r;e++){const r=i[e].route;let l=!1;if(r.default){a={route:r,params:{},uri:t};continue}const u=qe(r.path),c={},f=Math.max(s.length,u.length);let h=0;for(;h<f;h++){const e=u[h],t=s[h];if(void 0!==e&&Me(e)){c["*"===e?"*":e.slice(1)]=s.slice(h).map(decodeURIComponent).join("/");break}if(void 0===t){l=!0;break}let n=Le.exec(e);if(n&&!o){const e=decodeURIComponent(t);c[n[1]]=e}else if(e!==t){l=!0;break}}if(!l){n={route:r,params:c,uri:"/"+s.slice(0,h).join("/")};break}}return n||a||null}function We(e,t){return e+(t?`?${t}`:"")}function Je(e,t){return`${Ve("/"===t?e:`${Ve(e)}/${Ve(t)}`)}/`}function Ke(e){return!e.defaultPrevented&&0===e.button&&!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}function Ze(e){let t;const n=e[9].default,a=c(n,e,e[8],null);return{c(){a&&a.c()},l(e){a&&a.l(e)},m(e,n){a&&a.m(e,n),t=!0},p(e,[t]){a&&a.p&&256&t&&h(a,n,e,e[8],t,null,null)},i(e){t||(ge(a,e),t=!0)},o(e){me(a,e),t=!1},d(e){a&&a.d(e)}}}function Qe(e,t,n){let a,r,s,{$$slots:o={},$$scope:i}=t,{basepath:l="/"}=t,{url:c=null}=t;const f=Z(Re),h=Z(Pe),d=Ie([]);u(e,d,(e=>n(7,s=e)));const p=Ie(null);let g=!1;const m=f||Ie(c?{pathname:c}:je.location);u(e,m,(e=>n(6,r=e)));const D=h?h.routerBase:Ie({path:l,uri:l});u(e,D,(e=>n(5,a=e)));const b=Oe([D,p],(([e,t])=>{if(null===t)return e;const{path:n}=e,{route:a,uri:r}=t;return{path:a.default?n:a.path.replace(/\*.*$/,""),uri:r}}));return f||(W((()=>je.listen((e=>{m.set(e.location)})))),K(Re,m)),K(Pe,{activeRoute:p,base:D,routerBase:b,registerRoute:function(e){const{path:t}=a;let{path:n}=e;if(e._path=n,e.path=Je(t,n),"undefined"==typeof window){if(g)return;const t=function(e,t){return Ge([e],t)}(e,r.pathname);t&&(p.set(t),g=!0)}else d.update((t=>(t.push(e),t)))},unregisterRoute:function(e){d.update((t=>{const n=t.indexOf(e);return t.splice(n,1),t}))}}),e.$$set=e=>{"basepath"in e&&n(3,l=e.basepath),"url"in e&&n(4,c=e.url),"$$scope"in e&&n(8,i=e.$$scope)},e.$$.update=()=>{if(32&e.$$.dirty){const{path:e}=a;d.update((t=>(t.forEach((t=>t.path=Je(e,t._path))),t)))}if(192&e.$$.dirty){const e=Ge(s,r.pathname);p.set(e)}},[d,m,D,l,c,a,r,s,i,o]}class Xe extends Fe{constructor(e){super(),Ce(this,e,Qe,Ze,i,{basepath:3,url:4})}}const Ye=e=>({params:4&e,location:16&e}),et=e=>({params:e[2],location:e[4]});function tt(e){let t,n,a,r;const s=[at,nt],o=[];function i(e,t){return null!==e[0]?0:1}return t=i(e),n=o[t]=s[t](e),{c(){n.c(),a=F()},l(e){n.l(e),a=F()},m(e,n){o[t].m(e,n),v(e,a,n),r=!0},p(e,r){let l=t;t=i(e),t===l?o[t].p(e,r):(de(),me(o[l],1,1,(()=>{o[l]=null})),pe(),n=o[t],n?n.p(e,r):(n=o[t]=s[t](e),n.c()),ge(n,1),n.m(a.parentNode,a))},i(e){r||(ge(n),r=!0)},o(e){me(n),r=!1},d(e){o[t].d(e),e&&k(a)}}}function nt(e){let t;const n=e[10].default,a=c(n,e,e[9],et);return{c(){a&&a.c()},l(e){a&&a.l(e)},m(e,n){a&&a.m(e,n),t=!0},p(e,t){a&&a.p&&532&t&&h(a,n,e,e[9],t,Ye,et)},i(e){t||(ge(a,e),t=!0)},o(e){me(a,e),t=!1},d(e){a&&a.d(e)}}}function at(e){let t,a,r;const s=[{location:e[4]},e[2],e[3]];var o=e[0];function i(e){let t={};for(let e=0;e<s.length;e+=1)t=n(t,s[e]);return{props:t}}return o&&(t=new o(i())),{c(){t&&ve(t.$$.fragment),a=F()},l(e){t&&ke(t.$$.fragment,e),a=F()},m(e,n){t&&we(t,e,n),v(e,a,n),r=!0},p(e,n){const r=28&n?xe(s,[16&n&&{location:e[4]},4&n&&ye(e[2]),8&n&&ye(e[3])]):{};if(o!==(o=e[0])){if(t){de();const e=t;me(e.$$.fragment,1,0,(()=>{Ae(e,1)})),pe()}o?(t=new o(i()),ve(t.$$.fragment),ge(t.$$.fragment,1),we(t,a.parentNode,a)):t=null}else o&&t.$set(r)},i(e){r||(t&&ge(t.$$.fragment,e),r=!0)},o(e){t&&me(t.$$.fragment,e),r=!1},d(e){e&&k(a),t&&Ae(t,e)}}}function rt(e){let t,n,a=null!==e[1]&&e[1].route===e[7]&&tt(e);return{c(){a&&a.c(),t=F()},l(e){a&&a.l(e),t=F()},m(e,r){a&&a.m(e,r),v(e,t,r),n=!0},p(e,[n]){null!==e[1]&&e[1].route===e[7]?a?(a.p(e,n),2&n&&ge(a,1)):(a=tt(e),a.c(),ge(a,1),a.m(t.parentNode,t)):a&&(de(),me(a,1,1,(()=>{a=null})),pe())},i(e){n||(ge(a),n=!0)},o(e){me(a),n=!1},d(e){a&&a.d(e),e&&k(t)}}}function st(e,t,a){let r,s,{$$slots:o={},$$scope:i}=t,{path:l=""}=t,{component:c=null}=t;const{registerRoute:f,unregisterRoute:h,activeRoute:p}=Z(Pe);u(e,p,(e=>a(1,r=e)));const g=Z(Re);u(e,g,(e=>a(4,s=e)));const m={path:l,default:""===l};let D={},b={};var x;return f(m),"undefined"!=typeof window&&(x=()=>{h(m)},G().$$.on_destroy.push(x)),e.$$set=e=>{a(13,t=n(n({},t),d(e))),"path"in e&&a(8,l=e.path),"component"in e&&a(0,c=e.component),"$$scope"in e&&a(9,i=e.$$scope)},e.$$.update=()=>{2&e.$$.dirty&&r&&r.route===m&&a(2,D=r.params);{const{path:e,component:n,...r}=t;a(3,b=r)}},t=d(t),[c,r,D,b,s,p,g,m,l,i,o]}class ot extends Fe{constructor(e){super(),Ce(this,e,st,rt,i,{path:8,component:0})}}function it(e){let t,a,r,s;const o=e[16].default,i=c(o,e,e[15],null);let l=[{href:e[0]},{"aria-current":e[2]},e[1],e[6]],u={};for(let e=0;e<l.length;e+=1)u=n(u,l[e]);return{c(){t=A("a"),i&&i.c(),this.h()},l(e){t=I(e,"A",{href:!0,"aria-current":!0});var n=T(t);i&&i.l(n),n.forEach(k),this.h()},h(){_(t,u)},m(n,o){v(n,t,o),i&&i.m(t,null),a=!0,r||(s=B(t,"click",e[5]),r=!0)},p(e,[n]){i&&i.p&&32768&n&&h(i,o,e,e[15],n,null,null),_(t,u=xe(l,[(!a||1&n)&&{href:e[0]},(!a||4&n)&&{"aria-current":e[2]},2&n&&e[1],64&n&&e[6]]))},i(e){a||(ge(i,e),a=!0)},o(e){me(i,e),a=!1},d(e){e&&k(t),i&&i.d(e),r=!1,s()}}}function lt(e,t,a){let r;const s=["to","replace","state","getProps"];let o,i,l=p(t,s),{$$slots:c={},$$scope:f}=t,{to:h="#"}=t,{replace:g=!1}=t,{state:m={}}=t,{getProps:D=(()=>({}))}=t;const{base:b}=Z(Pe);u(e,b,(e=>a(13,o=e)));const x=Z(Re);u(e,x,(e=>a(14,i=e)));const y=J();let E,v,k,w;return e.$$set=e=>{t=n(n({},t),d(e)),a(6,l=p(t,s)),"to"in e&&a(7,h=e.to),"replace"in e&&a(8,g=e.replace),"state"in e&&a(9,m=e.state),"getProps"in e&&a(10,D=e.getProps),"$$scope"in e&&a(15,f=e.$$scope)},e.$$.update=()=>{8320&e.$$.dirty&&a(0,E="/"===h?o.uri:function(e,t){if(Ue(e,"/"))return e;const[n,a]=e.split("?"),[r]=t.split("?"),s=qe(n),o=qe(r);if(""===s[0])return We(r,a);if(!Ue(s[0],"."))return We(("/"===r?"":"/")+o.concat(s).join("/"),a);const i=o.concat(s),l=[];return i.forEach((e=>{".."===e?l.pop():"."!==e&&l.push(e)})),We("/"+l.join("/"),a)}(h,o.uri)),16385&e.$$.dirty&&a(11,v=Ue(i.pathname,E)),16385&e.$$.dirty&&a(12,k=E===i.pathname),4096&e.$$.dirty&&a(2,r=k?"page":void 0),23553&e.$$.dirty&&a(1,w=D({location:i,href:E,isPartiallyCurrent:v,isCurrent:k}))},[E,w,r,b,x,function(e){if(y("click",e),Ke(e)){e.preventDefault();const t=i.pathname===E||g;ze(E,{state:m,replace:t})}},l,h,g,m,D,v,k,o,i,f,c]}class ut extends Fe{constructor(e){super(),Ce(this,e,lt,it,i,{to:7,replace:8,state:9,getProps:10})}}function ct(e){function t(e){const t=function(e,t){for(;t&&t.tagName!==e;)t=t.parentNode;return t}("A",e.target);t&&""===t.target&&function(e){const t=location.host;return e.host==t||0===e.href.indexOf(`https://${t}`)||0===e.href.indexOf(`http://${t}`)}(t)&&Ke(e)&&!t.hasAttribute("noroute")&&(e.preventDefault(),ze(t.pathname+t.search,{replace:t.hasAttribute("replace")}))}return e.addEventListener("click",t),{destroy(){e.removeEventListener("click",t)}}}function ft(e){let t,n,a,r,s,o,i,l,u,c,f,h,d,p;return{c(){t=A("a"),n=$("About"),a=C(),r=A("a"),s=$("Experience"),o=C(),i=A("a"),l=$("Projects"),u=C(),c=A("a"),f=$("Contact"),h=C(),d=A("a"),p=$("Resume"),this.h()},l(e){t=I(e,"A",{href:!0,"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0,noroute:!0});var g=T(t);n=O(g,"About"),g.forEach(k),a=R(e),r=I(e,"A",{href:!0,"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0,noroute:!0});var m=T(r);s=O(m,"Experience"),m.forEach(k),o=R(e),i=I(e,"A",{href:!0,"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0,noroute:!0});var D=T(i);l=O(D,"Projects"),D.forEach(k),u=R(e),c=I(e,"A",{href:!0,"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0,noroute:!0});var b=T(c);f=O(b,"Contact"),b.forEach(k),h=R(e),d=I(e,"A",{href:!0,"data-aos":!0,"data-aos-delay":!0,class:!0,"data-aos-duration":!0,target:!0,noroute:!0});var x=T(d);p=O(x,"Resume"),x.forEach(k),this.h()},h(){S(t,"href","/#about"),S(t,"data-aos","zoom-in"),S(t,"data-aos-delay","100"),S(t,"data-aos-duration","700"),S(t,"class","ml-auto nav-text"),S(t,"noroute",""),S(r,"href","/#experience"),S(r,"data-aos","zoom-in"),S(r,"data-aos-delay","200"),S(r,"data-aos-duration","700"),S(r,"class","nav-text"),S(r,"noroute",""),S(i,"href","/#web-development"),S(i,"data-aos","zoom-in"),S(i,"data-aos-delay","300"),S(i,"data-aos-duration","700"),S(i,"class","nav-text"),S(i,"noroute",""),S(c,"href","/#contact"),S(c,"data-aos","zoom-in"),S(c,"data-aos-delay","600"),S(c,"data-aos-duration","700"),S(c,"class","nav-text"),S(c,"noroute",""),S(d,"href","/Chaitanya_Patel_Resume.pdf"),S(d,"data-aos","zoom-in"),S(d,"data-aos-delay","700"),S(d,"class","nav-text"),S(d,"data-aos-duration","700"),S(d,"target","_blank"),S(d,"noroute","")},m(e,g){v(e,t,g),E(t,n),v(e,a,g),v(e,r,g),E(r,s),v(e,o,g),v(e,i,g),E(i,l),v(e,u,g),v(e,c,g),E(c,f),v(e,h,g),v(e,d,g),E(d,p)},d(e){e&&k(t),e&&k(a),e&&k(r),e&&k(o),e&&k(i),e&&k(u),e&&k(c),e&&k(h),e&&k(d)}}}function ht(e){let t,n,a,r,o,i,l,u,c,f,h,d,p,g,m,D,b,x,y,w,F,_,N,j,z,L,U,M,q,V,H,G,W,J,K,Z,Q,X,Y,ee="dark"===e[0]?"Dark":"Light";return{c(){t=A("div"),a=C(),r=A("dialog"),o=A("div"),i=A("button"),l=A("i"),u=C(),c=A("nav"),f=A("a"),h=$("About Me"),d=C(),p=A("a"),g=$("Experience"),m=C(),D=A("a"),b=$("Web Development"),x=C(),y=A("a"),w=$("Game Development"),F=C(),_=A("a"),N=$("Graphic Design"),j=C(),z=A("a"),L=$("Contact Me"),U=C(),M=A("a"),q=$("Resume"),V=C(),H=A("div"),G=A("button"),W=A("i"),K=$(ee),this.h()},l(e){t=I(e,"DIV",{class:!0}),T(t).forEach(k),a=R(e),r=I(e,"DIALOG",{open:!0,class:!0});var n=T(r);o=I(n,"DIV",{class:!0});var s=T(o);i=I(s,"BUTTON",{title:!0,"aria-label":!0,class:!0});var E=T(i);l=I(E,"I",{class:!0}),T(l).forEach(k),E.forEach(k),s.forEach(k),u=R(n),c=I(n,"NAV",{class:!0});var v=T(c);f=I(v,"A",{"data-aos":!0,"data-aos-delay":!0,class:!0,href:!0});var A=T(f);h=O(A,"About Me"),A.forEach(k),d=R(v),p=I(v,"A",{"data-aos":!0,"data-aos-delay":!0,class:!0,href:!0});var $=T(p);g=O($,"Experience"),$.forEach(k),m=R(v),D=I(v,"A",{"data-aos":!0,"data-aos-delay":!0,class:!0,href:!0});var C=T(D);b=O(C,"Web Development"),C.forEach(k),x=R(v),y=I(v,"A",{"data-aos":!0,"data-aos-delay":!0,class:!0,href:!0});var B=T(y);w=O(B,"Game Development"),B.forEach(k),F=R(v),_=I(v,"A",{"data-aos":!0,"data-aos-delay":!0,class:!0,href:!0});var S=T(_);N=O(S,"Graphic Design"),S.forEach(k),j=R(v),z=I(v,"A",{"data-aos":!0,"data-aos-delay":!0,class:!0,href:!0});var P=T(z);L=O(P,"Contact Me"),P.forEach(k),U=R(v),M=I(v,"A",{"data-aos":!0,"data-aos-delay":!0,class:!0,target:!0,href:!0});var J=T(M);q=O(J,"Resume"),J.forEach(k),v.forEach(k),V=R(n),H=I(n,"DIV",{class:!0});var Z=T(H);G=I(Z,"BUTTON",{title:!0,"aria-label":!0,"data-aos":!0,"data-aos-delay":!0,class:!0});var Q=T(G);W=I(Q,"I",{class:!0}),T(W).forEach(k),K=O(Q,ee),Q.forEach(k),Z.forEach(k),n.forEach(k),this.h()},h(){S(t,"class","backdrop-blur-md fixed z-50 inset-0"),S(l,"class","fas fa-times fa-sm"),S(i,"title","Close navigation menu"),S(i,"aria-label","Close navigation menu"),S(i,"class","text-right text-lg text-gray-800 dark:text-gray-50 bg-gray-50 dark:bg-gray-800 px-3 py-1"),S(o,"class","text-right py-2 px-2"),S(f,"data-aos","slide-left"),S(f,"data-aos-delay","200"),S(f,"class","block bg-gray-50 dark:bg-gray-800 p-5"),S(f,"href","/#about"),S(p,"data-aos","slide-right"),S(p,"data-aos-delay","200"),S(p,"class","block bg-gray-50 dark:bg-gray-800 p-5"),S(p,"href","/#experience"),S(D,"data-aos","slide-left"),S(D,"data-aos-delay","200"),S(D,"class","block bg-gray-50 dark:bg-gray-800 p-5"),S(D,"href","/#web-development"),S(y,"data-aos","slide-right"),S(y,"data-aos-delay","200"),S(y,"class","block bg-gray-50 dark:bg-gray-800 p-5"),S(y,"href","/#game-development"),S(_,"data-aos","slide-left"),S(_,"data-aos-delay","200"),S(_,"class","block bg-gray-50 dark:bg-gray-800 p-5"),S(_,"href","/#graphic-design"),S(z,"data-aos","slide-right"),S(z,"data-aos-delay","200"),S(z,"class","block bg-gray-50 dark:bg-gray-800 p-5"),S(z,"href","/#contact"),S(M,"data-aos","slide-left"),S(M,"data-aos-delay","200"),S(M,"class","block bg-gray-50 dark:bg-gray-800 p-5"),S(M,"target","_blank"),S(M,"href","/Resume - Bob Shoaun Ng.pdf"),S(c,"class","mb-3 text-center font-mono text-gray-800 dark:text-gray-50 space-y-2"),S(W,"class",J=("dark"===e[0]?"fa fa-moon":"far fa-sun")+" mr-2"),S(G,"title","Close navigation menu"),S(G,"aria-label","toggle theme"),S(G,"data-aos","flip-up"),S(G,"data-aos-delay","400"),S(G,"class","border-gray-500 border-2 py-2 px-4 dark:text-gray-50 rounded-md"),S(H,"class","text-center"),r.open=!0,S(r,"class","fixed top-0 left-0 right-0 z-50 p-0 py-4 shadow-2xl w-full bg-white dark:bg-gray-900")},m(n,s){v(n,t,s),v(n,a,s),v(n,r,s),E(r,o),E(o,i),E(i,l),E(r,u),E(r,c),E(c,f),E(f,h),E(c,d),E(c,p),E(p,g),E(c,m),E(c,D),E(D,b),E(c,x),E(c,y),E(y,w),E(c,F),E(c,_),E(_,N),E(c,j),E(c,z),E(z,L),E(c,U),E(c,M),E(M,q),E(r,V),E(r,H),E(H,G),E(G,W),E(G,K),Q=!0,X||(Y=[B(t,"click",e[4]),B(i,"click",e[5]),B(f,"click",e[6]),B(p,"click",e[7]),B(D,"click",e[8]),B(y,"click",e[9]),B(_,"click",e[10]),B(z,"click",e[11]),B(M,"click",e[12]),B(G,"click",e[2])],X=!0)},p(e,t){(!Q||1&t&&J!==(J=("dark"===e[0]?"fa fa-moon":"far fa-sun")+" mr-2"))&&S(W,"class",J),(!Q||1&t)&&ee!==(ee="dark"===e[0]?"Dark":"Light")&&P(K,ee)},i(e){Q||(ae((()=>{n||(n=be(t,Se,{duration:500},!0)),n.run(1)})),ae((()=>{Z||(Z=be(r,_e,{duration:500},!0)),Z.run(1)})),Q=!0)},o(e){n||(n=be(t,Se,{duration:500},!1)),n.run(0),Z||(Z=be(r,_e,{duration:500},!1)),Z.run(0),Q=!1},d(e){e&&k(t),e&&n&&n.end(),e&&k(a),e&&k(r),e&&Z&&Z.end(),X=!1,s(Y)}}}function dt(t){let n,a,r,i,l,u,c,f,h,d,p,g,m,D,b,x,y,w,_,N,j,z,L,U="dark"===t[0]?"Dark":"Light";d=new Xe({props:{$$slots:{default:[ft]},$$scope:{ctx:t}}});let M=t[1]&&ht(t);return{c(){n=A("nav"),a=A("a"),r=A("p"),i=$("C"),l=C(),u=A("a"),c=$("Chaitanya Patel"),f=C(),h=A("div"),ve(d.$$.fragment),p=C(),g=A("button"),m=A("i"),b=$(U),x=C(),y=A("button"),w=A("i"),_=C(),M&&M.c(),N=F(),this.h()},l(e){n=I(e,"NAV",{id:!0,class:!0});var t=T(n);a=I(t,"A",{"aria-label":!0,href:!0,"data-aos":!0,"data-aos-duration":!0,class:!0});var s=T(a);r=I(s,"P",{class:!0});var o=T(r);i=O(o,"C"),o.forEach(k),s.forEach(k),l=R(t),u=I(t,"A",{href:!0,"data-aos":!0,class:!0});var D=T(u);c=O(D,"Chaitanya Patel"),D.forEach(k),f=R(t),h=I(t,"DIV",{class:!0});var E=T(h);ke(d.$$.fragment,E),p=R(E),g=I(E,"BUTTON",{title:!0,"aria-label":!0,"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0});var v=T(g);m=I(v,"I",{class:!0}),T(m).forEach(k),b=O(v,U),v.forEach(k),E.forEach(k),x=R(t),y=I(t,"BUTTON",{title:!0,"aria-label":!0,class:!0});var A=T(y);w=I(A,"I",{class:!0}),T(w).forEach(k),A.forEach(k),t.forEach(k),_=R(e),M&&M.l(e),N=F(),this.h()},h(){S(r,"class","logo-type text-white dark:text-gray-900 text-3xl font-black absolute bottom-0 svelte-1csidri"),S(a,"aria-label","My logo"),S(a,"href","/#home"),S(a,"data-aos","flip-up"),S(a,"data-aos-duration","700"),S(a,"class","overflow-hidden bg-gradient-to-br from-cyan-400 to-pink-400 w-6 h-6 relative"),S(u,"href","/#home"),S(u,"data-aos","flip-up"),S(u,"class","nav-text-home"),S(m,"class",D=("dark"===t[0]?"fa fa-moon":"far fa-sun")+" mr-2"),S(g,"title","toggle theme"),S(g,"aria-label","toggle theme"),S(g,"data-aos","flip-up"),S(g,"data-aos-delay","800"),S(g,"data-aos-duration","700"),S(g,"class","text-sm font-semibold border-gray-500 border-2 hover:bg-gray-200 dark:hover:bg-gray-700 py-1.5 px-3 dark:text-gray-50 rounded-md transition-colors"),S(h,"class","hidden lg:flex gap-9 items-center ml-auto"),S(w,"class","fas fa-bars"),S(y,"title","Navigation Menu"),S(y,"aria-label","Navigation Menu"),S(y,"class","lg:hidden text-lg ml-auto dark:text-white"),S(n,"id","navbar"),S(n,"class","flex items-center gap-4 px-6 lg:px-10 py-4 top-0 bg-white/80\r\n  dark:bg-gray-900/80 backdrop-blur-md shadow-md fixed w-full z-50 svelte-1csidri")},m(s,D){var k;v(s,n,D),E(n,a),E(a,r),E(r,i),E(n,l),E(n,u),E(u,c),E(n,f),E(n,h),we(d,h,null),E(h,p),E(h,g),E(g,m),E(g,b),E(n,x),E(n,y),E(y,w),v(s,_,D),M&&M.m(s,D),v(s,N,D),j=!0,z||(L=[B(g,"click",t[2]),(k=ct.call(null,h),k&&o(k.destroy)?k.destroy:e),B(y,"click",t[3])],z=!0)},p(e,[t]){const n={};16384&t&&(n.$$scope={dirty:t,ctx:e}),d.$set(n),(!j||1&t&&D!==(D=("dark"===e[0]?"fa fa-moon":"far fa-sun")+" mr-2"))&&S(m,"class",D),(!j||1&t)&&U!==(U="dark"===e[0]?"Dark":"Light")&&P(b,U),e[1]?M?(M.p(e,t),2&t&&ge(M,1)):(M=ht(e),M.c(),ge(M,1),M.m(N.parentNode,N)):M&&(de(),me(M,1,1,(()=>{M=null})),pe())},i(e){j||(ge(d.$$.fragment,e),ge(M),j=!0)},o(e){me(d.$$.fragment,e),me(M),j=!1},d(e){e&&k(n),Ae(d),e&&k(_),M&&M.d(e),e&&k(N),z=!1,s(L)}}}function pt(e,t,n){const a=J();let r=!1,{theme:s}=t;W((()=>{let e=window.pageYOffset;const t=document.getElementById("navbar");window.onscroll=()=>{const n=window.pageYOffset;t.style.transform=e>n?"translateY(0)":`translateY(-${t.offsetHeight}px)`,e=n},onmousemove=e=>{e.clientY<t.offsetHeight&&(t.style.transform="translateY(0)")}}));return e.$$set=e=>{"theme"in e&&n(0,s=e.theme)},[s,r,()=>a("toggleTheme"),()=>n(1,r=!r),()=>n(1,r=!1),()=>n(1,r=!1),()=>n(1,r=!1),()=>n(1,r=!1),()=>n(1,r=!1),()=>n(1,r=!1),()=>n(1,r=!1),()=>n(1,r=!1),()=>n(1,r=!1)]}class gt extends Fe{constructor(e){super(),Ce(this,e,pt,dt,i,{theme:0})}}function mt(t){let n,a,r,s,o;return{c(){n=A("div"),a=A("p"),r=C(),s=A("div"),o=A("div"),this.h()},l(e){n=I(e,"DIV",{class:!0});var t=T(n);a=I(t,"P",{id:!0,class:!0,style:!0}),T(a).forEach(k),r=R(t),s=I(t,"DIV",{class:!0});var i=T(s);o=I(i,"DIV",{id:!0,class:!0,style:!0}),T(o).forEach(k),i.forEach(k),t.forEach(k),this.h()},h(){S(a,"id","text"),S(a,"class","opacity-0"),N(a,"animation-delay",t[1]+"ms"),S(o,"id","cover"),S(o,"class","absolute inset-0 bg-current transform-gpu -translate-x-[101%]"),N(o,"animation-delay",t[1]+"ms"),S(s,"class","absolute overflow-hidden pointer-events-none inset-0"),S(n,"class","relative inline-block")},m(e,i){v(e,n,i),E(n,a),a.innerHTML=t[0],E(n,r),E(n,s),E(s,o),t[4](n)},p(e,[t]){1&t&&(a.innerHTML=e[0]),2&t&&N(a,"animation-delay",e[1]+"ms"),2&t&&N(o,"animation-delay",e[1]+"ms")},i:e,o:e,d(e){e&&k(n),t[4](null)}}}function Dt(e,t,n){let a,{text:r=""}=t,{delay:s=200}=t,{once:o=!1}=t;return W((()=>{new IntersectionObserver((e=>{e.forEach((e=>{o?e.isIntersecting&&e.target.classList.add("reveal"):e.target.classList.toggle("reveal",e.isIntersecting)}))})).observe(a)})),e.$$set=e=>{"text"in e&&n(0,r=e.text),"delay"in e&&n(1,s=e.delay),"once"in e&&n(3,o=e.once)},[r,s,a,o,function(e){X[e?"unshift":"push"]((()=>{a=e,n(2,a)}))}]}class bt extends Fe{constructor(e){super(),Ce(this,e,Dt,mt,i,{text:0,delay:1,once:3})}}async function xt(e){await navigator.clipboard.writeText(e),alert(`copied ${e} to clipboard!`)}function yt(e){let t;return{c(){t=$("View resume")},l(e){t=O(e,"View resume")},m(e,n){v(e,t,n)},d(e){e&&k(t)}}}function Et(e){let t,n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D,b,x,y,w,F,_,P,N,j,z,L,U,M,q,V,H,G,W,J;return u=new bt({props:{delay:800,once:!0,text:e[0]}}),h=new bt({props:{delay:1e3,once:!0,text:"My name is Chaitanya, I build and design industry standard data and machine learning applications."}}),g=new ut({props:{to:"resume",class:"transition-colors px-4 py-1 mr-3 lg:ml-1 inline-block bg-green-200 shadow-green-300/20 shadow-lg border rounded-sm border-green-400  hover:bg-green-300 ",noroute:!0,$$slots:{default:[yt]},$$scope:{ctx:e}}}),{c(){t=A("section"),n=A("div"),a=C(),r=A("section"),s=A("div"),o=A("div"),i=C(),l=A("h1"),ve(u.$$.fragment),c=C(),f=A("p"),ve(h.$$.fragment),d=C(),p=A("div"),ve(g.$$.fragment),m=C(),D=A("a"),b=$("Let's talk"),x=C(),y=A("div"),w=A("a"),F=A("i"),_=C(),P=A("a"),N=A("i"),j=C(),z=A("a"),L=A("i"),U=C(),M=A("div"),q=C(),V=A("button"),H=A("i"),this.h()},l(e){t=I(e,"SECTION",{id:!0,class:!0});var E=T(t);n=I(E,"DIV",{"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0}),T(n).forEach(k),a=R(E),r=I(E,"SECTION",{"data-aos":!0,"data-aos-delay":!0,class:!0});var v=T(r);s=I(v,"DIV",{class:!0});var A=T(s);o=I(A,"DIV",{"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0}),T(o).forEach(k),i=R(A),l=I(A,"H1",{class:!0});var $=T(l);ke(u.$$.fragment,$),$.forEach(k),c=R(A),f=I(A,"P",{class:!0});var C=T(f);ke(h.$$.fragment,C),C.forEach(k),d=R(A),p=I(A,"DIV",{"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0});var B=T(p);ke(g.$$.fragment,B),m=R(B),D=I(B,"A",{href:!0,class:!0});var S=T(D);b=O(S,"Let's talk"),S.forEach(k),B.forEach(k),A.forEach(k),v.forEach(k),x=R(E),y=I(E,"DIV",{"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0});var G=T(y);w=I(G,"A",{title:!0,"aria-label":!0,href:!0,target:!0,class:!0});var W=T(w);F=I(W,"I",{class:!0}),T(F).forEach(k),W.forEach(k),_=R(G),P=I(G,"A",{title:!0,"aria-label":!0,href:!0,target:!0,class:!0});var J=T(P);N=I(J,"I",{class:!0}),T(N).forEach(k),J.forEach(k),j=R(G),z=I(G,"A",{title:!0,"aria-label":!0,href:!0,target:!0,class:!0});var K=T(z);L=I(K,"I",{class:!0}),T(L).forEach(k),K.forEach(k),U=R(G),M=I(G,"DIV",{class:!0}),T(M).forEach(k),G.forEach(k),q=R(E),V=I(E,"BUTTON",{title:!0,"aria-label":!0,"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0});var Z=T(V);H=I(Z,"I",{class:!0}),T(H).forEach(k),Z.forEach(k),E.forEach(k),this.h()},h(){S(n,"data-aos","slide-down"),S(n,"data-aos-delay","700"),S(n,"data-aos-duration","700"),S(n,"class","absolute top-0 right-0 h-1/2 w-full md:w-1/3 md:h-full moving-gradient-1"),S(o,"data-aos","flip-up"),S(o,"data-aos-delay","600"),S(o,"data-aos-duration","700"),S(o,"class","bg-purple-400 dark:bg-purple-300 shadow-purple-300/60 shadow-lg w-8 h-1.5 lg:w-10 lg:h-2 ml-0.5 mb-6"),S(l,"class","mb-3 md:mb-6 font-mono font-black text-2xl md:text-3xl lg:text-5xl text-gray-700 dark:text-white"),S(f,"class","text-lg md:text-xl lg:text-xl mb-8 font-bold text-gray-500 dark:text-gray-400 ml-1"),S(D,"href","#contact"),S(D,"class","transition-colors px-4 py-1 inline-block bg-blue-200 shadow-blue-300/20 shadow-lg hover:bg-blue-300 rounded-sm border border-blue-400"),S(p,"data-aos","flip-up"),S(p,"data-aos-delay","1200"),S(p,"data-aos-duration","700"),S(p,"class","text-sm text-gray-700 font-semibold font-mono"),S(s,"class","bg-white dark:bg-gray-900 px-5 py-10 lg:py-14 lg:px-10 shadow-2xl"),S(r,"data-aos","fade-in"),S(r,"data-aos-delay","600"),S(r,"class","m-auto pt-5 relative grow max-w-5xl"),S(F,"class","fab fa-github"),S(w,"title","See my GitHub profile"),S(w,"aria-label","See my GitHub profile"),S(w,"href","https://github.com/BobShoaun"),S(w,"target","_blank"),S(w,"class","block"),S(N,"class","fab fa-linkedin-in"),S(P,"title","Connect on LinkedIn"),S(P,"aria-label","Connect on LinkedIn"),S(P,"href","https://www.linkedin.com/in/ngbobshoaun/"),S(P,"target","_blank"),S(P,"class","block"),S(L,"class","far fa-envelope"),S(z,"title","Send me an email"),S(z,"aria-label","Send me an email"),S(z,"href","mailto:ngbobshoaun2000@gmail.com"),S(z,"target","_blank"),S(z,"class","block"),S(M,"class","shadow-xl w-4 h-28 bg-gray-700 dark:bg-gray-50"),S(y,"data-aos","slide-up"),S(y,"data-aos-delay","1500"),S(y,"data-aos-duration","700"),S(y,"class","hidden text-xl absolute lg:flex flex-col gap-4 items-center w-4 left-14 bottom-0 text-center text-gray-700 dark:text-gray-50"),S(H,"class","hover-vertical fas fa-angle-down"),S(V,"title","Go to about me"),S(V,"aria-label","Go to about me"),S(V,"data-aos","fade-down"),S(V,"data-aos-delay","1500"),S(V,"data-aos-duration","700"),S(V,"class","text-xl lg:text-3xl py-5 text-gray-700 dark:text-white absolute w-14 mx-auto text-center bottom-20 right-0 left-0"),S(t,"id","home"),S(t,"class","relative main bg-gray-100 h-screen flex bg-gradient-to-b dark:from-gray-700 dark:to-gray-900")},m(k,A){v(k,t,A),E(t,n),E(t,a),E(t,r),E(r,s),E(s,o),E(s,i),E(s,l),we(u,l,null),E(s,c),E(s,f),we(h,f,null),E(s,d),E(s,p),we(g,p,null),E(p,m),E(p,D),E(D,b),E(t,x),E(t,y),E(y,w),E(w,F),E(y,_),E(y,P),E(P,N),E(y,j),E(y,z),E(z,L),E(y,U),E(y,M),E(t,q),E(t,V),E(V,H),G=!0,W||(J=B(V,"click",e[2]),W=!0)},p(e,[t]){const n={};1&t&&(n.text=e[0]),u.$set(n);const a={};8&t&&(a.$$scope={dirty:t,ctx:e}),g.$set(a)},i(e){G||(ge(u.$$.fragment,e),ge(h.$$.fragment,e),ge(g.$$.fragment,e),G=!0)},o(e){me(u.$$.fragment,e),me(h.$$.fragment,e),me(g.$$.fragment,e),G=!1},d(e){e&&k(t),Ae(u),Ae(h),Ae(g),W=!1,J()}}}function vt(e,t,n){let a,{theme:r}=t;return e.$$set=e=>{"theme"in e&&n(1,r=e.theme)},e.$$.update=()=>{2&e.$$.dirty&&n(0,a="dark"===r?'console.log("Hey!👋")':'console.log("Hi!🙋‍♂️")')},[a,r,()=>document.getElementById("about").scrollIntoView()]}class kt extends Fe{constructor(e){super(),Ce(this,e,vt,Et,i,{theme:1})}}function wt(t){let n,a,r,s,o,i,l,u;return{c(){n=A("div"),a=A("div"),s=C(),o=A("p"),i=$(t[2]),this.h()},l(e){n=I(e,"DIV",{"data-aos":!0,"data-aos-offset":!0,"data-aos-delay":!0,class:!0});var r=T(n);a=I(r,"DIV",{class:!0}),T(a).forEach(k),s=R(r),o=I(r,"P",{class:!0});var l=T(o);i=O(l,t[2]),l.forEach(k),r.forEach(k),this.h()},h(){S(a,"class",r=`w-4 h-32 mb-2 shadow-xl ${t[0]}`),S(o,"class",l=`${t[1]} ${t[3]?"right-0":"left-0"} font-mono font-bold text-3xl absolute`),S(n,"data-aos","slide-down"),S(n,"data-aos-offset","200"),S(n,"data-aos-delay","100"),S(n,"class",u="hidden lg:block absolute top-0 "+(t[3]?"right-14":"left-14"))},m(e,t){v(e,n,t),E(n,a),E(n,s),E(n,o),E(o,i)},p(e,[t]){1&t&&r!==(r=`w-4 h-32 mb-2 shadow-xl ${e[0]}`)&&S(a,"class",r),4&t&&P(i,e[2]),10&t&&l!==(l=`${e[1]} ${e[3]?"right-0":"left-0"} font-mono font-bold text-3xl absolute`)&&S(o,"class",l),8&t&&u!==(u="hidden lg:block absolute top-0 "+(e[3]?"right-14":"left-14"))&&S(n,"class",u)},i:e,o:e,d(e){e&&k(n)}}}function At(e,t,n){let{shaftClasses:a="bg-gray-700 dark:bg-gray-800"}=t,{textClasses:r="text-gray-700 dark:text-gray-800"}=t,{number:s="011"}=t,{right:o=!1}=t;return e.$$set=e=>{"shaftClasses"in e&&n(0,a=e.shaftClasses),"textClasses"in e&&n(1,r=e.textClasses),"number"in e&&n(2,s=e.number),"right"in e&&n(3,o=e.right)},[a,r,s,o]}class $t extends Fe{constructor(e){super(),Ce(this,e,At,wt,i,{shaftClasses:0,textClasses:1,number:2,right:3})}}function Ct(t){let n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D,b,x,y,w,F,B,_,P,N,j,z,L;return s=new $t({props:{number:"001",shaftClasses:"bg-gray-100 dark:bg-gray-800",textClasses:"text-gray-100 dark:text-gray-800"}}),m=new bt({props:{text:"ABOUT ME"}}),{c(){n=A("section"),a=A("div"),r=C(),ve(s.$$.fragment),o=C(),i=A("section"),l=A("div"),u=A("div"),c=A("div"),f=A("img"),d=C(),p=A("div"),g=A("div"),ve(m.$$.fragment),D=C(),b=A("div"),x=A("p"),y=$("Hey, What's up? I’m Chaitanya, a student specializing in \r\n\t    Software Engineering and Data Science at\r\n            North Carolina State University."),w=C(),F=A("p"),B=$("   The passion to create and Analyze has always been in\r\n            me. I strive to build quality, intuitive, and robust software with\r\n            the goal of learning and improving my skills."),_=C(),P=A("p"),N=$("   My expertise includes Python, Java, and Machine Learning. \r\n            Recently I have been intrigued with Data Engineering and Cloud Engineering.\r\n            Aside from coding, I enjoy catching up with my favorite series, and playing video games."),j=C(),z=A("div"),this.h()},l(e){n=I(e,"SECTION",{id:!0,class:!0});var t=T(n);a=I(t,"DIV",{"data-aos":!0,"data-aos-offset":!0,"data-aos-duration":!0,class:!0}),T(a).forEach(k),r=R(t),ke(s.$$.fragment,t),o=R(t),i=I(t,"SECTION",{class:!0});var h=T(i);l=I(h,"DIV",{class:!0});var E=T(l);u=I(E,"DIV",{class:!0});var v=T(u);c=I(v,"DIV",{class:!0});var A=T(c);f=I(A,"IMG",{loading:!0,"data-aos":!0,"data-aos-duration":!0,"data-aos-delay":!0,src:!0,alt:!0}),A.forEach(k),v.forEach(k),d=R(E),p=I(E,"DIV",{class:!0});var $=T(p);g=I($,"DIV",{class:!0});var C=T(g);ke(m.$$.fragment,C),C.forEach(k),D=R($),b=I($,"DIV",{"data-aos":!0,"data-aos-delay":!0,class:!0});var S=T(b);x=I(S,"P",{class:!0});var L=T(x);y=O(L,"Hey, What's up? I’m Chaitanya, a student specializing in \r\n\t    Software Engineering and Data Science at\r\n            North Carolina State University."),L.forEach(k),w=R(S),F=I(S,"P",{});var U=T(F);B=O(U,"   The passion to create and Analyze has always been in\r\n            me. I strive to build quality, intuitive, and robust software with\r\n            the goal of learning and improving my skills."),U.forEach(k),_=R(S),P=I(S,"P",{});var M=T(P);N=O(M,"   My expertise includes Python, Java, and Machine Learning. \r\n            Recently I have been intrigued with Data Engineering and Cloud Engineering.\r\n            Aside from coding, I enjoy catching up with my favorite series, and playing video games."),M.forEach(k),S.forEach(k),$.forEach(k),E.forEach(k),h.forEach(k),j=R(t),z=I(t,"DIV",{"data-aos":!0,"data-aos-offset":!0,class:!0}),T(z).forEach(k),t.forEach(k),this.h()},h(){S(a,"data-aos","slide-right"),S(a,"data-aos-offset","100"),S(a,"data-aos-duration","700"),S(a,"class","absolute background left-0 w-1/3 lg:w-1/4 h-full moving-gradient-2"),S(f,"loading","lazy"),S(f,"data-aos","slide-right"),S(f,"data-aos-duration","500"),S(f,"data-aos-delay","200"),f.src!==(h="/images/me.webp")&&S(f,"src","/images/me.webp"),S(f,"alt","A guy (me) posing before going to a wedding."),S(c,"class","bg-gray-50 dark:bg-gray-300 shadow-2xl overflow-hidden p-3 rounded-sm"),S(u,"class","max-w-xs z-10 flex-1"),S(g,"class","absolute right-0 -top-20 lg:-top-32 lg:text-right tracking-wide text-5xl md:text-6xl lg:text-7xl font-black text-gray-700 dark:text-gray-200"),S(x,"class","first-letter:text-4xl first-letter:font-bold"),S(b,"data-aos","zoom-in-left"),S(b,"data-aos-delay","100"),S(b,"class","text-gray-600 dark:text-gray-300 lg:text-lg space-y-5"),S(p,"class","flex-1 max-w-prose relative bg-white dark:bg-gray-900 px-6 py-6 lg:py-10 lg:px-10 shadow-2xl"),S(l,"class","flex flex-col items-center gap-32 lg:gap-20 lg:flex-row justify-center"),S(i,"class","main mb-40 mt-40 lg:mt-64"),S(z,"data-aos","slide-up"),S(z,"data-aos-offset","200"),S(z,"class","shadow-xl hidden lg:block absolute right-14 bottom-0 w-4 h-28 bg-gray-300 dark:bg-gray-300"),S(n,"id","about"),S(n,"class","overflow-hidden snap-center relative bg-gray-50 bg-gradient-to-b dark:from-gray-800 dark:to-gray-700")},m(e,t){v(e,n,t),E(n,a),E(n,r),we(s,n,null),E(n,o),E(n,i),E(i,l),E(l,u),E(u,c),E(c,f),E(l,d),E(l,p),E(p,g),we(m,g,null),E(p,D),E(p,b),E(b,x),E(x,y),E(b,w),E(b,F),E(F,B),E(b,_),E(b,P),E(P,N),E(n,j),E(n,z),L=!0},p:e,i(e){L||(ge(s.$$.fragment,e),ge(m.$$.fragment,e),L=!0)},o(e){me(s.$$.fragment,e),me(m.$$.fragment,e),L=!1},d(e){e&&k(n),Ae(s),Ae(m)}}}class Ft extends Fe{constructor(e){super(),Ce(this,e,null,Ct,i,{})}}function Bt(e,t,n){const a=e.slice();return a[2]=t[n],a}function St(e,t,n){const a=e.slice();return a[5]=t[n],a}function _t(e){let t,n,a=e[5]+"";return{c(){t=A("li"),n=$(a),this.h()},l(e){t=I(e,"LI",{class:!0});var r=T(t);n=O(r,a),r.forEach(k),this.h()},h(){S(t,"class","mt-1")},m(e,a){v(e,t,a),E(t,n)},p(e,t){1&t&&a!==(a=e[5]+"")&&P(n,a)},d(e){e&&k(t)}}}function Tt(e){let t,n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D,b,x,y,F,B,_,j,z=e[2].position+"",L=e[2].name+"",U=e[2].start+"",M=e[2].end+"",q=e[2].points,V=[];for(let t=0;t<q.length;t+=1)V[t]=_t(St(e,q,t));return{c(){t=A("button"),n=A("img"),s=C(),o=A("div"),i=A("h1"),l=$(z),u=C(),c=A("h1"),f=$("@"),h=$(L),p=C(),g=A("p"),m=A("time"),D=$(U),b=$(" - "),x=A("time"),y=$(M),F=C(),B=A("ul");for(let e=0;e<V.length;e+=1)V[e].c();_=C(),this.h()},l(e){t=I(e,"BUTTON",{class:!0});var a=T(t);n=I(a,"IMG",{loading:!0,class:!0,src:!0,alt:!0,style:!0}),s=R(a),o=I(a,"DIV",{class:!0});var r=T(o);i=I(r,"H1",{class:!0});var d=T(i);l=O(d,z),d.forEach(k),u=R(r),c=I(r,"H1",{class:!0});var E=T(c);f=O(E,"@"),h=O(E,L),E.forEach(k),p=R(r),g=I(r,"P",{class:!0});var v=T(g);m=I(v,"TIME",{});var w=T(m);D=O(w,U),w.forEach(k),b=O(v," - "),x=I(v,"TIME",{});var A=T(x);y=O(A,M),A.forEach(k),v.forEach(k),F=R(r),B=I(r,"UL",{class:!0});var $=T(B);for(let e=0;e<V.length;e+=1)V[e].l($);$.forEach(k),r.forEach(k),_=R(a),a.forEach(k),this.h()},h(){S(n,"loading","lazy"),S(n,"class","m-auto h-40 sm:h-52 md:h-48 lg:h-40 aspect-square object-scale-down svelte-bqf100"),n.src!==(a=e[2].logo)&&S(n,"src",a),S(n,"alt",r=`logo for ${e[2].name}`),N(n,"mix-blend-mode",e[2].blend),S(i,"class","font-bold text-gray-700 dark:text-white text-xl lg:text-2xl"),S(c,"class",d="font-bold "+e[2].highlight+" text-lg lg:text-lg mb-1 svelte-bqf100"),S(g,"class","text-gray-500 dark:text-gray-400 mb-5 font-mono text-sm"),S(B,"class","text-base font-semibold text-gray-700 dark:text-gray-200 list-square ml-4"),S(o,"class","exp-desc bg-gray-100/80 dark:bg-gray-800/80 p-5 sm:p-10 md:p-5 backdrop-blur-md svelte-bqf100"),S(t,"class",j="exp text-left aspect-square flex "+e[2].background+" svelte-bqf100")},m(e,a){v(e,t,a),E(t,n),E(t,s),E(t,o),E(o,i),E(i,l),E(o,u),E(o,c),E(c,f),E(c,h),E(o,p),E(o,g),E(g,m),E(m,D),E(g,b),E(g,x),E(x,y),E(o,F),E(o,B);for(let e=0;e<V.length;e+=1)V[e].m(B,null);E(t,_)},p(e,s){if(1&s&&n.src!==(a=e[2].logo)&&S(n,"src",a),1&s&&r!==(r=`logo for ${e[2].name}`)&&S(n,"alt",r),1&s&&N(n,"mix-blend-mode",e[2].blend),1&s&&z!==(z=e[2].position+"")&&P(l,z),1&s&&L!==(L=e[2].name+"")&&P(h,L),1&s&&d!==(d="font-bold "+e[2].highlight+" text-lg lg:text-lg mb-1 svelte-bqf100")&&S(c,"class",d),1&s&&U!==(U=e[2].start+"")&&P(D,U),1&s&&M!==(M=e[2].end+"")&&P(y,M),1&s){let t;for(q=e[2].points,t=0;t<q.length;t+=1){const n=St(e,q,t);V[t]?V[t].p(n,s):(V[t]=_t(n),V[t].c(),V[t].m(B,null))}for(;t<V.length;t+=1)V[t].d(1);V.length=q.length}1&s&&j!==(j="exp text-left aspect-square flex "+e[2].background+" svelte-bqf100")&&S(t,"class",j)},d(e){e&&k(t),w(V,e)}}}function It(e){let t,n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D,b;r=new $t({props:{right:!0,number:"010",shaftClasses:"bg-gray-600 dark:bg-gray-50",textClasses:"text-gray-600 dark:text-gray-50"}}),l=new bt({props:{text:"EXPERIENCE"}});let x=e[0],y=[];for(let t=0;t<x.length;t+=1)y[t]=Tt(Bt(e,x,t));return{c(){t=A("section"),n=A("div"),a=C(),ve(r.$$.fragment),s=C(),o=A("header"),i=A("h2"),ve(l.$$.fragment),u=C(),c=A("div"),f=A("p"),h=$("I have more than 2 years of work experience and counting. Here are some\r\n        companies I have worked at before."),d=C(),p=A("section"),g=A("div");for(let e=0;e<y.length;e+=1)y[e].c();m=C(),D=A("div"),this.h()},l(e){t=I(e,"SECTION",{id:!0,class:!0});var b=T(t);n=I(b,"DIV",{"data-aos":!0,"data-aos-delay":!0,class:!0}),T(n).forEach(k),a=R(b),ke(r.$$.fragment,b),s=R(b),o=I(b,"HEADER",{class:!0});var x=T(o);i=I(x,"H2",{class:!0});var E=T(i);ke(l.$$.fragment,E),E.forEach(k),u=R(x),c=I(x,"DIV",{"data-aos":!0,"data-aos-delay":!0,class:!0});var v=T(c);f=I(v,"P",{class:!0});var w=T(f);h=O(w,"I have more than 2 years of work experience and counting. Here are some\r\n        companies I have worked at before."),w.forEach(k),v.forEach(k),x.forEach(k),d=R(b),p=I(b,"SECTION",{class:!0});var A=T(p);g=I(A,"DIV",{class:!0});var $=T(g);for(let e=0;e<y.length;e+=1)y[e].l($);$.forEach(k),A.forEach(k),m=R(b),D=I(b,"DIV",{"data-aos":!0,"data-aos-offset":!0,class:!0}),T(D).forEach(k),b.forEach(k),this.h()},h(){S(n,"data-aos","slide-down"),S(n,"data-aos-delay","900"),S(n,"class","bg-gray-200 z-0 bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 absolute right-0 w-1/2 h-full"),S(i,"class","basis-1/2 inline-block lg:text-right tracking-wide text-4xl md:text-5xl lg:text-7xl font-black text-gray-700 dark:text-gray-200 mb-4"),S(f,"class","text-base lg:text-lg text-gray-600 dark:text-gray-300 lg:text-left lg:max-w-sm mx-auto max-w-prose lg:mx-0 font-semibold"),S(c,"data-aos","fade-left"),S(c,"data-aos-delay","200"),S(c,"class","basis-1/2"),S(o,"class","px-5 relative lg:flex pt-40 pb-24 gap-10 text-center"),S(g,"class","grid grid-cols-1 md:grid-cols-2 mx-6 sm:mx-28 md:mx-0 lg:mx-20 xl:mx-28 shadow-2xl"),S(p,"class","main max-w-6xl mx-auto mb-40 relative z-10"),S(D,"data-aos","slide-up"),S(D,"data-aos-offset","200"),S(D,"class","hidden lg:block shadow-xl absolute left-14 bottom-0 w-4 h-28 bg-gray-400 dark:bg-gray-300"),S(t,"id","experience"),S(t,"class","overflow-hidden bg-gray-100 relative bg-gradient-to-b dark:from-gray-900 dark:to-gray-800")},m(e,x){v(e,t,x),E(t,n),E(t,a),we(r,t,null),E(t,s),E(t,o),E(o,i),we(l,i,null),E(o,u),E(o,c),E(c,f),E(f,h),E(t,d),E(t,p),E(p,g);for(let e=0;e<y.length;e+=1)y[e].m(g,null);E(t,m),E(t,D),b=!0},p(e,[t]){if(1&t){let n;for(x=e[0],n=0;n<x.length;n+=1){const a=Bt(e,x,n);y[n]?y[n].p(a,t):(y[n]=Tt(a),y[n].c(),y[n].m(g,null))}for(;n<y.length;n+=1)y[n].d(1);y.length=x.length}},i(e){b||(ge(r.$$.fragment,e),ge(l.$$.fragment,e),b=!0)},o(e){me(r.$$.fragment,e),me(l.$$.fragment,e),b=!1},d(e){e&&k(t),Ae(r),Ae(l),w(y,e)}}}function Ot(e,t,n){W((async function(){let e=await fetch("/experience.json");n(0,a=await e.json())}));let a=[];return[a]}class Rt extends Fe{constructor(e){super(),Ce(this,e,Ot,It,i,{})}}var Pt=[{tech:"Pytorch",link:"https://pytorch.org/docs/stable/index.html"},{tech:"SKlearn",link:"https://scikit-learn.org/stable/"},{tech:"Numpy",link:"https://numpy.org/doc/stable/"},{tech:"Pandas",link:"https://pandas.pydata.org/docs/"},{tech:"NetworkX",link:"https://networkx.org/"},{tech:"Apache Spark",link:"https://spark.apache.org/docs/latest/"},{tech:"Svelte",link:"https://svelte.dev/"},{tech:"Unity Engine",link:"https://unity.com/"},{tech:"Git",link:"https://git-scm.com/doc"},{tech:"MongoDB",link:"https://www.mongodb.com/docs/"},{tech:"AWS",link:"https://docs.aws.amazon.com/"},{tech:"Postgres",link:"https://www.postgresql.org/docs/"},{tech:"docker",link:"https://docs.docker.com/reference/"},{tech:"Django",link:"https://docs.djangoproject.com/en/4.2/"},{tech:"Github Actions",link:"https://docs.github.com/en/actions"},{tech:"Apache Kafka",link:"https://kafka.apache.org/quickstart"},{tech:"Python",link:"https://www.python.org/"},{tech:"Java",link:"https://docs.oracle.com/en/java/"},{tech:"C(++)",link:"https://learn.microsoft.com/en-us/cpp/?view=msvc-170"},{tech:"JavaScript",link:"https://www.javascript.com/"},{tech:"C#",link:"https://learn.microsoft.com/en-us/dotnet/csharp/"},{tech:"SQL",link:"https://dev.mysql.com/doc/"},{tech:"Ruby",link:"https://www.ruby-lang.org/en/documentation/"}];function Nt(e,t,n){const a=e.slice();return a[4]=t[n],a}function jt(t){let n,a,r,s,o;return{c(){n=A("button"),a=A("p"),r=$("Private"),s=C(),o=A("i"),this.h()},l(e){n=I(e,"BUTTON",{class:!0,disabled:!0});var t=T(n);a=I(t,"P",{class:!0});var i=T(a);r=O(i,"Private"),i.forEach(k),s=R(t),o=I(t,"I",{class:!0}),T(o).forEach(k),t.forEach(k),this.h()},h(){S(a,"class",""),S(o,"class","fas fa-code ml-3 text-lg"),S(n,"class","rounded-md px-3 py-1.5 dark:bg-gray-700 bg-gray-200 flex items-center text-gray-500 dark:text-gray-400 cursor-not-allowed"),n.disabled=!0},m(e,t){v(e,n,t),E(n,a),E(a,r),E(n,s),E(n,o)},p:e,d(e){e&&k(n)}}}function zt(e){let t,n,a,r,s,o;return{c(){t=A("a"),n=A("p"),a=$("Github"),r=C(),s=A("i"),this.h()},l(e){t=I(e,"A",{href:!0,"aria-label":!0,target:!0,class:!0});var o=T(t);n=I(o,"P",{class:!0});var i=T(n);a=O(i,"Github"),i.forEach(k),r=R(o),s=I(o,"I",{class:!0}),T(s).forEach(k),o.forEach(k),this.h()},h(){S(n,"class",""),S(s,"class","fab fa-github ml-3 text-lg"),S(t,"href",o=e[0].github),S(t,"aria-label","Look at GitHub repo"),S(t,"target","_blank"),S(t,"class","shadow-md rounded-md px-3 py-1.5 bg-gray-700 hover:bg-gray-600 transition-colors flex items-center text-gray-50")},m(e,o){v(e,t,o),E(t,n),E(n,a),E(t,r),E(t,s)},p(e,n){1&n&&o!==(o=e[0].github)&&S(t,"href",o)},d(e){e&&k(t)}}}function Lt(e){let t,n,a,r,s,o;return{c(){t=A("a"),n=A("p"),a=$("Link"),r=C(),s=A("i"),this.h()},l(e){t=I(e,"A",{href:!0,"aria-label":!0,target:!0,class:!0});var o=T(t);n=I(o,"P",{class:!0});var i=T(n);a=O(i,"Link"),i.forEach(k),r=R(o),s=I(o,"I",{class:!0}),T(s).forEach(k),o.forEach(k),this.h()},h(){S(n,"class","group-hover:underline"),S(s,"class","fas fa-external-link-alt ml-3"),S(t,"href",o=e[0].website),S(t,"aria-label","Go to live website"),S(t,"target","_blank"),S(t,"class","flex px-2 py-2 items-center group text-gray-800 dark:text-gray-50")},m(e,o){v(e,t,o),E(t,n),E(n,a),E(t,r),E(t,s)},p(e,n){1&n&&o!==(o=e[0].website)&&S(t,"href",o)},d(e){e&&k(t)}}}function Ut(e){let t,n,a,r=e[4]+"";return{c(){t=A("a"),n=$(r),this.h()},l(e){t=I(e,"A",{href:!0,target:!0,class:!0});var a=T(t);n=O(a,r),a.forEach(k),this.h()},h(){S(t,"href",a=e[2].get(e[4])),S(t,"target","_blank"),S(t,"class","bg-red-200 text-red-900 px-2")},m(e,a){v(e,t,a),E(t,n)},p(e,s){1&s&&r!==(r=e[4]+"")&&P(n,r),1&s&&a!==(a=e[2].get(e[4]))&&S(t,"href",a)},d(e){e&&k(t)}}}function Mt(e){let t,n,a,r,s,o,i,l,u,c,f,h,d,p;return{c(){t=A("article"),n=A("a"),a=A("em"),r=A("i"),s=$("Featured Article"),o=C(),i=A("hr"),l=C(),u=A("h1"),c=$("How I Made My Own Cryptocurrency"),f=C(),h=A("p"),d=$("by Ng Bob Shoaun  ∙  2 August 2021  ∙  8 minute\r\n          read"),this.h()},l(e){t=I(e,"ARTICLE",{"data-aos":!0,class:!0});var p=T(t);n=I(p,"A",{href:!0,class:!0});var g=T(n);a=I(g,"EM",{class:!0});var m=T(a);r=I(m,"I",{class:!0}),T(r).forEach(k),s=O(m,"Featured Article"),m.forEach(k),o=R(g),i=I(g,"HR",{class:!0}),l=R(g),u=I(g,"H1",{class:!0});var D=T(u);c=O(D,"How I Made My Own Cryptocurrency"),D.forEach(k),f=R(g),h=I(g,"P",{class:!0});var b=T(h);d=O(b,"by Ng Bob Shoaun  ∙  2 August 2021  ∙  8 minute\r\n          read"),b.forEach(k),g.forEach(k),p.forEach(k),this.h()},h(){S(r,"class","fas fa-newspaper mr-2 text-lg"),S(a,"class","block mb-2"),S(i,"class","mb-4 border-gray-400"),S(u,"class","text-2xl lg:text-3xl font-bold mb-3"),S(h,"class","text-gray-500 dark:text-gray-300"),S(n,"href",p=e[0].more),S(n,"class","block relative text-gray-700 dark:text-white cursor-pointer featured-article  svelte-auqgz8"),S(t,"data-aos","fade-up"),S(t,"class","mt-14")},m(e,p){v(e,t,p),E(t,n),E(n,a),E(a,r),E(a,s),E(n,o),E(n,i),E(n,l),E(n,u),E(u,c),E(n,f),E(n,h),E(h,d)},p(e,t){1&t&&p!==(p=e[0].more)&&S(n,"href",p)},d(e){e&&k(t)}}}function qt(t){let n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D,b,x,y,F,_,N,j,L,U,M,q,V,H,G,W,J,K,Z,Q,X,Y,ee=t[0].name+"",te=t[0].year+"",ne=t[0].collaborators+"",ae=t[0].description+"";function re(e,t){return e[0].github?zt:jt}let se=re(t),oe=se(t),ie=t[0].website&&Lt(t),le=t[0].technologies,ue=[];for(let e=0;e<le.length;e+=1)ue[e]=Ut(Nt(t,le,e));let ce=t[0].more&&Mt(t);return{c(){n=A("article"),a=A("div"),r=A("aside"),s=A("div"),o=A("img"),c=C(),f=A("div"),oe.c(),h=C(),ie&&ie.c(),p=C(),g=A("section"),m=A("h1"),b=C(),x=A("time"),y=$(te),_=C(),N=A("p"),j=$(ne),U=C(),M=A("hr"),V=C(),H=A("p"),W=C(),J=A("div");for(let e=0;e<ue.length;e+=1)ue[e].c();Q=C(),ce&&ce.c(),this.h()},l(e){n=I(e,"ARTICLE",{class:!0});var t=T(n);a=I(t,"DIV",{class:!0});var i=T(a);r=I(i,"ASIDE",{class:!0});var l=T(r);s=I(l,"DIV",{class:!0});var u=T(s);o=I(u,"IMG",{"data-aos":!0,"data-aos-duration":!0,"data-aos-delay":!0,class:!0,src:!0,alt:!0,loading:!0}),u.forEach(k),c=R(l),f=I(l,"DIV",{"data-aos":!0,"data-aos-delay":!0,class:!0});var d=T(f);oe.l(d),h=R(d),ie&&ie.l(d),d.forEach(k),l.forEach(k),p=R(i),g=I(i,"SECTION",{class:!0});var D=T(g);m=I(D,"H1",{"data-aos":!0,class:!0});var E=T(m);b=R(E),x=I(E,"TIME",{class:!0});var v=T(x);y=O(v,te),v.forEach(k),E.forEach(k),_=R(D),N=I(D,"P",{"data-aos":!0,"data-aos-delay":!0,class:!0});var w=T(N);j=O(w,ne),w.forEach(k),U=R(D),M=I(D,"HR",{"data-aos":!0,"data-aos-delay":!0,class:!0}),V=R(D),H=I(D,"P",{"data-aos":!0,"data-aos-delay":!0,class:!0}),T(H).forEach(k),W=R(D),J=I(D,"DIV",{"data-aos":!0,"data-aos-delay":!0,class:!0});var A=T(J);for(let e=0;e<ue.length;e+=1)ue[e].l(A);A.forEach(k),D.forEach(k),i.forEach(k),Q=R(t),ce&&ce.l(t),t.forEach(k),this.h()},h(){S(o,"data-aos",i=t[1]?"slide-right":"slide-left"),S(o,"data-aos-duration","200"),S(o,"data-aos-delay","100"),S(o,"class","max-h-[inherit] w-auto object-scale-down p-2 sm:p-3 cursor-pointer img-container svelte-auqgz8"),o.src!==(l=t[0].image)&&S(o,"src",l),S(o,"alt",u=`Screenshot of ${t[0].name}`),S(o,"loading","lazy"),S(s,"class","mx-0 mb-4 max-h-80 w-fit bg-gradient-to-br from-green-300 to-blue-300 shadow-xl overflow-hidden rounded-sm"),S(f,"data-aos",(t[1],d="flip-up")),S(f,"data-aos-delay","100"),S(f,"class","flex items-center justify-center gap-3"),S(r,"class","lg:max-w-1/2 w-fit shrink"),D=new z(b),S(x,"class","ml-0.5 font-light text-right text-xl lg:text-2xl dark:text-gray-300"),S(m,"data-aos",F=t[1]?"fade-right":"fade-left"),S(m,"class","text-2xl lg:text-4xl font-extrabold text-gray-800 dark:text-gray-50 mb-1"),S(N,"data-aos",L=t[1]?"fade-right":"fade-left"),S(N,"data-aos-delay","100"),S(N,"class","font-bold font-mono text-sm text-purple-700 dark:text-purple-400 mb-3"),S(M,"data-aos",q=t[1]?"fade-right":"fade-left"),S(M,"data-aos-delay","150"),S(M,"class","mb-4 border-gray-400 dark:border-gray-500"),S(H,"data-aos",G=t[1]?"fade-right":"fade-left"),S(H,"data-aos-delay","200"),S(H,"class","mb-4 text-gray-600 font-semibold dark:text-gray-300 leading-relaxed max-w-prose"),S(J,"data-aos",K=t[1]?"fade-right":"fade-left"),S(J,"data-aos-delay","300"),S(J,"class","text-sm font-mono font-semibold flex flex-wrap gap-2"),S(g,"class",Z="flex-1 "+(t[1]?"lg:order-first":"")),S(a,"class","flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14"),S(n,"class","sm:mx-14 lg:mx-0")},m(e,i){v(e,n,i),E(n,a),E(a,r),E(r,s),E(s,o),E(r,c),E(r,f),oe.m(f,null),E(f,h),ie&&ie.m(f,null),E(a,p),E(a,g),E(g,m),D.m(ee,m),E(m,b),E(m,x),E(x,y),E(g,_),E(g,N),E(N,j),E(g,U),E(g,M),E(g,V),E(g,H),H.innerHTML=ae,E(g,W),E(g,J);for(let e=0;e<ue.length;e+=1)ue[e].m(J,null);E(n,Q),ce&&ce.m(n,null),X||(Y=B(o,"click",t[3]),X=!0)},p(e,[t]){if(2&t&&i!==(i=e[1]?"slide-right":"slide-left")&&S(o,"data-aos",i),1&t&&o.src!==(l=e[0].image)&&S(o,"src",l),1&t&&u!==(u=`Screenshot of ${e[0].name}`)&&S(o,"alt",u),se===(se=re(e))&&oe?oe.p(e,t):(oe.d(1),oe=se(e),oe&&(oe.c(),oe.m(f,h))),e[0].website?ie?ie.p(e,t):(ie=Lt(e),ie.c(),ie.m(f,null)):ie&&(ie.d(1),ie=null),2&t&&d!==(e[1],d="flip-up")&&S(f,"data-aos",d),1&t&&ee!==(ee=e[0].name+"")&&D.p(ee),1&t&&te!==(te=e[0].year+"")&&P(y,te),2&t&&F!==(F=e[1]?"fade-right":"fade-left")&&S(m,"data-aos",F),1&t&&ne!==(ne=e[0].collaborators+"")&&P(j,ne),2&t&&L!==(L=e[1]?"fade-right":"fade-left")&&S(N,"data-aos",L),2&t&&q!==(q=e[1]?"fade-right":"fade-left")&&S(M,"data-aos",q),1&t&&ae!==(ae=e[0].description+"")&&(H.innerHTML=ae),2&t&&G!==(G=e[1]?"fade-right":"fade-left")&&S(H,"data-aos",G),5&t){let n;for(le=e[0].technologies,n=0;n<le.length;n+=1){const a=Nt(e,le,n);ue[n]?ue[n].p(a,t):(ue[n]=Ut(a),ue[n].c(),ue[n].m(J,null))}for(;n<ue.length;n+=1)ue[n].d(1);ue.length=le.length}2&t&&K!==(K=e[1]?"fade-right":"fade-left")&&S(J,"data-aos",K),2&t&&Z!==(Z="flex-1 "+(e[1]?"lg:order-first":""))&&S(g,"class",Z),e[0].more?ce?ce.p(e,t):(ce=Mt(e),ce.c(),ce.m(n,null)):ce&&(ce.d(1),ce=null)},i:e,o:e,d(e){e&&k(n),oe.d(),ie&&ie.d(),w(ue,e),ce&&ce.d(),X=!1,Y()}}}function Vt(e,t,n){let a=new Map(Pt.map((e=>[e.tech,e.link]))),{project:r=null}=t,{right:s=!1}=t;return e.$$set=e=>{"project"in e&&n(0,r=e.project),"right"in e&&n(1,s=e.right)},[r,s,a,()=>window.open(r.website)]}class Ht extends Fe{constructor(e){super(),Ce(this,e,Vt,qt,i,{project:0,right:1})}}function Gt(e){let t,n,a,r,s,o,i,l,u,c,f;return i=new bt({props:{delay:300,text:e[1]}}),{c(){t=A("header"),n=A("div"),r=C(),s=A("div"),o=A("h2"),ve(i.$$.fragment),l=C(),u=A("p"),c=$(e[2]),this.h()},l(a){t=I(a,"HEADER",{class:!0});var f=T(t);n=I(f,"DIV",{"data-aos":!0,"data-aos-offset":!0,class:!0}),T(n).forEach(k),r=R(f),s=I(f,"DIV",{"data-aos":!0,"data-aos-offset":!0,class:!0});var h=T(s);o=I(h,"H2",{class:!0});var d=T(o);ke(i.$$.fragment,d),d.forEach(k),l=R(h),u=I(h,"P",{"data-aos":!0,"data-aos-offset":!0,"data-aos-delay":!0,class:!0});var p=T(u);c=O(p,e[2]),p.forEach(k),h.forEach(k),f.forEach(k),this.h()},h(){S(n,"data-aos","slide-down"),S(n,"data-aos-offset","200"),S(n,"class",a="absolute inset-0 -z-0 "+e[0]),S(o,"class","text-3xl md:text-4xl lg:text-5xl mb-2 font-black text-gray-700 dark:text-gray-200"),S(u,"data-aos","fade"),S(u,"data-aos-offset","200"),S(u,"data-aos-delay","300"),S(u,"class","text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-prose font-semibold"),S(s,"data-aos","fade"),S(s,"data-aos-offset","200"),S(s,"class","relative bg-gray-50 z-10 dark:bg-gray-900 shadow-xl p-5 lg:p-10 inline-block w-fit mx-5"),S(t,"class","py-24 text-center relative overflow-hidden")},m(e,a){v(e,t,a),E(t,n),E(t,r),E(t,s),E(s,o),we(i,o,null),E(s,l),E(s,u),E(u,c),f=!0},p(e,[t]){(!f||1&t&&a!==(a="absolute inset-0 -z-0 "+e[0]))&&S(n,"class",a);const r={};2&t&&(r.text=e[1]),i.$set(r),(!f||4&t)&&P(c,e[2])},i(e){f||(ge(i.$$.fragment,e),f=!0)},o(e){me(i.$$.fragment,e),f=!1},d(e){e&&k(t),Ae(i)}}}function Wt(e,t,n){let{wrapperClasses:a="moving-gradient-1"}=t,{headingText:r="Projects"}=t,{subtitleText:s="I have experience working as a Software Developer with a concentration in Data Science, here are some featured projects."}=t;return e.$$set=e=>{"wrapperClasses"in e&&n(0,a=e.wrapperClasses),"headingText"in e&&n(1,r=e.headingText),"subtitleText"in e&&n(2,s=e.subtitleText)},[a,r,s]}class Jt extends Fe{constructor(e){super(),Ce(this,e,Wt,Gt,i,{wrapperClasses:0,headingText:1,subtitleText:2})}}function Kt(e,t){return function(){return e.apply(t,arguments)}}const{toString:Zt}=Object.prototype,{getPrototypeOf:Qt}=Object,Xt=(Yt=Object.create(null),e=>{const t=Zt.call(e);return Yt[t]||(Yt[t]=t.slice(8,-1).toLowerCase())});var Yt;const en=e=>(e=e.toLowerCase(),t=>Xt(t)===e),tn=e=>t=>typeof t===e,{isArray:nn}=Array,an=tn("undefined");const rn=en("ArrayBuffer");const sn=tn("string"),on=tn("function"),ln=tn("number"),un=e=>null!==e&&"object"==typeof e,cn=e=>{if("object"!==Xt(e))return!1;const t=Qt(e);return!(null!==t&&t!==Object.prototype&&null!==Object.getPrototypeOf(t)||Symbol.toStringTag in e||Symbol.iterator in e)},fn=en("Date"),hn=en("File"),dn=en("Blob"),pn=en("FileList"),gn=en("URLSearchParams");function mn(e,t,{allOwnKeys:n=!1}={}){if(null==e)return;let a,r;if("object"!=typeof e&&(e=[e]),nn(e))for(a=0,r=e.length;a<r;a++)t.call(null,e[a],a,e);else{const r=n?Object.getOwnPropertyNames(e):Object.keys(e),s=r.length;let o;for(a=0;a<s;a++)o=r[a],t.call(null,e[o],o,e)}}function Dn(e,t){t=t.toLowerCase();const n=Object.keys(e);let a,r=n.length;for(;r-- >0;)if(a=n[r],t===a.toLowerCase())return a;return null}const bn="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:global,xn=e=>!an(e)&&e!==bn;const yn=(En="undefined"!=typeof Uint8Array&&Qt(Uint8Array),e=>En&&e instanceof En);var En;const vn=en("HTMLFormElement"),kn=(({hasOwnProperty:e})=>(t,n)=>e.call(t,n))(Object.prototype),wn=en("RegExp"),An=(e,t)=>{const n=Object.getOwnPropertyDescriptors(e),a={};mn(n,((n,r)=>{!1!==t(n,r,e)&&(a[r]=n)})),Object.defineProperties(e,a)},$n="abcdefghijklmnopqrstuvwxyz",Cn="0123456789",Fn={DIGIT:Cn,ALPHA:$n,ALPHA_DIGIT:$n+$n.toUpperCase()+Cn};const Bn=en("AsyncFunction");var Sn={isArray:nn,isArrayBuffer:rn,isBuffer:function(e){return null!==e&&!an(e)&&null!==e.constructor&&!an(e.constructor)&&on(e.constructor.isBuffer)&&e.constructor.isBuffer(e)},isFormData:e=>{let t;return e&&("function"==typeof FormData&&e instanceof FormData||on(e.append)&&("formdata"===(t=Xt(e))||"object"===t&&on(e.toString)&&"[object FormData]"===e.toString()))},isArrayBufferView:function(e){let t;return t="undefined"!=typeof ArrayBuffer&&ArrayBuffer.isView?ArrayBuffer.isView(e):e&&e.buffer&&rn(e.buffer),t},isString:sn,isNumber:ln,isBoolean:e=>!0===e||!1===e,isObject:un,isPlainObject:cn,isUndefined:an,isDate:fn,isFile:hn,isBlob:dn,isRegExp:wn,isFunction:on,isStream:e=>un(e)&&on(e.pipe),isURLSearchParams:gn,isTypedArray:yn,isFileList:pn,forEach:mn,merge:function e(){const{caseless:t}=xn(this)&&this||{},n={},a=(a,r)=>{const s=t&&Dn(n,r)||r;cn(n[s])&&cn(a)?n[s]=e(n[s],a):cn(a)?n[s]=e({},a):nn(a)?n[s]=a.slice():n[s]=a};for(let e=0,t=arguments.length;e<t;e++)arguments[e]&&mn(arguments[e],a);return n},extend:(e,t,n,{allOwnKeys:a}={})=>(mn(t,((t,a)=>{n&&on(t)?e[a]=Kt(t,n):e[a]=t}),{allOwnKeys:a}),e),trim:e=>e.trim?e.trim():e.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,""),stripBOM:e=>(65279===e.charCodeAt(0)&&(e=e.slice(1)),e),inherits:(e,t,n,a)=>{e.prototype=Object.create(t.prototype,a),e.prototype.constructor=e,Object.defineProperty(e,"super",{value:t.prototype}),n&&Object.assign(e.prototype,n)},toFlatObject:(e,t,n,a)=>{let r,s,o;const i={};if(t=t||{},null==e)return t;do{for(r=Object.getOwnPropertyNames(e),s=r.length;s-- >0;)o=r[s],a&&!a(o,e,t)||i[o]||(t[o]=e[o],i[o]=!0);e=!1!==n&&Qt(e)}while(e&&(!n||n(e,t))&&e!==Object.prototype);return t},kindOf:Xt,kindOfTest:en,endsWith:(e,t,n)=>{e=String(e),(void 0===n||n>e.length)&&(n=e.length),n-=t.length;const a=e.indexOf(t,n);return-1!==a&&a===n},toArray:e=>{if(!e)return null;if(nn(e))return e;let t=e.length;if(!ln(t))return null;const n=new Array(t);for(;t-- >0;)n[t]=e[t];return n},forEachEntry:(e,t)=>{const n=(e&&e[Symbol.iterator]).call(e);let a;for(;(a=n.next())&&!a.done;){const n=a.value;t.call(e,n[0],n[1])}},matchAll:(e,t)=>{let n;const a=[];for(;null!==(n=e.exec(t));)a.push(n);return a},isHTMLForm:vn,hasOwnProperty:kn,hasOwnProp:kn,reduceDescriptors:An,freezeMethods:e=>{An(e,((t,n)=>{if(on(e)&&-1!==["arguments","caller","callee"].indexOf(n))return!1;const a=e[n];on(a)&&(t.enumerable=!1,"writable"in t?t.writable=!1:t.set||(t.set=()=>{throw Error("Can not rewrite read-only method '"+n+"'")}))}))},toObjectSet:(e,t)=>{const n={},a=e=>{e.forEach((e=>{n[e]=!0}))};return nn(e)?a(e):a(String(e).split(t)),n},toCamelCase:e=>e.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g,(function(e,t,n){return t.toUpperCase()+n})),noop:()=>{},toFiniteNumber:(e,t)=>(e=+e,Number.isFinite(e)?e:t),findKey:Dn,global:bn,isContextDefined:xn,ALPHABET:Fn,generateString:(e=16,t=Fn.ALPHA_DIGIT)=>{let n="";const{length:a}=t;for(;e--;)n+=t[Math.random()*a|0];return n},isSpecCompliantForm:function(e){return!!(e&&on(e.append)&&"FormData"===e[Symbol.toStringTag]&&e[Symbol.iterator])},toJSONObject:e=>{const t=new Array(10),n=(e,a)=>{if(un(e)){if(t.indexOf(e)>=0)return;if(!("toJSON"in e)){t[a]=e;const r=nn(e)?[]:{};return mn(e,((e,t)=>{const s=n(e,a+1);!an(s)&&(r[t]=s)})),t[a]=void 0,r}}return e};return n(e,0)},isAsyncFn:Bn,isThenable:e=>e&&(un(e)||on(e))&&on(e.then)&&on(e.catch)};function _n(e,t,n,a,r){Error.call(this),Error.captureStackTrace?Error.captureStackTrace(this,this.constructor):this.stack=(new Error).stack,this.message=e,this.name="AxiosError",t&&(this.code=t),n&&(this.config=n),a&&(this.request=a),r&&(this.response=r)}Sn.inherits(_n,Error,{toJSON:function(){return{message:this.message,name:this.name,description:this.description,number:this.number,fileName:this.fileName,lineNumber:this.lineNumber,columnNumber:this.columnNumber,stack:this.stack,config:Sn.toJSONObject(this.config),code:this.code,status:this.response&&this.response.status?this.response.status:null}}});const Tn=_n.prototype,In={};["ERR_BAD_OPTION_VALUE","ERR_BAD_OPTION","ECONNABORTED","ETIMEDOUT","ERR_NETWORK","ERR_FR_TOO_MANY_REDIRECTS","ERR_DEPRECATED","ERR_BAD_RESPONSE","ERR_BAD_REQUEST","ERR_CANCELED","ERR_NOT_SUPPORT","ERR_INVALID_URL"].forEach((e=>{In[e]={value:e}})),Object.defineProperties(_n,In),Object.defineProperty(Tn,"isAxiosError",{value:!0}),_n.from=(e,t,n,a,r,s)=>{const o=Object.create(Tn);return Sn.toFlatObject(e,o,(function(e){return e!==Error.prototype}),(e=>"isAxiosError"!==e)),_n.call(o,e.message,t,n,a,r),o.cause=e,o.name=e.name,s&&Object.assign(o,s),o};function On(e){return Sn.isPlainObject(e)||Sn.isArray(e)}function Rn(e){return Sn.endsWith(e,"[]")?e.slice(0,-2):e}function Pn(e,t,n){return e?e.concat(t).map((function(e,t){return e=Rn(e),!n&&t?"["+e+"]":e})).join(n?".":""):t}const Nn=Sn.toFlatObject(Sn,{},null,(function(e){return/^is[A-Z]/.test(e)}));function jn(e,t,n){if(!Sn.isObject(e))throw new TypeError("target must be an object");t=t||new FormData;const a=(n=Sn.toFlatObject(n,{metaTokens:!0,dots:!1,indexes:!1},!1,(function(e,t){return!Sn.isUndefined(t[e])}))).metaTokens,r=n.visitor||u,s=n.dots,o=n.indexes,i=(n.Blob||"undefined"!=typeof Blob&&Blob)&&Sn.isSpecCompliantForm(t);if(!Sn.isFunction(r))throw new TypeError("visitor must be a function");function l(e){if(null===e)return"";if(Sn.isDate(e))return e.toISOString();if(!i&&Sn.isBlob(e))throw new _n("Blob is not supported. Use a Buffer instead.");return Sn.isArrayBuffer(e)||Sn.isTypedArray(e)?i&&"function"==typeof Blob?new Blob([e]):Buffer.from(e):e}function u(e,n,r){let i=e;if(e&&!r&&"object"==typeof e)if(Sn.endsWith(n,"{}"))n=a?n:n.slice(0,-2),e=JSON.stringify(e);else if(Sn.isArray(e)&&function(e){return Sn.isArray(e)&&!e.some(On)}(e)||(Sn.isFileList(e)||Sn.endsWith(n,"[]"))&&(i=Sn.toArray(e)))return n=Rn(n),i.forEach((function(e,a){!Sn.isUndefined(e)&&null!==e&&t.append(!0===o?Pn([n],a,s):null===o?n:n+"[]",l(e))})),!1;return!!On(e)||(t.append(Pn(r,n,s),l(e)),!1)}const c=[],f=Object.assign(Nn,{defaultVisitor:u,convertValue:l,isVisitable:On});if(!Sn.isObject(e))throw new TypeError("data must be an object");return function e(n,a){if(!Sn.isUndefined(n)){if(-1!==c.indexOf(n))throw Error("Circular reference detected in "+a.join("."));c.push(n),Sn.forEach(n,(function(n,s){!0===(!(Sn.isUndefined(n)||null===n)&&r.call(t,n,Sn.isString(s)?s.trim():s,a,f))&&e(n,a?a.concat(s):[s])})),c.pop()}}(e),t}function zn(e){const t={"!":"%21","'":"%27","(":"%28",")":"%29","~":"%7E","%20":"+","%00":"\0"};return encodeURIComponent(e).replace(/[!'()~]|%20|%00/g,(function(e){return t[e]}))}function Ln(e,t){this._pairs=[],e&&jn(e,this,t)}const Un=Ln.prototype;function Mn(e){return encodeURIComponent(e).replace(/%3A/gi,":").replace(/%24/g,"$").replace(/%2C/gi,",").replace(/%20/g,"+").replace(/%5B/gi,"[").replace(/%5D/gi,"]")}function qn(e,t,n){if(!t)return e;const a=n&&n.encode||Mn,r=n&&n.serialize;let s;if(s=r?r(t,n):Sn.isURLSearchParams(t)?t.toString():new Ln(t,n).toString(a),s){const t=e.indexOf("#");-1!==t&&(e=e.slice(0,t)),e+=(-1===e.indexOf("?")?"?":"&")+s}return e}Un.append=function(e,t){this._pairs.push([e,t])},Un.toString=function(e){const t=e?function(t){return e.call(this,t,zn)}:zn;return this._pairs.map((function(e){return t(e[0])+"="+t(e[1])}),"").join("&")};class Vn{constructor(){this.handlers=[]}use(e,t,n){return this.handlers.push({fulfilled:e,rejected:t,synchronous:!!n&&n.synchronous,runWhen:n?n.runWhen:null}),this.handlers.length-1}eject(e){this.handlers[e]&&(this.handlers[e]=null)}clear(){this.handlers&&(this.handlers=[])}forEach(e){Sn.forEach(this.handlers,(function(t){null!==t&&e(t)}))}}var Hn={silentJSONParsing:!0,forcedJSONParsing:!0,clarifyTimeoutError:!1};var Gn={isBrowser:!0,classes:{URLSearchParams:"undefined"!=typeof URLSearchParams?URLSearchParams:Ln,FormData:"undefined"!=typeof FormData?FormData:null,Blob:"undefined"!=typeof Blob?Blob:null},isStandardBrowserEnv:(()=>{let e;return("undefined"==typeof navigator||"ReactNative"!==(e=navigator.product)&&"NativeScript"!==e&&"NS"!==e)&&("undefined"!=typeof window&&"undefined"!=typeof document)})(),isStandardBrowserWebWorkerEnv:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope&&"function"==typeof self.importScripts,protocols:["http","https","file","blob","url","data"]};function Wn(e){function t(e,n,a,r){let s=e[r++];const o=Number.isFinite(+s),i=r>=e.length;if(s=!s&&Sn.isArray(a)?a.length:s,i)return Sn.hasOwnProp(a,s)?a[s]=[a[s],n]:a[s]=n,!o;a[s]&&Sn.isObject(a[s])||(a[s]=[]);return t(e,n,a[s],r)&&Sn.isArray(a[s])&&(a[s]=function(e){const t={},n=Object.keys(e);let a;const r=n.length;let s;for(a=0;a<r;a++)s=n[a],t[s]=e[s];return t}(a[s])),!o}if(Sn.isFormData(e)&&Sn.isFunction(e.entries)){const n={};return Sn.forEachEntry(e,((e,a)=>{t(function(e){return Sn.matchAll(/\w+|\[(\w*)]/g,e).map((e=>"[]"===e[0]?"":e[1]||e[0]))}(e),a,n,0)})),n}return null}const Jn={"Content-Type":void 0};const Kn={transitional:Hn,adapter:["xhr","http"],transformRequest:[function(e,t){const n=t.getContentType()||"",a=n.indexOf("application/json")>-1,r=Sn.isObject(e);r&&Sn.isHTMLForm(e)&&(e=new FormData(e));if(Sn.isFormData(e))return a&&a?JSON.stringify(Wn(e)):e;if(Sn.isArrayBuffer(e)||Sn.isBuffer(e)||Sn.isStream(e)||Sn.isFile(e)||Sn.isBlob(e))return e;if(Sn.isArrayBufferView(e))return e.buffer;if(Sn.isURLSearchParams(e))return t.setContentType("application/x-www-form-urlencoded;charset=utf-8",!1),e.toString();let s;if(r){if(n.indexOf("application/x-www-form-urlencoded")>-1)return function(e,t){return jn(e,new Gn.classes.URLSearchParams,Object.assign({visitor:function(e,t,n,a){return a.defaultVisitor.apply(this,arguments)}},t))}(e,this.formSerializer).toString();if((s=Sn.isFileList(e))||n.indexOf("multipart/form-data")>-1){const t=this.env&&this.env.FormData;return jn(s?{"files[]":e}:e,t&&new t,this.formSerializer)}}return r||a?(t.setContentType("application/json",!1),function(e,t,n){if(Sn.isString(e))try{return(t||JSON.parse)(e),Sn.trim(e)}catch(e){if("SyntaxError"!==e.name)throw e}return(n||JSON.stringify)(e)}(e)):e}],transformResponse:[function(e){const t=this.transitional||Kn.transitional,n=t&&t.forcedJSONParsing,a="json"===this.responseType;if(e&&Sn.isString(e)&&(n&&!this.responseType||a)){const n=!(t&&t.silentJSONParsing)&&a;try{return JSON.parse(e)}catch(e){if(n){if("SyntaxError"===e.name)throw _n.from(e,_n.ERR_BAD_RESPONSE,this,null,this.response);throw e}}}return e}],timeout:0,xsrfCookieName:"XSRF-TOKEN",xsrfHeaderName:"X-XSRF-TOKEN",maxContentLength:-1,maxBodyLength:-1,env:{FormData:Gn.classes.FormData,Blob:Gn.classes.Blob},validateStatus:function(e){return e>=200&&e<300},headers:{common:{Accept:"application/json, text/plain, */*"}}};Sn.forEach(["delete","get","head"],(function(e){Kn.headers[e]={}})),Sn.forEach(["post","put","patch"],(function(e){Kn.headers[e]=Sn.merge(Jn)}));const Zn=Sn.toObjectSet(["age","authorization","content-length","content-type","etag","expires","from","host","if-modified-since","if-unmodified-since","last-modified","location","max-forwards","proxy-authorization","referer","retry-after","user-agent"]);const Qn=Symbol("internals");function Xn(e){return e&&String(e).trim().toLowerCase()}function Yn(e){return!1===e||null==e?e:Sn.isArray(e)?e.map(Yn):String(e)}function ea(e,t,n,a,r){return Sn.isFunction(a)?a.call(this,t,n):(r&&(t=n),Sn.isString(t)?Sn.isString(a)?-1!==t.indexOf(a):Sn.isRegExp(a)?a.test(t):void 0:void 0)}class ta{constructor(e){e&&this.set(e)}set(e,t,n){const a=this;function r(e,t,n){const r=Xn(t);if(!r)throw new Error("header name must be a non-empty string");const s=Sn.findKey(a,r);(!s||void 0===a[s]||!0===n||void 0===n&&!1!==a[s])&&(a[s||t]=Yn(e))}const s=(e,t)=>Sn.forEach(e,((e,n)=>r(e,n,t)));return Sn.isPlainObject(e)||e instanceof this.constructor?s(e,t):Sn.isString(e)&&(e=e.trim())&&!/^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(e.trim())?s((e=>{const t={};let n,a,r;return e&&e.split("\n").forEach((function(e){r=e.indexOf(":"),n=e.substring(0,r).trim().toLowerCase(),a=e.substring(r+1).trim(),!n||t[n]&&Zn[n]||("set-cookie"===n?t[n]?t[n].push(a):t[n]=[a]:t[n]=t[n]?t[n]+", "+a:a)})),t})(e),t):null!=e&&r(t,e,n),this}get(e,t){if(e=Xn(e)){const n=Sn.findKey(this,e);if(n){const e=this[n];if(!t)return e;if(!0===t)return function(e){const t=Object.create(null),n=/([^\s,;=]+)\s*(?:=\s*([^,;]+))?/g;let a;for(;a=n.exec(e);)t[a[1]]=a[2];return t}(e);if(Sn.isFunction(t))return t.call(this,e,n);if(Sn.isRegExp(t))return t.exec(e);throw new TypeError("parser must be boolean|regexp|function")}}}has(e,t){if(e=Xn(e)){const n=Sn.findKey(this,e);return!(!n||void 0===this[n]||t&&!ea(0,this[n],n,t))}return!1}delete(e,t){const n=this;let a=!1;function r(e){if(e=Xn(e)){const r=Sn.findKey(n,e);!r||t&&!ea(0,n[r],r,t)||(delete n[r],a=!0)}}return Sn.isArray(e)?e.forEach(r):r(e),a}clear(e){const t=Object.keys(this);let n=t.length,a=!1;for(;n--;){const r=t[n];e&&!ea(0,this[r],r,e,!0)||(delete this[r],a=!0)}return a}normalize(e){const t=this,n={};return Sn.forEach(this,((a,r)=>{const s=Sn.findKey(n,r);if(s)return t[s]=Yn(a),void delete t[r];const o=e?function(e){return e.trim().toLowerCase().replace(/([a-z\d])(\w*)/g,((e,t,n)=>t.toUpperCase()+n))}(r):String(r).trim();o!==r&&delete t[r],t[o]=Yn(a),n[o]=!0})),this}concat(...e){return this.constructor.concat(this,...e)}toJSON(e){const t=Object.create(null);return Sn.forEach(this,((n,a)=>{null!=n&&!1!==n&&(t[a]=e&&Sn.isArray(n)?n.join(", "):n)})),t}[Symbol.iterator](){return Object.entries(this.toJSON())[Symbol.iterator]()}toString(){return Object.entries(this.toJSON()).map((([e,t])=>e+": "+t)).join("\n")}get[Symbol.toStringTag](){return"AxiosHeaders"}static from(e){return e instanceof this?e:new this(e)}static concat(e,...t){const n=new this(e);return t.forEach((e=>n.set(e))),n}static accessor(e){const t=(this[Qn]=this[Qn]={accessors:{}}).accessors,n=this.prototype;function a(e){const a=Xn(e);t[a]||(!function(e,t){const n=Sn.toCamelCase(" "+t);["get","set","has"].forEach((a=>{Object.defineProperty(e,a+n,{value:function(e,n,r){return this[a].call(this,t,e,n,r)},configurable:!0})}))}(n,e),t[a]=!0)}return Sn.isArray(e)?e.forEach(a):a(e),this}}function na(e,t){const n=this||Kn,a=t||n,r=ta.from(a.headers);let s=a.data;return Sn.forEach(e,(function(e){s=e.call(n,s,r.normalize(),t?t.status:void 0)})),r.normalize(),s}function aa(e){return!(!e||!e.__CANCEL__)}function ra(e,t,n){_n.call(this,null==e?"canceled":e,_n.ERR_CANCELED,t,n),this.name="CanceledError"}ta.accessor(["Content-Type","Content-Length","Accept","Accept-Encoding","User-Agent","Authorization"]),Sn.freezeMethods(ta.prototype),Sn.freezeMethods(ta),Sn.inherits(ra,_n,{__CANCEL__:!0});var sa=Gn.isStandardBrowserEnv?{write:function(e,t,n,a,r,s){const o=[];o.push(e+"="+encodeURIComponent(t)),Sn.isNumber(n)&&o.push("expires="+new Date(n).toGMTString()),Sn.isString(a)&&o.push("path="+a),Sn.isString(r)&&o.push("domain="+r),!0===s&&o.push("secure"),document.cookie=o.join("; ")},read:function(e){const t=document.cookie.match(new RegExp("(^|;\\s*)("+e+")=([^;]*)"));return t?decodeURIComponent(t[3]):null},remove:function(e){this.write(e,"",Date.now()-864e5)}}:{write:function(){},read:function(){return null},remove:function(){}};function oa(e,t){return e&&!/^([a-z][a-z\d+\-.]*:)?\/\//i.test(t)?function(e,t){return t?e.replace(/\/+$/,"")+"/"+t.replace(/^\/+/,""):e}(e,t):t}var ia=Gn.isStandardBrowserEnv?function(){const e=/(msie|trident)/i.test(navigator.userAgent),t=document.createElement("a");let n;function a(n){let a=n;return e&&(t.setAttribute("href",a),a=t.href),t.setAttribute("href",a),{href:t.href,protocol:t.protocol?t.protocol.replace(/:$/,""):"",host:t.host,search:t.search?t.search.replace(/^\?/,""):"",hash:t.hash?t.hash.replace(/^#/,""):"",hostname:t.hostname,port:t.port,pathname:"/"===t.pathname.charAt(0)?t.pathname:"/"+t.pathname}}return n=a(window.location.href),function(e){const t=Sn.isString(e)?a(e):e;return t.protocol===n.protocol&&t.host===n.host}}():function(){return!0};function la(e,t){let n=0;const a=function(e,t){e=e||10;const n=new Array(e),a=new Array(e);let r,s=0,o=0;return t=void 0!==t?t:1e3,function(i){const l=Date.now(),u=a[o];r||(r=l),n[s]=i,a[s]=l;let c=o,f=0;for(;c!==s;)f+=n[c++],c%=e;if(s=(s+1)%e,s===o&&(o=(o+1)%e),l-r<t)return;const h=u&&l-u;return h?Math.round(1e3*f/h):void 0}}(50,250);return r=>{const s=r.loaded,o=r.lengthComputable?r.total:void 0,i=s-n,l=a(i);n=s;const u={loaded:s,total:o,progress:o?s/o:void 0,bytes:i,rate:l||void 0,estimated:l&&o&&s<=o?(o-s)/l:void 0,event:r};u[t?"download":"upload"]=!0,e(u)}}const ua={http:null,xhr:"undefined"!=typeof XMLHttpRequest&&function(e){return new Promise((function(t,n){let a=e.data;const r=ta.from(e.headers).normalize(),s=e.responseType;let o;function i(){e.cancelToken&&e.cancelToken.unsubscribe(o),e.signal&&e.signal.removeEventListener("abort",o)}Sn.isFormData(a)&&(Gn.isStandardBrowserEnv||Gn.isStandardBrowserWebWorkerEnv?r.setContentType(!1):r.setContentType("multipart/form-data;",!1));let l=new XMLHttpRequest;if(e.auth){const t=e.auth.username||"",n=e.auth.password?unescape(encodeURIComponent(e.auth.password)):"";r.set("Authorization","Basic "+btoa(t+":"+n))}const u=oa(e.baseURL,e.url);function c(){if(!l)return;const a=ta.from("getAllResponseHeaders"in l&&l.getAllResponseHeaders());!function(e,t,n){const a=n.config.validateStatus;n.status&&a&&!a(n.status)?t(new _n("Request failed with status code "+n.status,[_n.ERR_BAD_REQUEST,_n.ERR_BAD_RESPONSE][Math.floor(n.status/100)-4],n.config,n.request,n)):e(n)}((function(e){t(e),i()}),(function(e){n(e),i()}),{data:s&&"text"!==s&&"json"!==s?l.response:l.responseText,status:l.status,statusText:l.statusText,headers:a,config:e,request:l}),l=null}if(l.open(e.method.toUpperCase(),qn(u,e.params,e.paramsSerializer),!0),l.timeout=e.timeout,"onloadend"in l?l.onloadend=c:l.onreadystatechange=function(){l&&4===l.readyState&&(0!==l.status||l.responseURL&&0===l.responseURL.indexOf("file:"))&&setTimeout(c)},l.onabort=function(){l&&(n(new _n("Request aborted",_n.ECONNABORTED,e,l)),l=null)},l.onerror=function(){n(new _n("Network Error",_n.ERR_NETWORK,e,l)),l=null},l.ontimeout=function(){let t=e.timeout?"timeout of "+e.timeout+"ms exceeded":"timeout exceeded";const a=e.transitional||Hn;e.timeoutErrorMessage&&(t=e.timeoutErrorMessage),n(new _n(t,a.clarifyTimeoutError?_n.ETIMEDOUT:_n.ECONNABORTED,e,l)),l=null},Gn.isStandardBrowserEnv){const t=(e.withCredentials||ia(u))&&e.xsrfCookieName&&sa.read(e.xsrfCookieName);t&&r.set(e.xsrfHeaderName,t)}void 0===a&&r.setContentType(null),"setRequestHeader"in l&&Sn.forEach(r.toJSON(),(function(e,t){l.setRequestHeader(t,e)})),Sn.isUndefined(e.withCredentials)||(l.withCredentials=!!e.withCredentials),s&&"json"!==s&&(l.responseType=e.responseType),"function"==typeof e.onDownloadProgress&&l.addEventListener("progress",la(e.onDownloadProgress,!0)),"function"==typeof e.onUploadProgress&&l.upload&&l.upload.addEventListener("progress",la(e.onUploadProgress)),(e.cancelToken||e.signal)&&(o=t=>{l&&(n(!t||t.type?new ra(null,e,l):t),l.abort(),l=null)},e.cancelToken&&e.cancelToken.subscribe(o),e.signal&&(e.signal.aborted?o():e.signal.addEventListener("abort",o)));const f=function(e){const t=/^([-+\w]{1,25})(:?\/\/|:)/.exec(e);return t&&t[1]||""}(u);f&&-1===Gn.protocols.indexOf(f)?n(new _n("Unsupported protocol "+f+":",_n.ERR_BAD_REQUEST,e)):l.send(a||null)}))}};Sn.forEach(ua,((e,t)=>{if(e){try{Object.defineProperty(e,"name",{value:t})}catch(e){}Object.defineProperty(e,"adapterName",{value:t})}}));var ca=e=>{e=Sn.isArray(e)?e:[e];const{length:t}=e;let n,a;for(let r=0;r<t&&(n=e[r],!(a=Sn.isString(n)?ua[n.toLowerCase()]:n));r++);if(!a){if(!1===a)throw new _n(`Adapter ${n} is not supported by the environment`,"ERR_NOT_SUPPORT");throw new Error(Sn.hasOwnProp(ua,n)?`Adapter '${n}' is not available in the build`:`Unknown adapter '${n}'`)}if(!Sn.isFunction(a))throw new TypeError("adapter is not a function");return a};function fa(e){if(e.cancelToken&&e.cancelToken.throwIfRequested(),e.signal&&e.signal.aborted)throw new ra(null,e)}function ha(e){fa(e),e.headers=ta.from(e.headers),e.data=na.call(e,e.transformRequest),-1!==["post","put","patch"].indexOf(e.method)&&e.headers.setContentType("application/x-www-form-urlencoded",!1);return ca(e.adapter||Kn.adapter)(e).then((function(t){return fa(e),t.data=na.call(e,e.transformResponse,t),t.headers=ta.from(t.headers),t}),(function(t){return aa(t)||(fa(e),t&&t.response&&(t.response.data=na.call(e,e.transformResponse,t.response),t.response.headers=ta.from(t.response.headers))),Promise.reject(t)}))}const da=e=>e instanceof ta?e.toJSON():e;function pa(e,t){t=t||{};const n={};function a(e,t,n){return Sn.isPlainObject(e)&&Sn.isPlainObject(t)?Sn.merge.call({caseless:n},e,t):Sn.isPlainObject(t)?Sn.merge({},t):Sn.isArray(t)?t.slice():t}function r(e,t,n){return Sn.isUndefined(t)?Sn.isUndefined(e)?void 0:a(void 0,e,n):a(e,t,n)}function s(e,t){if(!Sn.isUndefined(t))return a(void 0,t)}function o(e,t){return Sn.isUndefined(t)?Sn.isUndefined(e)?void 0:a(void 0,e):a(void 0,t)}function i(n,r,s){return s in t?a(n,r):s in e?a(void 0,n):void 0}const l={url:s,method:s,data:s,baseURL:o,transformRequest:o,transformResponse:o,paramsSerializer:o,timeout:o,timeoutMessage:o,withCredentials:o,adapter:o,responseType:o,xsrfCookieName:o,xsrfHeaderName:o,onUploadProgress:o,onDownloadProgress:o,decompress:o,maxContentLength:o,maxBodyLength:o,beforeRedirect:o,transport:o,httpAgent:o,httpsAgent:o,cancelToken:o,socketPath:o,responseEncoding:o,validateStatus:i,headers:(e,t)=>r(da(e),da(t),!0)};return Sn.forEach(Object.keys(Object.assign({},e,t)),(function(a){const s=l[a]||r,o=s(e[a],t[a],a);Sn.isUndefined(o)&&s!==i||(n[a]=o)})),n}const ga="1.4.0",ma={};["object","boolean","number","function","string","symbol"].forEach(((e,t)=>{ma[e]=function(n){return typeof n===e||"a"+(t<1?"n ":" ")+e}}));const Da={};ma.transitional=function(e,t,n){function a(e,t){return"[Axios v1.4.0] Transitional option '"+e+"'"+t+(n?". "+n:"")}return(n,r,s)=>{if(!1===e)throw new _n(a(r," has been removed"+(t?" in "+t:"")),_n.ERR_DEPRECATED);return t&&!Da[r]&&(Da[r]=!0,console.warn(a(r," has been deprecated since v"+t+" and will be removed in the near future"))),!e||e(n,r,s)}};var ba={assertOptions:function(e,t,n){if("object"!=typeof e)throw new _n("options must be an object",_n.ERR_BAD_OPTION_VALUE);const a=Object.keys(e);let r=a.length;for(;r-- >0;){const s=a[r],o=t[s];if(o){const t=e[s],n=void 0===t||o(t,s,e);if(!0!==n)throw new _n("option "+s+" must be "+n,_n.ERR_BAD_OPTION_VALUE)}else if(!0!==n)throw new _n("Unknown option "+s,_n.ERR_BAD_OPTION)}},validators:ma};const xa=ba.validators;class ya{constructor(e){this.defaults=e,this.interceptors={request:new Vn,response:new Vn}}request(e,t){"string"==typeof e?(t=t||{}).url=e:t=e||{},t=pa(this.defaults,t);const{transitional:n,paramsSerializer:a,headers:r}=t;let s;void 0!==n&&ba.assertOptions(n,{silentJSONParsing:xa.transitional(xa.boolean),forcedJSONParsing:xa.transitional(xa.boolean),clarifyTimeoutError:xa.transitional(xa.boolean)},!1),null!=a&&(Sn.isFunction(a)?t.paramsSerializer={serialize:a}:ba.assertOptions(a,{encode:xa.function,serialize:xa.function},!0)),t.method=(t.method||this.defaults.method||"get").toLowerCase(),s=r&&Sn.merge(r.common,r[t.method]),s&&Sn.forEach(["delete","get","head","post","put","patch","common"],(e=>{delete r[e]})),t.headers=ta.concat(s,r);const o=[];let i=!0;this.interceptors.request.forEach((function(e){"function"==typeof e.runWhen&&!1===e.runWhen(t)||(i=i&&e.synchronous,o.unshift(e.fulfilled,e.rejected))}));const l=[];let u;this.interceptors.response.forEach((function(e){l.push(e.fulfilled,e.rejected)}));let c,f=0;if(!i){const e=[ha.bind(this),void 0];for(e.unshift.apply(e,o),e.push.apply(e,l),c=e.length,u=Promise.resolve(t);f<c;)u=u.then(e[f++],e[f++]);return u}c=o.length;let h=t;for(f=0;f<c;){const e=o[f++],t=o[f++];try{h=e(h)}catch(e){t.call(this,e);break}}try{u=ha.call(this,h)}catch(e){return Promise.reject(e)}for(f=0,c=l.length;f<c;)u=u.then(l[f++],l[f++]);return u}getUri(e){return qn(oa((e=pa(this.defaults,e)).baseURL,e.url),e.params,e.paramsSerializer)}}Sn.forEach(["delete","get","head","options"],(function(e){ya.prototype[e]=function(t,n){return this.request(pa(n||{},{method:e,url:t,data:(n||{}).data}))}})),Sn.forEach(["post","put","patch"],(function(e){function t(t){return function(n,a,r){return this.request(pa(r||{},{method:e,headers:t?{"Content-Type":"multipart/form-data"}:{},url:n,data:a}))}}ya.prototype[e]=t(),ya.prototype[e+"Form"]=t(!0)}));class Ea{constructor(e){if("function"!=typeof e)throw new TypeError("executor must be a function.");let t;this.promise=new Promise((function(e){t=e}));const n=this;this.promise.then((e=>{if(!n._listeners)return;let t=n._listeners.length;for(;t-- >0;)n._listeners[t](e);n._listeners=null})),this.promise.then=e=>{let t;const a=new Promise((e=>{n.subscribe(e),t=e})).then(e);return a.cancel=function(){n.unsubscribe(t)},a},e((function(e,a,r){n.reason||(n.reason=new ra(e,a,r),t(n.reason))}))}throwIfRequested(){if(this.reason)throw this.reason}subscribe(e){this.reason?e(this.reason):this._listeners?this._listeners.push(e):this._listeners=[e]}unsubscribe(e){if(!this._listeners)return;const t=this._listeners.indexOf(e);-1!==t&&this._listeners.splice(t,1)}static source(){let e;return{token:new Ea((function(t){e=t})),cancel:e}}}const va={Continue:100,SwitchingProtocols:101,Processing:102,EarlyHints:103,Ok:200,Created:201,Accepted:202,NonAuthoritativeInformation:203,NoContent:204,ResetContent:205,PartialContent:206,MultiStatus:207,AlreadyReported:208,ImUsed:226,MultipleChoices:300,MovedPermanently:301,Found:302,SeeOther:303,NotModified:304,UseProxy:305,Unused:306,TemporaryRedirect:307,PermanentRedirect:308,BadRequest:400,Unauthorized:401,PaymentRequired:402,Forbidden:403,NotFound:404,MethodNotAllowed:405,NotAcceptable:406,ProxyAuthenticationRequired:407,RequestTimeout:408,Conflict:409,Gone:410,LengthRequired:411,PreconditionFailed:412,PayloadTooLarge:413,UriTooLong:414,UnsupportedMediaType:415,RangeNotSatisfiable:416,ExpectationFailed:417,ImATeapot:418,MisdirectedRequest:421,UnprocessableEntity:422,Locked:423,FailedDependency:424,TooEarly:425,UpgradeRequired:426,PreconditionRequired:428,TooManyRequests:429,RequestHeaderFieldsTooLarge:431,UnavailableForLegalReasons:451,InternalServerError:500,NotImplemented:501,BadGateway:502,ServiceUnavailable:503,GatewayTimeout:504,HttpVersionNotSupported:505,VariantAlsoNegotiates:506,InsufficientStorage:507,LoopDetected:508,NotExtended:510,NetworkAuthenticationRequired:511};Object.entries(va).forEach((([e,t])=>{va[t]=e}));const ka=function e(t){const n=new ya(t),a=Kt(ya.prototype.request,n);return Sn.extend(a,ya.prototype,n,{allOwnKeys:!0}),Sn.extend(a,n,null,{allOwnKeys:!0}),a.create=function(n){return e(pa(t,n))},a}(Kn);function wa(e,t,n){const a=e.slice();return a[5]=t[n],a[7]=n,a}function Aa(e){let t,n;return t=new Ht({props:{project:e[5],right:e[7]%2}}),{c(){ve(t.$$.fragment)},l(e){ke(t.$$.fragment,e)},m(e,a){we(t,e,a),n=!0},p(e,n){const a={};2&n&&(a.project=e[5]),t.$set(a)},i(e){n||(ge(t.$$.fragment,e),n=!0)},o(e){me(t.$$.fragment,e),n=!1},d(e){Ae(t,e)}}}function $a(e){let t,n,a,r;return{c(){t=A("i"),n=C(),a=A("span"),r=$("More Projects"),this.h()},l(e){t=I(e,"I",{class:!0}),T(t).forEach(k),n=R(e),a=I(e,"SPAN",{class:!0});var s=T(a);r=O(s,"More Projects"),s.forEach(k),this.h()},h(){S(t,"class","fas fa-angle-down"),S(a,"class","group-hover:underline")},m(e,s){v(e,t,s),v(e,n,s),v(e,a,s),E(a,r)},d(e){e&&k(t),e&&k(n),e&&k(a)}}}function Ca(e){let t,n,a,r;return{c(){t=A("i"),n=C(),a=A("span"),r=$("Less Projects"),this.h()},l(e){t=I(e,"I",{class:!0}),T(t).forEach(k),n=R(e),a=I(e,"SPAN",{class:!0});var s=T(a);r=O(s,"Less Projects"),s.forEach(k),this.h()},h(){S(t,"class","fas fa-angle-up"),S(a,"class","group-hover:underline")},m(e,s){v(e,t,s),v(e,n,s),v(e,a,s),E(a,r)},d(e){e&&k(t),e&&k(n),e&&k(a)}}}function Fa(e){let t,n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D,b;n=new Jt({}),r=new $t({props:{number:"011"}});let x=e[1],y=[];for(let t=0;t<x.length;t+=1)y[t]=Aa(wa(e,x,t));const $=e=>me(y[e],1,1,(()=>{y[e]=null}));function F(e,t){return e[0]?Ca:$a}let _=F(e),O=_(e);return{c(){t=A("section"),ve(n.$$.fragment),a=C(),ve(r.$$.fragment),s=C(),o=A("section"),i=A("div");for(let e=0;e<y.length;e+=1)y[e].c();l=C(),u=A("button"),c=A("hr"),f=C(),O.c(),h=C(),d=A("hr"),p=C(),g=A("div"),this.h()},l(e){t=I(e,"SECTION",{id:!0,class:!0});var m=T(t);ke(n.$$.fragment,m),a=R(m),ke(r.$$.fragment,m),s=R(m),o=I(m,"SECTION",{class:!0});var D=T(o);i=I(D,"DIV",{class:!0});var b=T(i);for(let e=0;e<y.length;e+=1)y[e].l(b);b.forEach(k),l=R(D),u=I(D,"BUTTON",{class:!0});var x=T(u);c=I(x,"HR",{class:!0}),f=R(x),O.l(x),h=R(x),d=I(x,"HR",{class:!0}),x.forEach(k),D.forEach(k),p=R(m),g=I(m,"DIV",{"data-aos":!0,"data-aos-offset":!0,class:!0}),T(g).forEach(k),m.forEach(k),this.h()},h(){S(i,"class","space-y-40"),S(c,"class","flex-1 mr-2 border-gray-400 dark:border-gray-500"),S(d,"class","flex-1 ml-2 border-gray-400 dark:border-gray-500"),S(u,"class","mt-40 w-full flex items-center gap-2 group font-semibold text-gray-700 dark:text-gray-100"),S(o,"class","main max-w-7xl pb-40 pt-32 mx-auto"),S(g,"data-aos","slide-up"),S(g,"data-aos-offset","200"),S(g,"class","hidden lg:block absolute shadow-xl right-14 bottom-0 w-4 h-28 bg-gray-400 dark:bg-gray-300"),S(t,"id","web-development"),S(t,"class","relative overflow-hidden snap-center bg-gray-100 bg-gradient-to-b dark:from-gray-900 dark:to-gray-800")},m(x,k){v(x,t,k),we(n,t,null),E(t,a),we(r,t,null),E(t,s),E(t,o),E(o,i);for(let e=0;e<y.length;e+=1)y[e].m(i,null);E(o,l),E(o,u),E(u,c),E(u,f),O.m(u,null),E(u,h),E(u,d),E(t,p),E(t,g),m=!0,D||(b=B(u,"click",e[3]),D=!0)},p(e,[t]){if(2&t){let n;for(x=e[1],n=0;n<x.length;n+=1){const a=wa(e,x,n);y[n]?(y[n].p(a,t),ge(y[n],1)):(y[n]=Aa(a),y[n].c(),ge(y[n],1),y[n].m(i,null))}for(de(),n=x.length;n<y.length;n+=1)$(n);pe()}_!==(_=F(e))&&(O.d(1),O=_(e),O&&(O.c(),O.m(u,h)))},i(e){if(!m){ge(n.$$.fragment,e),ge(r.$$.fragment,e);for(let e=0;e<x.length;e+=1)ge(y[e]);m=!0}},o(e){me(n.$$.fragment,e),me(r.$$.fragment,e),y=y.filter(Boolean);for(let e=0;e<y.length;e+=1)me(y[e]);m=!1},d(e){e&&k(t),Ae(n),Ae(r),w(y,e),O.d(),D=!1,b()}}}function Ba(e,t,n){let a;W((async function(){const{data:e}=await ka("/projects_web.json");n(2,r=e)}));let r=[],s=!1;return e.$$.update=()=>{5&e.$$.dirty&&n(1,a=r.slice(0,s?r.length:4))},[s,a,r,()=>n(0,s=!s)]}ka.Axios=ya,ka.CanceledError=ra,ka.CancelToken=Ea,ka.isCancel=aa,ka.VERSION=ga,ka.toFormData=jn,ka.AxiosError=_n,ka.Cancel=ka.CanceledError,ka.all=function(e){return Promise.all(e)},ka.spread=function(e){return function(t){return e.apply(null,t)}},ka.isAxiosError=function(e){return Sn.isObject(e)&&!0===e.isAxiosError},ka.mergeConfig=pa,ka.AxiosHeaders=ta,ka.formToJSON=e=>Wn(Sn.isHTMLForm(e)?new FormData(e):e),ka.HttpStatusCode=va,ka.default=ka;class Sa extends Fe{constructor(e){super(),Ce(this,e,Ba,Fa,i,{})}}function _a(t){let n,a,r,o,i,l,u,c,f,h,d,p,g,m,D,b,x,y,w,F,_,P,N,j,z,L,U,M,q,V,H,G,W,J,K,Z,Q,X,Y,ee,te,ne,ae,re,se;return o=new $t({props:{right:!0,number:"110",shaftClasses:"bg-gray-700 dark:bg-gray-50",textClasses:"text-gray-700 dark:text-gray-50"}}),m=new bt({props:{text:"CONTACT ME"}}),{c(){n=A("section"),a=A("div"),r=C(),ve(o.$$.fragment),i=C(),l=A("section"),u=A("div"),c=A("div"),f=A("div"),h=C(),d=A("div"),p=A("div"),g=A("h2"),ve(m.$$.fragment),D=C(),b=A("h5"),x=$("Shoot me a message and I will get back to you as soon as I can. My\r\n            email is \r\n            "),y=A("button"),w=$("thechikkipatel@gmail.com"),F=C(),_=A("form"),P=A("input"),N=C(),j=A("label"),z=$("Don’t fill this out if you’re human: "),L=A("input"),U=C(),M=A("div"),q=A("input"),V=C(),H=A("input"),G=C(),W=A("textarea"),J=C(),K=A("button"),Z=A("i"),Q=C(),X=A("p"),Y=$("Send"),ee=C(),te=A("button"),ne=A("i"),this.h()},l(e){n=I(e,"SECTION",{id:!0,class:!0});var t=T(n);a=I(t,"DIV",{"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0}),T(a).forEach(k),r=R(t),ke(o.$$.fragment,t),i=R(t),l=I(t,"SECTION",{class:!0});var s=T(l);u=I(s,"DIV",{class:!0});var E=T(u);c=I(E,"DIV",{});var v=T(c);f=I(v,"DIV",{"data-aos":!0,"data-aos-delay":!0,"data-aos-duration":!0,class:!0}),T(f).forEach(k),v.forEach(k),h=R(E),d=I(E,"DIV",{class:!0});var A=T(d);p=I(A,"DIV",{class:!0});var $=T(p);g=I($,"H2",{class:!0});var C=T(g);ke(m.$$.fragment,C),C.forEach(k),D=R($),b=I($,"H5",{"data-aos":!0,class:!0});var B=T(b);x=O(B,"Shoot me a message and I will get back to you as soon as I can. My\r\n            email is \r\n            "),y=I(B,"BUTTON",{class:!0});var S=T(y);w=O(S,"thechikkipatel@gmail.com"),S.forEach(k),B.forEach(k),$.forEach(k),F=R(A),_=I(A,"FORM",{"aria-label":!0,"data-aos":!0,"data-aos-duration":!0,"data-aos-delay":!0,name:!0,action:!0,method:!0,"data-netlify":!0,"netlify-honeypot":!0,class:!0});var ae=T(_);P=I(ae,"INPUT",{type:!0,name:!0,value:!0}),N=R(ae),j=I(ae,"LABEL",{for:!0,class:!0});var re=T(j);z=O(re,"Don’t fill this out if you’re human: "),L=I(re,"INPUT",{name:!0}),re.forEach(k),U=R(ae),M=I(ae,"DIV",{class:!0});var se=T(M);q=I(se,"INPUT",{name:!0,class:!0,type:!0,placeholder:!0,required:!0}),V=R(se),H=I(se,"INPUT",{name:!0,class:!0,type:!0,placeholder:!0,required:!0}),se.forEach(k),G=R(ae),W=I(ae,"TEXTAREA",{name:!0,class:!0,placeholder:!0,rows:!0,required:!0}),T(W).forEach(k),J=R(ae),K=I(ae,"BUTTON",{type:!0,class:!0});var oe=T(K);Z=I(oe,"I",{class:!0}),T(Z).forEach(k),Q=R(oe),X=I(oe,"P",{class:!0});var ie=T(X);Y=O(ie,"Send"),ie.forEach(k),oe.forEach(k),ae.forEach(k),A.forEach(k),E.forEach(k),s.forEach(k),ee=R(t),te=I(t,"BUTTON",{title:!0,"aria-label":!0,"data-aos":!0,"data-aos-offset":!0,"data-aos-duration":!0,class:!0});var le=T(te);ne=I(le,"I",{class:!0}),T(ne).forEach(k),le.forEach(k),t.forEach(k),this.h()},h(){S(a,"data-aos","slide-down"),S(a,"data-aos-delay","900"),S(a,"data-aos-duration","700"),S(a,"class","absolute background left-0 w-2/5 h-full moving-gradient-1"),S(f,"data-aos","flip-up"),S(f,"data-aos-delay","600"),S(f,"data-aos-duration","700"),S(f,"class","bg-purple-400 dark:bg-purple-300 shadow-purple-300/60 shadow-lg w-8 h-1.5 lg:w-10 lg:h-2 ml-0.5 mb-6"),S(g,"class","text-gray-700 dark:text-gray-200 inline-block tracking-wide text-4xl md:text-5xl lg:text-6xl font-black mb-2"),S(y,"class","text-gray-700 dark:text-gray-100 underline"),S(b,"data-aos","fade"),S(b,"class","text-gray-500 dark:text-gray-300 mb-7"),S(p,"class","basis-2/5"),S(P,"type","hidden"),S(P,"name","form-name"),P.value="contact",S(L,"name","bot-field"),S(j,"for","bot-field"),S(j,"class","hidden"),S(q,"name","name"),S(q,"class","w-full mb-3 md:mb-4 mr-4 px-4 py-2 bg-gray-300 dark:bg-gray-600 dark:text-gray-50"),S(q,"type","text"),S(q,"placeholder","Your name"),q.required=!0,S(H,"name","email"),S(H,"class","w-full mb-3 md:mb-4 px-4 py-2 bg-gray-300 dark:bg-gray-600 dark:text-gray-50"),S(H,"type","email"),S(H,"placeholder","Your email"),H.required=!0,S(M,"class","flex flex-col md:flex-row lg:flex-col"),S(W,"name","message"),S(W,"class","w-full px-4 py-2 mb-4 min-h-1/4 bg-gray-200 dark:bg-gray-700 dark:text-gray-50"),S(W,"placeholder","Tell me what you think!"),S(W,"rows","6"),W.required=!0,S(Z,"class","far fa-paper-plane text-xs"),S(X,"class","font-semibold font-mono"),S(K,"type","submit"),S(K,"class","transition-colors bg-purple-200 shadow-purple-300/20 shadow-lg rounded-sm border border-purple-400 hover:bg-purple-300 text-gray-700 py-1 px-4 flex items-center gap-3 ml-auto"),S(_,"aria-label","contact form"),S(_,"data-aos","fade"),S(_,"data-aos-duration","700"),S(_,"data-aos-delay","200"),S(_,"name","contact"),S(_,"action","action"),S(_,"method","POST"),S(_,"data-netlify","true"),S(_,"netlify-honeypot","bot-field"),S(_,"class","basis-3/5"),S(d,"class","lg:flex gap-10"),S(u,"class","bg-gray-50 dark:bg-gray-900 shadow-2xl px-5 md:px-7 py-10 lg:px-10 lg:py-14 mb-16"),S(l,"class","section relative"),S(ne,"class","hover-vertical fas fa-angle-up"),S(te,"title","Back to top"),S(te,"aria-label","Back to top"),S(te,"data-aos","fade-up"),S(te,"data-aos-offset","200"),S(te,"data-aos-duration","700"),S(te,"class","text-xl lg:text-3xl py-5 text-gray-700 dark:text-white w-14 mx-auto text-center absolute bottom-20 right-0 left-0"),S(n,"id","contact"),S(n,"class","main overflow-hidden relative bg-gray-100 bg-gradient-to-b dark:from-gray-800 dark:to-gray-900")},m(e,s){var k;v(e,n,s),E(n,a),E(n,r),we(o,n,null),E(n,i),E(n,l),E(l,u),E(u,c),E(c,f),E(u,h),E(u,d),E(d,p),E(p,g),we(m,g,null),E(p,D),E(p,b),E(b,x),E(b,y),E(y,w),E(d,F),E(d,_),E(_,P),E(_,N),E(_,j),E(j,z),E(j,L),E(_,U),E(_,M),E(M,q),E(M,V),E(M,H),E(_,G),E(_,W),E(_,J),E(_,K),E(K,Z),E(K,Q),E(K,X),E(X,Y),E(n,ee),E(n,te),E(te,ne),ae=!0,re||(se=[B(y,"click",t[0]),B(_,"submit",(k=Ta,function(e){return e.preventDefault(),k.call(this,e)})),B(te,"click",t[1])],re=!0)},p:e,i(e){ae||(ge(o.$$.fragment,e),ge(m.$$.fragment,e),ae=!0)},o(e){me(o.$$.fragment,e),me(m.$$.fragment,e),ae=!1},d(e){e&&k(n),Ae(o),Ae(m),re=!1,s(se)}}}async function Ta(){let e=document.querySelector("form");const t=new FormData(e);(await fetch(e.getAttribute("action"),{method:"POST",headers:{Accept:"application/x-www-form-urlencoded;charset=UTF-8","Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:new URLSearchParams(t).toString()})).ok?(alert("Thank you for your message! I will get back to you as soon as I can."),e.reset()):alert("Uh oh... message failed to send. You can email me directly at thechikkipatel@gmail.com")}function Ia(e){return[()=>xt("thechikkipatel@gmail.com"),()=>window.scrollTo(0,0)]}class Oa extends Fe{constructor(e){super(),Ce(this,e,Ia,_a,i,{})}}function Ra(e){let t,n,a,r,s,o,i,l,u,c,f,h;function d(t){e[1].call(null,t)}let p={};return void 0!==e[0]&&(p.theme=e[0]),n=new kt({props:p}),X.push((()=>Ee(n,"theme",d))),s=new Ft({}),i=new Rt({}),u=new Sa({}),f=new Oa({}),{c(){t=A("main"),ve(n.$$.fragment),r=C(),ve(s.$$.fragment),o=C(),ve(i.$$.fragment),l=C(),ve(u.$$.fragment),c=C(),ve(f.$$.fragment),this.h()},l(e){t=I(e,"MAIN",{class:!0});var a=T(t);ke(n.$$.fragment,a),r=R(a),ke(s.$$.fragment,a),o=R(a),ke(i.$$.fragment,a),l=R(a),ke(u.$$.fragment,a),c=R(a),ke(f.$$.fragment,a),a.forEach(k),this.h()},h(){S(t,"class","snap-y")},m(e,a){v(e,t,a),we(n,t,null),E(t,r),we(s,t,null),E(t,o),we(i,t,null),E(t,l),we(u,t,null),E(t,c),we(f,t,null),h=!0},p(e,[t]){const r={};!a&&1&t&&(a=!0,r.theme=e[0],re((()=>a=!1))),n.$set(r)},i(e){h||(ge(n.$$.fragment,e),ge(s.$$.fragment,e),ge(i.$$.fragment,e),ge(u.$$.fragment,e),ge(f.$$.fragment,e),h=!0)},o(e){me(n.$$.fragment,e),me(s.$$.fragment,e),me(i.$$.fragment,e),me(u.$$.fragment,e),me(f.$$.fragment,e),h=!1},d(e){e&&k(t),Ae(n),Ae(s),Ae(i),Ae(u),Ae(f)}}}function Pa(e,t,n){let{theme:a}=t;return e.$$set=e=>{"theme"in e&&n(0,a=e.theme)},[a,function(e){a=e,n(0,a)}]}class Na extends Fe{constructor(e){super(),Ce(this,e,Pa,Ra,i,{theme:0})}}function ja(t){let n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D,b,x,y;return{c(){n=A("footer"),a=A("ul"),r=A("li"),s=A("a"),o=A("i"),i=C(),l=A("li"),u=A("a"),c=A("i"),f=C(),h=A("li"),d=A("a"),p=A("i"),g=C(),m=A("div"),D=A("a"),b=$("Designed & Built by Chaitanya Patel © "),x=A("time"),y=$("2023"),this.h()},l(e){n=I(e,"FOOTER",{class:!0});var t=T(n);a=I(t,"UL",{"data-aos":!0,class:!0});var E=T(a);r=I(E,"LI",{class:!0});var v=T(r);s=I(v,"A",{title:!0,"aria-label":!0,href:!0,target:!0,class:!0});var w=T(s);o=I(w,"I",{class:!0}),T(o).forEach(k),w.forEach(k),v.forEach(k),i=R(E),l=I(E,"LI",{class:!0});var A=T(l);u=I(A,"A",{title:!0,"aria-label":!0,href:!0,target:!0,class:!0});var $=T(u);c=I($,"I",{class:!0}),T(c).forEach(k),$.forEach(k),A.forEach(k),f=R(E),h=I(E,"LI",{class:!0});var C=T(h);d=I(C,"A",{title:!0,"aria-label":!0,href:!0,target:!0,class:!0});var F=T(d);p=I(F,"I",{class:!0}),T(p).forEach(k),F.forEach(k),C.forEach(k),E.forEach(k),g=R(t),m=I(t,"DIV",{class:!0});var B=T(m);D=I(B,"A",{"data-aos":!0,class:!0,href:!0,target:!0});var S=T(D);b=O(S,"Designed & Built by Chaitanya Patel © "),x=I(S,"TIME",{});var _=T(x);y=O(_,"2023"),_.forEach(k),S.forEach(k),B.forEach(k),t.forEach(k),this.h()},h(){S(o,"class","fab fa-github fa-lg"),S(s,"title","View my GitHub profile"),S(s,"aria-label","See my GitHub profile"),S(s,"href","https://github.com/War-Keeper"),S(s,"target","_blank"),S(s,"class","nav-text p-1"),S(r,"class","m-0"),S(c,"class","fab fa-linkedin-in fa-lg"),S(u,"title","Connect on LinkedIn"),S(u,"aria-label","Connect on LinkedIn"),S(u,"href","https://www.linkedin.com/in/cpatel3/"),S(u,"target","_blank"),S(u,"class","nav-text p-1"),S(l,"class","m-0"),S(p,"class","far fa-envelope fa-lg"),S(d,"title","Send me an email"),S(d,"aria-label","Send me an email"),S(d,"href","mailto:thechikkipatel@gmail.com"),S(d,"target","_blank"),S(d,"class","nav-text p-1"),S(h,"class","m-0"),S(a,"data-aos","fade-down"),S(a,"class","flex item-center justify-center gap-6 mb-8"),S(D,"data-aos","fade-up"),S(D,"class","nav-text text-gray-700 dark:text-gray-50"),S(D,"href","https://github.com/War-Keeper/Chaitanya-Portfolio"),S(D,"target","_blank"),S(m,"class","text-center"),S(n,"class","main shadow-2xl py-32 z-50 bg-gray-50 dark:bg-gray-700 bg-gradient-to-b dark:from-gray-800 dark:to-gray-900")},m(e,t){v(e,n,t),E(n,a),E(a,r),E(r,s),E(s,o),E(a,i),E(a,l),E(l,u),E(u,c),E(a,f),E(a,h),E(h,d),E(d,p),E(n,g),E(n,m),E(m,D),E(D,b),E(D,x),E(x,y)},p:e,i:e,o:e,d(e){e&&k(n)}}}class za extends Fe{constructor(e){super(),Ce(this,e,null,ja,i,{})}}const La="Chaitanya Patel",Ua="Software Developer &\n Data Scientist",Ma="+1 (917) 361 7430",qa={url:"https://www.bobng.me/",label:"bobng.me"},Va={url:"thechikkipatel@gmail.com",label:"thechikkipatel@gmail.com"},Ha={url:"https://www.linkedin.com/in/cpatel3/",label:"linkedin.com/in/cpatel3"},Ga={url:"https://github.com/War-Keeper",label:"github.com/War-Keeper"},Wa="Raleigh, North Carolina",Ja="Accomplished and diligent software developer with a good eye for designs. Able to deliver products with high quality proven through customer satisfaction. Friendly, with strong communication skills with teammates. Seeking to learn and grow to become a professional software engineer.",Ka=["Python","Java","C(++)","JavaScript (ES6)","C#","SQL","Ruby"],Za=["Pytorch","SKlearn","Numpy","Pandas","NetworkX","Apache Spark","Svelte","Unity Engine","Git","MongoDB","AWS","Postgres","Docker","Django","Github Actions","Apache Kafka (in progress)"],Qa="3 Aug 2023",Xa={school:"North Carolina State University",cgpa:"4.0 (Dean's List Scholar)",major:"Masters in Computer Science",timeline:"Aug 2021 - Dec 2022",courses:[{name:"Artificial Intelligence",grade:"A+"},{name:"Automated Learning and Data Analysis",grade:"A+"},{name:"Software Engineering",grade:"A+"},{name:"High-Performance Machine Learning",grade:"A+"},{name:"Database Management Systems",grade:"A+"}]},Ya=[{company:"Genova Diagnostics",position:"Immunology Lab Tech",timeline:"May 2019 – August 2021",points:["Facilitated work with Human Specimens for Immunoassays using both manual and automated processes.","Assisted in the maintenance of the IT infrastructure and troubleshooting software.","Developed a streamlined approach to minimize errors and breakdown of machines and increase the throughput of systems by roughly 10%."]},{company:" University of North Carolina Asheville",position:"Physical Chemistry Researcher",timeline:"May 2016 – May 2018",points:["Research involving the creation, analysis, and degradation of Halogen gases.","The equipment used involved vacuum racks, Gas Chromatography-Mass Spectrometry detector","Collaborated on the development of new techniques for trapping and detecting molecules."," Worked with various software packages designed for the analysis and detection of molecules."]}],er=[{name:"EcoNET - True Error Detection",type:"Personal project",points:["Oversaw analysis of North Carolina Weather Station Data (ECONet), apply classification techniques to determine which data points are erroneous, using multiple machine learning techniques. ","Leadership role in a small team."]},{name:"Database Management System",type:"Personal project",points:["Design a Multilevel Database Management system for a Publishing house. Everything from Database Design to deployment is taken into consideration.","Done in a Team setting."]},{name:"Real-time AI Video Upscaling",type:"Personal project",points:["Design a Real-time Video upscaling software using state-of-the-art techniques to create efficient AI systems.","Adapting various Optimization strategies and software packages to strategically cut down existing AI models for fast processing."]}];function tr(e,t,n){const a=e.slice();return a[2]=t[n],a[4]=n,a}function nr(e,t,n){const a=e.slice();return a[5]=t[n],a}function ar(e,t,n){const a=e.slice();return a[8]=t[n],a[4]=n,a}function rr(e,t,n){const a=e.slice();return a[5]=t[n],a}function sr(e,t,n){const a=e.slice();return a[12]=t[n],a}function or(e,t,n){const a=e.slice();return a[15]=t[n],a}function ir(e,t,n){const a=e.slice();return a[18]=t[n],a}function lr(e){let t,n,a;return{c(){t=A("p"),n=A("i"),a=$("Go Back"),this.h()},l(e){t=I(e,"P",{class:!0});var r=T(t);n=I(r,"I",{class:!0}),T(n).forEach(k),a=O(r,"Go Back"),r.forEach(k),this.h()},h(){S(n,"class","fas fa-arrow-left mr-3"),S(t,"class","text-gray-700 font-bold font-mono")},m(e,r){v(e,t,r),E(t,n),E(t,a)},d(e){e&&k(t)}}}function ur(t){let n,a,r,s=t[18]+"";return{c(){n=A("h4"),a=$(s),r=C(),this.h()},l(e){n=I(e,"H4",{class:!0});var t=T(n);a=O(t,s),r=R(t),t.forEach(k),this.h()},h(){S(n,"class",g(`bg-${Dr} px-2.5 py-1.5 font-bold text-xs text-white`)+" svelte-fue1fc")},m(e,t){v(e,n,t),E(n,a),E(n,r)},p:e,d(e){e&&k(n)}}}function cr(t){let n,a,r,s=t[15]+"";return{c(){n=A("h4"),a=$(s),r=C(),this.h()},l(e){n=I(e,"H4",{class:!0});var t=T(n);a=O(t,s),r=R(t),t.forEach(k),this.h()},h(){S(n,"class",g(`bg-${Dr} px-2.5 py-1.5 font-bold text-xs text-white`)+" svelte-fue1fc")},m(e,t){v(e,n,t),E(n,a),E(n,r)},p:e,d(e){e&&k(n)}}}function fr(t){let n,a,r,s,o,i=t[12].name+"",l=t[12].grade+"";return{c(){n=A("li"),a=$(i),r=C(),s=A("p"),o=C(),this.h()},l(e){n=I(e,"LI",{});var t=T(n);a=O(t,i),r=R(t),s=I(t,"P",{class:!0}),T(s).forEach(k),o=R(t),t.forEach(k),this.h()},h(){S(s,"class","float-right")},m(e,t){v(e,n,t),E(n,a),E(n,r),E(n,s),s.innerHTML=l,E(n,o)},p:e,d(e){e&&k(n)}}}function hr(t){let n,a,r=t[5]+"";return{c(){n=A("li"),a=$(r)},l(e){n=I(e,"LI",{});var t=T(n);a=O(t,r),t.forEach(k)},m(e,t){v(e,n,t),E(n,a)},p:e,d(e){e&&k(n)}}}function dr(e){let t,n,a,r,s,o,i,l,u,c,f,h=e[8].company+"",d=e[8].timeline+"",p=e[8].position+"",m=e[8].points,D=[];for(let t=0;t<m.length;t+=1)D[t]=hr(rr(e,m,t));return{c(){t=A("h3"),n=$(h),a=C(),r=A("p"),s=$(d),o=C(),i=A("p"),l=$(p),u=C(),c=A("ul");for(let e=0;e<D.length;e+=1)D[e].c();f=C(),this.h()},l(e){t=I(e,"H3",{class:!0});var g=T(t);n=O(g,h),g.forEach(k),a=R(e),r=I(e,"P",{class:!0});var m=T(r);s=O(m,d),m.forEach(k),o=R(e),i=I(e,"P",{class:!0});var b=T(i);l=O(b,p),b.forEach(k),u=R(e),c=I(e,"UL",{class:!0});var x=T(c);for(let e=0;e<D.length;e+=1)D[e].l(x);f=R(x),x.forEach(k),this.h()},h(){S(t,"class","text-gray-700 text-md font-bold"),S(r,"class","text-sm text-gray-400 float-right text-right"),S(i,"class","text-sm text-gray-400 mb-0.5 italic"),S(c,"class",g("list-square text-gray-600 pl-5 text-xs "+(e[4]==Ya.length-1?"mb-0":"mb-2"))+" svelte-fue1fc")},m(e,h){v(e,t,h),E(t,n),v(e,a,h),v(e,r,h),E(r,s),v(e,o,h),v(e,i,h),E(i,l),v(e,u,h),v(e,c,h);for(let e=0;e<D.length;e+=1)D[e].m(c,null);E(c,f)},p(e,t){if(0&t){let n;for(m=e[8].points,n=0;n<m.length;n+=1){const a=rr(e,m,n);D[n]?D[n].p(a,t):(D[n]=hr(a),D[n].c(),D[n].m(c,f))}for(;n<D.length;n+=1)D[n].d(1);D.length=m.length}},d(e){e&&k(t),e&&k(a),e&&k(r),e&&k(o),e&&k(i),e&&k(u),e&&k(c),w(D,e)}}}function pr(t){let n,a,r=t[5]+"";return{c(){n=A("li"),a=$(r)},l(e){n=I(e,"LI",{});var t=T(n);a=O(t,r),t.forEach(k)},m(e,t){v(e,n,t),E(n,a)},p:e,d(e){e&&k(n)}}}function gr(e){let t,n,a,r,s,o,i,l,u,c=e[2].name+"",f=e[2].type+"",h=e[2].points,d=[];for(let t=0;t<h.length;t+=1)d[t]=pr(nr(e,h,t));return{c(){t=A("div"),n=A("h3"),a=$(c),r=C(),s=A("p"),o=$(f),i=C(),l=A("ul");for(let e=0;e<d.length;e+=1)d[e].c();u=C(),this.h()},l(e){t=I(e,"DIV",{class:!0});var h=T(t);n=I(h,"H3",{class:!0});var p=T(n);a=O(p,c),p.forEach(k),r=R(h),s=I(h,"P",{class:!0});var g=T(s);o=O(g,f),g.forEach(k),h.forEach(k),i=R(e),l=I(e,"UL",{class:!0});var m=T(l);for(let e=0;e<d.length;e+=1)d[e].l(m);u=R(m),m.forEach(k),this.h()},h(){S(n,"class","text-gray-700 text-md font-bold"),S(s,"class","text-sm text-gray-400 italic"),S(t,"class","flex justify-between items-baseline mb-0.5"),S(l,"class",g("list-square text-gray-600 pl-5 text-xs "+(e[4]==er.length-1?"mb-0":"mb-2"))+" svelte-fue1fc")},m(e,c){v(e,t,c),E(t,n),E(n,a),E(t,r),E(t,s),E(s,o),v(e,i,c),v(e,l,c);for(let e=0;e<d.length;e+=1)d[e].m(l,null);E(l,u)},p(e,t){if(0&t){let n;for(h=e[2].points,n=0;n<h.length;n+=1){const a=nr(e,h,n);d[n]?d[n].p(a,t):(d[n]=pr(a),d[n].c(),d[n].m(l,u))}for(;n<d.length;n+=1)d[n].d(1);d.length=h.length}},d(e){e&&k(t),e&&k(i),e&&k(l),w(d,e)}}}function mr(e){let t,n,a,r,o,i,l,u,c,f,h,d,p,m,D,b,x,y,F,_,P,N,j,z,L,U,M,q,V,H,G,W,J,K,Z,Q,X,Y,ee,te,ne,ae,re,se,oe,ie,le,ue,ce,fe,he,de,pe,De,be,xe,ye,Ee,$e,Ce,Fe,Be,Se,_e,Te,Ie,Oe,Re,Pe,Ne,je,ze,Le,Ue,Me,qe,Ve,He,Ge,We,Je,Ke,Ze,Qe,Xe,Ye,et,tt,nt,at,rt,st,ot,it,lt,ct,ft,ht,dt,pt,gt,mt,Dt,bt,xt,yt,Et,vt,kt=La+"",wt=Ua+"",At=Ma+"",$t=qa.label+"",Ct=Va.label+"",Ft=Ha.label+"",Bt=Ga.label+"",St=Wa+"",_t=Ja+"",Tt=Qa+"",It=Xa.school+"",Ot=Xa.cgpa+"",Rt=Xa.timeline+"",Pt=Xa.major+"";r=new ut({props:{to:"/",class:"px-4 py-2 inline-block leading-4 border-green-400 border bg-green-200 hover:bg-green-300 rounded-none mr-3 text-gray-700 font-mono",$$slots:{default:[lr]},$$scope:{ctx:e}}});let Nt=Ka,jt=[];for(let t=0;t<Nt.length;t+=1)jt[t]=ur(ir(e,Nt,t));let zt=Za,Lt=[];for(let t=0;t<zt.length;t+=1)Lt[t]=cr(or(e,zt,t));let Ut=Xa.courses,Mt=[];for(let t=0;t<Ut.length;t+=1)Mt[t]=fr(sr(e,Ut,t));let qt=Ya,Vt=[];for(let t=0;t<qt.length;t+=1)Vt[t]=dr(ar(e,qt,t));let Ht=er,Gt=[];for(let t=0;t<Ht.length;t+=1)Gt[t]=gr(tr(e,Ht,t));return{c(){t=A("main"),n=A("div"),a=A("div"),ve(r.$$.fragment),o=C(),i=A("button"),l=A("i"),u=$("Print"),c=C(),f=A("main"),h=A("section"),d=A("aside"),p=A("h1"),m=$(kt),D=C(),b=A("h3"),x=$(wt),y=C(),F=A("div"),_=A("i"),P=C(),N=A("p"),j=$(At),z=C(),L=A("i"),U=C(),M=A("a"),q=$($t),V=C(),H=A("i"),G=C(),W=A("p"),J=$(Ct),K=C(),Z=A("i"),Q=C(),X=A("a"),Y=$(Ft),ee=C(),te=A("i"),ne=C(),ae=A("a"),re=$(Bt),se=C(),oe=A("i"),ie=C(),le=A("p"),ue=$(St),ce=C(),fe=A("div"),he=A("h2"),de=$("About Me"),pe=C(),De=A("p"),be=A("q"),xe=$(_t),ye=C(),Ee=A("div"),$e=A("h2"),Ce=$("Coding Languages"),Fe=C(),Be=A("div");for(let e=0;e<jt.length;e+=1)jt[e].c();Se=C(),_e=A("div"),Te=A("h2"),Ie=$("Tech Stack"),Oe=C(),Re=A("div");for(let e=0;e<Lt.length;e+=1)Lt[e].c();Pe=C(),Ne=A("div"),je=A("h3"),ze=$("Last updated on: "),Le=A("span"),Ue=$(Tt),Me=C(),qe=A("article"),Ve=A("div"),He=A("h2"),Ge=$("Education"),We=C(),Je=A("div"),Ke=A("h3"),Ze=$(It),Qe=C(),Xe=A("p"),Ye=$("CGPA: "),et=$(Ot),tt=C(),nt=A("p"),at=$(Rt),rt=C(),st=A("p"),ot=$(Pt),it=C(),lt=A("ul");for(let e=0;e<Mt.length;e+=1)Mt[e].c();ct=C(),ft=A("div"),ht=A("h2"),dt=$("Experience"),pt=C();for(let e=0;e<Vt.length;e+=1)Vt[e].c();gt=C(),mt=A("div"),Dt=A("h2"),bt=$("Projects"),xt=C();for(let e=0;e<Gt.length;e+=1)Gt[e].c();this.h()},l(e){t=I(e,"MAIN",{class:!0});var s=T(t);n=I(s,"DIV",{class:!0});var g=T(n);a=I(g,"DIV",{class:!0});var E=T(a);ke(r.$$.fragment,E),o=R(E),i=I(E,"BUTTON",{class:!0});var v=T(i);l=I(v,"I",{class:!0}),T(l).forEach(k),u=O(v,"Print"),v.forEach(k),E.forEach(k),c=R(g),f=I(g,"MAIN",{class:!0});var w=T(f);h=I(w,"SECTION",{class:!0});var A=T(h);d=I(A,"ASIDE",{class:!0});var $=T(d);p=I($,"H1",{class:!0,fstyle:!0});var C=T(p);m=O(C,kt),C.forEach(k),D=R($),b=I($,"H3",{class:!0});var B=T(b);x=O(B,wt),B.forEach(k),y=R($),F=I($,"DIV",{class:!0});var S=T(F);_=I(S,"I",{class:!0}),T(_).forEach(k),P=R(S),N=I(S,"P",{class:!0});var ge=T(N);j=O(ge,At),ge.forEach(k),z=R(S),L=I(S,"I",{class:!0}),T(L).forEach(k),U=R(S),M=I(S,"A",{href:!0,target:!0,class:!0});var me=T(M);q=O(me,$t),me.forEach(k),V=R(S),H=I(S,"I",{class:!0}),T(H).forEach(k),G=R(S),W=I(S,"P",{class:!0});var ve=T(W);J=O(ve,Ct),ve.forEach(k),K=R(S),Z=I(S,"I",{class:!0}),T(Z).forEach(k),Q=R(S),X=I(S,"A",{href:!0,target:!0,class:!0});var we=T(X);Y=O(we,Ft),we.forEach(k),ee=R(S),te=I(S,"I",{class:!0}),T(te).forEach(k),ne=R(S),ae=I(S,"A",{href:!0,target:!0,class:!0});var Ae=T(ae);re=O(Ae,Bt),Ae.forEach(k),se=R(S),oe=I(S,"I",{class:!0}),T(oe).forEach(k),ie=R(S),le=I(S,"P",{class:!0});var ut=T(le);ue=O(ut,St),ut.forEach(k),S.forEach(k),$.forEach(k),ce=R(A),fe=I(A,"DIV",{});var yt=T(fe);he=I(yt,"H2",{class:!0});var Et=T(he);de=O(Et,"About Me"),Et.forEach(k),pe=R(yt),De=I(yt,"P",{class:!0});var vt=T(De);be=I(vt,"Q",{});var Nt=T(be);xe=O(Nt,_t),Nt.forEach(k),vt.forEach(k),yt.forEach(k),ye=R(A),Ee=I(A,"DIV",{});var zt=T(Ee);$e=I(zt,"H2",{class:!0});var Ut=T($e);Ce=O(Ut,"Coding Languages"),Ut.forEach(k),Fe=R(zt),Be=I(zt,"DIV",{class:!0});var qt=T(Be);for(let e=0;e<jt.length;e+=1)jt[e].l(qt);qt.forEach(k),zt.forEach(k),Se=R(A),_e=I(A,"DIV",{});var Ht=T(_e);Te=I(Ht,"H2",{class:!0});var Wt=T(Te);Ie=O(Wt,"Tech Stack"),Wt.forEach(k),Oe=R(Ht),Re=I(Ht,"DIV",{class:!0});var Jt=T(Re);for(let e=0;e<Lt.length;e+=1)Lt[e].l(Jt);Jt.forEach(k),Ht.forEach(k),Pe=R(A),Ne=I(A,"DIV",{class:!0});var Kt=T(Ne);je=I(Kt,"H3",{class:!0});var Zt=T(je);ze=O(Zt,"Last updated on: "),Le=I(Zt,"SPAN",{class:!0});var Qt=T(Le);Ue=O(Qt,Tt),Qt.forEach(k),Zt.forEach(k),Kt.forEach(k),A.forEach(k),Me=R(w),qe=I(w,"ARTICLE",{class:!0});var Xt=T(qe);Ve=I(Xt,"DIV",{});var Yt=T(Ve);He=I(Yt,"H2",{class:!0});var en=T(He);Ge=O(en,"Education"),en.forEach(k),We=R(Yt),Je=I(Yt,"DIV",{class:!0});var tn=T(Je);Ke=I(tn,"H3",{class:!0});var nn=T(Ke);Ze=O(nn,It),nn.forEach(k),Qe=R(tn),Xe=I(tn,"P",{class:!0});var an=T(Xe);Ye=O(an,"CGPA: "),et=O(an,Ot),an.forEach(k),tn.forEach(k),tt=R(Yt),nt=I(Yt,"P",{class:!0});var rn=T(nt);at=O(rn,Rt),rn.forEach(k),rt=R(Yt),st=I(Yt,"P",{class:!0});var sn=T(st);ot=O(sn,Pt),sn.forEach(k),it=R(Yt),lt=I(Yt,"UL",{class:!0});var on=T(lt);for(let e=0;e<Mt.length;e+=1)Mt[e].l(on);on.forEach(k),Yt.forEach(k),ct=R(Xt),ft=I(Xt,"DIV",{});var ln=T(ft);ht=I(ln,"H2",{class:!0});var un=T(ht);dt=O(un,"Experience"),un.forEach(k),pt=R(ln);for(let e=0;e<Vt.length;e+=1)Vt[e].l(ln);ln.forEach(k),gt=R(Xt),mt=I(Xt,"DIV",{});var cn=T(mt);Dt=I(cn,"H2",{class:!0});var fn=T(Dt);bt=O(fn,"Projects"),fn.forEach(k),xt=R(cn);for(let e=0;e<Gt.length;e+=1)Gt[e].l(cn);cn.forEach(k),Xt.forEach(k),w.forEach(k),g.forEach(k),s.forEach(k),this.h()},h(){S(l,"class","fas fa-print mr-3"),S(i,"class","px-4 py-1 font-bold font-mono border-blue-400 border bg-blue-200 hover:bg-blue-300 rounded-none"),S(a,"class","mb-5"),S(p,"class","text-gray-700 text-5xl font-extrabold mb-1"),S(p,"fstyle","font-size: 2.5rem; line-height: 1"),S(b,"class",g(`text-${Dr} font-semibold text-lg mb-3 leading-5`)+" svelte-fue1fc"),S(_,"class","text-gray-700 text-center fas fa-phone"),S(N,"class","text-gray-700 text-sm"),S(L,"class","text-gray-700 text-center fas fa-globe"),S(M,"href",qa.url),S(M,"target","_blank"),S(M,"class","text-gray-700 text-sm svelte-fue1fc"),S(H,"class","text-gray-700 text-center fas fa-envelope"),S(W,"class","text-gray-700 text-sm cursor-pointer"),S(Z,"class","text-gray-700 text-center fab fa-linkedin"),S(X,"href",Ha.url),S(X,"target","_blank"),S(X,"class","text-gray-700 text-sm svelte-fue1fc"),S(te,"class","text-gray-700 text-center fab fa-github"),S(ae,"href",Ga.url),S(ae,"target","_blank"),S(ae,"class","text-gray-700 text-sm svelte-fue1fc"),S(oe,"class","text-gray-700 text-center fas fa-map-marker-alt"),S(le,"class","text-gray-700 text-sm"),S(F,"class","grid info items-center svelte-fue1fc"),S(d,"class",g(`bg-${br} px-5 pt-5 pb-6 border-${Dr} border-t-4`)+" svelte-fue1fc"),S(he,"class",g(`text-${Dr} bg-${br} w-full border-${Dr} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`)+" svelte-fue1fc"),S(De,"class","text-gray-600 text-sm pl-1"),S($e,"class",g(`text-${Dr} bg-${br} w-full border-${Dr} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`)+" svelte-fue1fc"),S(Be,"class","tags flex flex-wrap justify-start svelte-fue1fc"),S(Te,"class",g(`text-${Dr} bg-${br} w-full border-${Dr} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`)+" svelte-fue1fc"),S(Re,"class","tags flex flex-wrap justify-start svelte-fue1fc"),S(Le,"class","italic font-semibold"),S(je,"class",g(`text-${Dr} text-sm`)+" svelte-fue1fc"),S(Ne,"class",g(`bg-${br} border-${Dr} border-b-4 px-5 pt-1.5 pb-1.5 w-full`)+" svelte-fue1fc"),S(h,"class","sidebar flex flex-col justify-between gap-2 svelte-fue1fc"),S(He,"class",g(`text-${Dr} bg-${br} w-full border-${Dr} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`)+" svelte-fue1fc"),S(Ke,"class","text-gray-700 text-md font-bold"),S(Xe,"class","text-xs text-gray-700 font-semibold"),S(Je,"class","flex justify-between items-baseline mb-0"),S(nt,"class","text-sm text-gray-400 float-right text-right"),S(st,"class","text-sm text-gray-400 mb-0.5 italic"),S(lt,"class","list-square text-gray-700 pl-5 text-xs"),S(ht,"class",g(`text-${Dr} bg-${br} w-full border-${Dr} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`)+" svelte-fue1fc"),S(Dt,"class",g(`text-${Dr} bg-${br} w-full border-${Dr} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`)+" svelte-fue1fc"),S(qe,"class","content flex flex-col justify-between gap-2 svelte-fue1fc"),S(f,"class","resume bg-white shadow-xl svelte-fue1fc"),S(n,"class","m-auto"),S(t,"class","bg-gray-500 dark:bg-gray-700 pt-32 pb-20 overflow-auto flex")},m(s,g){v(s,t,g),E(t,n),E(n,a),we(r,a,null),E(a,o),E(a,i),E(i,l),E(i,u),E(n,c),E(n,f),E(f,h),E(h,d),E(d,p),E(p,m),E(d,D),E(d,b),E(b,x),E(d,y),E(d,F),E(F,_),E(F,P),E(F,N),E(N,j),E(F,z),E(F,L),E(F,U),E(F,M),E(M,q),E(F,V),E(F,H),E(F,G),E(F,W),E(W,J),E(F,K),E(F,Z),E(F,Q),E(F,X),E(X,Y),E(F,ee),E(F,te),E(F,ne),E(F,ae),E(ae,re),E(F,se),E(F,oe),E(F,ie),E(F,le),E(le,ue),E(h,ce),E(h,fe),E(fe,he),E(he,de),E(fe,pe),E(fe,De),E(De,be),E(be,xe),E(h,ye),E(h,Ee),E(Ee,$e),E($e,Ce),E(Ee,Fe),E(Ee,Be);for(let e=0;e<jt.length;e+=1)jt[e].m(Be,null);E(h,Se),E(h,_e),E(_e,Te),E(Te,Ie),E(_e,Oe),E(_e,Re);for(let e=0;e<Lt.length;e+=1)Lt[e].m(Re,null);E(h,Pe),E(h,Ne),E(Ne,je),E(je,ze),E(je,Le),E(Le,Ue),E(f,Me),E(f,qe),E(qe,Ve),E(Ve,He),E(He,Ge),E(Ve,We),E(Ve,Je),E(Je,Ke),E(Ke,Ze),E(Je,Qe),E(Je,Xe),E(Xe,Ye),E(Xe,et),E(Ve,tt),E(Ve,nt),E(nt,at),E(Ve,rt),E(Ve,st),E(st,ot),E(Ve,it),E(Ve,lt);for(let e=0;e<Mt.length;e+=1)Mt[e].m(lt,null);E(qe,ct),E(qe,ft),E(ft,ht),E(ht,dt),E(ft,pt);for(let e=0;e<Vt.length;e+=1)Vt[e].m(ft,null);E(qe,gt),E(qe,mt),E(mt,Dt),E(Dt,bt),E(mt,xt);for(let e=0;e<Gt.length;e+=1)Gt[e].m(mt,null);yt=!0,Et||(vt=[B(i,"click",e[0]),B(W,"click",e[1])],Et=!0)},p(e,[t]){const n={};if(2097152&t&&(n.$$scope={dirty:t,ctx:e}),r.$set(n),0&t){let n;for(Nt=Ka,n=0;n<Nt.length;n+=1){const a=ir(e,Nt,n);jt[n]?jt[n].p(a,t):(jt[n]=ur(a),jt[n].c(),jt[n].m(Be,null))}for(;n<jt.length;n+=1)jt[n].d(1);jt.length=Nt.length}if(0&t){let n;for(zt=Za,n=0;n<zt.length;n+=1){const a=or(e,zt,n);Lt[n]?Lt[n].p(a,t):(Lt[n]=cr(a),Lt[n].c(),Lt[n].m(Re,null))}for(;n<Lt.length;n+=1)Lt[n].d(1);Lt.length=zt.length}if(0&t){let n;for(Ut=Xa.courses,n=0;n<Ut.length;n+=1){const a=sr(e,Ut,n);Mt[n]?Mt[n].p(a,t):(Mt[n]=fr(a),Mt[n].c(),Mt[n].m(lt,null))}for(;n<Mt.length;n+=1)Mt[n].d(1);Mt.length=Ut.length}if(0&t){let n;for(qt=Ya,n=0;n<qt.length;n+=1){const a=ar(e,qt,n);Vt[n]?Vt[n].p(a,t):(Vt[n]=dr(a),Vt[n].c(),Vt[n].m(ft,null))}for(;n<Vt.length;n+=1)Vt[n].d(1);Vt.length=qt.length}if(0&t){let n;for(Ht=er,n=0;n<Ht.length;n+=1){const a=tr(e,Ht,n);Gt[n]?Gt[n].p(a,t):(Gt[n]=gr(a),Gt[n].c(),Gt[n].m(mt,null))}for(;n<Gt.length;n+=1)Gt[n].d(1);Gt.length=Ht.length}},i(e){yt||(ge(r.$$.fragment,e),yt=!0)},o(e){me(r.$$.fragment,e),yt=!1},d(e){e&&k(t),Ae(r),w(jt,e),w(Lt,e),w(Mt,e),w(Vt,e),w(Gt,e),Et=!1,s(vt)}}}const Dr="teal-600",br="teal-50";function xr(e){return[()=>window.print(),()=>xt(Va.url)]}class yr extends Fe{constructor(e){super(),Ce(this,e,xr,mr,i,{})}}function Er(t){let n,a,r,s,o,i,l;return{c(){n=A("main"),a=A("section"),r=A("h1"),s=$("Fun facts and hobbies"),o=C(),i=A("p"),l=$("coming soon"),this.h()},l(e){n=I(e,"MAIN",{class:!0});var t=T(n);a=I(t,"SECTION",{class:!0});var u=T(a);r=I(u,"H1",{class:!0});var c=T(r);s=O(c,"Fun facts and hobbies"),c.forEach(k),o=R(u),i=I(u,"P",{class:!0});var f=T(i);l=O(f,"coming soon"),f.forEach(k),u.forEach(k),t.forEach(k),this.h()},h(){S(r,"class","title mb-2"),S(i,"class","subtitle"),S(a,"class","section"),S(n,"class","main bg-gray-50 dark:bg-gray-700")},m(e,t){v(e,n,t),E(n,a),E(a,r),E(r,s),E(a,o),E(a,i),E(i,l)},p:e,i:e,o:e,d(e){e&&k(n)}}}class vr extends Fe{constructor(e){super(),Ce(this,e,null,Er,i,{})}}"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self&&self;var kr,wr,Ar=(function(e,t){e.exports=function(){function e(e,t){for(var n=0;n<t.length;n++){var a=t[n];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}function t(t,n,a){return n&&e(t.prototype,n),a&&e(t,a),t}function n(e,t){if(e){if("string"==typeof e)return a(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?a(e,t):void 0}}function a(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,a=new Array(t);n<t;n++)a[n]=e[n];return a}function r(e,t){var a="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(a)return(a=a.call(e)).next.bind(a);if(Array.isArray(e)||(a=n(e))||t&&e&&"number"==typeof e.length){a&&(e=a);var r=0;return function(){return r>=e.length?{done:!0}:{done:!1,value:e[r++]}}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var s={exports:{}};function o(){return{baseUrl:null,breaks:!1,extensions:null,gfm:!0,headerIds:!0,headerPrefix:"",highlight:null,langPrefix:"language-",mangle:!0,pedantic:!1,renderer:null,sanitize:!1,sanitizer:null,silent:!1,smartLists:!1,smartypants:!1,tokenizer:null,walkTokens:null,xhtml:!1}}function i(e){s.exports.defaults=e}s.exports={defaults:o(),getDefaults:o,changeDefaults:i};var l=/[&<>"']/,u=/[&<>"']/g,c=/[<>"']|&(?!#?\w+;)/,f=/[<>"']|&(?!#?\w+;)/g,h={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"},d=function(e){return h[e]};function p(e,t){if(t){if(l.test(e))return e.replace(u,d)}else if(c.test(e))return e.replace(f,d);return e}var g=/&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/gi;function m(e){return e.replace(g,(function(e,t){return"colon"===(t=t.toLowerCase())?":":"#"===t.charAt(0)?"x"===t.charAt(1)?String.fromCharCode(parseInt(t.substring(2),16)):String.fromCharCode(+t.substring(1)):""}))}var D=/(^|[^\[])\^/g;function b(e,t){e=e.source||e,t=t||"";var n={replace:function(t,a){return a=(a=a.source||a).replace(D,"$1"),e=e.replace(t,a),n},getRegex:function(){return new RegExp(e,t)}};return n}var x=/[^\w:]/g,y=/^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;function E(e,t,n){if(e){var a;try{a=decodeURIComponent(m(n)).replace(x,"").toLowerCase()}catch(e){return null}if(0===a.indexOf("javascript:")||0===a.indexOf("vbscript:")||0===a.indexOf("data:"))return null}t&&!y.test(n)&&(n=$(t,n));try{n=encodeURI(n).replace(/%25/g,"%")}catch(e){return null}return n}var v={},k=/^[^:]+:\/*[^/]*$/,w=/^([^:]+:)[\s\S]*$/,A=/^([^:]+:\/*[^/]*)[\s\S]*$/;function $(e,t){v[" "+e]||(k.test(e)?v[" "+e]=e+"/":v[" "+e]=B(e,"/",!0));var n=-1===(e=v[" "+e]).indexOf(":");return"//"===t.substring(0,2)?n?t:e.replace(w,"$1")+t:"/"===t.charAt(0)?n?t:e.replace(A,"$1")+t:e+t}function C(e){for(var t,n,a=1;a<arguments.length;a++)for(n in t=arguments[a])Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e}function F(e,t){var n=e.replace(/\|/g,(function(e,t,n){for(var a=!1,r=t;--r>=0&&"\\"===n[r];)a=!a;return a?"|":" |"})).split(/ \|/),a=0;if(n[0].trim()||n.shift(),n[n.length-1].trim()||n.pop(),n.length>t)n.splice(t);else for(;n.length<t;)n.push("");for(;a<n.length;a++)n[a]=n[a].trim().replace(/\\\|/g,"|");return n}function B(e,t,n){var a=e.length;if(0===a)return"";for(var r=0;r<a;){var s=e.charAt(a-r-1);if(s!==t||n){if(s===t||!n)break;r++}else r++}return e.substr(0,a-r)}function S(e,t){if(-1===e.indexOf(t[1]))return-1;for(var n=e.length,a=0,r=0;r<n;r++)if("\\"===e[r])r++;else if(e[r]===t[0])a++;else if(e[r]===t[1]&&--a<0)return r;return-1}function _(e){e&&e.sanitize&&!e.silent&&console.warn("marked(): sanitize and sanitizer parameters are deprecated since version 0.7.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/#/USING_ADVANCED.md#options")}function T(e,t){if(t<1)return"";for(var n="";t>1;)1&t&&(n+=e),t>>=1,e+=e;return n+e}var I={escape:p,unescape:m,edit:b,cleanUrl:E,resolveUrl:$,noopTest:{exec:function(){}},merge:C,splitCells:F,rtrim:B,findClosingBracket:S,checkSanitizeDeprecation:_,repeatString:T},O=s.exports.defaults,R=I.rtrim,P=I.splitCells,N=I.escape,j=I.findClosingBracket;function z(e,t,n,a){var r=t.href,s=t.title?N(t.title):null,o=e[1].replace(/\\([\[\]])/g,"$1");if("!"!==e[0].charAt(0)){a.state.inLink=!0;var i={type:"link",raw:n,href:r,title:s,text:o,tokens:a.inlineTokens(o,[])};return a.state.inLink=!1,i}return{type:"image",raw:n,href:r,title:s,text:N(o)}}function L(e,t){var n=e.match(/^(\s+)(?:```)/);if(null===n)return t;var a=n[1];return t.split("\n").map((function(e){var t=e.match(/^\s+/);return null===t?e:t[0].length>=a.length?e.slice(a.length):e})).join("\n")}var U=function(){function e(e){this.options=e||O}var t=e.prototype;return t.space=function(e){var t=this.rules.block.newline.exec(e);if(t)return t[0].length>1?{type:"space",raw:t[0]}:{raw:"\n"}},t.code=function(e){var t=this.rules.block.code.exec(e);if(t){var n=t[0].replace(/^ {1,4}/gm,"");return{type:"code",raw:t[0],codeBlockStyle:"indented",text:this.options.pedantic?n:R(n,"\n")}}},t.fences=function(e){var t=this.rules.block.fences.exec(e);if(t){var n=t[0],a=L(n,t[3]||"");return{type:"code",raw:n,lang:t[2]?t[2].trim():t[2],text:a}}},t.heading=function(e){var t=this.rules.block.heading.exec(e);if(t){var n=t[2].trim();if(/#$/.test(n)){var a=R(n,"#");this.options.pedantic?n=a.trim():a&&!/ $/.test(a)||(n=a.trim())}var r={type:"heading",raw:t[0],depth:t[1].length,text:n,tokens:[]};return this.lexer.inline(r.text,r.tokens),r}},t.hr=function(e){var t=this.rules.block.hr.exec(e);if(t)return{type:"hr",raw:t[0]}},t.blockquote=function(e){var t=this.rules.block.blockquote.exec(e);if(t){var n=t[0].replace(/^ *> ?/gm,"");return{type:"blockquote",raw:t[0],tokens:this.lexer.blockTokens(n,[]),text:n}}},t.list=function(e){var t=this.rules.block.list.exec(e);if(t){var n,a,r,s,o,i,l,u,c,f,h=t[1].trim(),d=h.length>1,p={type:"list",raw:"",ordered:d,start:d?+h.slice(0,-1):"",loose:!1,items:[]};h=d?"\\d{1,9}\\"+h.slice(-1):"\\"+h,this.options.pedantic&&(h=d?h:"[*+-]");for(var g=new RegExp("^( {0,3}"+h+")((?: [^\\n]*| *)(?:\\n[^\\n]*)*(?:\\n|$))");e&&!this.rules.block.hr.test(e)&&(t=g.exec(e));){c=t[2].split("\n"),this.options.pedantic?(s=2,f=c[0].trimLeft()):(s=t[2].search(/[^ ]/),s=t[1].length+(s>4?1:s),f=c[0].slice(s-t[1].length)),i=!1,n=t[0],!c[0]&&/^ *$/.test(c[1])&&(n=t[1]+c.slice(0,2).join("\n")+"\n",p.loose=!0,c=[]);var m=new RegExp("^ {0,"+Math.min(3,s-1)+"}(?:[*+-]|\\d{1,9}[.)])");for(o=1;o<c.length;o++){if(u=c[o],this.options.pedantic&&(u=u.replace(/^ {1,4}(?=( {4})*[^ ])/g,"  ")),m.test(u)){n=t[1]+c.slice(0,o).join("\n")+"\n";break}if(i){if(!(u.search(/[^ ]/)>=s)&&u.trim()){n=t[1]+c.slice(0,o).join("\n")+"\n";break}f+="\n"+u.slice(s)}else u.trim()||(i=!0),u.search(/[^ ]/)>=s?f+="\n"+u.slice(s):f+="\n"+u}p.loose||(l?p.loose=!0:/\n *\n *$/.test(n)&&(l=!0)),this.options.gfm&&(a=/^\[[ xX]\] /.exec(f))&&(r="[ ] "!==a[0],f=f.replace(/^\[[ xX]\] +/,"")),p.items.push({type:"list_item",raw:n,task:!!a,checked:r,loose:!1,text:f}),p.raw+=n,e=e.slice(n.length)}p.items[p.items.length-1].raw=n.trimRight(),p.items[p.items.length-1].text=f.trimRight(),p.raw=p.raw.trimRight();var D=p.items.length;for(o=0;o<D;o++)this.lexer.state.top=!1,p.items[o].tokens=this.lexer.blockTokens(p.items[o].text,[]),p.items[o].tokens.some((function(e){return"space"===e.type}))&&(p.loose=!0,p.items[o].loose=!0);return p}},t.html=function(e){var t=this.rules.block.html.exec(e);if(t){var n={type:"html",raw:t[0],pre:!this.options.sanitizer&&("pre"===t[1]||"script"===t[1]||"style"===t[1]),text:t[0]};return this.options.sanitize&&(n.type="paragraph",n.text=this.options.sanitizer?this.options.sanitizer(t[0]):N(t[0]),n.tokens=[],this.lexer.inline(n.text,n.tokens)),n}},t.def=function(e){var t=this.rules.block.def.exec(e);if(t)return t[3]&&(t[3]=t[3].substring(1,t[3].length-1)),{type:"def",tag:t[1].toLowerCase().replace(/\s+/g," "),raw:t[0],href:t[2],title:t[3]}},t.table=function(e){var t=this.rules.block.table.exec(e);if(t){var n={type:"table",header:P(t[1]).map((function(e){return{text:e}})),align:t[2].replace(/^ *|\| *$/g,"").split(/ *\| */),rows:t[3]?t[3].replace(/\n$/,"").split("\n"):[]};if(n.header.length===n.align.length){n.raw=t[0];var a,r,s,o,i=n.align.length;for(a=0;a<i;a++)/^ *-+: *$/.test(n.align[a])?n.align[a]="right":/^ *:-+: *$/.test(n.align[a])?n.align[a]="center":/^ *:-+ *$/.test(n.align[a])?n.align[a]="left":n.align[a]=null;for(i=n.rows.length,a=0;a<i;a++)n.rows[a]=P(n.rows[a],n.header.length).map((function(e){return{text:e}}));for(i=n.header.length,r=0;r<i;r++)n.header[r].tokens=[],this.lexer.inlineTokens(n.header[r].text,n.header[r].tokens);for(i=n.rows.length,r=0;r<i;r++)for(o=n.rows[r],s=0;s<o.length;s++)o[s].tokens=[],this.lexer.inlineTokens(o[s].text,o[s].tokens);return n}}},t.lheading=function(e){var t=this.rules.block.lheading.exec(e);if(t){var n={type:"heading",raw:t[0],depth:"="===t[2].charAt(0)?1:2,text:t[1],tokens:[]};return this.lexer.inline(n.text,n.tokens),n}},t.paragraph=function(e){var t=this.rules.block.paragraph.exec(e);if(t){var n={type:"paragraph",raw:t[0],text:"\n"===t[1].charAt(t[1].length-1)?t[1].slice(0,-1):t[1],tokens:[]};return this.lexer.inline(n.text,n.tokens),n}},t.text=function(e){var t=this.rules.block.text.exec(e);if(t){var n={type:"text",raw:t[0],text:t[0],tokens:[]};return this.lexer.inline(n.text,n.tokens),n}},t.escape=function(e){var t=this.rules.inline.escape.exec(e);if(t)return{type:"escape",raw:t[0],text:N(t[1])}},t.tag=function(e){var t=this.rules.inline.tag.exec(e);if(t)return!this.lexer.state.inLink&&/^<a /i.test(t[0])?this.lexer.state.inLink=!0:this.lexer.state.inLink&&/^<\/a>/i.test(t[0])&&(this.lexer.state.inLink=!1),!this.lexer.state.inRawBlock&&/^<(pre|code|kbd|script)(\s|>)/i.test(t[0])?this.lexer.state.inRawBlock=!0:this.lexer.state.inRawBlock&&/^<\/(pre|code|kbd|script)(\s|>)/i.test(t[0])&&(this.lexer.state.inRawBlock=!1),{type:this.options.sanitize?"text":"html",raw:t[0],inLink:this.lexer.state.inLink,inRawBlock:this.lexer.state.inRawBlock,text:this.options.sanitize?this.options.sanitizer?this.options.sanitizer(t[0]):N(t[0]):t[0]}},t.link=function(e){var t=this.rules.inline.link.exec(e);if(t){var n=t[2].trim();if(!this.options.pedantic&&/^</.test(n)){if(!/>$/.test(n))return;var a=R(n.slice(0,-1),"\\");if((n.length-a.length)%2==0)return}else{var r=j(t[2],"()");if(r>-1){var s=(0===t[0].indexOf("!")?5:4)+t[1].length+r;t[2]=t[2].substring(0,r),t[0]=t[0].substring(0,s).trim(),t[3]=""}}var o=t[2],i="";if(this.options.pedantic){var l=/^([^'"]*[^\s])\s+(['"])(.*)\2/.exec(o);l&&(o=l[1],i=l[3])}else i=t[3]?t[3].slice(1,-1):"";return o=o.trim(),/^</.test(o)&&(o=this.options.pedantic&&!/>$/.test(n)?o.slice(1):o.slice(1,-1)),z(t,{href:o?o.replace(this.rules.inline._escapes,"$1"):o,title:i?i.replace(this.rules.inline._escapes,"$1"):i},t[0],this.lexer)}},t.reflink=function(e,t){var n;if((n=this.rules.inline.reflink.exec(e))||(n=this.rules.inline.nolink.exec(e))){var a=(n[2]||n[1]).replace(/\s+/g," ");if(!(a=t[a.toLowerCase()])||!a.href){var r=n[0].charAt(0);return{type:"text",raw:r,text:r}}return z(n,a,n[0],this.lexer)}},t.emStrong=function(e,t,n){void 0===n&&(n="");var a=this.rules.inline.emStrong.lDelim.exec(e);if(a&&(!a[3]||!n.match(/(?:[0-9A-Za-z\xAA\xB2\xB3\xB5\xB9\xBA\xBC-\xBE\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0560-\u0588\u05D0-\u05EA\u05EF-\u05F2\u0620-\u064A\u0660-\u0669\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07C0-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u0860-\u086A\u08A0-\u08B4\u08B6-\u08C7\u0904-\u0939\u093D\u0950\u0958-\u0961\u0966-\u096F\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09E6-\u09F1\u09F4-\u09F9\u09FC\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A66-\u0A6F\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AE6-\u0AEF\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B66-\u0B6F\u0B71-\u0B77\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0BE6-\u0BF2\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C66-\u0C6F\u0C78-\u0C7E\u0C80\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CE6-\u0CEF\u0CF1\u0CF2\u0D04-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D54-\u0D56\u0D58-\u0D61\u0D66-\u0D78\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0DE6-\u0DEF\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E50-\u0E59\u0E81\u0E82\u0E84\u0E86-\u0E8A\u0E8C-\u0EA3\u0EA5\u0EA7-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0ED0-\u0ED9\u0EDC-\u0EDF\u0F00\u0F20-\u0F33\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F-\u1049\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u1090-\u1099\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1369-\u137C\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16EE-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1820-\u1878\u1880-\u1884\u1887-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1946-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u19D0-\u19DA\u1A00-\u1A16\u1A20-\u1A54\u1A80-\u1A89\u1A90-\u1A99\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B50-\u1B59\u1B83-\u1BA0\u1BAE-\u1BE5\u1C00-\u1C23\u1C40-\u1C49\u1C4D-\u1C7D\u1C80-\u1C88\u1C90-\u1CBA\u1CBD-\u1CBF\u1CE9-\u1CEC\u1CEE-\u1CF3\u1CF5\u1CF6\u1CFA\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2070\u2071\u2074-\u2079\u207F-\u2089\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2150-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2CFD\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312F\u3131-\u318E\u3192-\u3195\u31A0-\u31BF\u31F0-\u31FF\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\u3400-\u4DBF\u4E00-\u9FFC\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6EF\uA717-\uA71F\uA722-\uA788\uA78B-\uA7BF\uA7C2-\uA7CA\uA7F5-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA830-\uA835\uA840-\uA873\uA882-\uA8B3\uA8D0-\uA8D9\uA8F2-\uA8F7\uA8FB\uA8FD\uA8FE\uA900-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF-\uA9D9\uA9E0-\uA9E4\uA9E6-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA50-\uAA59\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB69\uAB70-\uABE2\uABF0-\uABF9\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B\uDC0D-\uDC26\uDC28-\uDC3A\uDC3C\uDC3D\uDC3F-\uDC4D\uDC50-\uDC5D\uDC80-\uDCFA\uDD07-\uDD33\uDD40-\uDD78\uDD8A\uDD8B\uDE80-\uDE9C\uDEA0-\uDED0\uDEE1-\uDEFB\uDF00-\uDF23\uDF2D-\uDF4A\uDF50-\uDF75\uDF80-\uDF9D\uDFA0-\uDFC3\uDFC8-\uDFCF\uDFD1-\uDFD5]|\uD801[\uDC00-\uDC9D\uDCA0-\uDCA9\uDCB0-\uDCD3\uDCD8-\uDCFB\uDD00-\uDD27\uDD30-\uDD63\uDE00-\uDF36\uDF40-\uDF55\uDF60-\uDF67]|\uD802[\uDC00-\uDC05\uDC08\uDC0A-\uDC35\uDC37\uDC38\uDC3C\uDC3F-\uDC55\uDC58-\uDC76\uDC79-\uDC9E\uDCA7-\uDCAF\uDCE0-\uDCF2\uDCF4\uDCF5\uDCFB-\uDD1B\uDD20-\uDD39\uDD80-\uDDB7\uDDBC-\uDDCF\uDDD2-\uDE00\uDE10-\uDE13\uDE15-\uDE17\uDE19-\uDE35\uDE40-\uDE48\uDE60-\uDE7E\uDE80-\uDE9F\uDEC0-\uDEC7\uDEC9-\uDEE4\uDEEB-\uDEEF\uDF00-\uDF35\uDF40-\uDF55\uDF58-\uDF72\uDF78-\uDF91\uDFA9-\uDFAF]|\uD803[\uDC00-\uDC48\uDC80-\uDCB2\uDCC0-\uDCF2\uDCFA-\uDD23\uDD30-\uDD39\uDE60-\uDE7E\uDE80-\uDEA9\uDEB0\uDEB1\uDF00-\uDF27\uDF30-\uDF45\uDF51-\uDF54\uDFB0-\uDFCB\uDFE0-\uDFF6]|\uD804[\uDC03-\uDC37\uDC52-\uDC6F\uDC83-\uDCAF\uDCD0-\uDCE8\uDCF0-\uDCF9\uDD03-\uDD26\uDD36-\uDD3F\uDD44\uDD47\uDD50-\uDD72\uDD76\uDD83-\uDDB2\uDDC1-\uDDC4\uDDD0-\uDDDA\uDDDC\uDDE1-\uDDF4\uDE00-\uDE11\uDE13-\uDE2B\uDE80-\uDE86\uDE88\uDE8A-\uDE8D\uDE8F-\uDE9D\uDE9F-\uDEA8\uDEB0-\uDEDE\uDEF0-\uDEF9\uDF05-\uDF0C\uDF0F\uDF10\uDF13-\uDF28\uDF2A-\uDF30\uDF32\uDF33\uDF35-\uDF39\uDF3D\uDF50\uDF5D-\uDF61]|\uD805[\uDC00-\uDC34\uDC47-\uDC4A\uDC50-\uDC59\uDC5F-\uDC61\uDC80-\uDCAF\uDCC4\uDCC5\uDCC7\uDCD0-\uDCD9\uDD80-\uDDAE\uDDD8-\uDDDB\uDE00-\uDE2F\uDE44\uDE50-\uDE59\uDE80-\uDEAA\uDEB8\uDEC0-\uDEC9\uDF00-\uDF1A\uDF30-\uDF3B]|\uD806[\uDC00-\uDC2B\uDCA0-\uDCF2\uDCFF-\uDD06\uDD09\uDD0C-\uDD13\uDD15\uDD16\uDD18-\uDD2F\uDD3F\uDD41\uDD50-\uDD59\uDDA0-\uDDA7\uDDAA-\uDDD0\uDDE1\uDDE3\uDE00\uDE0B-\uDE32\uDE3A\uDE50\uDE5C-\uDE89\uDE9D\uDEC0-\uDEF8]|\uD807[\uDC00-\uDC08\uDC0A-\uDC2E\uDC40\uDC50-\uDC6C\uDC72-\uDC8F\uDD00-\uDD06\uDD08\uDD09\uDD0B-\uDD30\uDD46\uDD50-\uDD59\uDD60-\uDD65\uDD67\uDD68\uDD6A-\uDD89\uDD98\uDDA0-\uDDA9\uDEE0-\uDEF2\uDFB0\uDFC0-\uDFD4]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E\uDC80-\uDD43]|[\uD80C\uD81C-\uD820\uD822\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883][\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38\uDE40-\uDE5E\uDE60-\uDE69\uDED0-\uDEED\uDF00-\uDF2F\uDF40-\uDF43\uDF50-\uDF59\uDF5B-\uDF61\uDF63-\uDF77\uDF7D-\uDF8F]|\uD81B[\uDE40-\uDE96\uDF00-\uDF4A\uDF50\uDF93-\uDF9F\uDFE0\uDFE1\uDFE3]|\uD821[\uDC00-\uDFF7]|\uD823[\uDC00-\uDCD5\uDD00-\uDD08]|\uD82C[\uDC00-\uDD1E\uDD50-\uDD52\uDD64-\uDD67\uDD70-\uDEFB]|\uD82F[\uDC00-\uDC6A\uDC70-\uDC7C\uDC80-\uDC88\uDC90-\uDC99]|\uD834[\uDEE0-\uDEF3\uDF60-\uDF78]|\uD835[\uDC00-\uDC54\uDC56-\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDEA5\uDEA8-\uDEC0\uDEC2-\uDEDA\uDEDC-\uDEFA\uDEFC-\uDF14\uDF16-\uDF34\uDF36-\uDF4E\uDF50-\uDF6E\uDF70-\uDF88\uDF8A-\uDFA8\uDFAA-\uDFC2\uDFC4-\uDFCB\uDFCE-\uDFFF]|\uD838[\uDD00-\uDD2C\uDD37-\uDD3D\uDD40-\uDD49\uDD4E\uDEC0-\uDEEB\uDEF0-\uDEF9]|\uD83A[\uDC00-\uDCC4\uDCC7-\uDCCF\uDD00-\uDD43\uDD4B\uDD50-\uDD59]|\uD83B[\uDC71-\uDCAB\uDCAD-\uDCAF\uDCB1-\uDCB4\uDD01-\uDD2D\uDD2F-\uDD3D\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB]|\uD83C[\uDD00-\uDD0C]|\uD83E[\uDFF0-\uDFF9]|\uD869[\uDC00-\uDEDD\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A])/))){var r=a[1]||a[2]||"";if(!r||r&&(""===n||this.rules.inline.punctuation.exec(n))){var s,o,i=a[0].length-1,l=i,u=0,c="*"===a[0][0]?this.rules.inline.emStrong.rDelimAst:this.rules.inline.emStrong.rDelimUnd;for(c.lastIndex=0,t=t.slice(-1*e.length+i);null!=(a=c.exec(t));)if(s=a[1]||a[2]||a[3]||a[4]||a[5]||a[6])if(o=s.length,a[3]||a[4])l+=o;else if(!((a[5]||a[6])&&i%3)||(i+o)%3){if(!((l-=o)>0)){if(o=Math.min(o,o+l+u),Math.min(i,o)%2){var f=e.slice(1,i+a.index+o);return{type:"em",raw:e.slice(0,i+a.index+o+1),text:f,tokens:this.lexer.inlineTokens(f,[])}}var h=e.slice(2,i+a.index+o-1);return{type:"strong",raw:e.slice(0,i+a.index+o+1),text:h,tokens:this.lexer.inlineTokens(h,[])}}}else u+=o}}},t.codespan=function(e){var t=this.rules.inline.code.exec(e);if(t){var n=t[2].replace(/\n/g," "),a=/[^ ]/.test(n),r=/^ /.test(n)&&/ $/.test(n);return a&&r&&(n=n.substring(1,n.length-1)),n=N(n,!0),{type:"codespan",raw:t[0],text:n}}},t.br=function(e){var t=this.rules.inline.br.exec(e);if(t)return{type:"br",raw:t[0]}},t.del=function(e){var t=this.rules.inline.del.exec(e);if(t)return{type:"del",raw:t[0],text:t[2],tokens:this.lexer.inlineTokens(t[2],[])}},t.autolink=function(e,t){var n,a,r=this.rules.inline.autolink.exec(e);if(r)return a="@"===r[2]?"mailto:"+(n=N(this.options.mangle?t(r[1]):r[1])):n=N(r[1]),{type:"link",raw:r[0],text:n,href:a,tokens:[{type:"text",raw:n,text:n}]}},t.url=function(e,t){var n;if(n=this.rules.inline.url.exec(e)){var a,r;if("@"===n[2])r="mailto:"+(a=N(this.options.mangle?t(n[0]):n[0]));else{var s;do{s=n[0],n[0]=this.rules.inline._backpedal.exec(n[0])[0]}while(s!==n[0]);a=N(n[0]),r="www."===n[1]?"http://"+a:a}return{type:"link",raw:n[0],text:a,href:r,tokens:[{type:"text",raw:a,text:a}]}}},t.inlineText=function(e,t){var n,a=this.rules.inline.text.exec(e);if(a)return n=this.lexer.state.inRawBlock?this.options.sanitize?this.options.sanitizer?this.options.sanitizer(a[0]):N(a[0]):a[0]:N(this.options.smartypants?t(a[0]):a[0]),{type:"text",raw:a[0],text:n}},e}(),M=I.noopTest,q=I.edit,V=I.merge,H={newline:/^(?: *(?:\n|$))+/,code:/^( {4}[^\n]+(?:\n(?: *(?:\n|$))*)?)+/,fences:/^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~`]* *(?=\n|$)|$)/,hr:/^ {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\* *){3,})(?:\n+|$)/,heading:/^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/,blockquote:/^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/,list:/^( {0,3}bull)( [^\n]+?)?(?:\n|$)/,html:"^ {0,3}(?:<(script|pre|style|textarea)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)|comment[^\\n]*(\\n+|$)|<\\?[\\s\\S]*?(?:\\?>\\n*|$)|<![A-Z][\\s\\S]*?(?:>\\n*|$)|<!\\[CDATA\\[[\\s\\S]*?(?:\\]\\]>\\n*|$)|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:(?:\\n *)+\\n|$)|<(?!script|pre|style|textarea)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n *)+\\n|$)|</(?!script|pre|style|textarea)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n *)+\\n|$))",def:/^ {0,3}\[(label)\]: *\n? *<?([^\s>]+)>?(?:(?: +\n? *| *\n *)(title))? *(?:\n+|$)/,table:M,lheading:/^([^\n]+)\n {0,3}(=+|-+) *(?:\n+|$)/,_paragraph:/^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html| +\n)[^\n]+)*)/,text:/^[^\n]+/,_label:/(?!\s*\])(?:\\[\[\]]|[^\[\]])+/,_title:/(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/};H.def=q(H.def).replace("label",H._label).replace("title",H._title).getRegex(),H.bullet=/(?:[*+-]|\d{1,9}[.)])/,H.listItemStart=q(/^( *)(bull) */).replace("bull",H.bullet).getRegex(),H.list=q(H.list).replace(/bull/g,H.bullet).replace("hr","\\n+(?=\\1?(?:(?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$))").replace("def","\\n+(?="+H.def.source+")").getRegex(),H._tag="address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul",H._comment=/<!--(?!-?>)[\s\S]*?(?:-->|$)/,H.html=q(H.html,"i").replace("comment",H._comment).replace("tag",H._tag).replace("attribute",/ +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/).getRegex(),H.paragraph=q(H._paragraph).replace("hr",H.hr).replace("heading"," {0,3}#{1,6} ").replace("|lheading","").replace("blockquote"," {0,3}>").replace("fences"," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list"," {0,3}(?:[*+-]|1[.)]) ").replace("html","</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag",H._tag).getRegex(),H.blockquote=q(H.blockquote).replace("paragraph",H.paragraph).getRegex(),H.normal=V({},H),H.gfm=V({},H.normal,{table:"^ *([^\\n ].*\\|.*)\\n {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)\\|?(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)"}),H.gfm.table=q(H.gfm.table).replace("hr",H.hr).replace("heading"," {0,3}#{1,6} ").replace("blockquote"," {0,3}>").replace("code"," {4}[^\\n]").replace("fences"," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list"," {0,3}(?:[*+-]|1[.)]) ").replace("html","</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag",H._tag).getRegex(),H.pedantic=V({},H.normal,{html:q("^ *(?:comment *(?:\\n|\\s*$)|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)|<tag(?:\"[^\"]*\"|'[^']*'|\\s[^'\"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))").replace("comment",H._comment).replace(/tag/g,"(?!(?:a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)\\b)\\w+(?!:|[^\\w\\s@]*@)\\b").getRegex(),def:/^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,heading:/^(#{1,6})(.*)(?:\n+|$)/,fences:M,paragraph:q(H.normal._paragraph).replace("hr",H.hr).replace("heading"," *#{1,6} *[^\n]").replace("lheading",H.lheading).replace("blockquote"," {0,3}>").replace("|fences","").replace("|list","").replace("|html","").getRegex()});var G={escape:/^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/,autolink:/^<(scheme:[^\s\x00-\x1f<>]*|email)>/,url:M,tag:"^comment|^</[a-zA-Z][\\w:-]*\\s*>|^<[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?>|^<\\?[\\s\\S]*?\\?>|^<![a-zA-Z]+\\s[\\s\\S]*?>|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>",link:/^!?\[(label)\]\(\s*(href)(?:\s+(title))?\s*\)/,reflink:/^!?\[(label)\]\[(?!\s*\])((?:\\[\[\]]?|[^\[\]\\])+)\]/,nolink:/^!?\[(?!\s*\])((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\](?:\[\])?/,reflinkSearch:"reflink|nolink(?!\\()",emStrong:{lDelim:/^(?:\*+(?:([punct_])|[^\s*]))|^_+(?:([punct*])|([^\s_]))/,rDelimAst:/\_\_[^_*]*?\*[^_*]*?\_\_|[punct_](\*+)(?=[\s]|$)|[^punct*_\s](\*+)(?=[punct_\s]|$)|[punct_\s](\*+)(?=[^punct*_\s])|[\s](\*+)(?=[punct_])|[punct_](\*+)(?=[punct_])|[^punct*_\s](\*+)(?=[^punct*_\s])/,rDelimUnd:/\*\*[^_*]*?\_[^_*]*?\*\*|[punct*](\_+)(?=[\s]|$)|[^punct*_\s](\_+)(?=[punct*\s]|$)|[punct*\s](\_+)(?=[^punct*_\s])|[\s](\_+)(?=[punct*])|[punct*](\_+)(?=[punct*])/},code:/^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,br:/^( {2,}|\\)\n(?!\s*$)/,del:M,text:/^(`+|[^`])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*_]|\b_|$)|[^ ](?= {2,}\n)))/,punctuation:/^([\spunctuation])/,_punctuation:"!\"#$%&'()+\\-.,/:;<=>?@\\[\\]`^{|}~"};G.punctuation=q(G.punctuation).replace(/punctuation/g,G._punctuation).getRegex(),G.blockSkip=/\[[^\]]*?\]\([^\)]*?\)|`[^`]*?`|<[^>]*?>/g,G.escapedEmSt=/\\\*|\\_/g,G._comment=q(H._comment).replace("(?:--\x3e|$)","--\x3e").getRegex(),G.emStrong.lDelim=q(G.emStrong.lDelim).replace(/punct/g,G._punctuation).getRegex(),G.emStrong.rDelimAst=q(G.emStrong.rDelimAst,"g").replace(/punct/g,G._punctuation).getRegex(),G.emStrong.rDelimUnd=q(G.emStrong.rDelimUnd,"g").replace(/punct/g,G._punctuation).getRegex(),G._escapes=/\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/g,G._scheme=/[a-zA-Z][a-zA-Z0-9+.-]{1,31}/,G._email=/[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/,G.autolink=q(G.autolink).replace("scheme",G._scheme).replace("email",G._email).getRegex(),G._attribute=/\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/,G.tag=q(G.tag).replace("comment",G._comment).replace("attribute",G._attribute).getRegex(),G._label=/(?:\[(?:\\.|[^\[\]\\])*\]|\\.|`[^`]*`|[^\[\]\\`])*?/,G._href=/<(?:\\.|[^\n<>\\])+>|[^\s\x00-\x1f]*/,G._title=/"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/,G.link=q(G.link).replace("label",G._label).replace("href",G._href).replace("title",G._title).getRegex(),G.reflink=q(G.reflink).replace("label",G._label).getRegex(),G.reflinkSearch=q(G.reflinkSearch,"g").replace("reflink",G.reflink).replace("nolink",G.nolink).getRegex(),G.normal=V({},G),G.pedantic=V({},G.normal,{strong:{start:/^__|\*\*/,middle:/^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,endAst:/\*\*(?!\*)/g,endUnd:/__(?!_)/g},em:{start:/^_|\*/,middle:/^()\*(?=\S)([\s\S]*?\S)\*(?!\*)|^_(?=\S)([\s\S]*?\S)_(?!_)/,endAst:/\*(?!\*)/g,endUnd:/_(?!_)/g},link:q(/^!?\[(label)\]\((.*?)\)/).replace("label",G._label).getRegex(),reflink:q(/^!?\[(label)\]\s*\[([^\]]*)\]/).replace("label",G._label).getRegex()}),G.gfm=V({},G.normal,{escape:q(G.escape).replace("])","~|])").getRegex(),_extended_email:/[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/,url:/^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/,_backpedal:/(?:[^?!.,:;*_~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_~)]+(?!$))+/,del:/^(~~?)(?=[^\s~])([\s\S]*?[^\s~])\1(?=[^~]|$)/,text:/^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|https?:\/\/|ftp:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/}),G.gfm.url=q(G.gfm.url,"i").replace("email",G.gfm._extended_email).getRegex(),G.breaks=V({},G.gfm,{br:q(G.br).replace("{2,}","*").getRegex(),text:q(G.gfm.text).replace("\\b_","\\b_| {2,}\\n").replace(/\{2,\}/g,"*").getRegex()});var W={block:H,inline:G},J=U,K=s.exports.defaults,Z=W.block,Q=W.inline,X=I.repeatString;function Y(e){return e.replace(/---/g,"—").replace(/--/g,"–").replace(/(^|[-\u2014/(\[{"\s])'/g,"$1‘").replace(/'/g,"’").replace(/(^|[-\u2014/(\[{\u2018\s])"/g,"$1“").replace(/"/g,"”").replace(/\.{3}/g,"…")}function ee(e){var t,n,a="",r=e.length;for(t=0;t<r;t++)n=e.charCodeAt(t),Math.random()>.5&&(n="x"+n.toString(16)),a+="&#"+n+";";return a}var te=function(){function e(e){this.tokens=[],this.tokens.links=Object.create(null),this.options=e||K,this.options.tokenizer=this.options.tokenizer||new J,this.tokenizer=this.options.tokenizer,this.tokenizer.options=this.options,this.tokenizer.lexer=this,this.inlineQueue=[],this.state={inLink:!1,inRawBlock:!1,top:!0};var t={block:Z.normal,inline:Q.normal};this.options.pedantic?(t.block=Z.pedantic,t.inline=Q.pedantic):this.options.gfm&&(t.block=Z.gfm,this.options.breaks?t.inline=Q.breaks:t.inline=Q.gfm),this.tokenizer.rules=t}e.lex=function(t,n){return new e(n).lex(t)},e.lexInline=function(t,n){return new e(n).inlineTokens(t)};var n=e.prototype;return n.lex=function(e){var t;for(e=e.replace(/\r\n|\r/g,"\n").replace(/\t/g,"    "),this.blockTokens(e,this.tokens);t=this.inlineQueue.shift();)this.inlineTokens(t.src,t.tokens);return this.tokens},n.blockTokens=function(e,t){var n,a,r,s,o=this;for(void 0===t&&(t=[]),this.options.pedantic&&(e=e.replace(/^ +$/gm,""));e;)if(!(this.options.extensions&&this.options.extensions.block&&this.options.extensions.block.some((function(a){return!!(n=a.call({lexer:o},e,t))&&(e=e.substring(n.raw.length),t.push(n),!0)}))))if(n=this.tokenizer.space(e))e=e.substring(n.raw.length),n.type&&t.push(n);else if(n=this.tokenizer.code(e))e=e.substring(n.raw.length),!(a=t[t.length-1])||"paragraph"!==a.type&&"text"!==a.type?t.push(n):(a.raw+="\n"+n.raw,a.text+="\n"+n.text,this.inlineQueue[this.inlineQueue.length-1].src=a.text);else if(n=this.tokenizer.fences(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.heading(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.hr(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.blockquote(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.list(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.html(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.def(e))e=e.substring(n.raw.length),!(a=t[t.length-1])||"paragraph"!==a.type&&"text"!==a.type?this.tokens.links[n.tag]||(this.tokens.links[n.tag]={href:n.href,title:n.title}):(a.raw+="\n"+n.raw,a.text+="\n"+n.raw,this.inlineQueue[this.inlineQueue.length-1].src=a.text);else if(n=this.tokenizer.table(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.lheading(e))e=e.substring(n.raw.length),t.push(n);else if(r=e,this.options.extensions&&this.options.extensions.startBlock&&function(){var t=1/0,n=e.slice(1),a=void 0;o.options.extensions.startBlock.forEach((function(e){"number"==typeof(a=e.call({lexer:this},n))&&a>=0&&(t=Math.min(t,a))})),t<1/0&&t>=0&&(r=e.substring(0,t+1))}(),this.state.top&&(n=this.tokenizer.paragraph(r)))a=t[t.length-1],s&&"paragraph"===a.type?(a.raw+="\n"+n.raw,a.text+="\n"+n.text,this.inlineQueue.pop(),this.inlineQueue[this.inlineQueue.length-1].src=a.text):t.push(n),s=r.length!==e.length,e=e.substring(n.raw.length);else if(n=this.tokenizer.text(e))e=e.substring(n.raw.length),(a=t[t.length-1])&&"text"===a.type?(a.raw+="\n"+n.raw,a.text+="\n"+n.text,this.inlineQueue.pop(),this.inlineQueue[this.inlineQueue.length-1].src=a.text):t.push(n);else if(e){var i="Infinite loop on byte: "+e.charCodeAt(0);if(this.options.silent){console.error(i);break}throw new Error(i)}return this.state.top=!0,t},n.inline=function(e,t){this.inlineQueue.push({src:e,tokens:t})},n.inlineTokens=function(e,t){var n,a,r,s=this;void 0===t&&(t=[]);var o,i,l,u=e;if(this.tokens.links){var c=Object.keys(this.tokens.links);if(c.length>0)for(;null!=(o=this.tokenizer.rules.inline.reflinkSearch.exec(u));)c.includes(o[0].slice(o[0].lastIndexOf("[")+1,-1))&&(u=u.slice(0,o.index)+"["+X("a",o[0].length-2)+"]"+u.slice(this.tokenizer.rules.inline.reflinkSearch.lastIndex))}for(;null!=(o=this.tokenizer.rules.inline.blockSkip.exec(u));)u=u.slice(0,o.index)+"["+X("a",o[0].length-2)+"]"+u.slice(this.tokenizer.rules.inline.blockSkip.lastIndex);for(;null!=(o=this.tokenizer.rules.inline.escapedEmSt.exec(u));)u=u.slice(0,o.index)+"++"+u.slice(this.tokenizer.rules.inline.escapedEmSt.lastIndex);for(;e;)if(i||(l=""),i=!1,!(this.options.extensions&&this.options.extensions.inline&&this.options.extensions.inline.some((function(a){return!!(n=a.call({lexer:s},e,t))&&(e=e.substring(n.raw.length),t.push(n),!0)}))))if(n=this.tokenizer.escape(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.tag(e))e=e.substring(n.raw.length),(a=t[t.length-1])&&"text"===n.type&&"text"===a.type?(a.raw+=n.raw,a.text+=n.text):t.push(n);else if(n=this.tokenizer.link(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.reflink(e,this.tokens.links))e=e.substring(n.raw.length),(a=t[t.length-1])&&"text"===n.type&&"text"===a.type?(a.raw+=n.raw,a.text+=n.text):t.push(n);else if(n=this.tokenizer.emStrong(e,u,l))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.codespan(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.br(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.del(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.autolink(e,ee))e=e.substring(n.raw.length),t.push(n);else if(this.state.inLink||!(n=this.tokenizer.url(e,ee))){if(r=e,this.options.extensions&&this.options.extensions.startInline&&function(){var t=1/0,n=e.slice(1),a=void 0;s.options.extensions.startInline.forEach((function(e){"number"==typeof(a=e.call({lexer:this},n))&&a>=0&&(t=Math.min(t,a))})),t<1/0&&t>=0&&(r=e.substring(0,t+1))}(),n=this.tokenizer.inlineText(r,Y))e=e.substring(n.raw.length),"_"!==n.raw.slice(-1)&&(l=n.raw.slice(-1)),i=!0,(a=t[t.length-1])&&"text"===a.type?(a.raw+=n.raw,a.text+=n.text):t.push(n);else if(e){var f="Infinite loop on byte: "+e.charCodeAt(0);if(this.options.silent){console.error(f);break}throw new Error(f)}}else e=e.substring(n.raw.length),t.push(n);return t},t(e,null,[{key:"rules",get:function(){return{block:Z,inline:Q}}}]),e}(),ne=s.exports.defaults,ae=I.cleanUrl,re=I.escape,se=function(){function e(e){this.options=e||ne}var t=e.prototype;return t.code=function(e,t,n){var a=(t||"").match(/\S*/)[0];if(this.options.highlight){var r=this.options.highlight(e,a);null!=r&&r!==e&&(n=!0,e=r)}return e=e.replace(/\n$/,"")+"\n",a?'<pre><code class="'+this.options.langPrefix+re(a,!0)+'">'+(n?e:re(e,!0))+"</code></pre>\n":"<pre><code>"+(n?e:re(e,!0))+"</code></pre>\n"},t.blockquote=function(e){return"<blockquote>\n"+e+"</blockquote>\n"},t.html=function(e){return e},t.heading=function(e,t,n,a){return this.options.headerIds?"<h"+t+' id="'+this.options.headerPrefix+a.slug(n)+'">'+e+"</h"+t+">\n":"<h"+t+">"+e+"</h"+t+">\n"},t.hr=function(){return this.options.xhtml?"<hr/>\n":"<hr>\n"},t.list=function(e,t,n){var a=t?"ol":"ul";return"<"+a+(t&&1!==n?' start="'+n+'"':"")+">\n"+e+"</"+a+">\n"},t.listitem=function(e){return"<li>"+e+"</li>\n"},t.checkbox=function(e){return"<input "+(e?'checked="" ':"")+'disabled="" type="checkbox"'+(this.options.xhtml?" /":"")+"> "},t.paragraph=function(e){return"<p>"+e+"</p>\n"},t.table=function(e,t){return t&&(t="<tbody>"+t+"</tbody>"),"<table>\n<thead>\n"+e+"</thead>\n"+t+"</table>\n"},t.tablerow=function(e){return"<tr>\n"+e+"</tr>\n"},t.tablecell=function(e,t){var n=t.header?"th":"td";return(t.align?"<"+n+' align="'+t.align+'">':"<"+n+">")+e+"</"+n+">\n"},t.strong=function(e){return"<strong>"+e+"</strong>"},t.em=function(e){return"<em>"+e+"</em>"},t.codespan=function(e){return"<code>"+e+"</code>"},t.br=function(){return this.options.xhtml?"<br/>":"<br>"},t.del=function(e){return"<del>"+e+"</del>"},t.link=function(e,t,n){if(null===(e=ae(this.options.sanitize,this.options.baseUrl,e)))return n;var a='<a href="'+re(e)+'"';return t&&(a+=' title="'+t+'"'),a+=">"+n+"</a>"},t.image=function(e,t,n){if(null===(e=ae(this.options.sanitize,this.options.baseUrl,e)))return n;var a='<img src="'+e+'" alt="'+n+'"';return t&&(a+=' title="'+t+'"'),a+=this.options.xhtml?"/>":">"},t.text=function(e){return e},e}(),oe=function(){function e(){}var t=e.prototype;return t.strong=function(e){return e},t.em=function(e){return e},t.codespan=function(e){return e},t.del=function(e){return e},t.html=function(e){return e},t.text=function(e){return e},t.link=function(e,t,n){return""+n},t.image=function(e,t,n){return""+n},t.br=function(){return""},e}(),ie=function(){function e(){this.seen={}}var t=e.prototype;return t.serialize=function(e){return e.toLowerCase().trim().replace(/<[!\/a-z].*?>/gi,"").replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,./:;<=>?@[\]^`{|}~]/g,"").replace(/\s/g,"-")},t.getNextSafeSlug=function(e,t){var n=e,a=0;if(this.seen.hasOwnProperty(n)){a=this.seen[e];do{n=e+"-"+ ++a}while(this.seen.hasOwnProperty(n))}return t||(this.seen[e]=a,this.seen[n]=0),n},t.slug=function(e,t){void 0===t&&(t={});var n=this.serialize(e);return this.getNextSafeSlug(n,t.dryrun)},e}(),le=se,ue=oe,ce=ie,fe=s.exports.defaults,he=I.unescape,de=te,pe=function(){function e(e){this.options=e||fe,this.options.renderer=this.options.renderer||new le,this.renderer=this.options.renderer,this.renderer.options=this.options,this.textRenderer=new ue,this.slugger=new ce}e.parse=function(t,n){return new e(n).parse(t)},e.parseInline=function(t,n){return new e(n).parseInline(t)};var t=e.prototype;return t.parse=function(e,t){void 0===t&&(t=!0);var n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D,b,x,y,E="",v=e.length;for(n=0;n<v;n++)if(f=e[n],!(this.options.extensions&&this.options.extensions.renderers&&this.options.extensions.renderers[f.type])||!1===(y=this.options.extensions.renderers[f.type].call({parser:this},f))&&["space","hr","heading","code","table","blockquote","list","html","paragraph","text"].includes(f.type))switch(f.type){case"space":continue;case"hr":E+=this.renderer.hr();continue;case"heading":E+=this.renderer.heading(this.parseInline(f.tokens),f.depth,he(this.parseInline(f.tokens,this.textRenderer)),this.slugger);continue;case"code":E+=this.renderer.code(f.text,f.lang,f.escaped);continue;case"table":for(u="",l="",s=f.header.length,a=0;a<s;a++)l+=this.renderer.tablecell(this.parseInline(f.header[a].tokens),{header:!0,align:f.align[a]});for(u+=this.renderer.tablerow(l),c="",s=f.rows.length,a=0;a<s;a++){for(l="",o=(i=f.rows[a]).length,r=0;r<o;r++)l+=this.renderer.tablecell(this.parseInline(i[r].tokens),{header:!1,align:f.align[r]});c+=this.renderer.tablerow(l)}E+=this.renderer.table(u,c);continue;case"blockquote":c=this.parse(f.tokens),E+=this.renderer.blockquote(c);continue;case"list":for(h=f.ordered,d=f.start,p=f.loose,s=f.items.length,c="",a=0;a<s;a++)D=(m=f.items[a]).checked,b=m.task,g="",m.task&&(x=this.renderer.checkbox(D),p?m.tokens.length>0&&"paragraph"===m.tokens[0].type?(m.tokens[0].text=x+" "+m.tokens[0].text,m.tokens[0].tokens&&m.tokens[0].tokens.length>0&&"text"===m.tokens[0].tokens[0].type&&(m.tokens[0].tokens[0].text=x+" "+m.tokens[0].tokens[0].text)):m.tokens.unshift({type:"text",text:x}):g+=x),g+=this.parse(m.tokens,p),c+=this.renderer.listitem(g,b,D);E+=this.renderer.list(c,h,d);continue;case"html":E+=this.renderer.html(f.text);continue;case"paragraph":E+=this.renderer.paragraph(this.parseInline(f.tokens));continue;case"text":for(c=f.tokens?this.parseInline(f.tokens):f.text;n+1<v&&"text"===e[n+1].type;)c+="\n"+((f=e[++n]).tokens?this.parseInline(f.tokens):f.text);E+=t?this.renderer.paragraph(c):c;continue;default:var k='Token with "'+f.type+'" type was not found.';if(this.options.silent)return void console.error(k);throw new Error(k)}else E+=y||"";return E},t.parseInline=function(e,t){t=t||this.renderer;var n,a,r,s="",o=e.length;for(n=0;n<o;n++)if(a=e[n],!(this.options.extensions&&this.options.extensions.renderers&&this.options.extensions.renderers[a.type])||!1===(r=this.options.extensions.renderers[a.type].call({parser:this},a))&&["escape","html","link","image","strong","em","codespan","br","del","text"].includes(a.type))switch(a.type){case"escape":s+=t.text(a.text);break;case"html":s+=t.html(a.text);break;case"link":s+=t.link(a.href,a.title,this.parseInline(a.tokens,t));break;case"image":s+=t.image(a.href,a.title,a.text);break;case"strong":s+=t.strong(this.parseInline(a.tokens,t));break;case"em":s+=t.em(this.parseInline(a.tokens,t));break;case"codespan":s+=t.codespan(a.text);break;case"br":s+=t.br();break;case"del":s+=t.del(this.parseInline(a.tokens,t));break;case"text":s+=t.text(a.text);break;default:var i='Token with "'+a.type+'" type was not found.';if(this.options.silent)return void console.error(i);throw new Error(i)}else s+=r||"";return s},e}(),ge=U,me=se,De=oe,be=ie,xe=I.merge,ye=I.checkSanitizeDeprecation,Ee=I.escape,ve=s.exports.getDefaults,ke=s.exports.changeDefaults,we=s.exports.defaults;function Ae(e,t,n){if(null==e)throw new Error("marked(): input parameter is undefined or null");if("string"!=typeof e)throw new Error("marked(): input parameter is of type "+Object.prototype.toString.call(e)+", string expected");if("function"==typeof t&&(n=t,t=null),t=xe({},Ae.defaults,t||{}),ye(t),n){var a,r=t.highlight;try{a=de.lex(e,t)}catch(e){return n(e)}var s=function(e){var s;if(!e)try{t.walkTokens&&Ae.walkTokens(a,t.walkTokens),s=pe.parse(a,t)}catch(t){e=t}return t.highlight=r,e?n(e):n(null,s)};if(!r||r.length<3)return s();if(delete t.highlight,!a.length)return s();var o=0;return Ae.walkTokens(a,(function(e){"code"===e.type&&(o++,setTimeout((function(){r(e.text,e.lang,(function(t,n){if(t)return s(t);null!=n&&n!==e.text&&(e.text=n,e.escaped=!0),0==--o&&s()}))}),0))})),void(0===o&&s())}try{var i=de.lex(e,t);return t.walkTokens&&Ae.walkTokens(i,t.walkTokens),pe.parse(i,t)}catch(e){if(e.message+="\nPlease report this to https://github.com/markedjs/marked.",t.silent)return"<p>An error occurred:</p><pre>"+Ee(e.message+"",!0)+"</pre>";throw e}}return Ae.options=Ae.setOptions=function(e){return xe(Ae.defaults,e),ke(Ae.defaults),Ae},Ae.getDefaults=ve,Ae.defaults=we,Ae.use=function(){for(var e=this,t=arguments.length,n=new Array(t),a=0;a<t;a++)n[a]=arguments[a];var r,s=xe.apply(void 0,[{}].concat(n)),o=Ae.defaults.extensions||{renderers:{},childTokens:{}};n.forEach((function(t){if(t.extensions&&(r=!0,t.extensions.forEach((function(e){if(!e.name)throw new Error("extension name required");if(e.renderer){var t=o.renderers?o.renderers[e.name]:null;o.renderers[e.name]=t?function(){for(var n=arguments.length,a=new Array(n),r=0;r<n;r++)a[r]=arguments[r];var s=e.renderer.apply(this,a);return!1===s&&(s=t.apply(this,a)),s}:e.renderer}if(e.tokenizer){if(!e.level||"block"!==e.level&&"inline"!==e.level)throw new Error("extension level must be 'block' or 'inline'");o[e.level]?o[e.level].unshift(e.tokenizer):o[e.level]=[e.tokenizer],e.start&&("block"===e.level?o.startBlock?o.startBlock.push(e.start):o.startBlock=[e.start]:"inline"===e.level&&(o.startInline?o.startInline.push(e.start):o.startInline=[e.start]))}e.childTokens&&(o.childTokens[e.name]=e.childTokens)}))),t.renderer&&function(){var e=Ae.defaults.renderer||new me,n=function(n){var a=e[n];e[n]=function(){for(var r=arguments.length,s=new Array(r),o=0;o<r;o++)s[o]=arguments[o];var i=t.renderer[n].apply(e,s);return!1===i&&(i=a.apply(e,s)),i}};for(var a in t.renderer)n(a);s.renderer=e}(),t.tokenizer&&function(){var e=Ae.defaults.tokenizer||new ge,n=function(n){var a=e[n];e[n]=function(){for(var r=arguments.length,s=new Array(r),o=0;o<r;o++)s[o]=arguments[o];var i=t.tokenizer[n].apply(e,s);return!1===i&&(i=a.apply(e,s)),i}};for(var a in t.tokenizer)n(a);s.tokenizer=e}(),t.walkTokens){var n=Ae.defaults.walkTokens;s.walkTokens=function(a){t.walkTokens.call(e,a),n&&n(a)}}r&&(s.extensions=o),Ae.setOptions(s)}))},Ae.walkTokens=function(e,t){for(var n,a=function(){var e=n.value;switch(t(e),e.type){case"table":for(var a,s=r(e.header);!(a=s()).done;){var o=a.value;Ae.walkTokens(o.tokens,t)}for(var i,l=r(e.rows);!(i=l()).done;)for(var u,c=r(i.value);!(u=c()).done;){var f=u.value;Ae.walkTokens(f.tokens,t)}break;case"list":Ae.walkTokens(e.items,t);break;default:Ae.defaults.extensions&&Ae.defaults.extensions.childTokens&&Ae.defaults.extensions.childTokens[e.type]?Ae.defaults.extensions.childTokens[e.type].forEach((function(n){Ae.walkTokens(e[n],t)})):e.tokens&&Ae.walkTokens(e.tokens,t)}},s=r(e);!(n=s()).done;)a()},Ae.parseInline=function(e,t){if(null==e)throw new Error("marked.parseInline(): input parameter is undefined or null");if("string"!=typeof e)throw new Error("marked.parseInline(): input parameter is of type "+Object.prototype.toString.call(e)+", string expected");t=xe({},Ae.defaults,t||{}),ye(t);try{var n=de.lexInline(e,t);return t.walkTokens&&Ae.walkTokens(n,t.walkTokens),pe.parseInline(n,t)}catch(e){if(e.message+="\nPlease report this to https://github.com/markedjs/marked.",t.silent)return"<p>An error occurred:</p><pre>"+Ee(e.message+"",!0)+"</pre>";throw e}},Ae.Parser=pe,Ae.parser=pe.parse,Ae.Renderer=me,Ae.TextRenderer=De,Ae.Lexer=de,Ae.lexer=de.lex,Ae.Tokenizer=ge,Ae.Slugger=be,Ae.parse=Ae,Ae}()}(wr={path:kr,exports:{},require:function(e,t){return function(){throw new Error("Dynamic requires are not currently supported by @rollup/plugin-commonjs")}(null==t&&wr.path)}},wr.exports),wr.exports);function $r(e,t,n){const a=e.slice();return a[3]=t[n],a}function Cr(e){let t,n,a,r=e[3].label+"";return{c(){t=A("a"),n=$(r),this.h()},l(e){t=I(e,"A",{class:!0,href:!0});var a=T(t);n=O(a,r),a.forEach(k),this.h()},h(){S(t,"class","article-content-link"),S(t,"href",a=e[3].link)},m(e,a){v(e,t,a),E(t,n)},p(e,s){2&s&&r!==(r=e[3].label+"")&&P(n,r),2&s&&a!==(a=e[3].link)&&S(t,"href",a)},d(e){e&&k(t)}}}function Fr(e){let t,n,a;return{c(){t=A("p"),n=A("i"),a=$("Go Back"),this.h()},l(e){t=I(e,"P",{class:!0});var r=T(t);n=I(r,"I",{class:!0}),T(n).forEach(k),a=O(r,"Go Back"),r.forEach(k),this.h()},h(){S(n,"class","fas fa-arrow-left mr-3"),S(t,"class","text-gray-700 font-bold font-mono")},m(e,r){v(e,t,r),E(t,n),E(t,a)},d(e){e&&k(t)}}}function Br(e){let t,n,a,r,s,o,i,l,u,c,f,h,d,p,g,m,D=e[1],b=[];for(let t=0;t<D.length;t+=1)b[t]=Cr($r(e,D,t));return d=new ut({props:{to:"/",class:"px-4 py-2 inline-block leading-4 border-green-400 border bg-green-200 hover:bg-green-300 rounded-none mr-3 text-gray-700 font-mono",$$slots:{default:[Fr]},$$scope:{ctx:e}}}),{c(){t=A("main"),n=A("div");for(let e=0;e<b.length;e+=1)b[e].c();a=C(),r=A("article"),s=A("h1"),o=$("How I Made My Own Cryptocurrency"),i=C(),l=A("p"),u=$("by Ng Bob Shoaun  ∙  2 August 2021  ∙  8 minute read"),c=C(),f=A("hr"),h=C(),ve(d.$$.fragment),p=C(),g=A("div"),this.h()},l(e){t=I(e,"MAIN",{class:!0});var m=T(t);n=I(m,"DIV",{class:!0});var D=T(n);for(let e=0;e<b.length;e+=1)b[e].l(D);D.forEach(k),a=R(m),r=I(m,"ARTICLE",{class:!0});var x=T(r);s=I(x,"H1",{class:!0});var y=T(s);o=O(y,"How I Made My Own Cryptocurrency"),y.forEach(k),i=R(x),l=I(x,"P",{class:!0});var E=T(l);u=O(E,"by Ng Bob Shoaun  ∙  2 August 2021  ∙  8 minute read"),E.forEach(k),c=R(x),f=I(x,"HR",{class:!0}),h=R(x),ke(d.$$.fragment,x),p=R(x),g=I(x,"DIV",{class:!0}),T(g).forEach(k),x.forEach(k),m.forEach(k),this.h()},h(){S(n,"class","sticky top-16 text-gray-100 hidden lg:block ml-auto self-start"),S(s,"class","text-3xl lg:text-5xl font-bold mb-4"),S(l,"class","text-gray-500 dark:text-gray-300 mb-3"),S(f,"class","mb-5 border-gray-400 "),S(g,"class","article-content"),S(r,"class","max-w-3xl mx-auto text-gray-700 dark:text-white"),S(t,"class","bg-gray-50 dark:bg-gray-800 pt-32 pb-24 px-5 lg:px-10 flex gap-5")},m(D,x){v(D,t,x),E(t,n);for(let e=0;e<b.length;e+=1)b[e].m(n,null);E(t,a),E(t,r),E(r,s),E(s,o),E(r,i),E(r,l),E(l,u),E(r,c),E(r,f),E(r,h),we(d,r,null),E(r,p),E(r,g),g.innerHTML=e[0],m=!0},p(e,[t]){if(2&t){let a;for(D=e[1],a=0;a<D.length;a+=1){const r=$r(e,D,a);b[a]?b[a].p(r,t):(b[a]=Cr(r),b[a].c(),b[a].m(n,null))}for(;a<b.length;a+=1)b[a].d(1);b.length=D.length}const a={};64&t&&(a.$$scope={dirty:t,ctx:e}),d.$set(a),(!m||1&t)&&(g.innerHTML=e[0])},i(e){m||(ge(d.$$.fragment,e),m=!0)},o(e){me(d.$$.fragment,e),m=!1},d(e){e&&k(t),w(b,e),Ae(d)}}}function Sr(e,t,n){W((async function(){const e=await fetch("/how-i-made-my-own-cryptocurrency.md"),t=await e.text(),r=new Ar.Renderer;r.link=(e,t,n)=>`<a target="_blank" href="${e}" title="${t}">${n}</a>`,n(0,a=Ar(t,{renderer:r}))}));let a="",r=[];return function(e){G().$$.after_update.push(e)}((()=>{const e=document.querySelectorAll("h2");n(1,r=[...e].map((e=>({label:e.innerText,link:`#${e.id}`}))))})),[a,r]}class _r extends Fe{constructor(e){super(),Ce(this,e,Sr,Br,i,{})}}function Tr(e){let t,n,a;function r(t){e[4].call(null,t)}let s={};return void 0!==e[1]&&(s.theme=e[1]),t=new Na({props:s}),X.push((()=>Ee(t,"theme",r))),{c(){ve(t.$$.fragment)},l(e){ke(t.$$.fragment,e)},m(e,n){we(t,e,n),a=!0},p(e,a){const r={};!n&&2&a&&(n=!0,r.theme=e[1],re((()=>n=!1))),t.$set(r)},i(e){a||(ge(t.$$.fragment,e),a=!0)},o(e){me(t.$$.fragment,e),a=!1},d(e){Ae(t,e)}}}function Ir(e){let t,n,a,r,s,o,i,l,u,c,f,h;return t=new ot({props:{path:"/",$$slots:{default:[Tr]},$$scope:{ctx:e}}}),a=new ot({props:{path:"resume",component:yr}}),s=new ot({props:{path:"Resume",component:yr}}),i=new ot({props:{path:"articles/how-i-made-my-own-cryptocurrency",component:_r}}),u=new ot({props:{path:"Facts",component:vr}}),f=new ot({props:{path:"facts",component:vr}}),{c(){ve(t.$$.fragment),n=C(),ve(a.$$.fragment),r=C(),ve(s.$$.fragment),o=C(),ve(i.$$.fragment),l=C(),ve(u.$$.fragment),c=C(),ve(f.$$.fragment)},l(e){ke(t.$$.fragment,e),n=R(e),ke(a.$$.fragment,e),r=R(e),ke(s.$$.fragment,e),o=R(e),ke(i.$$.fragment,e),l=R(e),ke(u.$$.fragment,e),c=R(e),ke(f.$$.fragment,e)},m(e,d){we(t,e,d),v(e,n,d),we(a,e,d),v(e,r,d),we(s,e,d),v(e,o,d),we(i,e,d),v(e,l,d),we(u,e,d),v(e,c,d),we(f,e,d),h=!0},p(e,n){const a={};66&n&&(a.$$scope={dirty:n,ctx:e}),t.$set(a)},i(e){h||(ge(t.$$.fragment,e),ge(a.$$.fragment,e),ge(s.$$.fragment,e),ge(i.$$.fragment,e),ge(u.$$.fragment,e),ge(f.$$.fragment,e),h=!0)},o(e){me(t.$$.fragment,e),me(a.$$.fragment,e),me(s.$$.fragment,e),me(i.$$.fragment,e),me(u.$$.fragment,e),me(f.$$.fragment,e),h=!1},d(e){Ae(t,e),e&&k(n),Ae(a,e),e&&k(r),Ae(s,e),e&&k(o),Ae(i,e),e&&k(l),Ae(u,e),e&&k(c),Ae(f,e)}}}function Or(e){let t,n,a,r,s,o,i,l,u;function c(t){e[3].call(null,t)}let f={};return void 0!==e[1]&&(f.theme=e[1]),n=new gt({props:f}),X.push((()=>Ee(n,"theme",c))),n.$on("toggleTheme",e[2]),s=new Xe({props:{url:e[0],$$slots:{default:[Ir]},$$scope:{ctx:e}}}),i=new za({}),{c(){t=A("div"),ve(n.$$.fragment),r=C(),ve(s.$$.fragment),o=C(),ve(i.$$.fragment),this.h()},l(e){t=I(e,"DIV",{class:!0});var a=T(t);ke(n.$$.fragment,a),r=R(a),ke(s.$$.fragment,a),o=R(a),ke(i.$$.fragment,a),a.forEach(k),this.h()},h(){S(t,"class",l=("dark"===e[1]?"dark":"")+" flex flex-col")},m(e,a){v(e,t,a),we(n,t,null),E(t,r),we(s,t,null),E(t,o),we(i,t,null),u=!0},p(e,[r]){const o={};!a&&2&r&&(a=!0,o.theme=e[1],re((()=>a=!1))),n.$set(o);const i={};1&r&&(i.url=e[0]),66&r&&(i.$$scope={dirty:r,ctx:e}),s.$set(i),(!u||2&r&&l!==(l=("dark"===e[1]?"dark":"")+" flex flex-col"))&&S(t,"class",l)},i(e){u||(ge(n.$$.fragment,e),ge(s.$$.fragment,e),ge(i.$$.fragment,e),u=!0)},o(e){me(n.$$.fragment,e),me(s.$$.fragment,e),me(i.$$.fragment,e),u=!1},d(e){e&&k(t),Ae(n),Ae(s),Ae(i)}}}function Rr(e,t,n){let{url:a=""}=t,r="dark";const s=e=>{n(1,r=e),localStorage.theme=e,document.documentElement.style.setProperty("--theme",e)};"theme"in localStorage?s(localStorage.theme):s("dark");return e.$$set=e=>{"url"in e&&n(0,a=e.url)},[a,r,()=>s("dark"===r?"light":"dark"),function(e){r=e,n(1,r)},function(e){r=e,n(1,r)}]}return new class extends Fe{constructor(e){super(),Ce(this,e,Rr,Or,i,{url:0})}}({target:document.body,props:{},hydrate:!0})}();
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    const identity = x => x;
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function validate_store(store, name) {
+        if (store != null && typeof store.subscribe !== 'function') {
+            throw new Error(`'${name}' is not a store with a 'subscribe' method`);
+        }
+    }
+    function subscribe(store, ...callbacks) {
+        if (store == null) {
+            return noop;
+        }
+        const unsub = store.subscribe(...callbacks);
+        return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
+    }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function update_slot(slot, slot_definition, ctx, $$scope, dirty, get_slot_changes_fn, get_slot_context_fn) {
+        const slot_changes = get_slot_changes(slot_definition, $$scope, dirty, get_slot_changes_fn);
+        if (slot_changes) {
+            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+            slot.p(slot_context, slot_changes);
+        }
+    }
+    function exclude_internal_props(props) {
+        const result = {};
+        for (const k in props)
+            if (k[0] !== '$')
+                result[k] = props[k];
+        return result;
+    }
+    function compute_rest_props(props, keys) {
+        const rest = {};
+        keys = new Set(keys);
+        for (const k in props)
+            if (!keys.has(k) && k[0] !== '$')
+                rest[k] = props[k];
+        return rest;
+    }
+    function null_to_empty(value) {
+        return value == null ? '' : value;
+    }
+    function action_destroyer(action_result) {
+        return action_result && is_function(action_result.destroy) ? action_result.destroy : noop;
+    }
+
+    const is_client = typeof window !== 'undefined';
+    let now = is_client
+        ? () => window.performance.now()
+        : () => Date.now();
+    let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+
+    const tasks = new Set();
+    function run_tasks(now) {
+        tasks.forEach(task => {
+            if (!task.c(now)) {
+                tasks.delete(task);
+                task.f();
+            }
+        });
+        if (tasks.size !== 0)
+            raf(run_tasks);
+    }
+    /**
+     * Creates a new task that runs on each raf frame
+     * until it returns a falsy value or is aborted
+     */
+    function loop(callback) {
+        let task;
+        if (tasks.size === 0)
+            raf(run_tasks);
+        return {
+            promise: new Promise(fulfill => {
+                tasks.add(task = { c: callback, f: fulfill });
+            }),
+            abort() {
+                tasks.delete(task);
+            }
+        };
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function prevent_default(fn) {
+        return function (event) {
+            event.preventDefault();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function set_attributes(node, attributes) {
+        // @ts-ignore
+        const descriptors = Object.getOwnPropertyDescriptors(node.__proto__);
+        for (const key in attributes) {
+            if (attributes[key] == null) {
+                node.removeAttribute(key);
+            }
+            else if (key === 'style') {
+                node.style.cssText = attributes[key];
+            }
+            else if (key === '__value') {
+                node.value = node[key] = attributes[key];
+            }
+            else if (descriptors[key] && descriptors[key].set) {
+                node[key] = attributes[key];
+            }
+            else {
+                attr(node, key, attributes[key]);
+            }
+        }
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function claim_element(nodes, name, attributes, svg) {
+        for (let i = 0; i < nodes.length; i += 1) {
+            const node = nodes[i];
+            if (node.nodeName === name) {
+                let j = 0;
+                const remove = [];
+                while (j < node.attributes.length) {
+                    const attribute = node.attributes[j++];
+                    if (!attributes[attribute.name]) {
+                        remove.push(attribute.name);
+                    }
+                }
+                for (let k = 0; k < remove.length; k++) {
+                    node.removeAttribute(remove[k]);
+                }
+                return nodes.splice(i, 1)[0];
+            }
+        }
+        return svg ? svg_element(name) : element(name);
+    }
+    function claim_text(nodes, data) {
+        for (let i = 0; i < nodes.length; i += 1) {
+            const node = nodes[i];
+            if (node.nodeType === 3) {
+                node.data = '' + data;
+                return nodes.splice(i, 1)[0];
+            }
+        }
+        return text(data);
+    }
+    function claim_space(nodes) {
+        return claim_text(nodes, ' ');
+    }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
+    class HtmlTag {
+        constructor(anchor = null) {
+            this.a = anchor;
+            this.e = this.n = null;
+        }
+        m(html, target, anchor = null) {
+            if (!this.e) {
+                this.e = element(target.nodeName);
+                this.t = target;
+                this.h(html);
+            }
+            this.i(anchor);
+        }
+        h(html) {
+            this.e.innerHTML = html;
+            this.n = Array.from(this.e.childNodes);
+        }
+        i(anchor) {
+            for (let i = 0; i < this.n.length; i += 1) {
+                insert(this.t, this.n[i], anchor);
+            }
+        }
+        p(html) {
+            this.d();
+            this.h(html);
+            this.i(this.a);
+        }
+        d() {
+            this.n.forEach(detach);
+        }
+    }
+
+    const active_docs = new Set();
+    let active = 0;
+    // https://github.com/darkskyapp/string-hash/blob/master/index.js
+    function hash(str) {
+        let hash = 5381;
+        let i = str.length;
+        while (i--)
+            hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
+        return hash >>> 0;
+    }
+    function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
+        const step = 16.666 / duration;
+        let keyframes = '{\n';
+        for (let p = 0; p <= 1; p += step) {
+            const t = a + (b - a) * ease(p);
+            keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
+        }
+        const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
+        const name = `__svelte_${hash(rule)}_${uid}`;
+        const doc = node.ownerDocument;
+        active_docs.add(doc);
+        const stylesheet = doc.__svelte_stylesheet || (doc.__svelte_stylesheet = doc.head.appendChild(element('style')).sheet);
+        const current_rules = doc.__svelte_rules || (doc.__svelte_rules = {});
+        if (!current_rules[name]) {
+            current_rules[name] = true;
+            stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+        }
+        const animation = node.style.animation || '';
+        node.style.animation = `${animation ? `${animation}, ` : ''}${name} ${duration}ms linear ${delay}ms 1 both`;
+        active += 1;
+        return name;
+    }
+    function delete_rule(node, name) {
+        const previous = (node.style.animation || '').split(', ');
+        const next = previous.filter(name
+            ? anim => anim.indexOf(name) < 0 // remove specific animation
+            : anim => anim.indexOf('__svelte') === -1 // remove all Svelte animations
+        );
+        const deleted = previous.length - next.length;
+        if (deleted) {
+            node.style.animation = next.join(', ');
+            active -= deleted;
+            if (!active)
+                clear_rules();
+        }
+    }
+    function clear_rules() {
+        raf(() => {
+            if (active)
+                return;
+            active_docs.forEach(doc => {
+                const stylesheet = doc.__svelte_stylesheet;
+                let i = stylesheet.cssRules.length;
+                while (i--)
+                    stylesheet.deleteRule(i);
+                doc.__svelte_rules = {};
+            });
+            active_docs.clear();
+        });
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+    function afterUpdate(fn) {
+        get_current_component().$$.after_update.push(fn);
+    }
+    function onDestroy(fn) {
+        get_current_component().$$.on_destroy.push(fn);
+    }
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, detail) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                // TODO are there situations where events could be dispatched
+                // in a server (non-DOM) environment?
+                const event = custom_event(type, detail);
+                callbacks.slice().forEach(fn => {
+                    fn.call(component, event);
+                });
+            }
+        };
+    }
+    function setContext(key, context) {
+        get_current_component().$$.context.set(key, context);
+    }
+    function getContext(key) {
+        return get_current_component().$$.context.get(key);
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    function add_flush_callback(fn) {
+        flush_callbacks.push(fn);
+    }
+    let flushing = false;
+    const seen_callbacks = new Set();
+    function flush() {
+        if (flushing)
+            return;
+        flushing = true;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            for (let i = 0; i < dirty_components.length; i += 1) {
+                const component = dirty_components[i];
+                set_current_component(component);
+                update(component.$$);
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        flushing = false;
+        seen_callbacks.clear();
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+
+    let promise;
+    function wait() {
+        if (!promise) {
+            promise = Promise.resolve();
+            promise.then(() => {
+                promise = null;
+            });
+        }
+        return promise;
+    }
+    function dispatch(node, direction, kind) {
+        node.dispatchEvent(custom_event(`${direction ? 'intro' : 'outro'}${kind}`));
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+    const null_transition = { duration: 0 };
+    function create_bidirectional_transition(node, fn, params, intro) {
+        let config = fn(node, params);
+        let t = intro ? 0 : 1;
+        let running_program = null;
+        let pending_program = null;
+        let animation_name = null;
+        function clear_animation() {
+            if (animation_name)
+                delete_rule(node, animation_name);
+        }
+        function init(program, duration) {
+            const d = program.b - t;
+            duration *= Math.abs(d);
+            return {
+                a: t,
+                b: program.b,
+                d,
+                duration,
+                start: program.start,
+                end: program.start + duration,
+                group: program.group
+            };
+        }
+        function go(b) {
+            const { delay = 0, duration = 300, easing = identity, tick = noop, css } = config || null_transition;
+            const program = {
+                start: now() + delay,
+                b
+            };
+            if (!b) {
+                // @ts-ignore todo: improve typings
+                program.group = outros;
+                outros.r += 1;
+            }
+            if (running_program || pending_program) {
+                pending_program = program;
+            }
+            else {
+                // if this is an intro, and there's a delay, we need to do
+                // an initial tick and/or apply CSS animation immediately
+                if (css) {
+                    clear_animation();
+                    animation_name = create_rule(node, t, b, duration, delay, easing, css);
+                }
+                if (b)
+                    tick(0, 1);
+                running_program = init(program, duration);
+                add_render_callback(() => dispatch(node, b, 'start'));
+                loop(now => {
+                    if (pending_program && now > pending_program.start) {
+                        running_program = init(pending_program, duration);
+                        pending_program = null;
+                        dispatch(node, running_program.b, 'start');
+                        if (css) {
+                            clear_animation();
+                            animation_name = create_rule(node, t, running_program.b, running_program.duration, 0, easing, config.css);
+                        }
+                    }
+                    if (running_program) {
+                        if (now >= running_program.end) {
+                            tick(t = running_program.b, 1 - t);
+                            dispatch(node, running_program.b, 'end');
+                            if (!pending_program) {
+                                // we're done
+                                if (running_program.b) {
+                                    // intro — we can tidy up immediately
+                                    clear_animation();
+                                }
+                                else {
+                                    // outro — needs to be coordinated
+                                    if (!--running_program.group.r)
+                                        run_all(running_program.group.c);
+                                }
+                            }
+                            running_program = null;
+                        }
+                        else if (now >= running_program.start) {
+                            const p = now - running_program.start;
+                            t = running_program.a + running_program.d * easing(p / running_program.duration);
+                            tick(t, 1 - t);
+                        }
+                    }
+                    return !!(running_program || pending_program);
+                });
+            }
+        }
+        return {
+            run(b) {
+                if (is_function(config)) {
+                    wait().then(() => {
+                        // @ts-ignore
+                        config = config();
+                        go(b);
+                    });
+                }
+                else {
+                    go(b);
+                }
+            },
+            end() {
+                clear_animation();
+                running_program = pending_program = null;
+            }
+        };
+    }
+
+    function get_spread_update(levels, updates) {
+        const update = {};
+        const to_null_out = {};
+        const accounted_for = { $$scope: 1 };
+        let i = levels.length;
+        while (i--) {
+            const o = levels[i];
+            const n = updates[i];
+            if (n) {
+                for (const key in o) {
+                    if (!(key in n))
+                        to_null_out[key] = 1;
+                }
+                for (const key in n) {
+                    if (!accounted_for[key]) {
+                        update[key] = n[key];
+                        accounted_for[key] = 1;
+                    }
+                }
+                levels[i] = n;
+            }
+            else {
+                for (const key in o) {
+                    accounted_for[key] = 1;
+                }
+            }
+        }
+        for (const key in to_null_out) {
+            if (!(key in update))
+                update[key] = undefined;
+        }
+        return update;
+    }
+    function get_spread_object(spread_props) {
+        return typeof spread_props === 'object' && spread_props !== null ? spread_props : {};
+    }
+
+    function bind(component, name, callback) {
+        const index = component.$$.props[name];
+        if (index !== undefined) {
+            component.$$.bound[index] = callback;
+            callback(component.$$.ctx[index]);
+        }
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function claim_component(block, parent_nodes) {
+        block && block.l(parent_nodes);
+    }
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const prop_values = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, prop_values, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.31.2' }, detail)));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.wholeText === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    function cubicOut(t) {
+        const f = t - 1.0;
+        return f * f * f + 1.0;
+    }
+
+    function fade(node, { delay = 0, duration = 400, easing = identity }) {
+        const o = +getComputedStyle(node).opacity;
+        return {
+            delay,
+            duration,
+            easing,
+            css: t => `opacity: ${t * o}`
+        };
+    }
+    function slide(node, { delay = 0, duration = 400, easing = cubicOut }) {
+        const style = getComputedStyle(node);
+        const opacity = +style.opacity;
+        const height = parseFloat(style.height);
+        const padding_top = parseFloat(style.paddingTop);
+        const padding_bottom = parseFloat(style.paddingBottom);
+        const margin_top = parseFloat(style.marginTop);
+        const margin_bottom = parseFloat(style.marginBottom);
+        const border_top_width = parseFloat(style.borderTopWidth);
+        const border_bottom_width = parseFloat(style.borderBottomWidth);
+        return {
+            delay,
+            duration,
+            easing,
+            css: t => 'overflow: hidden;' +
+                `opacity: ${Math.min(t * 20, 1) * opacity};` +
+                `height: ${t * height}px;` +
+                `padding-top: ${t * padding_top}px;` +
+                `padding-bottom: ${t * padding_bottom}px;` +
+                `margin-top: ${t * margin_top}px;` +
+                `margin-bottom: ${t * margin_bottom}px;` +
+                `border-top-width: ${t * border_top_width}px;` +
+                `border-bottom-width: ${t * border_bottom_width}px;`
+        };
+    }
+
+    const subscriber_queue = [];
+    /**
+     * Creates a `Readable` store that allows reading by subscription.
+     * @param value initial value
+     * @param {StartStopNotifier}start start and stop notifications for subscriptions
+     */
+    function readable(value, start) {
+        return {
+            subscribe: writable(value, start).subscribe
+        };
+    }
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop) {
+        let stop;
+        const subscribers = [];
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (let i = 0; i < subscribers.length; i += 1) {
+                        const s = subscribers[i];
+                        s[1]();
+                        subscriber_queue.push(s, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop) {
+            const subscriber = [run, invalidate];
+            subscribers.push(subscriber);
+            if (subscribers.length === 1) {
+                stop = start(set) || noop;
+            }
+            run(value);
+            return () => {
+                const index = subscribers.indexOf(subscriber);
+                if (index !== -1) {
+                    subscribers.splice(index, 1);
+                }
+                if (subscribers.length === 0) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+    function derived(stores, fn, initial_value) {
+        const single = !Array.isArray(stores);
+        const stores_array = single
+            ? [stores]
+            : stores;
+        const auto = fn.length < 2;
+        return readable(initial_value, (set) => {
+            let inited = false;
+            const values = [];
+            let pending = 0;
+            let cleanup = noop;
+            const sync = () => {
+                if (pending) {
+                    return;
+                }
+                cleanup();
+                const result = fn(single ? values[0] : values, set);
+                if (auto) {
+                    set(result);
+                }
+                else {
+                    cleanup = is_function(result) ? result : noop;
+                }
+            };
+            const unsubscribers = stores_array.map((store, i) => subscribe(store, (value) => {
+                values[i] = value;
+                pending &= ~(1 << i);
+                if (inited) {
+                    sync();
+                }
+            }, () => {
+                pending |= (1 << i);
+            }));
+            inited = true;
+            sync();
+            return function stop() {
+                run_all(unsubscribers);
+                cleanup();
+            };
+        });
+    }
+
+    const LOCATION = {};
+    const ROUTER = {};
+
+    /**
+     * Adapted from https://github.com/reach/router/blob/b60e6dd781d5d3a4bdaaf4de665649c0f6a7e78d/src/lib/history.js
+     *
+     * https://github.com/reach/router/blob/master/LICENSE
+     * */
+
+    function getLocation(source) {
+      return {
+        ...source.location,
+        state: source.history.state,
+        key: (source.history.state && source.history.state.key) || "initial"
+      };
+    }
+
+    function createHistory(source, options) {
+      const listeners = [];
+      let location = getLocation(source);
+
+      return {
+        get location() {
+          return location;
+        },
+
+        listen(listener) {
+          listeners.push(listener);
+
+          const popstateListener = () => {
+            location = getLocation(source);
+            listener({ location, action: "POP" });
+          };
+
+          source.addEventListener("popstate", popstateListener);
+
+          return () => {
+            source.removeEventListener("popstate", popstateListener);
+
+            const index = listeners.indexOf(listener);
+            listeners.splice(index, 1);
+          };
+        },
+
+        navigate(to, { state, replace = false } = {}) {
+          state = { ...state, key: Date.now() + "" };
+          // try...catch iOS Safari limits to 100 pushState calls
+          try {
+            if (replace) {
+              source.history.replaceState(state, null, to);
+            } else {
+              source.history.pushState(state, null, to);
+            }
+          } catch (e) {
+            source.location[replace ? "replace" : "assign"](to);
+          }
+
+          location = getLocation(source);
+          listeners.forEach(listener => listener({ location, action: "PUSH" }));
+        }
+      };
+    }
+
+    // Stores history entries in memory for testing or other platforms like Native
+    function createMemorySource(initialPathname = "/") {
+      let index = 0;
+      const stack = [{ pathname: initialPathname, search: "" }];
+      const states = [];
+
+      return {
+        get location() {
+          return stack[index];
+        },
+        addEventListener(name, fn) {},
+        removeEventListener(name, fn) {},
+        history: {
+          get entries() {
+            return stack;
+          },
+          get index() {
+            return index;
+          },
+          get state() {
+            return states[index];
+          },
+          pushState(state, _, uri) {
+            const [pathname, search = ""] = uri.split("?");
+            index++;
+            stack.push({ pathname, search });
+            states.push(state);
+          },
+          replaceState(state, _, uri) {
+            const [pathname, search = ""] = uri.split("?");
+            stack[index] = { pathname, search };
+            states[index] = state;
+          }
+        }
+      };
+    }
+
+    // Global history uses window.history as the source if available,
+    // otherwise a memory history
+    const canUseDOM = Boolean(
+      typeof window !== "undefined" &&
+        window.document &&
+        window.document.createElement
+    );
+    const globalHistory = createHistory(canUseDOM ? window : createMemorySource());
+    const { navigate } = globalHistory;
+
+    /**
+     * Adapted from https://github.com/reach/router/blob/b60e6dd781d5d3a4bdaaf4de665649c0f6a7e78d/src/lib/utils.js
+     *
+     * https://github.com/reach/router/blob/master/LICENSE
+     * */
+
+    const paramRe = /^:(.+)/;
+
+    const SEGMENT_POINTS = 4;
+    const STATIC_POINTS = 3;
+    const DYNAMIC_POINTS = 2;
+    const SPLAT_PENALTY = 1;
+    const ROOT_POINTS = 1;
+
+    /**
+     * Check if `string` starts with `search`
+     * @param {string} string
+     * @param {string} search
+     * @return {boolean}
+     */
+    function startsWith(string, search) {
+      return string.substr(0, search.length) === search;
+    }
+
+    /**
+     * Check if `segment` is a root segment
+     * @param {string} segment
+     * @return {boolean}
+     */
+    function isRootSegment(segment) {
+      return segment === "";
+    }
+
+    /**
+     * Check if `segment` is a dynamic segment
+     * @param {string} segment
+     * @return {boolean}
+     */
+    function isDynamic(segment) {
+      return paramRe.test(segment);
+    }
+
+    /**
+     * Check if `segment` is a splat
+     * @param {string} segment
+     * @return {boolean}
+     */
+    function isSplat(segment) {
+      return segment[0] === "*";
+    }
+
+    /**
+     * Split up the URI into segments delimited by `/`
+     * @param {string} uri
+     * @return {string[]}
+     */
+    function segmentize(uri) {
+      return (
+        uri
+          // Strip starting/ending `/`
+          .replace(/(^\/+|\/+$)/g, "")
+          .split("/")
+      );
+    }
+
+    /**
+     * Strip `str` of potential start and end `/`
+     * @param {string} str
+     * @return {string}
+     */
+    function stripSlashes(str) {
+      return str.replace(/(^\/+|\/+$)/g, "");
+    }
+
+    /**
+     * Score a route depending on how its individual segments look
+     * @param {object} route
+     * @param {number} index
+     * @return {object}
+     */
+    function rankRoute(route, index) {
+      const score = route.default
+        ? 0
+        : segmentize(route.path).reduce((score, segment) => {
+            score += SEGMENT_POINTS;
+
+            if (isRootSegment(segment)) {
+              score += ROOT_POINTS;
+            } else if (isDynamic(segment)) {
+              score += DYNAMIC_POINTS;
+            } else if (isSplat(segment)) {
+              score -= SEGMENT_POINTS + SPLAT_PENALTY;
+            } else {
+              score += STATIC_POINTS;
+            }
+
+            return score;
+          }, 0);
+
+      return { route, score, index };
+    }
+
+    /**
+     * Give a score to all routes and sort them on that
+     * @param {object[]} routes
+     * @return {object[]}
+     */
+    function rankRoutes(routes) {
+      return (
+        routes
+          .map(rankRoute)
+          // If two routes have the exact same score, we go by index instead
+          .sort((a, b) =>
+            a.score < b.score ? 1 : a.score > b.score ? -1 : a.index - b.index
+          )
+      );
+    }
+
+    /**
+     * Ranks and picks the best route to match. Each segment gets the highest
+     * amount of points, then the type of segment gets an additional amount of
+     * points where
+     *
+     *  static > dynamic > splat > root
+     *
+     * This way we don't have to worry about the order of our routes, let the
+     * computers do it.
+     *
+     * A route looks like this
+     *
+     *  { path, default, value }
+     *
+     * And a returned match looks like:
+     *
+     *  { route, params, uri }
+     *
+     * @param {object[]} routes
+     * @param {string} uri
+     * @return {?object}
+     */
+    function pick(routes, uri) {
+      let match;
+      let default_;
+
+      const [uriPathname] = uri.split("?");
+      const uriSegments = segmentize(uriPathname);
+      const isRootUri = uriSegments[0] === "";
+      const ranked = rankRoutes(routes);
+
+      for (let i = 0, l = ranked.length; i < l; i++) {
+        const route = ranked[i].route;
+        let missed = false;
+
+        if (route.default) {
+          default_ = {
+            route,
+            params: {},
+            uri
+          };
+          continue;
+        }
+
+        const routeSegments = segmentize(route.path);
+        const params = {};
+        const max = Math.max(uriSegments.length, routeSegments.length);
+        let index = 0;
+
+        for (; index < max; index++) {
+          const routeSegment = routeSegments[index];
+          const uriSegment = uriSegments[index];
+
+          if (routeSegment !== undefined && isSplat(routeSegment)) {
+            // Hit a splat, just grab the rest, and return a match
+            // uri:   /files/documents/work
+            // route: /files/* or /files/*splatname
+            const splatName = routeSegment === "*" ? "*" : routeSegment.slice(1);
+
+            params[splatName] = uriSegments
+              .slice(index)
+              .map(decodeURIComponent)
+              .join("/");
+            break;
+          }
+
+          if (uriSegment === undefined) {
+            // URI is shorter than the route, no match
+            // uri:   /users
+            // route: /users/:userId
+            missed = true;
+            break;
+          }
+
+          let dynamicMatch = paramRe.exec(routeSegment);
+
+          if (dynamicMatch && !isRootUri) {
+            const value = decodeURIComponent(uriSegment);
+            params[dynamicMatch[1]] = value;
+          } else if (routeSegment !== uriSegment) {
+            // Current segments don't match, not dynamic, not splat, so no match
+            // uri:   /users/123/settings
+            // route: /users/:id/profile
+            missed = true;
+            break;
+          }
+        }
+
+        if (!missed) {
+          match = {
+            route,
+            params,
+            uri: "/" + uriSegments.slice(0, index).join("/")
+          };
+          break;
+        }
+      }
+
+      return match || default_ || null;
+    }
+
+    /**
+     * Check if the `path` matches the `uri`.
+     * @param {string} path
+     * @param {string} uri
+     * @return {?object}
+     */
+    function match(route, uri) {
+      return pick([route], uri);
+    }
+
+    /**
+     * Add the query to the pathname if a query is given
+     * @param {string} pathname
+     * @param {string} [query]
+     * @return {string}
+     */
+    function addQuery(pathname, query) {
+      return pathname + (query ? `?${query}` : "");
+    }
+
+    /**
+     * Resolve URIs as though every path is a directory, no files. Relative URIs
+     * in the browser can feel awkward because not only can you be "in a directory",
+     * you can be "at a file", too. For example:
+     *
+     *  browserSpecResolve('foo', '/bar/') => /bar/foo
+     *  browserSpecResolve('foo', '/bar') => /foo
+     *
+     * But on the command line of a file system, it's not as complicated. You can't
+     * `cd` from a file, only directories. This way, links have to know less about
+     * their current path. To go deeper you can do this:
+     *
+     *  <Link to="deeper"/>
+     *  // instead of
+     *  <Link to=`{${props.uri}/deeper}`/>
+     *
+     * Just like `cd`, if you want to go deeper from the command line, you do this:
+     *
+     *  cd deeper
+     *  # not
+     *  cd $(pwd)/deeper
+     *
+     * By treating every path as a directory, linking to relative paths should
+     * require less contextual information and (fingers crossed) be more intuitive.
+     * @param {string} to
+     * @param {string} base
+     * @return {string}
+     */
+    function resolve(to, base) {
+      // /foo/bar, /baz/qux => /foo/bar
+      if (startsWith(to, "/")) {
+        return to;
+      }
+
+      const [toPathname, toQuery] = to.split("?");
+      const [basePathname] = base.split("?");
+      const toSegments = segmentize(toPathname);
+      const baseSegments = segmentize(basePathname);
+
+      // ?a=b, /users?b=c => /users?a=b
+      if (toSegments[0] === "") {
+        return addQuery(basePathname, toQuery);
+      }
+
+      // profile, /users/789 => /users/789/profile
+      if (!startsWith(toSegments[0], ".")) {
+        const pathname = baseSegments.concat(toSegments).join("/");
+
+        return addQuery((basePathname === "/" ? "" : "/") + pathname, toQuery);
+      }
+
+      // ./       , /users/123 => /users/123
+      // ../      , /users/123 => /users
+      // ../..    , /users/123 => /
+      // ../../one, /a/b/c/d   => /a/b/one
+      // .././one , /a/b/c/d   => /a/b/c/one
+      const allSegments = baseSegments.concat(toSegments);
+      const segments = [];
+
+      allSegments.forEach(segment => {
+        if (segment === "..") {
+          segments.pop();
+        } else if (segment !== ".") {
+          segments.push(segment);
+        }
+      });
+
+      return addQuery("/" + segments.join("/"), toQuery);
+    }
+
+    /**
+     * Combines the `basepath` and the `path` into one path.
+     * @param {string} basepath
+     * @param {string} path
+     */
+    function combinePaths(basepath, path) {
+      return `${stripSlashes(
+    path === "/" ? basepath : `${stripSlashes(basepath)}/${stripSlashes(path)}`
+  )}/`;
+    }
+
+    /**
+     * Decides whether a given `event` should result in a navigation or not.
+     * @param {object} event
+     */
+    function shouldNavigate(event) {
+      return (
+        !event.defaultPrevented &&
+        event.button === 0 &&
+        !(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
+      );
+    }
+
+    function hostMatches(anchor) {
+      const host = location.host;
+      return (
+        anchor.host == host ||
+        // svelte seems to kill anchor.host value in ie11, so fall back to checking href
+        anchor.href.indexOf(`https://${host}`) === 0 ||
+        anchor.href.indexOf(`http://${host}`) === 0
+      )
+    }
+
+    /* node_modules\svelte-routing\src\Router.svelte generated by Svelte v3.31.2 */
+
+    function create_fragment(ctx) {
+    	let current;
+    	const default_slot_template = /*#slots*/ ctx[9].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[8], null);
+
+    	const block = {
+    		c: function create() {
+    			if (default_slot) default_slot.c();
+    		},
+    		l: function claim(nodes) {
+    			if (default_slot) default_slot.l(nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			if (default_slot) {
+    				default_slot.m(target, anchor);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && dirty & /*$$scope*/ 256) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[8], dirty, null, null);
+    				}
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (default_slot) default_slot.d(detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let $base;
+    	let $location;
+    	let $routes;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Router", slots, ['default']);
+    	let { basepath = "/" } = $$props;
+    	let { url = null } = $$props;
+    	const locationContext = getContext(LOCATION);
+    	const routerContext = getContext(ROUTER);
+    	const routes = writable([]);
+    	validate_store(routes, "routes");
+    	component_subscribe($$self, routes, value => $$invalidate(7, $routes = value));
+    	const activeRoute = writable(null);
+    	let hasActiveRoute = false; // Used in SSR to synchronously set that a Route is active.
+
+    	// If locationContext is not set, this is the topmost Router in the tree.
+    	// If the `url` prop is given we force the location to it.
+    	const location = locationContext || writable(url ? { pathname: url } : globalHistory.location);
+
+    	validate_store(location, "location");
+    	component_subscribe($$self, location, value => $$invalidate(6, $location = value));
+
+    	// If routerContext is set, the routerBase of the parent Router
+    	// will be the base for this Router's descendants.
+    	// If routerContext is not set, the path and resolved uri will both
+    	// have the value of the basepath prop.
+    	const base = routerContext
+    	? routerContext.routerBase
+    	: writable({ path: basepath, uri: basepath });
+
+    	validate_store(base, "base");
+    	component_subscribe($$self, base, value => $$invalidate(5, $base = value));
+
+    	const routerBase = derived([base, activeRoute], ([base, activeRoute]) => {
+    		// If there is no activeRoute, the routerBase will be identical to the base.
+    		if (activeRoute === null) {
+    			return base;
+    		}
+
+    		const { path: basepath } = base;
+    		const { route, uri } = activeRoute;
+
+    		// Remove the potential /* or /*splatname from
+    		// the end of the child Routes relative paths.
+    		const path = route.default
+    		? basepath
+    		: route.path.replace(/\*.*$/, "");
+
+    		return { path, uri };
+    	});
+
+    	function registerRoute(route) {
+    		const { path: basepath } = $base;
+    		let { path } = route;
+
+    		// We store the original path in the _path property so we can reuse
+    		// it when the basepath changes. The only thing that matters is that
+    		// the route reference is intact, so mutation is fine.
+    		route._path = path;
+
+    		route.path = combinePaths(basepath, path);
+
+    		if (typeof window === "undefined") {
+    			// In SSR we should set the activeRoute immediately if it is a match.
+    			// If there are more Routes being registered after a match is found,
+    			// we just skip them.
+    			if (hasActiveRoute) {
+    				return;
+    			}
+
+    			const matchingRoute = match(route, $location.pathname);
+
+    			if (matchingRoute) {
+    				activeRoute.set(matchingRoute);
+    				hasActiveRoute = true;
+    			}
+    		} else {
+    			routes.update(rs => {
+    				rs.push(route);
+    				return rs;
+    			});
+    		}
+    	}
+
+    	function unregisterRoute(route) {
+    		routes.update(rs => {
+    			const index = rs.indexOf(route);
+    			rs.splice(index, 1);
+    			return rs;
+    		});
+    	}
+
+    	if (!locationContext) {
+    		// The topmost Router in the tree is responsible for updating
+    		// the location store and supplying it through context.
+    		onMount(() => {
+    			const unlisten = globalHistory.listen(history => {
+    				location.set(history.location);
+    			});
+
+    			return unlisten;
+    		});
+
+    		setContext(LOCATION, location);
+    	}
+
+    	setContext(ROUTER, {
+    		activeRoute,
+    		base,
+    		routerBase,
+    		registerRoute,
+    		unregisterRoute
+    	});
+
+    	const writable_props = ["basepath", "url"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Router> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("basepath" in $$props) $$invalidate(3, basepath = $$props.basepath);
+    		if ("url" in $$props) $$invalidate(4, url = $$props.url);
+    		if ("$$scope" in $$props) $$invalidate(8, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		getContext,
+    		setContext,
+    		onMount,
+    		writable,
+    		derived,
+    		LOCATION,
+    		ROUTER,
+    		globalHistory,
+    		pick,
+    		match,
+    		stripSlashes,
+    		combinePaths,
+    		basepath,
+    		url,
+    		locationContext,
+    		routerContext,
+    		routes,
+    		activeRoute,
+    		hasActiveRoute,
+    		location,
+    		base,
+    		routerBase,
+    		registerRoute,
+    		unregisterRoute,
+    		$base,
+    		$location,
+    		$routes
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("basepath" in $$props) $$invalidate(3, basepath = $$props.basepath);
+    		if ("url" in $$props) $$invalidate(4, url = $$props.url);
+    		if ("hasActiveRoute" in $$props) hasActiveRoute = $$props.hasActiveRoute;
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*$base*/ 32) {
+    			// This reactive statement will update all the Routes' path when
+    			// the basepath changes.
+    			 {
+    				const { path: basepath } = $base;
+
+    				routes.update(rs => {
+    					rs.forEach(r => r.path = combinePaths(basepath, r._path));
+    					return rs;
+    				});
+    			}
+    		}
+
+    		if ($$self.$$.dirty & /*$routes, $location*/ 192) {
+    			// This reactive statement will be run when the Router is created
+    			// when there are no Routes and then again the following tick, so it
+    			// will not find an active Route in SSR and in the browser it will only
+    			// pick an active Route after all Routes have been registered.
+    			 {
+    				const bestMatch = pick($routes, $location.pathname);
+    				activeRoute.set(bestMatch);
+    			}
+    		}
+    	};
+
+    	return [
+    		routes,
+    		location,
+    		base,
+    		basepath,
+    		url,
+    		$base,
+    		$location,
+    		$routes,
+    		$$scope,
+    		slots
+    	];
+    }
+
+    class Router extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, { basepath: 3, url: 4 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Router",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+
+    	get basepath() {
+    		throw new Error("<Router>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set basepath(value) {
+    		throw new Error("<Router>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get url() {
+    		throw new Error("<Router>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set url(value) {
+    		throw new Error("<Router>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* node_modules\svelte-routing\src\Route.svelte generated by Svelte v3.31.2 */
+
+    const get_default_slot_changes = dirty => ({
+    	params: dirty & /*routeParams*/ 4,
+    	location: dirty & /*$location*/ 16
+    });
+
+    const get_default_slot_context = ctx => ({
+    	params: /*routeParams*/ ctx[2],
+    	location: /*$location*/ ctx[4]
+    });
+
+    // (40:0) {#if $activeRoute !== null && $activeRoute.route === route}
+    function create_if_block(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block_1, create_else_block];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*component*/ ctx[0] !== null) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			if_block.l(nodes);
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(40:0) {#if $activeRoute !== null && $activeRoute.route === route}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (43:2) {:else}
+    function create_else_block(ctx) {
+    	let current;
+    	const default_slot_template = /*#slots*/ ctx[10].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[9], get_default_slot_context);
+
+    	const block = {
+    		c: function create() {
+    			if (default_slot) default_slot.c();
+    		},
+    		l: function claim(nodes) {
+    			if (default_slot) default_slot.l(nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			if (default_slot) {
+    				default_slot.m(target, anchor);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (default_slot) {
+    				if (default_slot.p && dirty & /*$$scope, routeParams, $location*/ 532) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[9], dirty, get_default_slot_changes, get_default_slot_context);
+    				}
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (default_slot) default_slot.d(detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(43:2) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (41:2) {#if component !== null}
+    function create_if_block_1(ctx) {
+    	let switch_instance;
+    	let switch_instance_anchor;
+    	let current;
+
+    	const switch_instance_spread_levels = [
+    		{ location: /*$location*/ ctx[4] },
+    		/*routeParams*/ ctx[2],
+    		/*routeProps*/ ctx[3]
+    	];
+
+    	var switch_value = /*component*/ ctx[0];
+
+    	function switch_props(ctx) {
+    		let switch_instance_props = {};
+
+    		for (let i = 0; i < switch_instance_spread_levels.length; i += 1) {
+    			switch_instance_props = assign(switch_instance_props, switch_instance_spread_levels[i]);
+    		}
+
+    		return {
+    			props: switch_instance_props,
+    			$$inline: true
+    		};
+    	}
+
+    	if (switch_value) {
+    		switch_instance = new switch_value(switch_props());
+    	}
+
+    	const block = {
+    		c: function create() {
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			switch_instance_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			if (switch_instance) claim_component(switch_instance.$$.fragment, nodes);
+    			switch_instance_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (switch_instance) {
+    				mount_component(switch_instance, target, anchor);
+    			}
+
+    			insert_dev(target, switch_instance_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const switch_instance_changes = (dirty & /*$location, routeParams, routeProps*/ 28)
+    			? get_spread_update(switch_instance_spread_levels, [
+    					dirty & /*$location*/ 16 && { location: /*$location*/ ctx[4] },
+    					dirty & /*routeParams*/ 4 && get_spread_object(/*routeParams*/ ctx[2]),
+    					dirty & /*routeProps*/ 8 && get_spread_object(/*routeProps*/ ctx[3])
+    				])
+    			: {};
+
+    			if (switch_value !== (switch_value = /*component*/ ctx[0])) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = new switch_value(switch_props());
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, switch_instance_anchor.parentNode, switch_instance_anchor);
+    				} else {
+    					switch_instance = null;
+    				}
+    			} else if (switch_value) {
+    				switch_instance.$set(switch_instance_changes);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(switch_instance_anchor);
+    			if (switch_instance) destroy_component(switch_instance, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1.name,
+    		type: "if",
+    		source: "(41:2) {#if component !== null}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	let if_block_anchor;
+    	let current;
+    	let if_block = /*$activeRoute*/ ctx[1] !== null && /*$activeRoute*/ ctx[1].route === /*route*/ ctx[7] && create_if_block(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			if (if_block) if_block.l(nodes);
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (/*$activeRoute*/ ctx[1] !== null && /*$activeRoute*/ ctx[1].route === /*route*/ ctx[7]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*$activeRoute*/ 2) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let $activeRoute;
+    	let $location;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Route", slots, ['default']);
+    	let { path = "" } = $$props;
+    	let { component = null } = $$props;
+    	const { registerRoute, unregisterRoute, activeRoute } = getContext(ROUTER);
+    	validate_store(activeRoute, "activeRoute");
+    	component_subscribe($$self, activeRoute, value => $$invalidate(1, $activeRoute = value));
+    	const location = getContext(LOCATION);
+    	validate_store(location, "location");
+    	component_subscribe($$self, location, value => $$invalidate(4, $location = value));
+
+    	const route = {
+    		path,
+    		// If no path prop is given, this Route will act as the default Route
+    		// that is rendered if no other Route in the Router is a match.
+    		default: path === ""
+    	};
+
+    	let routeParams = {};
+    	let routeProps = {};
+    	registerRoute(route);
+
+    	// There is no need to unregister Routes in SSR since it will all be
+    	// thrown away anyway.
+    	if (typeof window !== "undefined") {
+    		onDestroy(() => {
+    			unregisterRoute(route);
+    		});
+    	}
+
+    	$$self.$$set = $$new_props => {
+    		$$invalidate(13, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+    		if ("path" in $$new_props) $$invalidate(8, path = $$new_props.path);
+    		if ("component" in $$new_props) $$invalidate(0, component = $$new_props.component);
+    		if ("$$scope" in $$new_props) $$invalidate(9, $$scope = $$new_props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		getContext,
+    		onDestroy,
+    		ROUTER,
+    		LOCATION,
+    		path,
+    		component,
+    		registerRoute,
+    		unregisterRoute,
+    		activeRoute,
+    		location,
+    		route,
+    		routeParams,
+    		routeProps,
+    		$activeRoute,
+    		$location
+    	});
+
+    	$$self.$inject_state = $$new_props => {
+    		$$invalidate(13, $$props = assign(assign({}, $$props), $$new_props));
+    		if ("path" in $$props) $$invalidate(8, path = $$new_props.path);
+    		if ("component" in $$props) $$invalidate(0, component = $$new_props.component);
+    		if ("routeParams" in $$props) $$invalidate(2, routeParams = $$new_props.routeParams);
+    		if ("routeProps" in $$props) $$invalidate(3, routeProps = $$new_props.routeProps);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*$activeRoute*/ 2) {
+    			 if ($activeRoute && $activeRoute.route === route) {
+    				$$invalidate(2, routeParams = $activeRoute.params);
+    			}
+    		}
+
+    		 {
+    			const { path, component, ...rest } = $$props;
+    			$$invalidate(3, routeProps = rest);
+    		}
+    	};
+
+    	$$props = exclude_internal_props($$props);
+
+    	return [
+    		component,
+    		$activeRoute,
+    		routeParams,
+    		routeProps,
+    		$location,
+    		activeRoute,
+    		location,
+    		route,
+    		path,
+    		$$scope,
+    		slots
+    	];
+    }
+
+    class Route extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { path: 8, component: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Route",
+    			options,
+    			id: create_fragment$1.name
+    		});
+    	}
+
+    	get path() {
+    		throw new Error("<Route>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set path(value) {
+    		throw new Error("<Route>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get component() {
+    		throw new Error("<Route>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set component(value) {
+    		throw new Error("<Route>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* node_modules\svelte-routing\src\Link.svelte generated by Svelte v3.31.2 */
+    const file = "node_modules\\svelte-routing\\src\\Link.svelte";
+
+    function create_fragment$2(ctx) {
+    	let a;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	const default_slot_template = /*#slots*/ ctx[16].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[15], null);
+
+    	let a_levels = [
+    		{ href: /*href*/ ctx[0] },
+    		{ "aria-current": /*ariaCurrent*/ ctx[2] },
+    		/*props*/ ctx[1],
+    		/*$$restProps*/ ctx[6]
+    	];
+
+    	let a_data = {};
+
+    	for (let i = 0; i < a_levels.length; i += 1) {
+    		a_data = assign(a_data, a_levels[i]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			if (default_slot) default_slot.c();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			a = claim_element(nodes, "A", { href: true, "aria-current": true });
+    			var a_nodes = children(a);
+    			if (default_slot) default_slot.l(a_nodes);
+    			a_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			set_attributes(a, a_data);
+    			add_location(a, file, 40, 0, 1249);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(a, null);
+    			}
+
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(a, "click", /*onClick*/ ctx[5], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && dirty & /*$$scope*/ 32768) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[15], dirty, null, null);
+    				}
+    			}
+
+    			set_attributes(a, a_data = get_spread_update(a_levels, [
+    				(!current || dirty & /*href*/ 1) && { href: /*href*/ ctx[0] },
+    				(!current || dirty & /*ariaCurrent*/ 4) && { "aria-current": /*ariaCurrent*/ ctx[2] },
+    				dirty & /*props*/ 2 && /*props*/ ctx[1],
+    				dirty & /*$$restProps*/ 64 && /*$$restProps*/ ctx[6]
+    			]));
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    			if (default_slot) default_slot.d(detaching);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let ariaCurrent;
+    	const omit_props_names = ["to","replace","state","getProps"];
+    	let $$restProps = compute_rest_props($$props, omit_props_names);
+    	let $base;
+    	let $location;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Link", slots, ['default']);
+    	let { to = "#" } = $$props;
+    	let { replace = false } = $$props;
+    	let { state = {} } = $$props;
+    	let { getProps = () => ({}) } = $$props;
+    	const { base } = getContext(ROUTER);
+    	validate_store(base, "base");
+    	component_subscribe($$self, base, value => $$invalidate(13, $base = value));
+    	const location = getContext(LOCATION);
+    	validate_store(location, "location");
+    	component_subscribe($$self, location, value => $$invalidate(14, $location = value));
+    	const dispatch = createEventDispatcher();
+    	let href, isPartiallyCurrent, isCurrent, props;
+
+    	function onClick(event) {
+    		dispatch("click", event);
+
+    		if (shouldNavigate(event)) {
+    			event.preventDefault();
+
+    			// Don't push another entry to the history stack when the user
+    			// clicks on a Link to the page they are currently on.
+    			const shouldReplace = $location.pathname === href || replace;
+
+    			navigate(href, { state, replace: shouldReplace });
+    		}
+    	}
+
+    	$$self.$$set = $$new_props => {
+    		$$props = assign(assign({}, $$props), exclude_internal_props($$new_props));
+    		$$invalidate(6, $$restProps = compute_rest_props($$props, omit_props_names));
+    		if ("to" in $$new_props) $$invalidate(7, to = $$new_props.to);
+    		if ("replace" in $$new_props) $$invalidate(8, replace = $$new_props.replace);
+    		if ("state" in $$new_props) $$invalidate(9, state = $$new_props.state);
+    		if ("getProps" in $$new_props) $$invalidate(10, getProps = $$new_props.getProps);
+    		if ("$$scope" in $$new_props) $$invalidate(15, $$scope = $$new_props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		getContext,
+    		createEventDispatcher,
+    		ROUTER,
+    		LOCATION,
+    		navigate,
+    		startsWith,
+    		resolve,
+    		shouldNavigate,
+    		to,
+    		replace,
+    		state,
+    		getProps,
+    		base,
+    		location,
+    		dispatch,
+    		href,
+    		isPartiallyCurrent,
+    		isCurrent,
+    		props,
+    		onClick,
+    		$base,
+    		$location,
+    		ariaCurrent
+    	});
+
+    	$$self.$inject_state = $$new_props => {
+    		if ("to" in $$props) $$invalidate(7, to = $$new_props.to);
+    		if ("replace" in $$props) $$invalidate(8, replace = $$new_props.replace);
+    		if ("state" in $$props) $$invalidate(9, state = $$new_props.state);
+    		if ("getProps" in $$props) $$invalidate(10, getProps = $$new_props.getProps);
+    		if ("href" in $$props) $$invalidate(0, href = $$new_props.href);
+    		if ("isPartiallyCurrent" in $$props) $$invalidate(11, isPartiallyCurrent = $$new_props.isPartiallyCurrent);
+    		if ("isCurrent" in $$props) $$invalidate(12, isCurrent = $$new_props.isCurrent);
+    		if ("props" in $$props) $$invalidate(1, props = $$new_props.props);
+    		if ("ariaCurrent" in $$props) $$invalidate(2, ariaCurrent = $$new_props.ariaCurrent);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*to, $base*/ 8320) {
+    			 $$invalidate(0, href = to === "/" ? $base.uri : resolve(to, $base.uri));
+    		}
+
+    		if ($$self.$$.dirty & /*$location, href*/ 16385) {
+    			 $$invalidate(11, isPartiallyCurrent = startsWith($location.pathname, href));
+    		}
+
+    		if ($$self.$$.dirty & /*href, $location*/ 16385) {
+    			 $$invalidate(12, isCurrent = href === $location.pathname);
+    		}
+
+    		if ($$self.$$.dirty & /*isCurrent*/ 4096) {
+    			 $$invalidate(2, ariaCurrent = isCurrent ? "page" : undefined);
+    		}
+
+    		if ($$self.$$.dirty & /*getProps, $location, href, isPartiallyCurrent, isCurrent*/ 23553) {
+    			 $$invalidate(1, props = getProps({
+    				location: $location,
+    				href,
+    				isPartiallyCurrent,
+    				isCurrent
+    			}));
+    		}
+    	};
+
+    	return [
+    		href,
+    		props,
+    		ariaCurrent,
+    		base,
+    		location,
+    		onClick,
+    		$$restProps,
+    		to,
+    		replace,
+    		state,
+    		getProps,
+    		isPartiallyCurrent,
+    		isCurrent,
+    		$base,
+    		$location,
+    		$$scope,
+    		slots
+    	];
+    }
+
+    class Link extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
+    			to: 7,
+    			replace: 8,
+    			state: 9,
+    			getProps: 10
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Link",
+    			options,
+    			id: create_fragment$2.name
+    		});
+    	}
+
+    	get to() {
+    		throw new Error("<Link>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set to(value) {
+    		throw new Error("<Link>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get replace() {
+    		throw new Error("<Link>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set replace(value) {
+    		throw new Error("<Link>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get state() {
+    		throw new Error("<Link>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set state(value) {
+    		throw new Error("<Link>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get getProps() {
+    		throw new Error("<Link>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set getProps(value) {
+    		throw new Error("<Link>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /**
+     * A link action that can be added to <a href=""> tags rather
+     * than using the <Link> component.
+     *
+     * Example:
+     * ```html
+     * <a href="/post/{postId}" use:link>{post.title}</a>
+     * ```
+     */
+    function link(node) {
+      function onClick(event) {
+        const anchor = event.currentTarget;
+
+        if (
+          anchor.target === "" &&
+          hostMatches(anchor) &&
+          shouldNavigate(event)
+        ) {
+          event.preventDefault();
+          navigate(anchor.pathname + anchor.search, { replace: anchor.hasAttribute("replace") });
+        }
+      }
+
+      node.addEventListener("click", onClick);
+
+      return {
+        destroy() {
+          node.removeEventListener("click", onClick);
+        }
+      };
+    }
+
+    /**
+     * An action to be added at a root element of your application to
+     * capture all relative links and push them onto the history stack.
+     *
+     * Example:
+     * ```html
+     * <div use:links>
+     *   <Router>
+     *     <Route path="/" component={Home} />
+     *     <Route path="/p/:projectId/:docId?" component={ProjectScreen} />
+     *     {#each projects as project}
+     *       <a href="/p/{project.id}">{project.title}</a>
+     *     {/each}
+     *   </Router>
+     * </div>
+     * ```
+     */
+    function links(node) {
+      function findClosest(tagName, el) {
+        while (el && el.tagName !== tagName) {
+          el = el.parentNode;
+        }
+        return el;
+      }
+
+      function onClick(event) {
+        const anchor = findClosest("A", event.target);
+
+        if (
+          anchor &&
+          anchor.target === "" &&
+          hostMatches(anchor) &&
+          shouldNavigate(event) &&
+          !anchor.hasAttribute("noroute")
+        ) {
+          event.preventDefault();
+          navigate(anchor.pathname + anchor.search, { replace: anchor.hasAttribute("replace") });
+        }
+      }
+
+      node.addEventListener("click", onClick);
+
+      return {
+        destroy() {
+          node.removeEventListener("click", onClick);
+        }
+      };
+    }
+
+    /* src\components\Navbar.svelte generated by Svelte v3.31.2 */
+    const file$1 = "src\\components\\Navbar.svelte";
+
+    // (58:4) <Router>
+    function create_default_slot(ctx) {
+    	let a0;
+    	let t0;
+    	let t1;
+    	let a1;
+    	let t2;
+    	let t3;
+    	let a2;
+    	let t4;
+    	let t5;
+    	let a3;
+    	let t6;
+    	let t7;
+    	let a4;
+    	let t8;
+
+    	const block = {
+    		c: function create() {
+    			a0 = element("a");
+    			t0 = text("About");
+    			t1 = space();
+    			a1 = element("a");
+    			t2 = text("Experience");
+    			t3 = space();
+    			a2 = element("a");
+    			t4 = text("Projects");
+    			t5 = space();
+    			a3 = element("a");
+    			t6 = text("Contact");
+    			t7 = space();
+    			a4 = element("a");
+    			t8 = text("Resume");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			a0 = claim_element(nodes, "A", {
+    				href: true,
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true,
+    				noroute: true
+    			});
+
+    			var a0_nodes = children(a0);
+    			t0 = claim_text(a0_nodes, "About");
+    			a0_nodes.forEach(detach_dev);
+    			t1 = claim_space(nodes);
+
+    			a1 = claim_element(nodes, "A", {
+    				href: true,
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true,
+    				noroute: true
+    			});
+
+    			var a1_nodes = children(a1);
+    			t2 = claim_text(a1_nodes, "Experience");
+    			a1_nodes.forEach(detach_dev);
+    			t3 = claim_space(nodes);
+
+    			a2 = claim_element(nodes, "A", {
+    				href: true,
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true,
+    				noroute: true
+    			});
+
+    			var a2_nodes = children(a2);
+    			t4 = claim_text(a2_nodes, "Projects");
+    			a2_nodes.forEach(detach_dev);
+    			t5 = claim_space(nodes);
+
+    			a3 = claim_element(nodes, "A", {
+    				href: true,
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true,
+    				noroute: true
+    			});
+
+    			var a3_nodes = children(a3);
+    			t6 = claim_text(a3_nodes, "Contact");
+    			a3_nodes.forEach(detach_dev);
+    			t7 = claim_space(nodes);
+
+    			a4 = claim_element(nodes, "A", {
+    				href: true,
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true,
+    				"data-aos-duration": true,
+    				target: true,
+    				noroute: true
+    			});
+
+    			var a4_nodes = children(a4);
+    			t8 = claim_text(a4_nodes, "Resume");
+    			a4_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(a0, "href", "/#about");
+    			attr_dev(a0, "data-aos", "zoom-in");
+    			attr_dev(a0, "data-aos-delay", "100");
+    			attr_dev(a0, "data-aos-duration", "700");
+    			attr_dev(a0, "class", "ml-auto nav-text");
+    			attr_dev(a0, "noroute", "");
+    			add_location(a0, file$1, 58, 6, 1747);
+    			attr_dev(a1, "href", "/#experience");
+    			attr_dev(a1, "data-aos", "zoom-in");
+    			attr_dev(a1, "data-aos-delay", "200");
+    			attr_dev(a1, "data-aos-duration", "700");
+    			attr_dev(a1, "class", "nav-text");
+    			attr_dev(a1, "noroute", "");
+    			add_location(a1, file$1, 66, 6, 1941);
+    			attr_dev(a2, "href", "/#web-development");
+    			attr_dev(a2, "data-aos", "zoom-in");
+    			attr_dev(a2, "data-aos-delay", "300");
+    			attr_dev(a2, "data-aos-duration", "700");
+    			attr_dev(a2, "class", "nav-text");
+    			attr_dev(a2, "noroute", "");
+    			add_location(a2, file$1, 74, 6, 2137);
+    			attr_dev(a3, "href", "/#contact");
+    			attr_dev(a3, "data-aos", "zoom-in");
+    			attr_dev(a3, "data-aos-delay", "600");
+    			attr_dev(a3, "data-aos-duration", "700");
+    			attr_dev(a3, "class", "nav-text");
+    			attr_dev(a3, "noroute", "");
+    			add_location(a3, file$1, 82, 6, 2336);
+    			attr_dev(a4, "href", "/Chaitanya_Patel_Resume.pdf");
+    			attr_dev(a4, "data-aos", "zoom-in");
+    			attr_dev(a4, "data-aos-delay", "700");
+    			attr_dev(a4, "class", "nav-text");
+    			attr_dev(a4, "data-aos-duration", "700");
+    			attr_dev(a4, "target", "_blank");
+    			attr_dev(a4, "noroute", "");
+    			add_location(a4, file$1, 91, 6, 2528);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a0, anchor);
+    			append_dev(a0, t0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, a1, anchor);
+    			append_dev(a1, t2);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, a2, anchor);
+    			append_dev(a2, t4);
+    			insert_dev(target, t5, anchor);
+    			insert_dev(target, a3, anchor);
+    			append_dev(a3, t6);
+    			insert_dev(target, t7, anchor);
+    			insert_dev(target, a4, anchor);
+    			append_dev(a4, t8);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(a1);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(a2);
+    			if (detaching) detach_dev(t5);
+    			if (detaching) detach_dev(a3);
+    			if (detaching) detach_dev(t7);
+    			if (detaching) detach_dev(a4);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot.name,
+    		type: "slot",
+    		source: "(58:4) <Router>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (125:0) {#if open}
+    function create_if_block$1(ctx) {
+    	let div0;
+    	let div0_transition;
+    	let t0;
+    	let dialog;
+    	let div1;
+    	let button0;
+    	let i0;
+    	let t1;
+    	let nav;
+    	let a0;
+    	let t2;
+    	let t3;
+    	let a1;
+    	let t4;
+    	let t5;
+    	let a2;
+    	let t6;
+    	let t7;
+    	let a3;
+    	let t8;
+    	let t9;
+    	let a4;
+    	let t10;
+    	let t11;
+    	let div2;
+    	let button1;
+    	let i1;
+    	let i1_class_value;
+    	let t12_value = (/*theme*/ ctx[0] === "dark" ? "Dark" : "Light") + "";
+    	let t12;
+    	let dialog_transition;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div0 = element("div");
+    			t0 = space();
+    			dialog = element("dialog");
+    			div1 = element("div");
+    			button0 = element("button");
+    			i0 = element("i");
+    			t1 = space();
+    			nav = element("nav");
+    			a0 = element("a");
+    			t2 = text("About Me");
+    			t3 = space();
+    			a1 = element("a");
+    			t4 = text("Experience");
+    			t5 = space();
+    			a2 = element("a");
+    			t6 = text("Projects");
+    			t7 = space();
+    			a3 = element("a");
+    			t8 = text("Contact Me");
+    			t9 = space();
+    			a4 = element("a");
+    			t10 = text("Resume");
+    			t11 = space();
+    			div2 = element("div");
+    			button1 = element("button");
+    			i1 = element("i");
+    			t12 = text(t12_value);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div0 = claim_element(nodes, "DIV", { class: true });
+    			children(div0).forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			dialog = claim_element(nodes, "DIALOG", { open: true, class: true });
+    			var dialog_nodes = children(dialog);
+    			div1 = claim_element(dialog_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+
+    			button0 = claim_element(div1_nodes, "BUTTON", {
+    				title: true,
+    				"aria-label": true,
+    				class: true
+    			});
+
+    			var button0_nodes = children(button0);
+    			i0 = claim_element(button0_nodes, "I", { class: true });
+    			children(i0).forEach(detach_dev);
+    			button0_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			t1 = claim_space(dialog_nodes);
+    			nav = claim_element(dialog_nodes, "NAV", { class: true });
+    			var nav_nodes = children(nav);
+
+    			a0 = claim_element(nav_nodes, "A", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true,
+    				href: true
+    			});
+
+    			var a0_nodes = children(a0);
+    			t2 = claim_text(a0_nodes, "About Me");
+    			a0_nodes.forEach(detach_dev);
+    			t3 = claim_space(nav_nodes);
+
+    			a1 = claim_element(nav_nodes, "A", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true,
+    				href: true
+    			});
+
+    			var a1_nodes = children(a1);
+    			t4 = claim_text(a1_nodes, "Experience");
+    			a1_nodes.forEach(detach_dev);
+    			t5 = claim_space(nav_nodes);
+
+    			a2 = claim_element(nav_nodes, "A", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true,
+    				href: true
+    			});
+
+    			var a2_nodes = children(a2);
+    			t6 = claim_text(a2_nodes, "Projects");
+    			a2_nodes.forEach(detach_dev);
+    			t7 = claim_space(nav_nodes);
+
+    			a3 = claim_element(nav_nodes, "A", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true,
+    				href: true
+    			});
+
+    			var a3_nodes = children(a3);
+    			t8 = claim_text(a3_nodes, "Contact Me");
+    			a3_nodes.forEach(detach_dev);
+    			t9 = claim_space(nav_nodes);
+
+    			a4 = claim_element(nav_nodes, "A", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true,
+    				target: true,
+    				href: true
+    			});
+
+    			var a4_nodes = children(a4);
+    			t10 = claim_text(a4_nodes, "Resume");
+    			a4_nodes.forEach(detach_dev);
+    			nav_nodes.forEach(detach_dev);
+    			t11 = claim_space(dialog_nodes);
+    			div2 = claim_element(dialog_nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+
+    			button1 = claim_element(div2_nodes, "BUTTON", {
+    				title: true,
+    				"aria-label": true,
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var button1_nodes = children(button1);
+    			i1 = claim_element(button1_nodes, "I", { class: true });
+    			children(i1).forEach(detach_dev);
+    			t12 = claim_text(button1_nodes, t12_value);
+    			button1_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			dialog_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "class", "backdrop-blur-md fixed z-50 inset-0");
+    			add_location(div0, file$1, 125, 2, 3511);
+    			attr_dev(i0, "class", "fas fa-times fa-sm");
+    			add_location(i0, file$1, 141, 9, 4110);
+    			attr_dev(button0, "title", "Close navigation menu");
+    			attr_dev(button0, "aria-label", "Close navigation menu");
+    			attr_dev(button0, "class", "text-right text-lg text-gray-800 dark:text-gray-50 bg-gray-50 dark:bg-gray-800 px-3 py-1");
+    			add_location(button0, file$1, 136, 6, 3862);
+    			attr_dev(div1, "class", "text-right py-2 px-2");
+    			add_location(div1, file$1, 135, 4, 3820);
+    			attr_dev(a0, "data-aos", "slide-left");
+    			attr_dev(a0, "data-aos-delay", "200");
+    			attr_dev(a0, "class", "block bg-gray-50 dark:bg-gray-800 p-5");
+    			attr_dev(a0, "href", "/#about");
+    			add_location(a0, file$1, 147, 6, 4280);
+    			attr_dev(a1, "data-aos", "slide-right");
+    			attr_dev(a1, "data-aos-delay", "200");
+    			attr_dev(a1, "class", "block bg-gray-50 dark:bg-gray-800 p-5");
+    			attr_dev(a1, "href", "/#experience");
+    			add_location(a1, file$1, 156, 6, 4510);
+    			attr_dev(a2, "data-aos", "slide-left");
+    			attr_dev(a2, "data-aos-delay", "200");
+    			attr_dev(a2, "class", "block bg-gray-50 dark:bg-gray-800 p-5");
+    			attr_dev(a2, "href", "/#web-development");
+    			add_location(a2, file$1, 163, 6, 4730);
+    			attr_dev(a3, "data-aos", "slide-right");
+    			attr_dev(a3, "data-aos-delay", "200");
+    			attr_dev(a3, "class", "block bg-gray-50 dark:bg-gray-800 p-5");
+    			attr_dev(a3, "href", "/#contact");
+    			add_location(a3, file$1, 173, 6, 4972);
+    			attr_dev(a4, "data-aos", "slide-left");
+    			attr_dev(a4, "data-aos-delay", "200");
+    			attr_dev(a4, "class", "block bg-gray-50 dark:bg-gray-800 p-5");
+    			attr_dev(a4, "target", "_blank");
+    			attr_dev(a4, "href", "/Chaitanya_Patel_Resume.pdf");
+    			add_location(a4, file$1, 183, 6, 5209);
+    			attr_dev(nav, "class", "mb-3 text-center font-mono text-gray-800 dark:text-gray-50 space-y-2");
+    			add_location(nav, file$1, 144, 4, 4177);
+
+    			attr_dev(i1, "class", i1_class_value = "" + ((/*theme*/ ctx[0] === "dark"
+    			? "fa fa-moon"
+    			: "far fa-sun") + " mr-2"));
+
+    			add_location(i1, file$1, 202, 9, 5788);
+    			attr_dev(button1, "title", "Close navigation menu");
+    			attr_dev(button1, "aria-label", "toggle theme");
+    			attr_dev(button1, "data-aos", "flip-up");
+    			attr_dev(button1, "data-aos-delay", "400");
+    			attr_dev(button1, "class", "border-gray-500 border-2 py-2 px-4 dark:text-gray-50 rounded-md");
+    			add_location(button1, file$1, 195, 6, 5525);
+    			attr_dev(div2, "class", "text-center");
+    			add_location(div2, file$1, 194, 4, 5492);
+    			dialog.open = true;
+    			attr_dev(dialog, "class", "fixed top-0 left-0 right-0 z-50 p-0 py-4 shadow-2xl w-full bg-white dark:bg-gray-900");
+    			add_location(dialog, file$1, 130, 2, 3652);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div0, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, dialog, anchor);
+    			append_dev(dialog, div1);
+    			append_dev(div1, button0);
+    			append_dev(button0, i0);
+    			append_dev(dialog, t1);
+    			append_dev(dialog, nav);
+    			append_dev(nav, a0);
+    			append_dev(a0, t2);
+    			append_dev(nav, t3);
+    			append_dev(nav, a1);
+    			append_dev(a1, t4);
+    			append_dev(nav, t5);
+    			append_dev(nav, a2);
+    			append_dev(a2, t6);
+    			append_dev(nav, t7);
+    			append_dev(nav, a3);
+    			append_dev(a3, t8);
+    			append_dev(nav, t9);
+    			append_dev(nav, a4);
+    			append_dev(a4, t10);
+    			append_dev(dialog, t11);
+    			append_dev(dialog, div2);
+    			append_dev(div2, button1);
+    			append_dev(button1, i1);
+    			append_dev(button1, t12);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(div0, "click", /*click_handler_1*/ ctx[4], false, false, false),
+    					listen_dev(button0, "click", /*click_handler_2*/ ctx[5], false, false, false),
+    					listen_dev(a0, "click", /*click_handler_3*/ ctx[6], false, false, false),
+    					listen_dev(a1, "click", /*click_handler_4*/ ctx[7], false, false, false),
+    					listen_dev(a2, "click", /*click_handler_5*/ ctx[8], false, false, false),
+    					listen_dev(a3, "click", /*click_handler_6*/ ctx[9], false, false, false),
+    					listen_dev(a4, "click", /*click_handler_7*/ ctx[10], false, false, false),
+    					listen_dev(button1, "click", /*toggleTheme*/ ctx[2], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (!current || dirty & /*theme*/ 1 && i1_class_value !== (i1_class_value = "" + ((/*theme*/ ctx[0] === "dark"
+    			? "fa fa-moon"
+    			: "far fa-sun") + " mr-2"))) {
+    				attr_dev(i1, "class", i1_class_value);
+    			}
+
+    			if ((!current || dirty & /*theme*/ 1) && t12_value !== (t12_value = (/*theme*/ ctx[0] === "dark" ? "Dark" : "Light") + "")) set_data_dev(t12, t12_value);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			add_render_callback(() => {
+    				if (!div0_transition) div0_transition = create_bidirectional_transition(div0, fade, { duration: 500 }, true);
+    				div0_transition.run(1);
+    			});
+
+    			add_render_callback(() => {
+    				if (!dialog_transition) dialog_transition = create_bidirectional_transition(dialog, slide, { duration: 500 }, true);
+    				dialog_transition.run(1);
+    			});
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			if (!div0_transition) div0_transition = create_bidirectional_transition(div0, fade, { duration: 500 }, false);
+    			div0_transition.run(0);
+    			if (!dialog_transition) dialog_transition = create_bidirectional_transition(dialog, slide, { duration: 500 }, false);
+    			dialog_transition.run(0);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div0);
+    			if (detaching && div0_transition) div0_transition.end();
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(dialog);
+    			if (detaching && dialog_transition) dialog_transition.end();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(125:0) {#if open}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$3(ctx) {
+    	let nav;
+    	let a0;
+    	let p;
+    	let t0;
+    	let t1;
+    	let a1;
+    	let t2;
+    	let t3;
+    	let div;
+    	let router;
+    	let t4;
+    	let button0;
+    	let i0;
+    	let i0_class_value;
+    	let t5_value = (/*theme*/ ctx[0] === "dark" ? "Dark" : "Light") + "";
+    	let t5;
+    	let t6;
+    	let button1;
+    	let i1;
+    	let t7;
+    	let if_block_anchor;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	router = new Router({
+    			props: {
+    				$$slots: { default: [create_default_slot] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	let if_block = /*open*/ ctx[1] && create_if_block$1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			nav = element("nav");
+    			a0 = element("a");
+    			p = element("p");
+    			t0 = text("C");
+    			t1 = space();
+    			a1 = element("a");
+    			t2 = text("Chaitanya Patel");
+    			t3 = space();
+    			div = element("div");
+    			create_component(router.$$.fragment);
+    			t4 = space();
+    			button0 = element("button");
+    			i0 = element("i");
+    			t5 = text(t5_value);
+    			t6 = space();
+    			button1 = element("button");
+    			i1 = element("i");
+    			t7 = space();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			nav = claim_element(nodes, "NAV", { id: true, class: true });
+    			var nav_nodes = children(nav);
+
+    			a0 = claim_element(nav_nodes, "A", {
+    				"aria-label": true,
+    				href: true,
+    				"data-aos": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			var a0_nodes = children(a0);
+    			p = claim_element(a0_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t0 = claim_text(p_nodes, "C");
+    			p_nodes.forEach(detach_dev);
+    			a0_nodes.forEach(detach_dev);
+    			t1 = claim_space(nav_nodes);
+
+    			a1 = claim_element(nav_nodes, "A", {
+    				href: true,
+    				"data-aos": true,
+    				class: true
+    			});
+
+    			var a1_nodes = children(a1);
+    			t2 = claim_text(a1_nodes, "Chaitanya Patel");
+    			a1_nodes.forEach(detach_dev);
+    			t3 = claim_space(nav_nodes);
+    			div = claim_element(nav_nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			claim_component(router.$$.fragment, div_nodes);
+    			t4 = claim_space(div_nodes);
+
+    			button0 = claim_element(div_nodes, "BUTTON", {
+    				title: true,
+    				"aria-label": true,
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			var button0_nodes = children(button0);
+    			i0 = claim_element(button0_nodes, "I", { class: true });
+    			children(i0).forEach(detach_dev);
+    			t5 = claim_text(button0_nodes, t5_value);
+    			button0_nodes.forEach(detach_dev);
+    			div_nodes.forEach(detach_dev);
+    			t6 = claim_space(nav_nodes);
+
+    			button1 = claim_element(nav_nodes, "BUTTON", {
+    				title: true,
+    				"aria-label": true,
+    				class: true
+    			});
+
+    			var button1_nodes = children(button1);
+    			i1 = claim_element(button1_nodes, "I", { class: true });
+    			children(i1).forEach(detach_dev);
+    			button1_nodes.forEach(detach_dev);
+    			nav_nodes.forEach(detach_dev);
+    			t7 = claim_space(nodes);
+    			if (if_block) if_block.l(nodes);
+    			if_block_anchor = empty();
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "class", "logo-type text-white dark:text-gray-900 text-3xl font-black absolute bottom-0 svelte-1csidri");
+    			add_location(p, file$1, 48, 4, 1444);
+    			attr_dev(a0, "aria-label", "My logo");
+    			attr_dev(a0, "href", "/#home");
+    			attr_dev(a0, "data-aos", "flip-up");
+    			attr_dev(a0, "data-aos-duration", "700");
+    			attr_dev(a0, "class", "overflow-hidden bg-gradient-to-br from-cyan-400 to-pink-400 w-6 h-6 relative");
+    			add_location(a0, file$1, 41, 2, 1243);
+    			attr_dev(a1, "href", "/#home");
+    			attr_dev(a1, "data-aos", "flip-up");
+    			attr_dev(a1, "class", "nav-text-home");
+    			add_location(a1, file$1, 54, 2, 1577);
+
+    			attr_dev(i0, "class", i0_class_value = "" + ((/*theme*/ ctx[0] === "dark"
+    			? "fa fa-moon"
+    			: "far fa-sun") + " mr-2"));
+
+    			add_location(i0, file$1, 109, 7, 3127);
+    			attr_dev(button0, "title", "toggle theme");
+    			attr_dev(button0, "aria-label", "toggle theme");
+    			attr_dev(button0, "data-aos", "flip-up");
+    			attr_dev(button0, "data-aos-delay", "800");
+    			attr_dev(button0, "data-aos-duration", "700");
+    			attr_dev(button0, "class", "text-sm font-semibold border-gray-500 border-2 hover:bg-gray-200 dark:hover:bg-gray-700 py-1.5 px-3 dark:text-gray-50 rounded-md transition-colors");
+    			add_location(button0, file$1, 101, 4, 2773);
+    			attr_dev(div, "class", "hidden lg:flex gap-9 items-center ml-auto");
+    			add_location(div, file$1, 56, 2, 1660);
+    			attr_dev(i1, "class", "fas fa-bars");
+    			add_location(i1, file$1, 120, 5, 3447);
+    			attr_dev(button1, "title", "Navigation Menu");
+    			attr_dev(button1, "aria-label", "Navigation Menu");
+    			attr_dev(button1, "class", "lg:hidden text-lg ml-auto dark:text-white");
+    			add_location(button1, file$1, 115, 2, 3278);
+    			attr_dev(nav, "id", "navbar");
+    			attr_dev(nav, "class", "flex items-center gap-4 px-6 lg:px-10 py-4 top-0 bg-white/80\r\n  dark:bg-gray-900/80 backdrop-blur-md shadow-md fixed w-full z-50 svelte-1csidri");
+    			add_location(nav, file$1, 36, 0, 1077);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, nav, anchor);
+    			append_dev(nav, a0);
+    			append_dev(a0, p);
+    			append_dev(p, t0);
+    			append_dev(nav, t1);
+    			append_dev(nav, a1);
+    			append_dev(a1, t2);
+    			append_dev(nav, t3);
+    			append_dev(nav, div);
+    			mount_component(router, div, null);
+    			append_dev(div, t4);
+    			append_dev(div, button0);
+    			append_dev(button0, i0);
+    			append_dev(button0, t5);
+    			append_dev(nav, t6);
+    			append_dev(nav, button1);
+    			append_dev(button1, i1);
+    			insert_dev(target, t7, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*toggleTheme*/ ctx[2], false, false, false),
+    					action_destroyer(links.call(null, div)),
+    					listen_dev(button1, "click", /*click_handler*/ ctx[3], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const router_changes = {};
+
+    			if (dirty & /*$$scope*/ 4096) {
+    				router_changes.$$scope = { dirty, ctx };
+    			}
+
+    			router.$set(router_changes);
+
+    			if (!current || dirty & /*theme*/ 1 && i0_class_value !== (i0_class_value = "" + ((/*theme*/ ctx[0] === "dark"
+    			? "fa fa-moon"
+    			: "far fa-sun") + " mr-2"))) {
+    				attr_dev(i0, "class", i0_class_value);
+    			}
+
+    			if ((!current || dirty & /*theme*/ 1) && t5_value !== (t5_value = (/*theme*/ ctx[0] === "dark" ? "Dark" : "Light") + "")) set_data_dev(t5, t5_value);
+
+    			if (/*open*/ ctx[1]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*open*/ 2) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(router.$$.fragment, local);
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(router.$$.fragment, local);
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(nav);
+    			destroy_component(router);
+    			if (detaching) detach_dev(t7);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$3.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const scrollThreshold = 10;
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Navbar", slots, []);
+    	const dispatch = createEventDispatcher();
+    	let open = false;
+    	let { theme } = $$props;
+    	const toggleTheme = () => dispatch("toggleTheme");
+
+    	onMount(() => {
+    		/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+    		let prevScrollPos = window.pageYOffset;
+
+    		const navbar = document.getElementById("navbar");
+
+    		window.onscroll = () => {
+    			const currentScrollPos = window.pageYOffset;
+    			if (prevScrollPos > currentScrollPos) navbar.style.transform = "translateY(0)"; else navbar.style.transform = `translateY(-${navbar.offsetHeight}px)`;
+    			prevScrollPos = currentScrollPos;
+    		};
+
+    		// show navbar when hover over
+    		onmousemove = e => {
+    			if (e.clientY < navbar.offsetHeight) navbar.style.transform = "translateY(0)";
+    		};
+    	});
+
+    	const writable_props = ["theme"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Navbar> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => $$invalidate(1, open = !open);
+    	const click_handler_1 = () => $$invalidate(1, open = false);
+    	const click_handler_2 = () => $$invalidate(1, open = false);
+    	const click_handler_3 = () => $$invalidate(1, open = false);
+    	const click_handler_4 = () => $$invalidate(1, open = false);
+    	const click_handler_5 = () => $$invalidate(1, open = false);
+    	const click_handler_6 = () => $$invalidate(1, open = false);
+    	const click_handler_7 = () => $$invalidate(1, open = false);
+
+    	$$self.$$set = $$props => {
+    		if ("theme" in $$props) $$invalidate(0, theme = $$props.theme);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		slide,
+    		fade,
+    		onMount,
+    		createEventDispatcher,
+    		links,
+    		Router,
+    		link,
+    		dispatch,
+    		open,
+    		theme,
+    		scrollThreshold,
+    		toggleTheme
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("open" in $$props) $$invalidate(1, open = $$props.open);
+    		if ("theme" in $$props) $$invalidate(0, theme = $$props.theme);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		theme,
+    		open,
+    		toggleTheme,
+    		click_handler,
+    		click_handler_1,
+    		click_handler_2,
+    		click_handler_3,
+    		click_handler_4,
+    		click_handler_5,
+    		click_handler_6,
+    		click_handler_7
+    	];
+    }
+
+    class Navbar extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { theme: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Navbar",
+    			options,
+    			id: create_fragment$3.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*theme*/ ctx[0] === undefined && !("theme" in props)) {
+    			console.warn("<Navbar> was created without expected prop 'theme'");
+    		}
+    	}
+
+    	get theme() {
+    		throw new Error("<Navbar>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set theme(value) {
+    		throw new Error("<Navbar>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\TextReveal.svelte generated by Svelte v3.31.2 */
+    const file$2 = "src\\components\\TextReveal.svelte";
+
+    function create_fragment$4(ctx) {
+    	let div2;
+    	let p;
+    	let t;
+    	let div1;
+    	let div0;
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			p = element("p");
+    			t = space();
+    			div1 = element("div");
+    			div0 = element("div");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div2 = claim_element(nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			p = claim_element(div2_nodes, "P", { id: true, class: true, style: true });
+    			var p_nodes = children(p);
+    			p_nodes.forEach(detach_dev);
+    			t = claim_space(div2_nodes);
+    			div1 = claim_element(div2_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			div0 = claim_element(div1_nodes, "DIV", { id: true, class: true, style: true });
+    			children(div0).forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "id", "text");
+    			attr_dev(p, "class", "opacity-0");
+    			set_style(p, "animation-delay", /*delay*/ ctx[1] + "ms");
+    			add_location(p, file$2, 21, 2, 579);
+    			attr_dev(div0, "id", "cover");
+    			attr_dev(div0, "class", "absolute inset-0 bg-current transform-gpu -translate-x-[101%]");
+    			set_style(div0, "animation-delay", /*delay*/ ctx[1] + "ms");
+    			add_location(div0, file$2, 25, 4, 747);
+    			attr_dev(div1, "class", "absolute overflow-hidden pointer-events-none inset-0");
+    			add_location(div1, file$2, 24, 2, 675);
+    			attr_dev(div2, "class", "relative inline-block");
+    			add_location(div2, file$2, 20, 0, 517);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, p);
+    			p.innerHTML = /*text*/ ctx[0];
+    			append_dev(div2, t);
+    			append_dev(div2, div1);
+    			append_dev(div1, div0);
+    			/*div2_binding*/ ctx[4](div2);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*text*/ 1) p.innerHTML = /*text*/ ctx[0];
+    			if (dirty & /*delay*/ 2) {
+    				set_style(p, "animation-delay", /*delay*/ ctx[1] + "ms");
+    			}
+
+    			if (dirty & /*delay*/ 2) {
+    				set_style(div0, "animation-delay", /*delay*/ ctx[1] + "ms");
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			/*div2_binding*/ ctx[4](null);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$4.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("TextReveal", slots, []);
+    	let { text = "" } = $$props;
+    	let { delay = 200 } = $$props;
+    	let { once = false } = $$props;
+    	let textReveal;
+
+    	onMount(() => {
+    		const observer = new IntersectionObserver(entries => {
+    				entries.forEach(entry => {
+    					if (once) {
+    						if (entry.isIntersecting) entry.target.classList.add("reveal");
+    					} else entry.target.classList.toggle("reveal", entry.isIntersecting);
+    				});
+    			});
+
+    		observer.observe(textReveal);
+    	});
+
+    	const writable_props = ["text", "delay", "once"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<TextReveal> was created with unknown prop '${key}'`);
+    	});
+
+    	function div2_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			textReveal = $$value;
+    			$$invalidate(2, textReveal);
+    		});
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ("text" in $$props) $$invalidate(0, text = $$props.text);
+    		if ("delay" in $$props) $$invalidate(1, delay = $$props.delay);
+    		if ("once" in $$props) $$invalidate(3, once = $$props.once);
+    	};
+
+    	$$self.$capture_state = () => ({ text, delay, once, onMount, textReveal });
+
+    	$$self.$inject_state = $$props => {
+    		if ("text" in $$props) $$invalidate(0, text = $$props.text);
+    		if ("delay" in $$props) $$invalidate(1, delay = $$props.delay);
+    		if ("once" in $$props) $$invalidate(3, once = $$props.once);
+    		if ("textReveal" in $$props) $$invalidate(2, textReveal = $$props.textReveal);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [text, delay, textReveal, once, div2_binding];
+    }
+
+    class TextReveal extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { text: 0, delay: 1, once: 3 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "TextReveal",
+    			options,
+    			id: create_fragment$4.name
+    		});
+    	}
+
+    	get text() {
+    		throw new Error("<TextReveal>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set text(value) {
+    		throw new Error("<TextReveal>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get delay() {
+    		throw new Error("<TextReveal>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set delay(value) {
+    		throw new Error("<TextReveal>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get once() {
+    		throw new Error("<TextReveal>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set once(value) {
+    		throw new Error("<TextReveal>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    async function copyToClipboard(text) {
+      await navigator.clipboard.writeText(text);
+      alert(`copied ${text} to clipboard!`);
+    }
+
+    /* src\pages\Hero.svelte generated by Svelte v3.31.2 */
+    const file$3 = "src\\pages\\Hero.svelte";
+
+    // (59:8) <Link            to="resume"            class="transition-colors px-4 py-1 mr-3 lg:ml-1 inline-block bg-green-200 shadow-green-300/20 shadow-lg border rounded-sm border-green-400  hover:bg-green-300 "            noroute          >
+    function create_default_slot$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("View resume");
+    		},
+    		l: function claim(nodes) {
+    			t = claim_text(nodes, "View resume");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$1.name,
+    		type: "slot",
+    		source: "(59:8) <Link            to=\\\"resume\\\"            class=\\\"transition-colors px-4 py-1 mr-3 lg:ml-1 inline-block bg-green-200 shadow-green-300/20 shadow-lg border rounded-sm border-green-400  hover:bg-green-300 \\\"            noroute          >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$5(ctx) {
+    	let section1;
+    	let div0;
+    	let t0;
+    	let section0;
+    	let div3;
+    	let div1;
+    	let t1;
+    	let h1;
+    	let textreveal0;
+    	let t2;
+    	let p;
+    	let textreveal1;
+    	let t3;
+    	let div2;
+    	let link;
+    	let t4;
+    	let a0;
+    	let t5;
+    	let t6;
+    	let div5;
+    	let a1;
+    	let i0;
+    	let t7;
+    	let a2;
+    	let i1;
+    	let t8;
+    	let a3;
+    	let i2;
+    	let t9;
+    	let div4;
+    	let t10;
+    	let button;
+    	let i3;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	textreveal0 = new TextReveal({
+    			props: {
+    				delay: 800,
+    				once: true,
+    				text: /*welcomeMessage*/ ctx[0]
+    			},
+    			$$inline: true
+    		});
+
+    	textreveal1 = new TextReveal({
+    			props: {
+    				delay: 1000,
+    				once: true,
+    				text: "My name is Chaitanya, I build and design industry standard data and machine learning applications."
+    			},
+    			$$inline: true
+    		});
+
+    	link = new Link({
+    			props: {
+    				to: "resume",
+    				class: "transition-colors px-4 py-1 mr-3 lg:ml-1 inline-block bg-green-200 shadow-green-300/20 shadow-lg border rounded-sm border-green-400  hover:bg-green-300 ",
+    				noroute: true,
+    				$$slots: { default: [create_default_slot$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			section1 = element("section");
+    			div0 = element("div");
+    			t0 = space();
+    			section0 = element("section");
+    			div3 = element("div");
+    			div1 = element("div");
+    			t1 = space();
+    			h1 = element("h1");
+    			create_component(textreveal0.$$.fragment);
+    			t2 = space();
+    			p = element("p");
+    			create_component(textreveal1.$$.fragment);
+    			t3 = space();
+    			div2 = element("div");
+    			create_component(link.$$.fragment);
+    			t4 = space();
+    			a0 = element("a");
+    			t5 = text("Let's talk");
+    			t6 = space();
+    			div5 = element("div");
+    			a1 = element("a");
+    			i0 = element("i");
+    			t7 = space();
+    			a2 = element("a");
+    			i1 = element("i");
+    			t8 = space();
+    			a3 = element("a");
+    			i2 = element("i");
+    			t9 = space();
+    			div4 = element("div");
+    			t10 = space();
+    			button = element("button");
+    			i3 = element("i");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			section1 = claim_element(nodes, "SECTION", { id: true, class: true });
+    			var section1_nodes = children(section1);
+
+    			div0 = claim_element(section1_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			children(div0).forEach(detach_dev);
+    			t0 = claim_space(section1_nodes);
+
+    			section0 = claim_element(section1_nodes, "SECTION", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var section0_nodes = children(section0);
+    			div3 = claim_element(section0_nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+
+    			div1 = claim_element(div3_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			children(div1).forEach(detach_dev);
+    			t1 = claim_space(div3_nodes);
+    			h1 = claim_element(div3_nodes, "H1", { class: true });
+    			var h1_nodes = children(h1);
+    			claim_component(textreveal0.$$.fragment, h1_nodes);
+    			h1_nodes.forEach(detach_dev);
+    			t2 = claim_space(div3_nodes);
+    			p = claim_element(div3_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			claim_component(textreveal1.$$.fragment, p_nodes);
+    			p_nodes.forEach(detach_dev);
+    			t3 = claim_space(div3_nodes);
+
+    			div2 = claim_element(div3_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			var div2_nodes = children(div2);
+    			claim_component(link.$$.fragment, div2_nodes);
+    			t4 = claim_space(div2_nodes);
+    			a0 = claim_element(div2_nodes, "A", { href: true, class: true });
+    			var a0_nodes = children(a0);
+    			t5 = claim_text(a0_nodes, "Let's talk");
+    			a0_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			div3_nodes.forEach(detach_dev);
+    			section0_nodes.forEach(detach_dev);
+    			t6 = claim_space(section1_nodes);
+
+    			div5 = claim_element(section1_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			var div5_nodes = children(div5);
+
+    			a1 = claim_element(div5_nodes, "A", {
+    				title: true,
+    				"aria-label": true,
+    				href: true,
+    				target: true,
+    				class: true
+    			});
+
+    			var a1_nodes = children(a1);
+    			i0 = claim_element(a1_nodes, "I", { class: true });
+    			children(i0).forEach(detach_dev);
+    			a1_nodes.forEach(detach_dev);
+    			t7 = claim_space(div5_nodes);
+
+    			a2 = claim_element(div5_nodes, "A", {
+    				title: true,
+    				"aria-label": true,
+    				href: true,
+    				target: true,
+    				class: true
+    			});
+
+    			var a2_nodes = children(a2);
+    			i1 = claim_element(a2_nodes, "I", { class: true });
+    			children(i1).forEach(detach_dev);
+    			a2_nodes.forEach(detach_dev);
+    			t8 = claim_space(div5_nodes);
+
+    			a3 = claim_element(div5_nodes, "A", {
+    				title: true,
+    				"aria-label": true,
+    				href: true,
+    				target: true,
+    				class: true
+    			});
+
+    			var a3_nodes = children(a3);
+    			i2 = claim_element(a3_nodes, "I", { class: true });
+    			children(i2).forEach(detach_dev);
+    			a3_nodes.forEach(detach_dev);
+    			t9 = claim_space(div5_nodes);
+    			div4 = claim_element(div5_nodes, "DIV", { class: true });
+    			children(div4).forEach(detach_dev);
+    			div5_nodes.forEach(detach_dev);
+    			t10 = claim_space(section1_nodes);
+
+    			button = claim_element(section1_nodes, "BUTTON", {
+    				title: true,
+    				"aria-label": true,
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			var button_nodes = children(button);
+    			i3 = claim_element(button_nodes, "I", { class: true });
+    			children(i3).forEach(detach_dev);
+    			button_nodes.forEach(detach_dev);
+    			section1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "data-aos", "slide-down");
+    			attr_dev(div0, "data-aos-delay", "700");
+    			attr_dev(div0, "data-aos-duration", "700");
+    			attr_dev(div0, "class", "absolute top-0 right-0 h-1/2 w-full md:w-1/3 md:h-full moving-gradient-1");
+    			add_location(div0, file$3, 16, 2, 468);
+    			attr_dev(div1, "data-aos", "flip-up");
+    			attr_dev(div1, "data-aos-delay", "600");
+    			attr_dev(div1, "data-aos-duration", "700");
+    			attr_dev(div1, "class", "bg-purple-400 dark:bg-purple-300 shadow-purple-300/60 shadow-lg w-8 h-1.5 lg:w-10 lg:h-2 ml-0.5 mb-6");
+    			add_location(div1, file$3, 31, 6, 870);
+    			attr_dev(h1, "class", "mb-3 md:mb-6 font-mono font-black text-2xl md:text-3xl lg:text-5xl text-gray-700 dark:text-white");
+    			add_location(h1, file$3, 37, 6, 1101);
+    			attr_dev(p, "class", "text-lg md:text-xl lg:text-xl mb-8 font-bold text-gray-500 dark:text-gray-400 ml-1");
+    			add_location(p, file$3, 42, 6, 1311);
+    			attr_dev(a0, "href", "#contact");
+    			attr_dev(a0, "class", "transition-colors px-4 py-1 inline-block bg-blue-200 shadow-blue-300/20 shadow-lg hover:bg-blue-300 rounded-sm border border-blue-400");
+    			add_location(a0, file$3, 65, 8, 2092);
+    			attr_dev(div2, "data-aos", "flip-up");
+    			attr_dev(div2, "data-aos-delay", "1200");
+    			attr_dev(div2, "data-aos-duration", "700");
+    			attr_dev(div2, "class", "text-sm text-gray-700 font-semibold font-mono");
+    			add_location(div2, file$3, 52, 6, 1634);
+    			attr_dev(div3, "class", "bg-white dark:bg-gray-900 px-5 py-10 lg:py-14 lg:px-10 shadow-2xl");
+    			add_location(div3, file$3, 28, 4, 770);
+    			attr_dev(section0, "data-aos", "fade-in");
+    			attr_dev(section0, "data-aos-delay", "600");
+    			attr_dev(section0, "class", "m-auto pt-5 relative grow max-w-5xl");
+    			add_location(section0, file$3, 23, 2, 652);
+    			attr_dev(i0, "class", "fab fa-github");
+    			add_location(i0, file$3, 85, 20, 2760);
+    			attr_dev(a1, "title", "See my GitHub profile");
+    			attr_dev(a1, "aria-label", "See my GitHub profile");
+    			attr_dev(a1, "href", "https://github.com/BobShoaun");
+    			attr_dev(a1, "target", "_blank");
+    			attr_dev(a1, "class", "block");
+    			add_location(a1, file$3, 80, 4, 2591);
+    			attr_dev(i1, "class", "fab fa-linkedin-in");
+    			add_location(i1, file$3, 94, 6, 2994);
+    			attr_dev(a2, "title", "Connect on LinkedIn");
+    			attr_dev(a2, "aria-label", "Connect on LinkedIn");
+    			attr_dev(a2, "href", "https://www.linkedin.com/in/ngbobshoaun/");
+    			attr_dev(a2, "target", "_blank");
+    			attr_dev(a2, "class", "block");
+    			add_location(a2, file$3, 87, 4, 2803);
+    			attr_dev(i2, "class", "far fa-envelope");
+    			add_location(i2, file$3, 111, 6, 3415);
+    			attr_dev(a3, "title", "Send me an email");
+    			attr_dev(a3, "aria-label", "Send me an email");
+    			attr_dev(a3, "href", "mailto:ngbobshoaun2000@gmail.com");
+    			attr_dev(a3, "target", "_blank");
+    			attr_dev(a3, "class", "block");
+    			add_location(a3, file$3, 104, 4, 3238);
+    			attr_dev(div4, "class", "shadow-xl w-4 h-28 bg-gray-700 dark:bg-gray-50");
+    			add_location(div4, file$3, 118, 4, 3601);
+    			attr_dev(div5, "data-aos", "slide-up");
+    			attr_dev(div5, "data-aos-delay", "1500");
+    			attr_dev(div5, "data-aos-duration", "700");
+    			attr_dev(div5, "class", "hidden text-xl absolute lg:flex flex-col gap-4 items-center w-4 left-14 bottom-0 text-center text-gray-700 dark:text-gray-50");
+    			add_location(div5, file$3, 74, 2, 2357);
+    			attr_dev(i3, "class", "hover-vertical fas fa-angle-down");
+    			add_location(i3, file$3, 130, 4, 4039);
+    			attr_dev(button, "title", "Go to about me");
+    			attr_dev(button, "aria-label", "Go to about me");
+    			attr_dev(button, "data-aos", "fade-down");
+    			attr_dev(button, "data-aos-delay", "1500");
+    			attr_dev(button, "data-aos-duration", "700");
+    			attr_dev(button, "class", "text-xl lg:text-3xl py-5 text-gray-700 dark:text-white absolute w-14 mx-auto text-center bottom-20 right-0 left-0");
+    			add_location(button, file$3, 121, 2, 3679);
+    			attr_dev(section1, "id", "home");
+    			attr_dev(section1, "class", "relative main bg-gray-100 h-screen flex bg-gradient-to-b dark:from-gray-700 dark:to-gray-900");
+    			add_location(section1, file$3, 12, 0, 336);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, section1, anchor);
+    			append_dev(section1, div0);
+    			append_dev(section1, t0);
+    			append_dev(section1, section0);
+    			append_dev(section0, div3);
+    			append_dev(div3, div1);
+    			append_dev(div3, t1);
+    			append_dev(div3, h1);
+    			mount_component(textreveal0, h1, null);
+    			append_dev(div3, t2);
+    			append_dev(div3, p);
+    			mount_component(textreveal1, p, null);
+    			append_dev(div3, t3);
+    			append_dev(div3, div2);
+    			mount_component(link, div2, null);
+    			append_dev(div2, t4);
+    			append_dev(div2, a0);
+    			append_dev(a0, t5);
+    			append_dev(section1, t6);
+    			append_dev(section1, div5);
+    			append_dev(div5, a1);
+    			append_dev(a1, i0);
+    			append_dev(div5, t7);
+    			append_dev(div5, a2);
+    			append_dev(a2, i1);
+    			append_dev(div5, t8);
+    			append_dev(div5, a3);
+    			append_dev(a3, i2);
+    			append_dev(div5, t9);
+    			append_dev(div5, div4);
+    			append_dev(section1, t10);
+    			append_dev(section1, button);
+    			append_dev(button, i3);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[2], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const textreveal0_changes = {};
+    			if (dirty & /*welcomeMessage*/ 1) textreveal0_changes.text = /*welcomeMessage*/ ctx[0];
+    			textreveal0.$set(textreveal0_changes);
+    			const link_changes = {};
+
+    			if (dirty & /*$$scope*/ 8) {
+    				link_changes.$$scope = { dirty, ctx };
+    			}
+
+    			link.$set(link_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(textreveal0.$$.fragment, local);
+    			transition_in(textreveal1.$$.fragment, local);
+    			transition_in(link.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(textreveal0.$$.fragment, local);
+    			transition_out(textreveal1.$$.fragment, local);
+    			transition_out(link.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(section1);
+    			destroy_component(textreveal0);
+    			destroy_component(textreveal1);
+    			destroy_component(link);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$5.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let welcomeMessage;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Hero", slots, []);
+    	let { theme } = $$props;
+    	const writable_props = ["theme"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Hero> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => document.getElementById("about").scrollIntoView();
+
+    	$$self.$$set = $$props => {
+    		if ("theme" in $$props) $$invalidate(1, theme = $$props.theme);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		Link,
+    		TextReveal,
+    		copyToClipboard,
+    		onMount,
+    		theme,
+    		welcomeMessage
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("theme" in $$props) $$invalidate(1, theme = $$props.theme);
+    		if ("welcomeMessage" in $$props) $$invalidate(0, welcomeMessage = $$props.welcomeMessage);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*theme*/ 2) {
+    			 $$invalidate(0, welcomeMessage = theme === "dark"
+    			? "console.log(\"Hey!👋\")"
+    			: "console.log(\"Hi!🙋‍♂️\")");
+    		}
+    	};
+
+    	return [welcomeMessage, theme, click_handler];
+    }
+
+    class Hero extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, { theme: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Hero",
+    			options,
+    			id: create_fragment$5.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*theme*/ ctx[1] === undefined && !("theme" in props)) {
+    			console.warn("<Hero> was created without expected prop 'theme'");
+    		}
+    	}
+
+    	get theme() {
+    		throw new Error("<Hero>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set theme(value) {
+    		throw new Error("<Hero>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\SectionNumber.svelte generated by Svelte v3.31.2 */
+
+    const file$4 = "src\\components\\SectionNumber.svelte";
+
+    function create_fragment$6(ctx) {
+    	let div1;
+    	let div0;
+    	let div0_class_value;
+    	let t0;
+    	let p;
+    	let t1;
+    	let p_class_value;
+    	let div1_class_value;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			t0 = space();
+    			p = element("p");
+    			t1 = text(/*number*/ ctx[2]);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div1 = claim_element(nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var div1_nodes = children(div1);
+    			div0 = claim_element(div1_nodes, "DIV", { class: true });
+    			children(div0).forEach(detach_dev);
+    			t0 = claim_space(div1_nodes);
+    			p = claim_element(div1_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t1 = claim_text(p_nodes, /*number*/ ctx[2]);
+    			p_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "class", div0_class_value = `w-4 h-32 mb-2 shadow-xl ${/*shaftClasses*/ ctx[0]}`);
+    			add_location(div0, file$4, 13, 2, 370);
+    			attr_dev(p, "class", p_class_value = `${/*textClasses*/ ctx[1]} ${/*right*/ ctx[3] ? "right-0" : "left-0"} font-mono font-bold text-3xl absolute`);
+    			add_location(p, file$4, 14, 2, 431);
+    			attr_dev(div1, "data-aos", "slide-down");
+    			attr_dev(div1, "data-aos-offset", "200");
+    			attr_dev(div1, "data-aos-delay", "100");
+    			attr_dev(div1, "class", div1_class_value = `hidden lg:block absolute top-0 ${/*right*/ ctx[3] ? "right-14" : "left-14"}`);
+    			add_location(div1, file$4, 7, 0, 207);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div1, t0);
+    			append_dev(div1, p);
+    			append_dev(p, t1);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*shaftClasses*/ 1 && div0_class_value !== (div0_class_value = `w-4 h-32 mb-2 shadow-xl ${/*shaftClasses*/ ctx[0]}`)) {
+    				attr_dev(div0, "class", div0_class_value);
+    			}
+
+    			if (dirty & /*number*/ 4) set_data_dev(t1, /*number*/ ctx[2]);
+
+    			if (dirty & /*textClasses, right*/ 10 && p_class_value !== (p_class_value = `${/*textClasses*/ ctx[1]} ${/*right*/ ctx[3] ? "right-0" : "left-0"} font-mono font-bold text-3xl absolute`)) {
+    				attr_dev(p, "class", p_class_value);
+    			}
+
+    			if (dirty & /*right*/ 8 && div1_class_value !== (div1_class_value = `hidden lg:block absolute top-0 ${/*right*/ ctx[3] ? "right-14" : "left-14"}`)) {
+    				attr_dev(div1, "class", div1_class_value);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$6.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$6($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("SectionNumber", slots, []);
+    	let { shaftClasses = "bg-gray-700 dark:bg-gray-800" } = $$props;
+    	let { textClasses = "text-gray-700 dark:text-gray-800" } = $$props;
+    	let { number = "011" } = $$props;
+    	let { right = false } = $$props;
+    	const writable_props = ["shaftClasses", "textClasses", "number", "right"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<SectionNumber> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("shaftClasses" in $$props) $$invalidate(0, shaftClasses = $$props.shaftClasses);
+    		if ("textClasses" in $$props) $$invalidate(1, textClasses = $$props.textClasses);
+    		if ("number" in $$props) $$invalidate(2, number = $$props.number);
+    		if ("right" in $$props) $$invalidate(3, right = $$props.right);
+    	};
+
+    	$$self.$capture_state = () => ({ shaftClasses, textClasses, number, right });
+
+    	$$self.$inject_state = $$props => {
+    		if ("shaftClasses" in $$props) $$invalidate(0, shaftClasses = $$props.shaftClasses);
+    		if ("textClasses" in $$props) $$invalidate(1, textClasses = $$props.textClasses);
+    		if ("number" in $$props) $$invalidate(2, number = $$props.number);
+    		if ("right" in $$props) $$invalidate(3, right = $$props.right);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [shaftClasses, textClasses, number, right];
+    }
+
+    class SectionNumber extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
+    			shaftClasses: 0,
+    			textClasses: 1,
+    			number: 2,
+    			right: 3
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "SectionNumber",
+    			options,
+    			id: create_fragment$6.name
+    		});
+    	}
+
+    	get shaftClasses() {
+    		throw new Error("<SectionNumber>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set shaftClasses(value) {
+    		throw new Error("<SectionNumber>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get textClasses() {
+    		throw new Error("<SectionNumber>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set textClasses(value) {
+    		throw new Error("<SectionNumber>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get number() {
+    		throw new Error("<SectionNumber>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set number(value) {
+    		throw new Error("<SectionNumber>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get right() {
+    		throw new Error("<SectionNumber>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set right(value) {
+    		throw new Error("<SectionNumber>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\pages\About.svelte generated by Svelte v3.31.2 */
+    const file$5 = "src\\pages\\About.svelte";
+
+    function create_fragment$7(ctx) {
+    	let section1;
+    	let div0;
+    	let t0;
+    	let sectionnumber;
+    	let t1;
+    	let section0;
+    	let div6;
+    	let div2;
+    	let div1;
+    	let img;
+    	let img_src_value;
+    	let t2;
+    	let div5;
+    	let div3;
+    	let textreveal;
+    	let t3;
+    	let div4;
+    	let p0;
+    	let t4;
+    	let t5;
+    	let p1;
+    	let t6;
+    	let t7;
+    	let p2;
+    	let t8;
+    	let t9;
+    	let div7;
+    	let current;
+
+    	sectionnumber = new SectionNumber({
+    			props: {
+    				number: "001",
+    				shaftClasses: "bg-gray-100 dark:bg-gray-800",
+    				textClasses: "text-gray-100 dark:text-gray-800"
+    			},
+    			$$inline: true
+    		});
+
+    	textreveal = new TextReveal({
+    			props: { text: "ABOUT ME" },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			section1 = element("section");
+    			div0 = element("div");
+    			t0 = space();
+    			create_component(sectionnumber.$$.fragment);
+    			t1 = space();
+    			section0 = element("section");
+    			div6 = element("div");
+    			div2 = element("div");
+    			div1 = element("div");
+    			img = element("img");
+    			t2 = space();
+    			div5 = element("div");
+    			div3 = element("div");
+    			create_component(textreveal.$$.fragment);
+    			t3 = space();
+    			div4 = element("div");
+    			p0 = element("p");
+    			t4 = text("Hey, What's up? I’m Chaitanya, a student specializing in \r\n\t    Software Engineering and Data Science at\r\n            North Carolina State University.");
+    			t5 = space();
+    			p1 = element("p");
+    			t6 = text("   The passion to create and Analyze has always been in\r\n            me. I strive to build quality, intuitive, and robust software with\r\n            the goal of learning and improving my skills.");
+    			t7 = space();
+    			p2 = element("p");
+    			t8 = text("   My expertise includes Python, Java, and Machine Learning. \r\n            Recently I have been intrigued with Data Engineering and Cloud Engineering.\r\n            Aside from coding, I enjoy catching up with my favorite series, and playing video games.");
+    			t9 = space();
+    			div7 = element("div");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			section1 = claim_element(nodes, "SECTION", { id: true, class: true });
+    			var section1_nodes = children(section1);
+
+    			div0 = claim_element(section1_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			children(div0).forEach(detach_dev);
+    			t0 = claim_space(section1_nodes);
+    			claim_component(sectionnumber.$$.fragment, section1_nodes);
+    			t1 = claim_space(section1_nodes);
+    			section0 = claim_element(section1_nodes, "SECTION", { class: true });
+    			var section0_nodes = children(section0);
+    			div6 = claim_element(section0_nodes, "DIV", { class: true });
+    			var div6_nodes = children(div6);
+    			div2 = claim_element(div6_nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			div1 = claim_element(div2_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+
+    			img = claim_element(div1_nodes, "IMG", {
+    				loading: true,
+    				"data-aos": true,
+    				"data-aos-duration": true,
+    				"data-aos-delay": true,
+    				src: true,
+    				alt: true
+    			});
+
+    			div1_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			t2 = claim_space(div6_nodes);
+    			div5 = claim_element(div6_nodes, "DIV", { class: true });
+    			var div5_nodes = children(div5);
+    			div3 = claim_element(div5_nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+    			claim_component(textreveal.$$.fragment, div3_nodes);
+    			div3_nodes.forEach(detach_dev);
+    			t3 = claim_space(div5_nodes);
+
+    			div4 = claim_element(div5_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var div4_nodes = children(div4);
+    			p0 = claim_element(div4_nodes, "P", { class: true });
+    			var p0_nodes = children(p0);
+    			t4 = claim_text(p0_nodes, "Hey, What's up? I’m Chaitanya, a student specializing in \r\n\t    Software Engineering and Data Science at\r\n            North Carolina State University.");
+    			p0_nodes.forEach(detach_dev);
+    			t5 = claim_space(div4_nodes);
+    			p1 = claim_element(div4_nodes, "P", {});
+    			var p1_nodes = children(p1);
+    			t6 = claim_text(p1_nodes, "   The passion to create and Analyze has always been in\r\n            me. I strive to build quality, intuitive, and robust software with\r\n            the goal of learning and improving my skills.");
+    			p1_nodes.forEach(detach_dev);
+    			t7 = claim_space(div4_nodes);
+    			p2 = claim_element(div4_nodes, "P", {});
+    			var p2_nodes = children(p2);
+    			t8 = claim_text(p2_nodes, "   My expertise includes Python, Java, and Machine Learning. \r\n            Recently I have been intrigued with Data Engineering and Cloud Engineering.\r\n            Aside from coding, I enjoy catching up with my favorite series, and playing video games.");
+    			p2_nodes.forEach(detach_dev);
+    			div4_nodes.forEach(detach_dev);
+    			div5_nodes.forEach(detach_dev);
+    			div6_nodes.forEach(detach_dev);
+    			section0_nodes.forEach(detach_dev);
+    			t9 = claim_space(section1_nodes);
+
+    			div7 = claim_element(section1_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				class: true
+    			});
+
+    			children(div7).forEach(detach_dev);
+    			section1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "data-aos", "slide-right");
+    			attr_dev(div0, "data-aos-offset", "100");
+    			attr_dev(div0, "data-aos-duration", "700");
+    			attr_dev(div0, "class", "absolute background left-0 w-1/3 lg:w-1/4 h-full moving-gradient-2");
+    			add_location(div0, file$5, 9, 2, 292);
+    			attr_dev(img, "loading", "lazy");
+    			attr_dev(img, "data-aos", "slide-right");
+    			attr_dev(img, "data-aos-duration", "500");
+    			attr_dev(img, "data-aos-delay", "200");
+    			if (img.src !== (img_src_value = "/images/me.webp")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "A guy (me) posing before going to a wedding.");
+    			add_location(img, file$5, 30, 10, 931);
+    			attr_dev(div1, "class", "bg-gray-50 dark:bg-gray-300 shadow-2xl overflow-hidden p-3 rounded-sm");
+    			add_location(div1, file$5, 27, 8, 815);
+    			attr_dev(div2, "class", "max-w-xs z-10 flex-1");
+    			add_location(div2, file$5, 26, 6, 771);
+    			attr_dev(div3, "class", "absolute right-0 -top-20 lg:-top-32 lg:text-right tracking-wide text-5xl md:text-6xl lg:text-7xl font-black text-gray-700 dark:text-gray-200");
+    			add_location(div3, file$5, 44, 8, 1356);
+    			attr_dev(p0, "class", "first-letter:text-4xl first-letter:font-bold");
+    			add_location(p0, file$5, 55, 10, 1768);
+    			add_location(p1, file$5, 60, 10, 2016);
+    			add_location(p2, file$5, 65, 10, 2265);
+    			attr_dev(div4, "data-aos", "zoom-in-left");
+    			attr_dev(div4, "data-aos-delay", "100");
+    			attr_dev(div4, "class", "text-gray-600 dark:text-gray-300 lg:text-lg space-y-5");
+    			add_location(div4, file$5, 50, 8, 1601);
+    			attr_dev(div5, "class", "flex-1 max-w-prose relative bg-white dark:bg-gray-900 px-6 py-6 lg:py-10 lg:px-10 shadow-2xl");
+    			add_location(div5, file$5, 41, 6, 1223);
+    			attr_dev(div6, "class", "flex flex-col items-center gap-32 lg:gap-20 lg:flex-row justify-center");
+    			add_location(div6, file$5, 23, 4, 666);
+    			attr_dev(section0, "class", "main mb-40 mt-40 lg:mt-64");
+    			add_location(section0, file$5, 22, 2, 617);
+    			attr_dev(div7, "data-aos", "slide-up");
+    			attr_dev(div7, "data-aos-offset", "200");
+    			attr_dev(div7, "class", "shadow-xl hidden lg:block absolute right-14 bottom-0 w-4 h-28 bg-gray-300 dark:bg-gray-300");
+    			add_location(div7, file$5, 85, 2, 2991);
+    			attr_dev(section1, "id", "about");
+    			attr_dev(section1, "class", "overflow-hidden snap-center relative bg-gray-50 bg-gradient-to-b dark:from-gray-800 dark:to-gray-700");
+    			add_location(section1, file$5, 5, 0, 151);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, section1, anchor);
+    			append_dev(section1, div0);
+    			append_dev(section1, t0);
+    			mount_component(sectionnumber, section1, null);
+    			append_dev(section1, t1);
+    			append_dev(section1, section0);
+    			append_dev(section0, div6);
+    			append_dev(div6, div2);
+    			append_dev(div2, div1);
+    			append_dev(div1, img);
+    			append_dev(div6, t2);
+    			append_dev(div6, div5);
+    			append_dev(div5, div3);
+    			mount_component(textreveal, div3, null);
+    			append_dev(div5, t3);
+    			append_dev(div5, div4);
+    			append_dev(div4, p0);
+    			append_dev(p0, t4);
+    			append_dev(div4, t5);
+    			append_dev(div4, p1);
+    			append_dev(p1, t6);
+    			append_dev(div4, t7);
+    			append_dev(div4, p2);
+    			append_dev(p2, t8);
+    			append_dev(section1, t9);
+    			append_dev(section1, div7);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sectionnumber.$$.fragment, local);
+    			transition_in(textreveal.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(sectionnumber.$$.fragment, local);
+    			transition_out(textreveal.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(section1);
+    			destroy_component(sectionnumber);
+    			destroy_component(textreveal);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$7.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$7($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("About", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<About> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({ SectionNumber, TextReveal });
+    	return [];
+    }
+
+    class About extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "About",
+    			options,
+    			id: create_fragment$7.name
+    		});
+    	}
+    }
+
+    /* src\pages\Experience.svelte generated by Svelte v3.31.2 */
+    const file$6 = "src\\pages\\Experience.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[2] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[5] = list[i];
+    	return child_ctx;
+    }
+
+    // (82:14) {#each experience.points as point}
+    function create_each_block_1(ctx) {
+    	let li;
+    	let t_value = /*point*/ ctx[5] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			t = text(t_value);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			li = claim_element(nodes, "LI", { class: true });
+    			var li_nodes = children(li);
+    			t = claim_text(li_nodes, t_value);
+    			li_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(li, "class", "mt-1");
+    			add_location(li, file$6, 82, 16, 2966);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*experiences*/ 1 && t_value !== (t_value = /*point*/ ctx[5] + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(82:14) {#each experience.points as point}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (52:6) {#each experiences as experience}
+    function create_each_block(ctx) {
+    	let button;
+    	let img;
+    	let img_src_value;
+    	let img_alt_value;
+    	let t0;
+    	let div;
+    	let h10;
+    	let t1_value = /*experience*/ ctx[2].position + "";
+    	let t1;
+    	let t2;
+    	let h11;
+    	let t3;
+    	let t4_value = /*experience*/ ctx[2].name + "";
+    	let t4;
+    	let h11_class_value;
+    	let t5;
+    	let p;
+    	let time0;
+    	let t6_value = /*experience*/ ctx[2].start + "";
+    	let t6;
+    	let t7;
+    	let time1;
+    	let t8_value = /*experience*/ ctx[2].end + "";
+    	let t8;
+    	let t9;
+    	let ul;
+    	let t10;
+    	let button_class_value;
+    	let each_value_1 = /*experience*/ ctx[2].points;
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			img = element("img");
+    			t0 = space();
+    			div = element("div");
+    			h10 = element("h1");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			h11 = element("h1");
+    			t3 = text("@");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			p = element("p");
+    			time0 = element("time");
+    			t6 = text(t6_value);
+    			t7 = text(" - ");
+    			time1 = element("time");
+    			t8 = text(t8_value);
+    			t9 = space();
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t10 = space();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			button = claim_element(nodes, "BUTTON", { class: true });
+    			var button_nodes = children(button);
+
+    			img = claim_element(button_nodes, "IMG", {
+    				loading: true,
+    				class: true,
+    				src: true,
+    				alt: true,
+    				style: true
+    			});
+
+    			t0 = claim_space(button_nodes);
+    			div = claim_element(button_nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			h10 = claim_element(div_nodes, "H1", { class: true });
+    			var h10_nodes = children(h10);
+    			t1 = claim_text(h10_nodes, t1_value);
+    			h10_nodes.forEach(detach_dev);
+    			t2 = claim_space(div_nodes);
+    			h11 = claim_element(div_nodes, "H1", { class: true });
+    			var h11_nodes = children(h11);
+    			t3 = claim_text(h11_nodes, "@");
+    			t4 = claim_text(h11_nodes, t4_value);
+    			h11_nodes.forEach(detach_dev);
+    			t5 = claim_space(div_nodes);
+    			p = claim_element(div_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			time0 = claim_element(p_nodes, "TIME", {});
+    			var time0_nodes = children(time0);
+    			t6 = claim_text(time0_nodes, t6_value);
+    			time0_nodes.forEach(detach_dev);
+    			t7 = claim_text(p_nodes, " - ");
+    			time1 = claim_element(p_nodes, "TIME", {});
+    			var time1_nodes = children(time1);
+    			t8 = claim_text(time1_nodes, t8_value);
+    			time1_nodes.forEach(detach_dev);
+    			p_nodes.forEach(detach_dev);
+    			t9 = claim_space(div_nodes);
+    			ul = claim_element(div_nodes, "UL", { class: true });
+    			var ul_nodes = children(ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(ul_nodes);
+    			}
+
+    			ul_nodes.forEach(detach_dev);
+    			div_nodes.forEach(detach_dev);
+    			t10 = claim_space(button_nodes);
+    			button_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(img, "loading", "lazy");
+    			attr_dev(img, "class", "m-auto h-40 sm:h-52 md:h-48 lg:h-40 aspect-square object-scale-down svelte-bqf100");
+    			if (img.src !== (img_src_value = /*experience*/ ctx[2].logo)) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = `logo for ${/*experience*/ ctx[2].name}`);
+    			set_style(img, "mix-blend-mode", /*experience*/ ctx[2].blend);
+    			add_location(img, file$6, 55, 10, 1850);
+    			attr_dev(h10, "class", "font-bold text-gray-700 dark:text-white text-xl lg:text-2xl");
+    			add_location(h10, file$6, 65, 12, 2269);
+    			attr_dev(h11, "class", h11_class_value = "font-bold " + /*experience*/ ctx[2].highlight + " text-lg lg:text-lg mb-1" + " svelte-bqf100");
+    			add_location(h11, file$6, 70, 12, 2440);
+    			add_location(time0, file$6, 76, 14, 2688);
+    			add_location(time1, file$6, 76, 48, 2722);
+    			attr_dev(p, "class", "text-gray-500 dark:text-gray-400 mb-5 font-mono text-sm");
+    			add_location(p, file$6, 75, 12, 2605);
+    			attr_dev(ul, "class", "text-base font-semibold text-gray-700 dark:text-gray-200 list-square ml-4");
+    			add_location(ul, file$6, 78, 12, 2783);
+    			attr_dev(div, "class", "exp-desc bg-gray-100/80 dark:bg-gray-800/80 p-5 sm:p-10 md:p-5 backdrop-blur-md svelte-bqf100");
+    			add_location(div, file$6, 62, 10, 2137);
+    			attr_dev(button, "class", button_class_value = "exp text-left aspect-square flex " + /*experience*/ ctx[2].background + " svelte-bqf100");
+    			add_location(button, file$6, 52, 8, 1744);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, img);
+    			append_dev(button, t0);
+    			append_dev(button, div);
+    			append_dev(div, h10);
+    			append_dev(h10, t1);
+    			append_dev(div, t2);
+    			append_dev(div, h11);
+    			append_dev(h11, t3);
+    			append_dev(h11, t4);
+    			append_dev(div, t5);
+    			append_dev(div, p);
+    			append_dev(p, time0);
+    			append_dev(time0, t6);
+    			append_dev(p, t7);
+    			append_dev(p, time1);
+    			append_dev(time1, t8);
+    			append_dev(div, t9);
+    			append_dev(div, ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(ul, null);
+    			}
+
+    			append_dev(button, t10);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*experiences*/ 1 && img.src !== (img_src_value = /*experience*/ ctx[2].logo)) {
+    				attr_dev(img, "src", img_src_value);
+    			}
+
+    			if (dirty & /*experiences*/ 1 && img_alt_value !== (img_alt_value = `logo for ${/*experience*/ ctx[2].name}`)) {
+    				attr_dev(img, "alt", img_alt_value);
+    			}
+
+    			if (dirty & /*experiences*/ 1) {
+    				set_style(img, "mix-blend-mode", /*experience*/ ctx[2].blend);
+    			}
+
+    			if (dirty & /*experiences*/ 1 && t1_value !== (t1_value = /*experience*/ ctx[2].position + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*experiences*/ 1 && t4_value !== (t4_value = /*experience*/ ctx[2].name + "")) set_data_dev(t4, t4_value);
+
+    			if (dirty & /*experiences*/ 1 && h11_class_value !== (h11_class_value = "font-bold " + /*experience*/ ctx[2].highlight + " text-lg lg:text-lg mb-1" + " svelte-bqf100")) {
+    				attr_dev(h11, "class", h11_class_value);
+    			}
+
+    			if (dirty & /*experiences*/ 1 && t6_value !== (t6_value = /*experience*/ ctx[2].start + "")) set_data_dev(t6, t6_value);
+    			if (dirty & /*experiences*/ 1 && t8_value !== (t8_value = /*experience*/ ctx[2].end + "")) set_data_dev(t8, t8_value);
+
+    			if (dirty & /*experiences*/ 1) {
+    				each_value_1 = /*experience*/ ctx[2].points;
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_1.length;
+    			}
+
+    			if (dirty & /*experiences*/ 1 && button_class_value !== (button_class_value = "exp text-left aspect-square flex " + /*experience*/ ctx[2].background + " svelte-bqf100")) {
+    				attr_dev(button, "class", button_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(52:6) {#each experiences as experience}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$8(ctx) {
+    	let section1;
+    	let div0;
+    	let t0;
+    	let sectionnumber;
+    	let t1;
+    	let header;
+    	let h2;
+    	let textreveal;
+    	let t2;
+    	let div1;
+    	let p;
+    	let t3;
+    	let t4;
+    	let section0;
+    	let div2;
+    	let t5;
+    	let div3;
+    	let current;
+
+    	sectionnumber = new SectionNumber({
+    			props: {
+    				right: true,
+    				number: "010",
+    				shaftClasses: "bg-gray-600 dark:bg-gray-50",
+    				textClasses: "text-gray-600 dark:text-gray-50"
+    			},
+    			$$inline: true
+    		});
+
+    	textreveal = new TextReveal({
+    			props: { text: "EXPERIENCE" },
+    			$$inline: true
+    		});
+
+    	let each_value = /*experiences*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			section1 = element("section");
+    			div0 = element("div");
+    			t0 = space();
+    			create_component(sectionnumber.$$.fragment);
+    			t1 = space();
+    			header = element("header");
+    			h2 = element("h2");
+    			create_component(textreveal.$$.fragment);
+    			t2 = space();
+    			div1 = element("div");
+    			p = element("p");
+    			t3 = text("I have more than 2 years of work experience and counting. Here are some\r\n        companies I have worked at before.");
+    			t4 = space();
+    			section0 = element("section");
+    			div2 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t5 = space();
+    			div3 = element("div");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			section1 = claim_element(nodes, "SECTION", { id: true, class: true });
+    			var section1_nodes = children(section1);
+
+    			div0 = claim_element(section1_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			children(div0).forEach(detach_dev);
+    			t0 = claim_space(section1_nodes);
+    			claim_component(sectionnumber.$$.fragment, section1_nodes);
+    			t1 = claim_space(section1_nodes);
+    			header = claim_element(section1_nodes, "HEADER", { class: true });
+    			var header_nodes = children(header);
+    			h2 = claim_element(header_nodes, "H2", { class: true });
+    			var h2_nodes = children(h2);
+    			claim_component(textreveal.$$.fragment, h2_nodes);
+    			h2_nodes.forEach(detach_dev);
+    			t2 = claim_space(header_nodes);
+
+    			div1 = claim_element(header_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var div1_nodes = children(div1);
+    			p = claim_element(div1_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t3 = claim_text(p_nodes, "I have more than 2 years of work experience and counting. Here are some\r\n        companies I have worked at before.");
+    			p_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			header_nodes.forEach(detach_dev);
+    			t4 = claim_space(section1_nodes);
+    			section0 = claim_element(section1_nodes, "SECTION", { class: true });
+    			var section0_nodes = children(section0);
+    			div2 = claim_element(section0_nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(div2_nodes);
+    			}
+
+    			div2_nodes.forEach(detach_dev);
+    			section0_nodes.forEach(detach_dev);
+    			t5 = claim_space(section1_nodes);
+
+    			div3 = claim_element(section1_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				class: true
+    			});
+
+    			children(div3).forEach(detach_dev);
+    			section1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "data-aos", "slide-down");
+    			attr_dev(div0, "data-aos-delay", "900");
+    			attr_dev(div0, "class", "bg-gray-200 z-0 bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 absolute right-0 w-1/2 h-full");
+    			add_location(div0, file$6, 18, 2, 503);
+    			attr_dev(h2, "class", "basis-1/2 inline-block lg:text-right tracking-wide text-4xl md:text-5xl lg:text-7xl font-black text-gray-700 dark:text-gray-200 mb-4");
+    			add_location(h2, file$6, 32, 4, 913);
+    			attr_dev(p, "class", "text-base lg:text-lg text-gray-600 dark:text-gray-300 lg:text-left lg:max-w-sm mx-auto max-w-prose lg:mx-0 font-semibold");
+    			add_location(p, file$6, 38, 6, 1201);
+    			attr_dev(div1, "data-aos", "fade-left");
+    			attr_dev(div1, "data-aos-delay", "200");
+    			attr_dev(div1, "class", "basis-1/2");
+    			add_location(div1, file$6, 37, 4, 1128);
+    			attr_dev(header, "class", "px-5 relative lg:flex pt-40 pb-24 gap-10 text-center");
+    			add_location(header, file$6, 31, 2, 838);
+    			attr_dev(div2, "class", "grid grid-cols-1 md:grid-cols-2 mx-6 sm:mx-28 md:mx-0 lg:mx-20 xl:mx-28 shadow-2xl");
+    			add_location(div2, file$6, 48, 4, 1584);
+    			attr_dev(section0, "class", "main max-w-6xl mx-auto mb-40 relative z-10");
+    			add_location(section0, file$6, 47, 2, 1518);
+    			attr_dev(div3, "data-aos", "slide-up");
+    			attr_dev(div3, "data-aos-offset", "200");
+    			attr_dev(div3, "class", "hidden lg:block shadow-xl absolute left-14 bottom-0 w-4 h-28 bg-gray-400 dark:bg-gray-300");
+    			add_location(div3, file$6, 91, 2, 3121);
+    			attr_dev(section1, "id", "experience");
+    			attr_dev(section1, "class", "overflow-hidden bg-gray-100 relative bg-gradient-to-b dark:from-gray-900 dark:to-gray-800");
+    			add_location(section1, file$6, 14, 0, 368);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, section1, anchor);
+    			append_dev(section1, div0);
+    			append_dev(section1, t0);
+    			mount_component(sectionnumber, section1, null);
+    			append_dev(section1, t1);
+    			append_dev(section1, header);
+    			append_dev(header, h2);
+    			mount_component(textreveal, h2, null);
+    			append_dev(header, t2);
+    			append_dev(header, div1);
+    			append_dev(div1, p);
+    			append_dev(p, t3);
+    			append_dev(section1, t4);
+    			append_dev(section1, section0);
+    			append_dev(section0, div2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div2, null);
+    			}
+
+    			append_dev(section1, t5);
+    			append_dev(section1, div3);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*experiences*/ 1) {
+    				each_value = /*experiences*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div2, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sectionnumber.$$.fragment, local);
+    			transition_in(textreveal.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(sectionnumber.$$.fragment, local);
+    			transition_out(textreveal.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(section1);
+    			destroy_component(sectionnumber);
+    			destroy_component(textreveal);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$8.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$8($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Experience", slots, []);
+    	onMount(mounted);
+    	let experiences = [];
+
+    	async function mounted() {
+    		let response = await fetch("/experience.json");
+    		$$invalidate(0, experiences = await response.json());
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Experience> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		SectionNumber,
+    		TextReveal,
+    		experiences,
+    		mounted
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("experiences" in $$props) $$invalidate(0, experiences = $$props.experiences);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [experiences];
+    }
+
+    class Experience extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Experience",
+    			options,
+    			id: create_fragment$8.name
+    		});
+    	}
+    }
+
+    var technologies = [
+      {
+        tech: "Pytorch",
+        link: "https://pytorch.org/docs/stable/index.html",
+      },
+      {
+        tech: "SKlearn",
+        link: "https://scikit-learn.org/stable/",
+      },
+      {
+        tech: "Numpy",
+        link: "https://numpy.org/doc/stable/",
+      },
+      {
+        tech: "Pandas",
+        link: "https://pandas.pydata.org/docs/",
+      },
+      {
+        tech: "NetworkX",
+        link: "https://networkx.org/",
+      },
+      {
+        tech: "Apache Spark",
+        link: "https://spark.apache.org/docs/latest/",
+      },
+      {
+        tech: "Svelte",
+        link: "https://svelte.dev/",
+      },
+      {
+        tech: "Unity Engine",
+        link: "https://unity.com/",
+      },
+      {
+        tech: "Git",
+        link: "https://git-scm.com/doc",
+      },
+      {
+        tech: "MongoDB",
+        link: "https://www.mongodb.com/docs/",
+      },
+      {
+        tech: "AWS",
+        link: "https://docs.aws.amazon.com/",
+      },
+      {
+        tech: "Postgres",
+        link: "https://www.postgresql.org/docs/",
+      },
+      {
+        tech: "docker",
+        link: "https://docs.docker.com/reference/",
+      },
+      {
+        tech: "Django",
+        link: "https://docs.djangoproject.com/en/4.2/",
+      },
+      {
+        tech: "Github Actions",
+        link: "https://docs.github.com/en/actions",
+      },
+      {
+        tech: "Apache Kafka",
+        link: "https://kafka.apache.org/quickstart",
+      },
+      {
+        tech: "Python",
+        link: "https://www.python.org/",
+      },
+      {
+        tech: "Java",
+        link: "https://docs.oracle.com/en/java/",
+      },
+      {
+        tech: "C(++)",
+        link: "https://learn.microsoft.com/en-us/cpp/?view=msvc-170",
+      },
+      {
+        tech: "JavaScript",
+        link: "https://www.javascript.com/",
+      },
+      {
+        tech: "C#",
+        link: "https://learn.microsoft.com/en-us/dotnet/csharp/",
+      },
+      {
+        tech: "SQL",
+        link: "https://dev.mysql.com/doc/",
+      },
+      {
+        tech: "Ruby",
+        link: "https://www.ruby-lang.org/en/documentation/",
+      },
+    ];
+
+    /* src\components\WebDevProject.svelte generated by Svelte v3.31.2 */
+    const file$7 = "src\\components\\WebDevProject.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[4] = list[i];
+    	return child_ctx;
+    }
+
+    // (44:8) {:else}
+    function create_else_block$1(ctx) {
+    	let button;
+    	let p;
+    	let t0;
+    	let t1;
+    	let i;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			p = element("p");
+    			t0 = text("Private");
+    			t1 = space();
+    			i = element("i");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			button = claim_element(nodes, "BUTTON", { class: true, disabled: true });
+    			var button_nodes = children(button);
+    			p = claim_element(button_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t0 = claim_text(p_nodes, "Private");
+    			p_nodes.forEach(detach_dev);
+    			t1 = claim_space(button_nodes);
+    			i = claim_element(button_nodes, "I", { class: true });
+    			children(i).forEach(detach_dev);
+    			button_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "class", "");
+    			add_location(p, file$7, 48, 12, 1763);
+    			attr_dev(i, "class", "fas fa-code ml-3 text-lg");
+    			add_location(i, file$7, 49, 12, 1800);
+    			attr_dev(button, "class", "rounded-md px-3 py-1.5 dark:bg-gray-700 bg-gray-200 flex items-center text-gray-500 dark:text-gray-400 cursor-not-allowed");
+    			button.disabled = true;
+    			add_location(button, file$7, 44, 10, 1564);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, p);
+    			append_dev(p, t0);
+    			append_dev(button, t1);
+    			append_dev(button, i);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$1.name,
+    		type: "else",
+    		source: "(44:8) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (34:8) {#if project.github}
+    function create_if_block_2(ctx) {
+    	let a;
+    	let p;
+    	let t0;
+    	let t1;
+    	let i;
+    	let a_href_value;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			p = element("p");
+    			t0 = text("Github");
+    			t1 = space();
+    			i = element("i");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			a = claim_element(nodes, "A", {
+    				href: true,
+    				"aria-label": true,
+    				target: true,
+    				class: true
+    			});
+
+    			var a_nodes = children(a);
+    			p = claim_element(a_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t0 = claim_text(p_nodes, "Github");
+    			p_nodes.forEach(detach_dev);
+    			t1 = claim_space(a_nodes);
+    			i = claim_element(a_nodes, "I", { class: true });
+    			children(i).forEach(detach_dev);
+    			a_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "class", "");
+    			add_location(p, file$7, 40, 12, 1443);
+    			attr_dev(i, "class", "fab fa-github ml-3 text-lg");
+    			add_location(i, file$7, 41, 12, 1479);
+    			attr_dev(a, "href", a_href_value = /*project*/ ctx[0].github);
+    			attr_dev(a, "aria-label", "Look at GitHub repo");
+    			attr_dev(a, "target", "_blank");
+    			attr_dev(a, "class", "shadow-md rounded-md px-3 py-1.5 bg-gray-700 hover:bg-gray-600 transition-colors flex items-center text-gray-50");
+    			add_location(a, file$7, 34, 10, 1171);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, p);
+    			append_dev(p, t0);
+    			append_dev(a, t1);
+    			append_dev(a, i);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*project*/ 1 && a_href_value !== (a_href_value = /*project*/ ctx[0].github)) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2.name,
+    		type: "if",
+    		source: "(34:8) {#if project.github}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (53:8) {#if project.website}
+    function create_if_block_1$1(ctx) {
+    	let a;
+    	let p;
+    	let t0;
+    	let t1;
+    	let i;
+    	let a_href_value;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			p = element("p");
+    			t0 = text("Link");
+    			t1 = space();
+    			i = element("i");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			a = claim_element(nodes, "A", {
+    				href: true,
+    				"aria-label": true,
+    				target: true,
+    				class: true
+    			});
+
+    			var a_nodes = children(a);
+    			p = claim_element(a_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t0 = claim_text(p_nodes, "Link");
+    			p_nodes.forEach(detach_dev);
+    			t1 = claim_space(a_nodes);
+    			i = claim_element(a_nodes, "I", { class: true });
+    			children(i).forEach(detach_dev);
+    			a_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "class", "group-hover:underline");
+    			add_location(p, file$7, 59, 12, 2143);
+    			attr_dev(i, "class", "fas fa-external-link-alt ml-3");
+    			add_location(i, file$7, 60, 12, 2198);
+    			attr_dev(a, "href", a_href_value = /*project*/ ctx[0].website);
+    			attr_dev(a, "aria-label", "Go to live website");
+    			attr_dev(a, "target", "_blank");
+    			attr_dev(a, "class", "flex px-2 py-2 items-center group text-gray-800 dark:text-gray-50");
+    			add_location(a, file$7, 53, 10, 1917);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, p);
+    			append_dev(p, t0);
+    			append_dev(a, t1);
+    			append_dev(a, i);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*project*/ 1 && a_href_value !== (a_href_value = /*project*/ ctx[0].website)) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(53:8) {#if project.website}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (104:8) {#each project.technologies as tech}
+    function create_each_block$1(ctx) {
+    	let a;
+    	let t_value = /*tech*/ ctx[4] + "";
+    	let t;
+    	let a_href_value;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			t = text(t_value);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			a = claim_element(nodes, "A", { href: true, target: true, class: true });
+    			var a_nodes = children(a);
+    			t = claim_text(a_nodes, t_value);
+    			a_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(a, "href", a_href_value = /*techLinks*/ ctx[2].get(/*tech*/ ctx[4]));
+    			attr_dev(a, "target", "_blank");
+    			attr_dev(a, "class", "bg-red-200 text-red-900 px-2");
+    			add_location(a, file$7, 104, 10, 3607);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*project*/ 1 && t_value !== (t_value = /*tech*/ ctx[4] + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*project*/ 1 && a_href_value !== (a_href_value = /*techLinks*/ ctx[2].get(/*tech*/ ctx[4]))) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(104:8) {#each project.technologies as tech}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (114:2) {#if project.more}
+    function create_if_block$2(ctx) {
+    	let article;
+    	let a;
+    	let em;
+    	let i;
+    	let t0;
+    	let t1;
+    	let hr;
+    	let t2;
+    	let h1;
+    	let t3;
+    	let t4;
+    	let p;
+    	let t5;
+    	let a_href_value;
+
+    	const block = {
+    		c: function create() {
+    			article = element("article");
+    			a = element("a");
+    			em = element("em");
+    			i = element("i");
+    			t0 = text("Featured Article");
+    			t1 = space();
+    			hr = element("hr");
+    			t2 = space();
+    			h1 = element("h1");
+    			t3 = text("How I Made My Own Cryptocurrency");
+    			t4 = space();
+    			p = element("p");
+    			t5 = text("by Ng Bob Shoaun  ∙  2 August 2021  ∙  8 minute\r\n          read");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			article = claim_element(nodes, "ARTICLE", { "data-aos": true, class: true });
+    			var article_nodes = children(article);
+    			a = claim_element(article_nodes, "A", { href: true, class: true });
+    			var a_nodes = children(a);
+    			em = claim_element(a_nodes, "EM", { class: true });
+    			var em_nodes = children(em);
+    			i = claim_element(em_nodes, "I", { class: true });
+    			children(i).forEach(detach_dev);
+    			t0 = claim_text(em_nodes, "Featured Article");
+    			em_nodes.forEach(detach_dev);
+    			t1 = claim_space(a_nodes);
+    			hr = claim_element(a_nodes, "HR", { class: true });
+    			t2 = claim_space(a_nodes);
+    			h1 = claim_element(a_nodes, "H1", { class: true });
+    			var h1_nodes = children(h1);
+    			t3 = claim_text(h1_nodes, "How I Made My Own Cryptocurrency");
+    			h1_nodes.forEach(detach_dev);
+    			t4 = claim_space(a_nodes);
+    			p = claim_element(a_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t5 = claim_text(p_nodes, "by Ng Bob Shoaun  ∙  2 August 2021  ∙  8 minute\r\n          read");
+    			p_nodes.forEach(detach_dev);
+    			a_nodes.forEach(detach_dev);
+    			article_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(i, "class", "fas fa-newspaper mr-2 text-lg");
+    			add_location(i, file$7, 120, 11, 4066);
+    			attr_dev(em, "class", "block mb-2");
+    			add_location(em, file$7, 119, 8, 4031);
+    			attr_dev(hr, "class", "mb-4 border-gray-400");
+    			add_location(hr, file$7, 122, 8, 4150);
+    			attr_dev(h1, "class", "text-2xl lg:text-3xl font-bold mb-3");
+    			add_location(h1, file$7, 123, 8, 4195);
+    			attr_dev(p, "class", "text-gray-500 dark:text-gray-300");
+    			add_location(p, file$7, 126, 8, 4312);
+    			attr_dev(a, "href", a_href_value = /*project*/ ctx[0].more);
+    			attr_dev(a, "class", "block relative text-gray-700 dark:text-white cursor-pointer featured-article  svelte-auqgz8");
+    			add_location(a, file$7, 115, 6, 3886);
+    			attr_dev(article, "data-aos", "fade-up");
+    			attr_dev(article, "class", "mt-14");
+    			add_location(article, file$7, 114, 4, 3836);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, article, anchor);
+    			append_dev(article, a);
+    			append_dev(a, em);
+    			append_dev(em, i);
+    			append_dev(em, t0);
+    			append_dev(a, t1);
+    			append_dev(a, hr);
+    			append_dev(a, t2);
+    			append_dev(a, h1);
+    			append_dev(h1, t3);
+    			append_dev(a, t4);
+    			append_dev(a, p);
+    			append_dev(p, t5);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*project*/ 1 && a_href_value !== (a_href_value = /*project*/ ctx[0].more)) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(article);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$2.name,
+    		type: "if",
+    		source: "(114:2) {#if project.more}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$9(ctx) {
+    	let article;
+    	let div3;
+    	let aside;
+    	let div0;
+    	let img;
+    	let img_data_aos_value;
+    	let img_src_value;
+    	let img_alt_value;
+    	let t0;
+    	let div1;
+    	let t1;
+    	let div1_data_aos_value;
+    	let t2;
+    	let section;
+    	let h1;
+    	let html_tag;
+    	let raw0_value = /*project*/ ctx[0].name + "";
+    	let t3;
+    	let time;
+    	let t4_value = /*project*/ ctx[0].year + "";
+    	let t4;
+    	let h1_data_aos_value;
+    	let t5;
+    	let p0;
+    	let t6_value = /*project*/ ctx[0].collaborators + "";
+    	let t6;
+    	let p0_data_aos_value;
+    	let t7;
+    	let hr;
+    	let hr_data_aos_value;
+    	let t8;
+    	let p1;
+    	let raw1_value = /*project*/ ctx[0].description + "";
+    	let p1_data_aos_value;
+    	let t9;
+    	let div2;
+    	let div2_data_aos_value;
+    	let section_class_value;
+    	let t10;
+    	let mounted;
+    	let dispose;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*project*/ ctx[0].github) return create_if_block_2;
+    		return create_else_block$1;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block0 = current_block_type(ctx);
+    	let if_block1 = /*project*/ ctx[0].website && create_if_block_1$1(ctx);
+    	let each_value = /*project*/ ctx[0].technologies;
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	let if_block2 = /*project*/ ctx[0].more && create_if_block$2(ctx);
+
+    	const block = {
+    		c: function create() {
+    			article = element("article");
+    			div3 = element("div");
+    			aside = element("aside");
+    			div0 = element("div");
+    			img = element("img");
+    			t0 = space();
+    			div1 = element("div");
+    			if_block0.c();
+    			t1 = space();
+    			if (if_block1) if_block1.c();
+    			t2 = space();
+    			section = element("section");
+    			h1 = element("h1");
+    			t3 = space();
+    			time = element("time");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			p0 = element("p");
+    			t6 = text(t6_value);
+    			t7 = space();
+    			hr = element("hr");
+    			t8 = space();
+    			p1 = element("p");
+    			t9 = space();
+    			div2 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t10 = space();
+    			if (if_block2) if_block2.c();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			article = claim_element(nodes, "ARTICLE", { class: true });
+    			var article_nodes = children(article);
+    			div3 = claim_element(article_nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+    			aside = claim_element(div3_nodes, "ASIDE", { class: true });
+    			var aside_nodes = children(aside);
+    			div0 = claim_element(aside_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+
+    			img = claim_element(div0_nodes, "IMG", {
+    				"data-aos": true,
+    				"data-aos-duration": true,
+    				"data-aos-delay": true,
+    				class: true,
+    				src: true,
+    				alt: true,
+    				loading: true
+    			});
+
+    			div0_nodes.forEach(detach_dev);
+    			t0 = claim_space(aside_nodes);
+
+    			div1 = claim_element(aside_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var div1_nodes = children(div1);
+    			if_block0.l(div1_nodes);
+    			t1 = claim_space(div1_nodes);
+    			if (if_block1) if_block1.l(div1_nodes);
+    			div1_nodes.forEach(detach_dev);
+    			aside_nodes.forEach(detach_dev);
+    			t2 = claim_space(div3_nodes);
+    			section = claim_element(div3_nodes, "SECTION", { class: true });
+    			var section_nodes = children(section);
+    			h1 = claim_element(section_nodes, "H1", { "data-aos": true, class: true });
+    			var h1_nodes = children(h1);
+    			t3 = claim_space(h1_nodes);
+    			time = claim_element(h1_nodes, "TIME", { class: true });
+    			var time_nodes = children(time);
+    			t4 = claim_text(time_nodes, t4_value);
+    			time_nodes.forEach(detach_dev);
+    			h1_nodes.forEach(detach_dev);
+    			t5 = claim_space(section_nodes);
+
+    			p0 = claim_element(section_nodes, "P", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var p0_nodes = children(p0);
+    			t6 = claim_text(p0_nodes, t6_value);
+    			p0_nodes.forEach(detach_dev);
+    			t7 = claim_space(section_nodes);
+
+    			hr = claim_element(section_nodes, "HR", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			t8 = claim_space(section_nodes);
+
+    			p1 = claim_element(section_nodes, "P", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var p1_nodes = children(p1);
+    			p1_nodes.forEach(detach_dev);
+    			t9 = claim_space(section_nodes);
+
+    			div2 = claim_element(section_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var div2_nodes = children(div2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(div2_nodes);
+    			}
+
+    			div2_nodes.forEach(detach_dev);
+    			section_nodes.forEach(detach_dev);
+    			div3_nodes.forEach(detach_dev);
+    			t10 = claim_space(article_nodes);
+    			if (if_block2) if_block2.l(article_nodes);
+    			article_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(img, "data-aos", img_data_aos_value = /*right*/ ctx[1] ? "slide-right" : "slide-left");
+    			attr_dev(img, "data-aos-duration", "200");
+    			attr_dev(img, "data-aos-delay", "100");
+    			attr_dev(img, "class", "max-h-[inherit] w-auto object-scale-down p-2 sm:p-3 cursor-pointer img-container svelte-auqgz8");
+    			if (img.src !== (img_src_value = /*project*/ ctx[0].image)) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = `Screenshot of ${/*project*/ ctx[0].name}`);
+    			attr_dev(img, "loading", "lazy");
+    			add_location(img, file$7, 17, 8, 553);
+    			attr_dev(div0, "class", "mx-0 mb-4 max-h-80 w-fit bg-gradient-to-br from-green-300 to-blue-300 shadow-xl overflow-hidden rounded-sm");
+    			add_location(div0, file$7, 14, 6, 406);
+    			attr_dev(div1, "data-aos", div1_data_aos_value = /*right*/ ctx[1] ? "flip-up" : "flip-up");
+    			attr_dev(div1, "data-aos-delay", "100");
+    			attr_dev(div1, "class", "flex items-center justify-center gap-3");
+    			add_location(div1, file$7, 28, 6, 980);
+    			attr_dev(aside, "class", "lg:max-w-1/2 w-fit shrink");
+    			add_location(aside, file$7, 13, 4, 357);
+    			html_tag = new HtmlTag(t3);
+    			attr_dev(time, "class", "ml-0.5 font-light text-right text-xl lg:text-2xl dark:text-gray-300");
+    			add_location(time, file$7, 72, 8, 2569);
+    			attr_dev(h1, "data-aos", h1_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left");
+    			attr_dev(h1, "class", "text-2xl lg:text-4xl font-extrabold text-gray-800 dark:text-gray-50 mb-1");
+    			add_location(h1, file$7, 67, 6, 2372);
+    			attr_dev(p0, "data-aos", p0_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left");
+    			attr_dev(p0, "data-aos-delay", "100");
+    			attr_dev(p0, "class", "font-bold font-mono text-sm text-purple-700 dark:text-purple-400 mb-3");
+    			add_location(p0, file$7, 77, 6, 2726);
+    			attr_dev(hr, "data-aos", hr_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left");
+    			attr_dev(hr, "data-aos-delay", "150");
+    			attr_dev(hr, "class", "mb-4 border-gray-400 dark:border-gray-500");
+    			add_location(hr, file$7, 85, 6, 2964);
+    			attr_dev(p1, "data-aos", p1_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left");
+    			attr_dev(p1, "data-aos-delay", "200");
+    			attr_dev(p1, "class", "mb-4 text-gray-600 font-semibold dark:text-gray-300 leading-relaxed max-w-prose");
+    			add_location(p1, file$7, 90, 6, 3129);
+    			attr_dev(div2, "data-aos", div2_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left");
+    			attr_dev(div2, "data-aos-delay", "300");
+    			attr_dev(div2, "class", "text-sm font-mono font-semibold flex flex-wrap gap-2");
+    			add_location(div2, file$7, 98, 6, 3381);
+    			attr_dev(section, "class", section_class_value = "flex-1 " + (/*right*/ ctx[1] ? "lg:order-first" : ""));
+    			add_location(section, file$7, 66, 4, 2308);
+    			attr_dev(div3, "class", "flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14");
+    			add_location(div3, file$7, 10, 2, 258);
+    			attr_dev(article, "class", "sm:mx-14 lg:mx-0");
+    			add_location(article, file$7, 9, 0, 220);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, article, anchor);
+    			append_dev(article, div3);
+    			append_dev(div3, aside);
+    			append_dev(aside, div0);
+    			append_dev(div0, img);
+    			append_dev(aside, t0);
+    			append_dev(aside, div1);
+    			if_block0.m(div1, null);
+    			append_dev(div1, t1);
+    			if (if_block1) if_block1.m(div1, null);
+    			append_dev(div3, t2);
+    			append_dev(div3, section);
+    			append_dev(section, h1);
+    			html_tag.m(raw0_value, h1);
+    			append_dev(h1, t3);
+    			append_dev(h1, time);
+    			append_dev(time, t4);
+    			append_dev(section, t5);
+    			append_dev(section, p0);
+    			append_dev(p0, t6);
+    			append_dev(section, t7);
+    			append_dev(section, hr);
+    			append_dev(section, t8);
+    			append_dev(section, p1);
+    			p1.innerHTML = raw1_value;
+    			append_dev(section, t9);
+    			append_dev(section, div2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div2, null);
+    			}
+
+    			append_dev(article, t10);
+    			if (if_block2) if_block2.m(article, null);
+
+    			if (!mounted) {
+    				dispose = listen_dev(img, "click", /*click_handler*/ ctx[3], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*right*/ 2 && img_data_aos_value !== (img_data_aos_value = /*right*/ ctx[1] ? "slide-right" : "slide-left")) {
+    				attr_dev(img, "data-aos", img_data_aos_value);
+    			}
+
+    			if (dirty & /*project*/ 1 && img.src !== (img_src_value = /*project*/ ctx[0].image)) {
+    				attr_dev(img, "src", img_src_value);
+    			}
+
+    			if (dirty & /*project*/ 1 && img_alt_value !== (img_alt_value = `Screenshot of ${/*project*/ ctx[0].name}`)) {
+    				attr_dev(img, "alt", img_alt_value);
+    			}
+
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block0) {
+    				if_block0.p(ctx, dirty);
+    			} else {
+    				if_block0.d(1);
+    				if_block0 = current_block_type(ctx);
+
+    				if (if_block0) {
+    					if_block0.c();
+    					if_block0.m(div1, t1);
+    				}
+    			}
+
+    			if (/*project*/ ctx[0].website) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block_1$1(ctx);
+    					if_block1.c();
+    					if_block1.m(div1, null);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+
+    			if (dirty & /*right*/ 2 && div1_data_aos_value !== (div1_data_aos_value = /*right*/ ctx[1] ? "flip-up" : "flip-up")) {
+    				attr_dev(div1, "data-aos", div1_data_aos_value);
+    			}
+
+    			if (dirty & /*project*/ 1 && raw0_value !== (raw0_value = /*project*/ ctx[0].name + "")) html_tag.p(raw0_value);
+    			if (dirty & /*project*/ 1 && t4_value !== (t4_value = /*project*/ ctx[0].year + "")) set_data_dev(t4, t4_value);
+
+    			if (dirty & /*right*/ 2 && h1_data_aos_value !== (h1_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left")) {
+    				attr_dev(h1, "data-aos", h1_data_aos_value);
+    			}
+
+    			if (dirty & /*project*/ 1 && t6_value !== (t6_value = /*project*/ ctx[0].collaborators + "")) set_data_dev(t6, t6_value);
+
+    			if (dirty & /*right*/ 2 && p0_data_aos_value !== (p0_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left")) {
+    				attr_dev(p0, "data-aos", p0_data_aos_value);
+    			}
+
+    			if (dirty & /*right*/ 2 && hr_data_aos_value !== (hr_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left")) {
+    				attr_dev(hr, "data-aos", hr_data_aos_value);
+    			}
+
+    			if (dirty & /*project*/ 1 && raw1_value !== (raw1_value = /*project*/ ctx[0].description + "")) p1.innerHTML = raw1_value;
+    			if (dirty & /*right*/ 2 && p1_data_aos_value !== (p1_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left")) {
+    				attr_dev(p1, "data-aos", p1_data_aos_value);
+    			}
+
+    			if (dirty & /*techLinks, project*/ 5) {
+    				each_value = /*project*/ ctx[0].technologies;
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div2, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*right*/ 2 && div2_data_aos_value !== (div2_data_aos_value = /*right*/ ctx[1] ? "fade-right" : "fade-left")) {
+    				attr_dev(div2, "data-aos", div2_data_aos_value);
+    			}
+
+    			if (dirty & /*right*/ 2 && section_class_value !== (section_class_value = "flex-1 " + (/*right*/ ctx[1] ? "lg:order-first" : ""))) {
+    				attr_dev(section, "class", section_class_value);
+    			}
+
+    			if (/*project*/ ctx[0].more) {
+    				if (if_block2) {
+    					if_block2.p(ctx, dirty);
+    				} else {
+    					if_block2 = create_if_block$2(ctx);
+    					if_block2.c();
+    					if_block2.m(article, null);
+    				}
+    			} else if (if_block2) {
+    				if_block2.d(1);
+    				if_block2 = null;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(article);
+    			if_block0.d();
+    			if (if_block1) if_block1.d();
+    			destroy_each(each_blocks, detaching);
+    			if (if_block2) if_block2.d();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$9.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$9($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("WebDevProject", slots, []);
+    	let techLinks = new Map(technologies.map(tech => [tech.tech, tech.link]));
+    	let { project = null } = $$props;
+    	let { right = false } = $$props;
+    	const writable_props = ["project", "right"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<WebDevProject> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => window.open(project.website);
+
+    	$$self.$$set = $$props => {
+    		if ("project" in $$props) $$invalidate(0, project = $$props.project);
+    		if ("right" in $$props) $$invalidate(1, right = $$props.right);
+    	};
+
+    	$$self.$capture_state = () => ({ technologies, techLinks, project, right });
+
+    	$$self.$inject_state = $$props => {
+    		if ("techLinks" in $$props) $$invalidate(2, techLinks = $$props.techLinks);
+    		if ("project" in $$props) $$invalidate(0, project = $$props.project);
+    		if ("right" in $$props) $$invalidate(1, right = $$props.right);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [project, right, techLinks, click_handler];
+    }
+
+    class WebDevProject extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, { project: 0, right: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "WebDevProject",
+    			options,
+    			id: create_fragment$9.name
+    		});
+    	}
+
+    	get project() {
+    		throw new Error("<WebDevProject>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set project(value) {
+    		throw new Error("<WebDevProject>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get right() {
+    		throw new Error("<WebDevProject>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set right(value) {
+    		throw new Error("<WebDevProject>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\SectionHeader.svelte generated by Svelte v3.31.2 */
+    const file$8 = "src\\components\\SectionHeader.svelte";
+
+    function create_fragment$a(ctx) {
+    	let header;
+    	let div0;
+    	let div0_class_value;
+    	let t0;
+    	let div1;
+    	let h2;
+    	let textreveal;
+    	let t1;
+    	let p;
+    	let t2;
+    	let current;
+
+    	textreveal = new TextReveal({
+    			props: { delay: 300, text: /*headingText*/ ctx[1] },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			header = element("header");
+    			div0 = element("div");
+    			t0 = space();
+    			div1 = element("div");
+    			h2 = element("h2");
+    			create_component(textreveal.$$.fragment);
+    			t1 = space();
+    			p = element("p");
+    			t2 = text(/*subtitleText*/ ctx[2]);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			header = claim_element(nodes, "HEADER", { class: true });
+    			var header_nodes = children(header);
+
+    			div0 = claim_element(header_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				class: true
+    			});
+
+    			children(div0).forEach(detach_dev);
+    			t0 = claim_space(header_nodes);
+
+    			div1 = claim_element(header_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				class: true
+    			});
+
+    			var div1_nodes = children(div1);
+    			h2 = claim_element(div1_nodes, "H2", { class: true });
+    			var h2_nodes = children(h2);
+    			claim_component(textreveal.$$.fragment, h2_nodes);
+    			h2_nodes.forEach(detach_dev);
+    			t1 = claim_space(div1_nodes);
+
+    			p = claim_element(div1_nodes, "P", {
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				"data-aos-delay": true,
+    				class: true
+    			});
+
+    			var p_nodes = children(p);
+    			t2 = claim_text(p_nodes, /*subtitleText*/ ctx[2]);
+    			p_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			header_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "data-aos", "slide-down");
+    			attr_dev(div0, "data-aos-offset", "200");
+    			attr_dev(div0, "class", div0_class_value = "absolute inset-0 -z-0 " + /*wrapperClasses*/ ctx[0]);
+    			add_location(div0, file$8, 10, 2, 401);
+    			attr_dev(h2, "class", "text-3xl md:text-4xl lg:text-5xl mb-2 font-black text-gray-700 dark:text-gray-200");
+    			add_location(h2, file$8, 20, 4, 685);
+    			attr_dev(p, "data-aos", "fade");
+    			attr_dev(p, "data-aos-offset", "200");
+    			attr_dev(p, "data-aos-delay", "300");
+    			attr_dev(p, "class", "text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-prose font-semibold");
+    			add_location(p, file$8, 25, 4, 862);
+    			attr_dev(div1, "data-aos", "fade");
+    			attr_dev(div1, "data-aos-offset", "200");
+    			attr_dev(div1, "class", "relative bg-gray-50 z-10 dark:bg-gray-900 shadow-xl p-5 lg:p-10 inline-block w-fit mx-5");
+    			add_location(div1, file$8, 15, 2, 521);
+    			attr_dev(header, "class", `py-24 text-center relative overflow-hidden`);
+    			add_location(header, file$8, 9, 0, 336);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, header, anchor);
+    			append_dev(header, div0);
+    			append_dev(header, t0);
+    			append_dev(header, div1);
+    			append_dev(div1, h2);
+    			mount_component(textreveal, h2, null);
+    			append_dev(div1, t1);
+    			append_dev(div1, p);
+    			append_dev(p, t2);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (!current || dirty & /*wrapperClasses*/ 1 && div0_class_value !== (div0_class_value = "absolute inset-0 -z-0 " + /*wrapperClasses*/ ctx[0])) {
+    				attr_dev(div0, "class", div0_class_value);
+    			}
+
+    			const textreveal_changes = {};
+    			if (dirty & /*headingText*/ 2) textreveal_changes.text = /*headingText*/ ctx[1];
+    			textreveal.$set(textreveal_changes);
+    			if (!current || dirty & /*subtitleText*/ 4) set_data_dev(t2, /*subtitleText*/ ctx[2]);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(textreveal.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(textreveal.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(header);
+    			destroy_component(textreveal);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$a.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$a($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("SectionHeader", slots, []);
+    	let { wrapperClasses = "moving-gradient-1" } = $$props;
+    	let { headingText = "Projects" } = $$props;
+    	let { subtitleText = "I have experience working as a Software Developer with a concentration in Data Science, here are some featured projects." } = $$props;
+    	const writable_props = ["wrapperClasses", "headingText", "subtitleText"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<SectionHeader> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("wrapperClasses" in $$props) $$invalidate(0, wrapperClasses = $$props.wrapperClasses);
+    		if ("headingText" in $$props) $$invalidate(1, headingText = $$props.headingText);
+    		if ("subtitleText" in $$props) $$invalidate(2, subtitleText = $$props.subtitleText);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		TextReveal,
+    		wrapperClasses,
+    		headingText,
+    		subtitleText
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("wrapperClasses" in $$props) $$invalidate(0, wrapperClasses = $$props.wrapperClasses);
+    		if ("headingText" in $$props) $$invalidate(1, headingText = $$props.headingText);
+    		if ("subtitleText" in $$props) $$invalidate(2, subtitleText = $$props.subtitleText);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [wrapperClasses, headingText, subtitleText];
+    }
+
+    class SectionHeader extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {
+    			wrapperClasses: 0,
+    			headingText: 1,
+    			subtitleText: 2
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "SectionHeader",
+    			options,
+    			id: create_fragment$a.name
+    		});
+    	}
+
+    	get wrapperClasses() {
+    		throw new Error("<SectionHeader>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set wrapperClasses(value) {
+    		throw new Error("<SectionHeader>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get headingText() {
+    		throw new Error("<SectionHeader>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set headingText(value) {
+    		throw new Error("<SectionHeader>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get subtitleText() {
+    		throw new Error("<SectionHeader>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set subtitleText(value) {
+    		throw new Error("<SectionHeader>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    function bind$1(fn, thisArg) {
+      return function wrap() {
+        return fn.apply(thisArg, arguments);
+      };
+    }
+
+    // utils is a library of generic helper functions non-specific to axios
+
+    const {toString} = Object.prototype;
+    const {getPrototypeOf} = Object;
+
+    const kindOf = (cache => thing => {
+        const str = toString.call(thing);
+        return cache[str] || (cache[str] = str.slice(8, -1).toLowerCase());
+    })(Object.create(null));
+
+    const kindOfTest = (type) => {
+      type = type.toLowerCase();
+      return (thing) => kindOf(thing) === type
+    };
+
+    const typeOfTest = type => thing => typeof thing === type;
+
+    /**
+     * Determine if a value is an Array
+     *
+     * @param {Object} val The value to test
+     *
+     * @returns {boolean} True if value is an Array, otherwise false
+     */
+    const {isArray} = Array;
+
+    /**
+     * Determine if a value is undefined
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if the value is undefined, otherwise false
+     */
+    const isUndefined = typeOfTest('undefined');
+
+    /**
+     * Determine if a value is a Buffer
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a Buffer, otherwise false
+     */
+    function isBuffer(val) {
+      return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)
+        && isFunction(val.constructor.isBuffer) && val.constructor.isBuffer(val);
+    }
+
+    /**
+     * Determine if a value is an ArrayBuffer
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+     */
+    const isArrayBuffer = kindOfTest('ArrayBuffer');
+
+
+    /**
+     * Determine if a value is a view on an ArrayBuffer
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+     */
+    function isArrayBufferView(val) {
+      let result;
+      if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+        result = ArrayBuffer.isView(val);
+      } else {
+        result = (val) && (val.buffer) && (isArrayBuffer(val.buffer));
+      }
+      return result;
+    }
+
+    /**
+     * Determine if a value is a String
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a String, otherwise false
+     */
+    const isString = typeOfTest('string');
+
+    /**
+     * Determine if a value is a Function
+     *
+     * @param {*} val The value to test
+     * @returns {boolean} True if value is a Function, otherwise false
+     */
+    const isFunction = typeOfTest('function');
+
+    /**
+     * Determine if a value is a Number
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a Number, otherwise false
+     */
+    const isNumber = typeOfTest('number');
+
+    /**
+     * Determine if a value is an Object
+     *
+     * @param {*} thing The value to test
+     *
+     * @returns {boolean} True if value is an Object, otherwise false
+     */
+    const isObject = (thing) => thing !== null && typeof thing === 'object';
+
+    /**
+     * Determine if a value is a Boolean
+     *
+     * @param {*} thing The value to test
+     * @returns {boolean} True if value is a Boolean, otherwise false
+     */
+    const isBoolean = thing => thing === true || thing === false;
+
+    /**
+     * Determine if a value is a plain Object
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a plain Object, otherwise false
+     */
+    const isPlainObject = (val) => {
+      if (kindOf(val) !== 'object') {
+        return false;
+      }
+
+      const prototype = getPrototypeOf(val);
+      return (prototype === null || prototype === Object.prototype || Object.getPrototypeOf(prototype) === null) && !(Symbol.toStringTag in val) && !(Symbol.iterator in val);
+    };
+
+    /**
+     * Determine if a value is a Date
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a Date, otherwise false
+     */
+    const isDate = kindOfTest('Date');
+
+    /**
+     * Determine if a value is a File
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a File, otherwise false
+     */
+    const isFile = kindOfTest('File');
+
+    /**
+     * Determine if a value is a Blob
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a Blob, otherwise false
+     */
+    const isBlob = kindOfTest('Blob');
+
+    /**
+     * Determine if a value is a FileList
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a File, otherwise false
+     */
+    const isFileList = kindOfTest('FileList');
+
+    /**
+     * Determine if a value is a Stream
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a Stream, otherwise false
+     */
+    const isStream = (val) => isObject(val) && isFunction(val.pipe);
+
+    /**
+     * Determine if a value is a FormData
+     *
+     * @param {*} thing The value to test
+     *
+     * @returns {boolean} True if value is an FormData, otherwise false
+     */
+    const isFormData = (thing) => {
+      let kind;
+      return thing && (
+        (typeof FormData === 'function' && thing instanceof FormData) || (
+          isFunction(thing.append) && (
+            (kind = kindOf(thing)) === 'formdata' ||
+            // detect form-data instance
+            (kind === 'object' && isFunction(thing.toString) && thing.toString() === '[object FormData]')
+          )
+        )
+      )
+    };
+
+    /**
+     * Determine if a value is a URLSearchParams object
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+     */
+    const isURLSearchParams = kindOfTest('URLSearchParams');
+
+    /**
+     * Trim excess whitespace off the beginning and end of a string
+     *
+     * @param {String} str The String to trim
+     *
+     * @returns {String} The String freed of excess whitespace
+     */
+    const trim = (str) => str.trim ?
+      str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+
+    /**
+     * Iterate over an Array or an Object invoking a function for each item.
+     *
+     * If `obj` is an Array callback will be called passing
+     * the value, index, and complete array for each item.
+     *
+     * If 'obj' is an Object callback will be called passing
+     * the value, key, and complete object for each property.
+     *
+     * @param {Object|Array} obj The object to iterate
+     * @param {Function} fn The callback to invoke for each item
+     *
+     * @param {Boolean} [allOwnKeys = false]
+     * @returns {any}
+     */
+    function forEach(obj, fn, {allOwnKeys = false} = {}) {
+      // Don't bother if no value provided
+      if (obj === null || typeof obj === 'undefined') {
+        return;
+      }
+
+      let i;
+      let l;
+
+      // Force an array if not already something iterable
+      if (typeof obj !== 'object') {
+        /*eslint no-param-reassign:0*/
+        obj = [obj];
+      }
+
+      if (isArray(obj)) {
+        // Iterate over array values
+        for (i = 0, l = obj.length; i < l; i++) {
+          fn.call(null, obj[i], i, obj);
+        }
+      } else {
+        // Iterate over object keys
+        const keys = allOwnKeys ? Object.getOwnPropertyNames(obj) : Object.keys(obj);
+        const len = keys.length;
+        let key;
+
+        for (i = 0; i < len; i++) {
+          key = keys[i];
+          fn.call(null, obj[key], key, obj);
+        }
+      }
+    }
+
+    function findKey(obj, key) {
+      key = key.toLowerCase();
+      const keys = Object.keys(obj);
+      let i = keys.length;
+      let _key;
+      while (i-- > 0) {
+        _key = keys[i];
+        if (key === _key.toLowerCase()) {
+          return _key;
+        }
+      }
+      return null;
+    }
+
+    const _global = (() => {
+      /*eslint no-undef:0*/
+      if (typeof globalThis !== "undefined") return globalThis;
+      return typeof self !== "undefined" ? self : (typeof window !== 'undefined' ? window : global)
+    })();
+
+    const isContextDefined = (context) => !isUndefined(context) && context !== _global;
+
+    /**
+     * Accepts varargs expecting each argument to be an object, then
+     * immutably merges the properties of each object and returns result.
+     *
+     * When multiple objects contain the same key the later object in
+     * the arguments list will take precedence.
+     *
+     * Example:
+     *
+     * ```js
+     * var result = merge({foo: 123}, {foo: 456});
+     * console.log(result.foo); // outputs 456
+     * ```
+     *
+     * @param {Object} obj1 Object to merge
+     *
+     * @returns {Object} Result of all merge properties
+     */
+    function merge(/* obj1, obj2, obj3, ... */) {
+      const {caseless} = isContextDefined(this) && this || {};
+      const result = {};
+      const assignValue = (val, key) => {
+        const targetKey = caseless && findKey(result, key) || key;
+        if (isPlainObject(result[targetKey]) && isPlainObject(val)) {
+          result[targetKey] = merge(result[targetKey], val);
+        } else if (isPlainObject(val)) {
+          result[targetKey] = merge({}, val);
+        } else if (isArray(val)) {
+          result[targetKey] = val.slice();
+        } else {
+          result[targetKey] = val;
+        }
+      };
+
+      for (let i = 0, l = arguments.length; i < l; i++) {
+        arguments[i] && forEach(arguments[i], assignValue);
+      }
+      return result;
+    }
+
+    /**
+     * Extends object a by mutably adding to it the properties of object b.
+     *
+     * @param {Object} a The object to be extended
+     * @param {Object} b The object to copy properties from
+     * @param {Object} thisArg The object to bind function to
+     *
+     * @param {Boolean} [allOwnKeys]
+     * @returns {Object} The resulting value of object a
+     */
+    const extend = (a, b, thisArg, {allOwnKeys}= {}) => {
+      forEach(b, (val, key) => {
+        if (thisArg && isFunction(val)) {
+          a[key] = bind$1(val, thisArg);
+        } else {
+          a[key] = val;
+        }
+      }, {allOwnKeys});
+      return a;
+    };
+
+    /**
+     * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
+     *
+     * @param {string} content with BOM
+     *
+     * @returns {string} content value without BOM
+     */
+    const stripBOM = (content) => {
+      if (content.charCodeAt(0) === 0xFEFF) {
+        content = content.slice(1);
+      }
+      return content;
+    };
+
+    /**
+     * Inherit the prototype methods from one constructor into another
+     * @param {function} constructor
+     * @param {function} superConstructor
+     * @param {object} [props]
+     * @param {object} [descriptors]
+     *
+     * @returns {void}
+     */
+    const inherits = (constructor, superConstructor, props, descriptors) => {
+      constructor.prototype = Object.create(superConstructor.prototype, descriptors);
+      constructor.prototype.constructor = constructor;
+      Object.defineProperty(constructor, 'super', {
+        value: superConstructor.prototype
+      });
+      props && Object.assign(constructor.prototype, props);
+    };
+
+    /**
+     * Resolve object with deep prototype chain to a flat object
+     * @param {Object} sourceObj source object
+     * @param {Object} [destObj]
+     * @param {Function|Boolean} [filter]
+     * @param {Function} [propFilter]
+     *
+     * @returns {Object}
+     */
+    const toFlatObject = (sourceObj, destObj, filter, propFilter) => {
+      let props;
+      let i;
+      let prop;
+      const merged = {};
+
+      destObj = destObj || {};
+      // eslint-disable-next-line no-eq-null,eqeqeq
+      if (sourceObj == null) return destObj;
+
+      do {
+        props = Object.getOwnPropertyNames(sourceObj);
+        i = props.length;
+        while (i-- > 0) {
+          prop = props[i];
+          if ((!propFilter || propFilter(prop, sourceObj, destObj)) && !merged[prop]) {
+            destObj[prop] = sourceObj[prop];
+            merged[prop] = true;
+          }
+        }
+        sourceObj = filter !== false && getPrototypeOf(sourceObj);
+      } while (sourceObj && (!filter || filter(sourceObj, destObj)) && sourceObj !== Object.prototype);
+
+      return destObj;
+    };
+
+    /**
+     * Determines whether a string ends with the characters of a specified string
+     *
+     * @param {String} str
+     * @param {String} searchString
+     * @param {Number} [position= 0]
+     *
+     * @returns {boolean}
+     */
+    const endsWith = (str, searchString, position) => {
+      str = String(str);
+      if (position === undefined || position > str.length) {
+        position = str.length;
+      }
+      position -= searchString.length;
+      const lastIndex = str.indexOf(searchString, position);
+      return lastIndex !== -1 && lastIndex === position;
+    };
+
+
+    /**
+     * Returns new array from array like object or null if failed
+     *
+     * @param {*} [thing]
+     *
+     * @returns {?Array}
+     */
+    const toArray = (thing) => {
+      if (!thing) return null;
+      if (isArray(thing)) return thing;
+      let i = thing.length;
+      if (!isNumber(i)) return null;
+      const arr = new Array(i);
+      while (i-- > 0) {
+        arr[i] = thing[i];
+      }
+      return arr;
+    };
+
+    /**
+     * Checking if the Uint8Array exists and if it does, it returns a function that checks if the
+     * thing passed in is an instance of Uint8Array
+     *
+     * @param {TypedArray}
+     *
+     * @returns {Array}
+     */
+    // eslint-disable-next-line func-names
+    const isTypedArray = (TypedArray => {
+      // eslint-disable-next-line func-names
+      return thing => {
+        return TypedArray && thing instanceof TypedArray;
+      };
+    })(typeof Uint8Array !== 'undefined' && getPrototypeOf(Uint8Array));
+
+    /**
+     * For each entry in the object, call the function with the key and value.
+     *
+     * @param {Object<any, any>} obj - The object to iterate over.
+     * @param {Function} fn - The function to call for each entry.
+     *
+     * @returns {void}
+     */
+    const forEachEntry = (obj, fn) => {
+      const generator = obj && obj[Symbol.iterator];
+
+      const iterator = generator.call(obj);
+
+      let result;
+
+      while ((result = iterator.next()) && !result.done) {
+        const pair = result.value;
+        fn.call(obj, pair[0], pair[1]);
+      }
+    };
+
+    /**
+     * It takes a regular expression and a string, and returns an array of all the matches
+     *
+     * @param {string} regExp - The regular expression to match against.
+     * @param {string} str - The string to search.
+     *
+     * @returns {Array<boolean>}
+     */
+    const matchAll = (regExp, str) => {
+      let matches;
+      const arr = [];
+
+      while ((matches = regExp.exec(str)) !== null) {
+        arr.push(matches);
+      }
+
+      return arr;
+    };
+
+    /* Checking if the kindOfTest function returns true when passed an HTMLFormElement. */
+    const isHTMLForm = kindOfTest('HTMLFormElement');
+
+    const toCamelCase = str => {
+      return str.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g,
+        function replacer(m, p1, p2) {
+          return p1.toUpperCase() + p2;
+        }
+      );
+    };
+
+    /* Creating a function that will check if an object has a property. */
+    const hasOwnProperty = (({hasOwnProperty}) => (obj, prop) => hasOwnProperty.call(obj, prop))(Object.prototype);
+
+    /**
+     * Determine if a value is a RegExp object
+     *
+     * @param {*} val The value to test
+     *
+     * @returns {boolean} True if value is a RegExp object, otherwise false
+     */
+    const isRegExp = kindOfTest('RegExp');
+
+    const reduceDescriptors = (obj, reducer) => {
+      const descriptors = Object.getOwnPropertyDescriptors(obj);
+      const reducedDescriptors = {};
+
+      forEach(descriptors, (descriptor, name) => {
+        if (reducer(descriptor, name, obj) !== false) {
+          reducedDescriptors[name] = descriptor;
+        }
+      });
+
+      Object.defineProperties(obj, reducedDescriptors);
+    };
+
+    /**
+     * Makes all methods read-only
+     * @param {Object} obj
+     */
+
+    const freezeMethods = (obj) => {
+      reduceDescriptors(obj, (descriptor, name) => {
+        // skip restricted props in strict mode
+        if (isFunction(obj) && ['arguments', 'caller', 'callee'].indexOf(name) !== -1) {
+          return false;
+        }
+
+        const value = obj[name];
+
+        if (!isFunction(value)) return;
+
+        descriptor.enumerable = false;
+
+        if ('writable' in descriptor) {
+          descriptor.writable = false;
+          return;
+        }
+
+        if (!descriptor.set) {
+          descriptor.set = () => {
+            throw Error('Can not rewrite read-only method \'' + name + '\'');
+          };
+        }
+      });
+    };
+
+    const toObjectSet = (arrayOrString, delimiter) => {
+      const obj = {};
+
+      const define = (arr) => {
+        arr.forEach(value => {
+          obj[value] = true;
+        });
+      };
+
+      isArray(arrayOrString) ? define(arrayOrString) : define(String(arrayOrString).split(delimiter));
+
+      return obj;
+    };
+
+    const noop$1 = () => {};
+
+    const toFiniteNumber = (value, defaultValue) => {
+      value = +value;
+      return Number.isFinite(value) ? value : defaultValue;
+    };
+
+    const ALPHA = 'abcdefghijklmnopqrstuvwxyz';
+
+    const DIGIT = '0123456789';
+
+    const ALPHABET = {
+      DIGIT,
+      ALPHA,
+      ALPHA_DIGIT: ALPHA + ALPHA.toUpperCase() + DIGIT
+    };
+
+    const generateString = (size = 16, alphabet = ALPHABET.ALPHA_DIGIT) => {
+      let str = '';
+      const {length} = alphabet;
+      while (size--) {
+        str += alphabet[Math.random() * length|0];
+      }
+
+      return str;
+    };
+
+    /**
+     * If the thing is a FormData object, return true, otherwise return false.
+     *
+     * @param {unknown} thing - The thing to check.
+     *
+     * @returns {boolean}
+     */
+    function isSpecCompliantForm(thing) {
+      return !!(thing && isFunction(thing.append) && thing[Symbol.toStringTag] === 'FormData' && thing[Symbol.iterator]);
+    }
+
+    const toJSONObject = (obj) => {
+      const stack = new Array(10);
+
+      const visit = (source, i) => {
+
+        if (isObject(source)) {
+          if (stack.indexOf(source) >= 0) {
+            return;
+          }
+
+          if(!('toJSON' in source)) {
+            stack[i] = source;
+            const target = isArray(source) ? [] : {};
+
+            forEach(source, (value, key) => {
+              const reducedValue = visit(value, i + 1);
+              !isUndefined(reducedValue) && (target[key] = reducedValue);
+            });
+
+            stack[i] = undefined;
+
+            return target;
+          }
+        }
+
+        return source;
+      };
+
+      return visit(obj, 0);
+    };
+
+    const isAsyncFn = kindOfTest('AsyncFunction');
+
+    const isThenable = (thing) =>
+      thing && (isObject(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
+
+    var utils = {
+      isArray,
+      isArrayBuffer,
+      isBuffer,
+      isFormData,
+      isArrayBufferView,
+      isString,
+      isNumber,
+      isBoolean,
+      isObject,
+      isPlainObject,
+      isUndefined,
+      isDate,
+      isFile,
+      isBlob,
+      isRegExp,
+      isFunction,
+      isStream,
+      isURLSearchParams,
+      isTypedArray,
+      isFileList,
+      forEach,
+      merge,
+      extend,
+      trim,
+      stripBOM,
+      inherits,
+      toFlatObject,
+      kindOf,
+      kindOfTest,
+      endsWith,
+      toArray,
+      forEachEntry,
+      matchAll,
+      isHTMLForm,
+      hasOwnProperty,
+      hasOwnProp: hasOwnProperty, // an alias to avoid ESLint no-prototype-builtins detection
+      reduceDescriptors,
+      freezeMethods,
+      toObjectSet,
+      toCamelCase,
+      noop: noop$1,
+      toFiniteNumber,
+      findKey,
+      global: _global,
+      isContextDefined,
+      ALPHABET,
+      generateString,
+      isSpecCompliantForm,
+      toJSONObject,
+      isAsyncFn,
+      isThenable
+    };
+
+    /**
+     * Create an Error with the specified message, config, error code, request and response.
+     *
+     * @param {string} message The error message.
+     * @param {string} [code] The error code (for example, 'ECONNABORTED').
+     * @param {Object} [config] The config.
+     * @param {Object} [request] The request.
+     * @param {Object} [response] The response.
+     *
+     * @returns {Error} The created error.
+     */
+    function AxiosError(message, code, config, request, response) {
+      Error.call(this);
+
+      if (Error.captureStackTrace) {
+        Error.captureStackTrace(this, this.constructor);
+      } else {
+        this.stack = (new Error()).stack;
+      }
+
+      this.message = message;
+      this.name = 'AxiosError';
+      code && (this.code = code);
+      config && (this.config = config);
+      request && (this.request = request);
+      response && (this.response = response);
+    }
+
+    utils.inherits(AxiosError, Error, {
+      toJSON: function toJSON() {
+        return {
+          // Standard
+          message: this.message,
+          name: this.name,
+          // Microsoft
+          description: this.description,
+          number: this.number,
+          // Mozilla
+          fileName: this.fileName,
+          lineNumber: this.lineNumber,
+          columnNumber: this.columnNumber,
+          stack: this.stack,
+          // Axios
+          config: utils.toJSONObject(this.config),
+          code: this.code,
+          status: this.response && this.response.status ? this.response.status : null
+        };
+      }
+    });
+
+    const prototype = AxiosError.prototype;
+    const descriptors = {};
+
+    [
+      'ERR_BAD_OPTION_VALUE',
+      'ERR_BAD_OPTION',
+      'ECONNABORTED',
+      'ETIMEDOUT',
+      'ERR_NETWORK',
+      'ERR_FR_TOO_MANY_REDIRECTS',
+      'ERR_DEPRECATED',
+      'ERR_BAD_RESPONSE',
+      'ERR_BAD_REQUEST',
+      'ERR_CANCELED',
+      'ERR_NOT_SUPPORT',
+      'ERR_INVALID_URL'
+    // eslint-disable-next-line func-names
+    ].forEach(code => {
+      descriptors[code] = {value: code};
+    });
+
+    Object.defineProperties(AxiosError, descriptors);
+    Object.defineProperty(prototype, 'isAxiosError', {value: true});
+
+    // eslint-disable-next-line func-names
+    AxiosError.from = (error, code, config, request, response, customProps) => {
+      const axiosError = Object.create(prototype);
+
+      utils.toFlatObject(error, axiosError, function filter(obj) {
+        return obj !== Error.prototype;
+      }, prop => {
+        return prop !== 'isAxiosError';
+      });
+
+      AxiosError.call(axiosError, error.message, code, config, request, response);
+
+      axiosError.cause = error;
+
+      axiosError.name = error.name;
+
+      customProps && Object.assign(axiosError, customProps);
+
+      return axiosError;
+    };
+
+    // eslint-disable-next-line strict
+    var httpAdapter = null;
+
+    /**
+     * Determines if the given thing is a array or js object.
+     *
+     * @param {string} thing - The object or array to be visited.
+     *
+     * @returns {boolean}
+     */
+    function isVisitable(thing) {
+      return utils.isPlainObject(thing) || utils.isArray(thing);
+    }
+
+    /**
+     * It removes the brackets from the end of a string
+     *
+     * @param {string} key - The key of the parameter.
+     *
+     * @returns {string} the key without the brackets.
+     */
+    function removeBrackets(key) {
+      return utils.endsWith(key, '[]') ? key.slice(0, -2) : key;
+    }
+
+    /**
+     * It takes a path, a key, and a boolean, and returns a string
+     *
+     * @param {string} path - The path to the current key.
+     * @param {string} key - The key of the current object being iterated over.
+     * @param {string} dots - If true, the key will be rendered with dots instead of brackets.
+     *
+     * @returns {string} The path to the current key.
+     */
+    function renderKey(path, key, dots) {
+      if (!path) return key;
+      return path.concat(key).map(function each(token, i) {
+        // eslint-disable-next-line no-param-reassign
+        token = removeBrackets(token);
+        return !dots && i ? '[' + token + ']' : token;
+      }).join(dots ? '.' : '');
+    }
+
+    /**
+     * If the array is an array and none of its elements are visitable, then it's a flat array.
+     *
+     * @param {Array<any>} arr - The array to check
+     *
+     * @returns {boolean}
+     */
+    function isFlatArray(arr) {
+      return utils.isArray(arr) && !arr.some(isVisitable);
+    }
+
+    const predicates = utils.toFlatObject(utils, {}, null, function filter(prop) {
+      return /^is[A-Z]/.test(prop);
+    });
+
+    /**
+     * Convert a data object to FormData
+     *
+     * @param {Object} obj
+     * @param {?Object} [formData]
+     * @param {?Object} [options]
+     * @param {Function} [options.visitor]
+     * @param {Boolean} [options.metaTokens = true]
+     * @param {Boolean} [options.dots = false]
+     * @param {?Boolean} [options.indexes = false]
+     *
+     * @returns {Object}
+     **/
+
+    /**
+     * It converts an object into a FormData object
+     *
+     * @param {Object<any, any>} obj - The object to convert to form data.
+     * @param {string} formData - The FormData object to append to.
+     * @param {Object<string, any>} options
+     *
+     * @returns
+     */
+    function toFormData(obj, formData, options) {
+      if (!utils.isObject(obj)) {
+        throw new TypeError('target must be an object');
+      }
+
+      // eslint-disable-next-line no-param-reassign
+      formData = formData || new ( FormData)();
+
+      // eslint-disable-next-line no-param-reassign
+      options = utils.toFlatObject(options, {
+        metaTokens: true,
+        dots: false,
+        indexes: false
+      }, false, function defined(option, source) {
+        // eslint-disable-next-line no-eq-null,eqeqeq
+        return !utils.isUndefined(source[option]);
+      });
+
+      const metaTokens = options.metaTokens;
+      // eslint-disable-next-line no-use-before-define
+      const visitor = options.visitor || defaultVisitor;
+      const dots = options.dots;
+      const indexes = options.indexes;
+      const _Blob = options.Blob || typeof Blob !== 'undefined' && Blob;
+      const useBlob = _Blob && utils.isSpecCompliantForm(formData);
+
+      if (!utils.isFunction(visitor)) {
+        throw new TypeError('visitor must be a function');
+      }
+
+      function convertValue(value) {
+        if (value === null) return '';
+
+        if (utils.isDate(value)) {
+          return value.toISOString();
+        }
+
+        if (!useBlob && utils.isBlob(value)) {
+          throw new AxiosError('Blob is not supported. Use a Buffer instead.');
+        }
+
+        if (utils.isArrayBuffer(value) || utils.isTypedArray(value)) {
+          return useBlob && typeof Blob === 'function' ? new Blob([value]) : Buffer.from(value);
+        }
+
+        return value;
+      }
+
+      /**
+       * Default visitor.
+       *
+       * @param {*} value
+       * @param {String|Number} key
+       * @param {Array<String|Number>} path
+       * @this {FormData}
+       *
+       * @returns {boolean} return true to visit the each prop of the value recursively
+       */
+      function defaultVisitor(value, key, path) {
+        let arr = value;
+
+        if (value && !path && typeof value === 'object') {
+          if (utils.endsWith(key, '{}')) {
+            // eslint-disable-next-line no-param-reassign
+            key = metaTokens ? key : key.slice(0, -2);
+            // eslint-disable-next-line no-param-reassign
+            value = JSON.stringify(value);
+          } else if (
+            (utils.isArray(value) && isFlatArray(value)) ||
+            ((utils.isFileList(value) || utils.endsWith(key, '[]')) && (arr = utils.toArray(value))
+            )) {
+            // eslint-disable-next-line no-param-reassign
+            key = removeBrackets(key);
+
+            arr.forEach(function each(el, index) {
+              !(utils.isUndefined(el) || el === null) && formData.append(
+                // eslint-disable-next-line no-nested-ternary
+                indexes === true ? renderKey([key], index, dots) : (indexes === null ? key : key + '[]'),
+                convertValue(el)
+              );
+            });
+            return false;
+          }
+        }
+
+        if (isVisitable(value)) {
+          return true;
+        }
+
+        formData.append(renderKey(path, key, dots), convertValue(value));
+
+        return false;
+      }
+
+      const stack = [];
+
+      const exposedHelpers = Object.assign(predicates, {
+        defaultVisitor,
+        convertValue,
+        isVisitable
+      });
+
+      function build(value, path) {
+        if (utils.isUndefined(value)) return;
+
+        if (stack.indexOf(value) !== -1) {
+          throw Error('Circular reference detected in ' + path.join('.'));
+        }
+
+        stack.push(value);
+
+        utils.forEach(value, function each(el, key) {
+          const result = !(utils.isUndefined(el) || el === null) && visitor.call(
+            formData, el, utils.isString(key) ? key.trim() : key, path, exposedHelpers
+          );
+
+          if (result === true) {
+            build(el, path ? path.concat(key) : [key]);
+          }
+        });
+
+        stack.pop();
+      }
+
+      if (!utils.isObject(obj)) {
+        throw new TypeError('data must be an object');
+      }
+
+      build(obj);
+
+      return formData;
+    }
+
+    /**
+     * It encodes a string by replacing all characters that are not in the unreserved set with
+     * their percent-encoded equivalents
+     *
+     * @param {string} str - The string to encode.
+     *
+     * @returns {string} The encoded string.
+     */
+    function encode(str) {
+      const charMap = {
+        '!': '%21',
+        "'": '%27',
+        '(': '%28',
+        ')': '%29',
+        '~': '%7E',
+        '%20': '+',
+        '%00': '\x00'
+      };
+      return encodeURIComponent(str).replace(/[!'()~]|%20|%00/g, function replacer(match) {
+        return charMap[match];
+      });
+    }
+
+    /**
+     * It takes a params object and converts it to a FormData object
+     *
+     * @param {Object<string, any>} params - The parameters to be converted to a FormData object.
+     * @param {Object<string, any>} options - The options object passed to the Axios constructor.
+     *
+     * @returns {void}
+     */
+    function AxiosURLSearchParams(params, options) {
+      this._pairs = [];
+
+      params && toFormData(params, this, options);
+    }
+
+    const prototype$1 = AxiosURLSearchParams.prototype;
+
+    prototype$1.append = function append(name, value) {
+      this._pairs.push([name, value]);
+    };
+
+    prototype$1.toString = function toString(encoder) {
+      const _encode = encoder ? function(value) {
+        return encoder.call(this, value, encode);
+      } : encode;
+
+      return this._pairs.map(function each(pair) {
+        return _encode(pair[0]) + '=' + _encode(pair[1]);
+      }, '').join('&');
+    };
+
+    /**
+     * It replaces all instances of the characters `:`, `$`, `,`, `+`, `[`, and `]` with their
+     * URI encoded counterparts
+     *
+     * @param {string} val The value to be encoded.
+     *
+     * @returns {string} The encoded value.
+     */
+    function encode$1(val) {
+      return encodeURIComponent(val).
+        replace(/%3A/gi, ':').
+        replace(/%24/g, '$').
+        replace(/%2C/gi, ',').
+        replace(/%20/g, '+').
+        replace(/%5B/gi, '[').
+        replace(/%5D/gi, ']');
+    }
+
+    /**
+     * Build a URL by appending params to the end
+     *
+     * @param {string} url The base of the url (e.g., http://www.google.com)
+     * @param {object} [params] The params to be appended
+     * @param {?object} options
+     *
+     * @returns {string} The formatted url
+     */
+    function buildURL(url, params, options) {
+      /*eslint no-param-reassign:0*/
+      if (!params) {
+        return url;
+      }
+      
+      const _encode = options && options.encode || encode$1;
+
+      const serializeFn = options && options.serialize;
+
+      let serializedParams;
+
+      if (serializeFn) {
+        serializedParams = serializeFn(params, options);
+      } else {
+        serializedParams = utils.isURLSearchParams(params) ?
+          params.toString() :
+          new AxiosURLSearchParams(params, options).toString(_encode);
+      }
+
+      if (serializedParams) {
+        const hashmarkIndex = url.indexOf("#");
+
+        if (hashmarkIndex !== -1) {
+          url = url.slice(0, hashmarkIndex);
+        }
+        url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+      }
+
+      return url;
+    }
+
+    class InterceptorManager {
+      constructor() {
+        this.handlers = [];
+      }
+
+      /**
+       * Add a new interceptor to the stack
+       *
+       * @param {Function} fulfilled The function to handle `then` for a `Promise`
+       * @param {Function} rejected The function to handle `reject` for a `Promise`
+       *
+       * @return {Number} An ID used to remove interceptor later
+       */
+      use(fulfilled, rejected, options) {
+        this.handlers.push({
+          fulfilled,
+          rejected,
+          synchronous: options ? options.synchronous : false,
+          runWhen: options ? options.runWhen : null
+        });
+        return this.handlers.length - 1;
+      }
+
+      /**
+       * Remove an interceptor from the stack
+       *
+       * @param {Number} id The ID that was returned by `use`
+       *
+       * @returns {Boolean} `true` if the interceptor was removed, `false` otherwise
+       */
+      eject(id) {
+        if (this.handlers[id]) {
+          this.handlers[id] = null;
+        }
+      }
+
+      /**
+       * Clear all interceptors from the stack
+       *
+       * @returns {void}
+       */
+      clear() {
+        if (this.handlers) {
+          this.handlers = [];
+        }
+      }
+
+      /**
+       * Iterate over all the registered interceptors
+       *
+       * This method is particularly useful for skipping over any
+       * interceptors that may have become `null` calling `eject`.
+       *
+       * @param {Function} fn The function to call for each interceptor
+       *
+       * @returns {void}
+       */
+      forEach(fn) {
+        utils.forEach(this.handlers, function forEachHandler(h) {
+          if (h !== null) {
+            fn(h);
+          }
+        });
+      }
+    }
+
+    var transitionalDefaults = {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    };
+
+    var URLSearchParams$1 = typeof URLSearchParams !== 'undefined' ? URLSearchParams : AxiosURLSearchParams;
+
+    var FormData$1 = typeof FormData !== 'undefined' ? FormData : null;
+
+    var Blob$1 = typeof Blob !== 'undefined' ? Blob : null;
+
+    /**
+     * Determine if we're running in a standard browser environment
+     *
+     * This allows axios to run in a web worker, and react-native.
+     * Both environments support XMLHttpRequest, but not fully standard globals.
+     *
+     * web workers:
+     *  typeof window -> undefined
+     *  typeof document -> undefined
+     *
+     * react-native:
+     *  navigator.product -> 'ReactNative'
+     * nativescript
+     *  navigator.product -> 'NativeScript' or 'NS'
+     *
+     * @returns {boolean}
+     */
+    const isStandardBrowserEnv = (() => {
+      let product;
+      if (typeof navigator !== 'undefined' && (
+        (product = navigator.product) === 'ReactNative' ||
+        product === 'NativeScript' ||
+        product === 'NS')
+      ) {
+        return false;
+      }
+
+      return typeof window !== 'undefined' && typeof document !== 'undefined';
+    })();
+
+    /**
+     * Determine if we're running in a standard browser webWorker environment
+     *
+     * Although the `isStandardBrowserEnv` method indicates that
+     * `allows axios to run in a web worker`, the WebWorker will still be
+     * filtered out due to its judgment standard
+     * `typeof window !== 'undefined' && typeof document !== 'undefined'`.
+     * This leads to a problem when axios post `FormData` in webWorker
+     */
+     const isStandardBrowserWebWorkerEnv = (() => {
+      return (
+        typeof WorkerGlobalScope !== 'undefined' &&
+        // eslint-disable-next-line no-undef
+        self instanceof WorkerGlobalScope &&
+        typeof self.importScripts === 'function'
+      );
+    })();
+
+
+    var platform = {
+      isBrowser: true,
+      classes: {
+        URLSearchParams: URLSearchParams$1,
+        FormData: FormData$1,
+        Blob: Blob$1
+      },
+      isStandardBrowserEnv,
+      isStandardBrowserWebWorkerEnv,
+      protocols: ['http', 'https', 'file', 'blob', 'url', 'data']
+    };
+
+    function toURLEncodedForm(data, options) {
+      return toFormData(data, new platform.classes.URLSearchParams(), Object.assign({
+        visitor: function(value, key, path, helpers) {
+
+          return helpers.defaultVisitor.apply(this, arguments);
+        }
+      }, options));
+    }
+
+    /**
+     * It takes a string like `foo[x][y][z]` and returns an array like `['foo', 'x', 'y', 'z']
+     *
+     * @param {string} name - The name of the property to get.
+     *
+     * @returns An array of strings.
+     */
+    function parsePropPath(name) {
+      // foo[x][y][z]
+      // foo.x.y.z
+      // foo-x-y-z
+      // foo x y z
+      return utils.matchAll(/\w+|\[(\w*)]/g, name).map(match => {
+        return match[0] === '[]' ? '' : match[1] || match[0];
+      });
+    }
+
+    /**
+     * Convert an array to an object.
+     *
+     * @param {Array<any>} arr - The array to convert to an object.
+     *
+     * @returns An object with the same keys and values as the array.
+     */
+    function arrayToObject(arr) {
+      const obj = {};
+      const keys = Object.keys(arr);
+      let i;
+      const len = keys.length;
+      let key;
+      for (i = 0; i < len; i++) {
+        key = keys[i];
+        obj[key] = arr[key];
+      }
+      return obj;
+    }
+
+    /**
+     * It takes a FormData object and returns a JavaScript object
+     *
+     * @param {string} formData The FormData object to convert to JSON.
+     *
+     * @returns {Object<string, any> | null} The converted object.
+     */
+    function formDataToJSON(formData) {
+      function buildPath(path, value, target, index) {
+        let name = path[index++];
+        const isNumericKey = Number.isFinite(+name);
+        const isLast = index >= path.length;
+        name = !name && utils.isArray(target) ? target.length : name;
+
+        if (isLast) {
+          if (utils.hasOwnProp(target, name)) {
+            target[name] = [target[name], value];
+          } else {
+            target[name] = value;
+          }
+
+          return !isNumericKey;
+        }
+
+        if (!target[name] || !utils.isObject(target[name])) {
+          target[name] = [];
+        }
+
+        const result = buildPath(path, value, target[name], index);
+
+        if (result && utils.isArray(target[name])) {
+          target[name] = arrayToObject(target[name]);
+        }
+
+        return !isNumericKey;
+      }
+
+      if (utils.isFormData(formData) && utils.isFunction(formData.entries)) {
+        const obj = {};
+
+        utils.forEachEntry(formData, (name, value) => {
+          buildPath(parsePropPath(name), value, obj, 0);
+        });
+
+        return obj;
+      }
+
+      return null;
+    }
+
+    const DEFAULT_CONTENT_TYPE = {
+      'Content-Type': undefined
+    };
+
+    /**
+     * It takes a string, tries to parse it, and if it fails, it returns the stringified version
+     * of the input
+     *
+     * @param {any} rawValue - The value to be stringified.
+     * @param {Function} parser - A function that parses a string into a JavaScript object.
+     * @param {Function} encoder - A function that takes a value and returns a string.
+     *
+     * @returns {string} A stringified version of the rawValue.
+     */
+    function stringifySafely(rawValue, parser, encoder) {
+      if (utils.isString(rawValue)) {
+        try {
+          (parser || JSON.parse)(rawValue);
+          return utils.trim(rawValue);
+        } catch (e) {
+          if (e.name !== 'SyntaxError') {
+            throw e;
+          }
+        }
+      }
+
+      return (encoder || JSON.stringify)(rawValue);
+    }
+
+    const defaults = {
+
+      transitional: transitionalDefaults,
+
+      adapter: ['xhr', 'http'],
+
+      transformRequest: [function transformRequest(data, headers) {
+        const contentType = headers.getContentType() || '';
+        const hasJSONContentType = contentType.indexOf('application/json') > -1;
+        const isObjectPayload = utils.isObject(data);
+
+        if (isObjectPayload && utils.isHTMLForm(data)) {
+          data = new FormData(data);
+        }
+
+        const isFormData = utils.isFormData(data);
+
+        if (isFormData) {
+          if (!hasJSONContentType) {
+            return data;
+          }
+          return hasJSONContentType ? JSON.stringify(formDataToJSON(data)) : data;
+        }
+
+        if (utils.isArrayBuffer(data) ||
+          utils.isBuffer(data) ||
+          utils.isStream(data) ||
+          utils.isFile(data) ||
+          utils.isBlob(data)
+        ) {
+          return data;
+        }
+        if (utils.isArrayBufferView(data)) {
+          return data.buffer;
+        }
+        if (utils.isURLSearchParams(data)) {
+          headers.setContentType('application/x-www-form-urlencoded;charset=utf-8', false);
+          return data.toString();
+        }
+
+        let isFileList;
+
+        if (isObjectPayload) {
+          if (contentType.indexOf('application/x-www-form-urlencoded') > -1) {
+            return toURLEncodedForm(data, this.formSerializer).toString();
+          }
+
+          if ((isFileList = utils.isFileList(data)) || contentType.indexOf('multipart/form-data') > -1) {
+            const _FormData = this.env && this.env.FormData;
+
+            return toFormData(
+              isFileList ? {'files[]': data} : data,
+              _FormData && new _FormData(),
+              this.formSerializer
+            );
+          }
+        }
+
+        if (isObjectPayload || hasJSONContentType ) {
+          headers.setContentType('application/json', false);
+          return stringifySafely(data);
+        }
+
+        return data;
+      }],
+
+      transformResponse: [function transformResponse(data) {
+        const transitional = this.transitional || defaults.transitional;
+        const forcedJSONParsing = transitional && transitional.forcedJSONParsing;
+        const JSONRequested = this.responseType === 'json';
+
+        if (data && utils.isString(data) && ((forcedJSONParsing && !this.responseType) || JSONRequested)) {
+          const silentJSONParsing = transitional && transitional.silentJSONParsing;
+          const strictJSONParsing = !silentJSONParsing && JSONRequested;
+
+          try {
+            return JSON.parse(data);
+          } catch (e) {
+            if (strictJSONParsing) {
+              if (e.name === 'SyntaxError') {
+                throw AxiosError.from(e, AxiosError.ERR_BAD_RESPONSE, this, null, this.response);
+              }
+              throw e;
+            }
+          }
+        }
+
+        return data;
+      }],
+
+      /**
+       * A timeout in milliseconds to abort a request. If set to 0 (default) a
+       * timeout is not created.
+       */
+      timeout: 0,
+
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+
+      maxContentLength: -1,
+      maxBodyLength: -1,
+
+      env: {
+        FormData: platform.classes.FormData,
+        Blob: platform.classes.Blob
+      },
+
+      validateStatus: function validateStatus(status) {
+        return status >= 200 && status < 300;
+      },
+
+      headers: {
+        common: {
+          'Accept': 'application/json, text/plain, */*'
+        }
+      }
+    };
+
+    utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+      defaults.headers[method] = {};
+    });
+
+    utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+      defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+    });
+
+    // RawAxiosHeaders whose duplicates are ignored by node
+    // c.f. https://nodejs.org/api/http.html#http_message_headers
+    const ignoreDuplicateOf = utils.toObjectSet([
+      'age', 'authorization', 'content-length', 'content-type', 'etag',
+      'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+      'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+      'referer', 'retry-after', 'user-agent'
+    ]);
+
+    /**
+     * Parse headers into an object
+     *
+     * ```
+     * Date: Wed, 27 Aug 2014 08:58:49 GMT
+     * Content-Type: application/json
+     * Connection: keep-alive
+     * Transfer-Encoding: chunked
+     * ```
+     *
+     * @param {String} rawHeaders Headers needing to be parsed
+     *
+     * @returns {Object} Headers parsed into an object
+     */
+    var parseHeaders = rawHeaders => {
+      const parsed = {};
+      let key;
+      let val;
+      let i;
+
+      rawHeaders && rawHeaders.split('\n').forEach(function parser(line) {
+        i = line.indexOf(':');
+        key = line.substring(0, i).trim().toLowerCase();
+        val = line.substring(i + 1).trim();
+
+        if (!key || (parsed[key] && ignoreDuplicateOf[key])) {
+          return;
+        }
+
+        if (key === 'set-cookie') {
+          if (parsed[key]) {
+            parsed[key].push(val);
+          } else {
+            parsed[key] = [val];
+          }
+        } else {
+          parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+        }
+      });
+
+      return parsed;
+    };
+
+    const $internals = Symbol('internals');
+
+    function normalizeHeader(header) {
+      return header && String(header).trim().toLowerCase();
+    }
+
+    function normalizeValue(value) {
+      if (value === false || value == null) {
+        return value;
+      }
+
+      return utils.isArray(value) ? value.map(normalizeValue) : String(value);
+    }
+
+    function parseTokens(str) {
+      const tokens = Object.create(null);
+      const tokensRE = /([^\s,;=]+)\s*(?:=\s*([^,;]+))?/g;
+      let match;
+
+      while ((match = tokensRE.exec(str))) {
+        tokens[match[1]] = match[2];
+      }
+
+      return tokens;
+    }
+
+    const isValidHeaderName = (str) => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(str.trim());
+
+    function matchHeaderValue(context, value, header, filter, isHeaderNameFilter) {
+      if (utils.isFunction(filter)) {
+        return filter.call(this, value, header);
+      }
+
+      if (isHeaderNameFilter) {
+        value = header;
+      }
+
+      if (!utils.isString(value)) return;
+
+      if (utils.isString(filter)) {
+        return value.indexOf(filter) !== -1;
+      }
+
+      if (utils.isRegExp(filter)) {
+        return filter.test(value);
+      }
+    }
+
+    function formatHeader(header) {
+      return header.trim()
+        .toLowerCase().replace(/([a-z\d])(\w*)/g, (w, char, str) => {
+          return char.toUpperCase() + str;
+        });
+    }
+
+    function buildAccessors(obj, header) {
+      const accessorName = utils.toCamelCase(' ' + header);
+
+      ['get', 'set', 'has'].forEach(methodName => {
+        Object.defineProperty(obj, methodName + accessorName, {
+          value: function(arg1, arg2, arg3) {
+            return this[methodName].call(this, header, arg1, arg2, arg3);
+          },
+          configurable: true
+        });
+      });
+    }
+
+    class AxiosHeaders {
+      constructor(headers) {
+        headers && this.set(headers);
+      }
+
+      set(header, valueOrRewrite, rewrite) {
+        const self = this;
+
+        function setHeader(_value, _header, _rewrite) {
+          const lHeader = normalizeHeader(_header);
+
+          if (!lHeader) {
+            throw new Error('header name must be a non-empty string');
+          }
+
+          const key = utils.findKey(self, lHeader);
+
+          if(!key || self[key] === undefined || _rewrite === true || (_rewrite === undefined && self[key] !== false)) {
+            self[key || _header] = normalizeValue(_value);
+          }
+        }
+
+        const setHeaders = (headers, _rewrite) =>
+          utils.forEach(headers, (_value, _header) => setHeader(_value, _header, _rewrite));
+
+        if (utils.isPlainObject(header) || header instanceof this.constructor) {
+          setHeaders(header, valueOrRewrite);
+        } else if(utils.isString(header) && (header = header.trim()) && !isValidHeaderName(header)) {
+          setHeaders(parseHeaders(header), valueOrRewrite);
+        } else {
+          header != null && setHeader(valueOrRewrite, header, rewrite);
+        }
+
+        return this;
+      }
+
+      get(header, parser) {
+        header = normalizeHeader(header);
+
+        if (header) {
+          const key = utils.findKey(this, header);
+
+          if (key) {
+            const value = this[key];
+
+            if (!parser) {
+              return value;
+            }
+
+            if (parser === true) {
+              return parseTokens(value);
+            }
+
+            if (utils.isFunction(parser)) {
+              return parser.call(this, value, key);
+            }
+
+            if (utils.isRegExp(parser)) {
+              return parser.exec(value);
+            }
+
+            throw new TypeError('parser must be boolean|regexp|function');
+          }
+        }
+      }
+
+      has(header, matcher) {
+        header = normalizeHeader(header);
+
+        if (header) {
+          const key = utils.findKey(this, header);
+
+          return !!(key && this[key] !== undefined && (!matcher || matchHeaderValue(this, this[key], key, matcher)));
+        }
+
+        return false;
+      }
+
+      delete(header, matcher) {
+        const self = this;
+        let deleted = false;
+
+        function deleteHeader(_header) {
+          _header = normalizeHeader(_header);
+
+          if (_header) {
+            const key = utils.findKey(self, _header);
+
+            if (key && (!matcher || matchHeaderValue(self, self[key], key, matcher))) {
+              delete self[key];
+
+              deleted = true;
+            }
+          }
+        }
+
+        if (utils.isArray(header)) {
+          header.forEach(deleteHeader);
+        } else {
+          deleteHeader(header);
+        }
+
+        return deleted;
+      }
+
+      clear(matcher) {
+        const keys = Object.keys(this);
+        let i = keys.length;
+        let deleted = false;
+
+        while (i--) {
+          const key = keys[i];
+          if(!matcher || matchHeaderValue(this, this[key], key, matcher, true)) {
+            delete this[key];
+            deleted = true;
+          }
+        }
+
+        return deleted;
+      }
+
+      normalize(format) {
+        const self = this;
+        const headers = {};
+
+        utils.forEach(this, (value, header) => {
+          const key = utils.findKey(headers, header);
+
+          if (key) {
+            self[key] = normalizeValue(value);
+            delete self[header];
+            return;
+          }
+
+          const normalized = format ? formatHeader(header) : String(header).trim();
+
+          if (normalized !== header) {
+            delete self[header];
+          }
+
+          self[normalized] = normalizeValue(value);
+
+          headers[normalized] = true;
+        });
+
+        return this;
+      }
+
+      concat(...targets) {
+        return this.constructor.concat(this, ...targets);
+      }
+
+      toJSON(asStrings) {
+        const obj = Object.create(null);
+
+        utils.forEach(this, (value, header) => {
+          value != null && value !== false && (obj[header] = asStrings && utils.isArray(value) ? value.join(', ') : value);
+        });
+
+        return obj;
+      }
+
+      [Symbol.iterator]() {
+        return Object.entries(this.toJSON())[Symbol.iterator]();
+      }
+
+      toString() {
+        return Object.entries(this.toJSON()).map(([header, value]) => header + ': ' + value).join('\n');
+      }
+
+      get [Symbol.toStringTag]() {
+        return 'AxiosHeaders';
+      }
+
+      static from(thing) {
+        return thing instanceof this ? thing : new this(thing);
+      }
+
+      static concat(first, ...targets) {
+        const computed = new this(first);
+
+        targets.forEach((target) => computed.set(target));
+
+        return computed;
+      }
+
+      static accessor(header) {
+        const internals = this[$internals] = (this[$internals] = {
+          accessors: {}
+        });
+
+        const accessors = internals.accessors;
+        const prototype = this.prototype;
+
+        function defineAccessor(_header) {
+          const lHeader = normalizeHeader(_header);
+
+          if (!accessors[lHeader]) {
+            buildAccessors(prototype, _header);
+            accessors[lHeader] = true;
+          }
+        }
+
+        utils.isArray(header) ? header.forEach(defineAccessor) : defineAccessor(header);
+
+        return this;
+      }
+    }
+
+    AxiosHeaders.accessor(['Content-Type', 'Content-Length', 'Accept', 'Accept-Encoding', 'User-Agent', 'Authorization']);
+
+    utils.freezeMethods(AxiosHeaders.prototype);
+    utils.freezeMethods(AxiosHeaders);
+
+    /**
+     * Transform the data for a request or a response
+     *
+     * @param {Array|Function} fns A single function or Array of functions
+     * @param {?Object} response The response object
+     *
+     * @returns {*} The resulting transformed data
+     */
+    function transformData(fns, response) {
+      const config = this || defaults;
+      const context = response || config;
+      const headers = AxiosHeaders.from(context.headers);
+      let data = context.data;
+
+      utils.forEach(fns, function transform(fn) {
+        data = fn.call(config, data, headers.normalize(), response ? response.status : undefined);
+      });
+
+      headers.normalize();
+
+      return data;
+    }
+
+    function isCancel(value) {
+      return !!(value && value.__CANCEL__);
+    }
+
+    /**
+     * A `CanceledError` is an object that is thrown when an operation is canceled.
+     *
+     * @param {string=} message The message.
+     * @param {Object=} config The config.
+     * @param {Object=} request The request.
+     *
+     * @returns {CanceledError} The created error.
+     */
+    function CanceledError(message, config, request) {
+      // eslint-disable-next-line no-eq-null,eqeqeq
+      AxiosError.call(this, message == null ? 'canceled' : message, AxiosError.ERR_CANCELED, config, request);
+      this.name = 'CanceledError';
+    }
+
+    utils.inherits(CanceledError, AxiosError, {
+      __CANCEL__: true
+    });
+
+    /**
+     * Resolve or reject a Promise based on response status.
+     *
+     * @param {Function} resolve A function that resolves the promise.
+     * @param {Function} reject A function that rejects the promise.
+     * @param {object} response The response.
+     *
+     * @returns {object} The response.
+     */
+    function settle(resolve, reject, response) {
+      const validateStatus = response.config.validateStatus;
+      if (!response.status || !validateStatus || validateStatus(response.status)) {
+        resolve(response);
+      } else {
+        reject(new AxiosError(
+          'Request failed with status code ' + response.status,
+          [AxiosError.ERR_BAD_REQUEST, AxiosError.ERR_BAD_RESPONSE][Math.floor(response.status / 100) - 4],
+          response.config,
+          response.request,
+          response
+        ));
+      }
+    }
+
+    var cookies = platform.isStandardBrowserEnv ?
+
+    // Standard browser envs support document.cookie
+      (function standardBrowserEnv() {
+        return {
+          write: function write(name, value, expires, path, domain, secure) {
+            const cookie = [];
+            cookie.push(name + '=' + encodeURIComponent(value));
+
+            if (utils.isNumber(expires)) {
+              cookie.push('expires=' + new Date(expires).toGMTString());
+            }
+
+            if (utils.isString(path)) {
+              cookie.push('path=' + path);
+            }
+
+            if (utils.isString(domain)) {
+              cookie.push('domain=' + domain);
+            }
+
+            if (secure === true) {
+              cookie.push('secure');
+            }
+
+            document.cookie = cookie.join('; ');
+          },
+
+          read: function read(name) {
+            const match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+            return (match ? decodeURIComponent(match[3]) : null);
+          },
+
+          remove: function remove(name) {
+            this.write(name, '', Date.now() - 86400000);
+          }
+        };
+      })() :
+
+    // Non standard browser env (web workers, react-native) lack needed support.
+      (function nonStandardBrowserEnv() {
+        return {
+          write: function write() {},
+          read: function read() { return null; },
+          remove: function remove() {}
+        };
+      })();
+
+    /**
+     * Determines whether the specified URL is absolute
+     *
+     * @param {string} url The URL to test
+     *
+     * @returns {boolean} True if the specified URL is absolute, otherwise false
+     */
+    function isAbsoluteURL(url) {
+      // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+      // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+      // by any combination of letters, digits, plus, period, or hyphen.
+      return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
+    }
+
+    /**
+     * Creates a new URL by combining the specified URLs
+     *
+     * @param {string} baseURL The base URL
+     * @param {string} relativeURL The relative URL
+     *
+     * @returns {string} The combined URL
+     */
+    function combineURLs(baseURL, relativeURL) {
+      return relativeURL
+        ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+        : baseURL;
+    }
+
+    /**
+     * Creates a new URL by combining the baseURL with the requestedURL,
+     * only when the requestedURL is not already an absolute URL.
+     * If the requestURL is absolute, this function returns the requestedURL untouched.
+     *
+     * @param {string} baseURL The base URL
+     * @param {string} requestedURL Absolute or relative URL to combine
+     *
+     * @returns {string} The combined full path
+     */
+    function buildFullPath(baseURL, requestedURL) {
+      if (baseURL && !isAbsoluteURL(requestedURL)) {
+        return combineURLs(baseURL, requestedURL);
+      }
+      return requestedURL;
+    }
+
+    var isURLSameOrigin = platform.isStandardBrowserEnv ?
+
+    // Standard browser envs have full support of the APIs needed to test
+    // whether the request URL is of the same origin as current location.
+      (function standardBrowserEnv() {
+        const msie = /(msie|trident)/i.test(navigator.userAgent);
+        const urlParsingNode = document.createElement('a');
+        let originURL;
+
+        /**
+        * Parse a URL to discover it's components
+        *
+        * @param {String} url The URL to be parsed
+        * @returns {Object}
+        */
+        function resolveURL(url) {
+          let href = url;
+
+          if (msie) {
+            // IE needs attribute set twice to normalize properties
+            urlParsingNode.setAttribute('href', href);
+            href = urlParsingNode.href;
+          }
+
+          urlParsingNode.setAttribute('href', href);
+
+          // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+          return {
+            href: urlParsingNode.href,
+            protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+            host: urlParsingNode.host,
+            search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+            hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+            hostname: urlParsingNode.hostname,
+            port: urlParsingNode.port,
+            pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+              urlParsingNode.pathname :
+              '/' + urlParsingNode.pathname
+          };
+        }
+
+        originURL = resolveURL(window.location.href);
+
+        /**
+        * Determine if a URL shares the same origin as the current location
+        *
+        * @param {String} requestURL The URL to test
+        * @returns {boolean} True if URL shares the same origin, otherwise false
+        */
+        return function isURLSameOrigin(requestURL) {
+          const parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+          return (parsed.protocol === originURL.protocol &&
+              parsed.host === originURL.host);
+        };
+      })() :
+
+      // Non standard browser envs (web workers, react-native) lack needed support.
+      (function nonStandardBrowserEnv() {
+        return function isURLSameOrigin() {
+          return true;
+        };
+      })();
+
+    function parseProtocol(url) {
+      const match = /^([-+\w]{1,25})(:?\/\/|:)/.exec(url);
+      return match && match[1] || '';
+    }
+
+    /**
+     * Calculate data maxRate
+     * @param {Number} [samplesCount= 10]
+     * @param {Number} [min= 1000]
+     * @returns {Function}
+     */
+    function speedometer(samplesCount, min) {
+      samplesCount = samplesCount || 10;
+      const bytes = new Array(samplesCount);
+      const timestamps = new Array(samplesCount);
+      let head = 0;
+      let tail = 0;
+      let firstSampleTS;
+
+      min = min !== undefined ? min : 1000;
+
+      return function push(chunkLength) {
+        const now = Date.now();
+
+        const startedAt = timestamps[tail];
+
+        if (!firstSampleTS) {
+          firstSampleTS = now;
+        }
+
+        bytes[head] = chunkLength;
+        timestamps[head] = now;
+
+        let i = tail;
+        let bytesCount = 0;
+
+        while (i !== head) {
+          bytesCount += bytes[i++];
+          i = i % samplesCount;
+        }
+
+        head = (head + 1) % samplesCount;
+
+        if (head === tail) {
+          tail = (tail + 1) % samplesCount;
+        }
+
+        if (now - firstSampleTS < min) {
+          return;
+        }
+
+        const passed = startedAt && now - startedAt;
+
+        return passed ? Math.round(bytesCount * 1000 / passed) : undefined;
+      };
+    }
+
+    function progressEventReducer(listener, isDownloadStream) {
+      let bytesNotified = 0;
+      const _speedometer = speedometer(50, 250);
+
+      return e => {
+        const loaded = e.loaded;
+        const total = e.lengthComputable ? e.total : undefined;
+        const progressBytes = loaded - bytesNotified;
+        const rate = _speedometer(progressBytes);
+        const inRange = loaded <= total;
+
+        bytesNotified = loaded;
+
+        const data = {
+          loaded,
+          total,
+          progress: total ? (loaded / total) : undefined,
+          bytes: progressBytes,
+          rate: rate ? rate : undefined,
+          estimated: rate && total && inRange ? (total - loaded) / rate : undefined,
+          event: e
+        };
+
+        data[isDownloadStream ? 'download' : 'upload'] = true;
+
+        listener(data);
+      };
+    }
+
+    const isXHRAdapterSupported = typeof XMLHttpRequest !== 'undefined';
+
+    var xhrAdapter = isXHRAdapterSupported && function (config) {
+      return new Promise(function dispatchXhrRequest(resolve, reject) {
+        let requestData = config.data;
+        const requestHeaders = AxiosHeaders.from(config.headers).normalize();
+        const responseType = config.responseType;
+        let onCanceled;
+        function done() {
+          if (config.cancelToken) {
+            config.cancelToken.unsubscribe(onCanceled);
+          }
+
+          if (config.signal) {
+            config.signal.removeEventListener('abort', onCanceled);
+          }
+        }
+
+        if (utils.isFormData(requestData)) {
+          if (platform.isStandardBrowserEnv || platform.isStandardBrowserWebWorkerEnv) {
+            requestHeaders.setContentType(false); // Let the browser set it
+          } else {
+            requestHeaders.setContentType('multipart/form-data;', false); // mobile/desktop app frameworks
+          }
+        }
+
+        let request = new XMLHttpRequest();
+
+        // HTTP basic authentication
+        if (config.auth) {
+          const username = config.auth.username || '';
+          const password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : '';
+          requestHeaders.set('Authorization', 'Basic ' + btoa(username + ':' + password));
+        }
+
+        const fullPath = buildFullPath(config.baseURL, config.url);
+
+        request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
+
+        // Set the request timeout in MS
+        request.timeout = config.timeout;
+
+        function onloadend() {
+          if (!request) {
+            return;
+          }
+          // Prepare the response
+          const responseHeaders = AxiosHeaders.from(
+            'getAllResponseHeaders' in request && request.getAllResponseHeaders()
+          );
+          const responseData = !responseType || responseType === 'text' || responseType === 'json' ?
+            request.responseText : request.response;
+          const response = {
+            data: responseData,
+            status: request.status,
+            statusText: request.statusText,
+            headers: responseHeaders,
+            config,
+            request
+          };
+
+          settle(function _resolve(value) {
+            resolve(value);
+            done();
+          }, function _reject(err) {
+            reject(err);
+            done();
+          }, response);
+
+          // Clean up request
+          request = null;
+        }
+
+        if ('onloadend' in request) {
+          // Use onloadend if available
+          request.onloadend = onloadend;
+        } else {
+          // Listen for ready state to emulate onloadend
+          request.onreadystatechange = function handleLoad() {
+            if (!request || request.readyState !== 4) {
+              return;
+            }
+
+            // The request errored out and we didn't get a response, this will be
+            // handled by onerror instead
+            // With one exception: request that using file: protocol, most browsers
+            // will return status as 0 even though it's a successful request
+            if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+              return;
+            }
+            // readystate handler is calling before onerror or ontimeout handlers,
+            // so we should call onloadend on the next 'tick'
+            setTimeout(onloadend);
+          };
+        }
+
+        // Handle browser request cancellation (as opposed to a manual cancellation)
+        request.onabort = function handleAbort() {
+          if (!request) {
+            return;
+          }
+
+          reject(new AxiosError('Request aborted', AxiosError.ECONNABORTED, config, request));
+
+          // Clean up request
+          request = null;
+        };
+
+        // Handle low level network errors
+        request.onerror = function handleError() {
+          // Real errors are hidden from us by the browser
+          // onerror should only fire if it's a network error
+          reject(new AxiosError('Network Error', AxiosError.ERR_NETWORK, config, request));
+
+          // Clean up request
+          request = null;
+        };
+
+        // Handle timeout
+        request.ontimeout = function handleTimeout() {
+          let timeoutErrorMessage = config.timeout ? 'timeout of ' + config.timeout + 'ms exceeded' : 'timeout exceeded';
+          const transitional = config.transitional || transitionalDefaults;
+          if (config.timeoutErrorMessage) {
+            timeoutErrorMessage = config.timeoutErrorMessage;
+          }
+          reject(new AxiosError(
+            timeoutErrorMessage,
+            transitional.clarifyTimeoutError ? AxiosError.ETIMEDOUT : AxiosError.ECONNABORTED,
+            config,
+            request));
+
+          // Clean up request
+          request = null;
+        };
+
+        // Add xsrf header
+        // This is only done if running in a standard browser environment.
+        // Specifically not if we're in a web worker, or react-native.
+        if (platform.isStandardBrowserEnv) {
+          // Add xsrf header
+          const xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath))
+            && config.xsrfCookieName && cookies.read(config.xsrfCookieName);
+
+          if (xsrfValue) {
+            requestHeaders.set(config.xsrfHeaderName, xsrfValue);
+          }
+        }
+
+        // Remove Content-Type if data is undefined
+        requestData === undefined && requestHeaders.setContentType(null);
+
+        // Add headers to the request
+        if ('setRequestHeader' in request) {
+          utils.forEach(requestHeaders.toJSON(), function setRequestHeader(val, key) {
+            request.setRequestHeader(key, val);
+          });
+        }
+
+        // Add withCredentials to request if needed
+        if (!utils.isUndefined(config.withCredentials)) {
+          request.withCredentials = !!config.withCredentials;
+        }
+
+        // Add responseType to request if needed
+        if (responseType && responseType !== 'json') {
+          request.responseType = config.responseType;
+        }
+
+        // Handle progress if needed
+        if (typeof config.onDownloadProgress === 'function') {
+          request.addEventListener('progress', progressEventReducer(config.onDownloadProgress, true));
+        }
+
+        // Not all browsers support upload events
+        if (typeof config.onUploadProgress === 'function' && request.upload) {
+          request.upload.addEventListener('progress', progressEventReducer(config.onUploadProgress));
+        }
+
+        if (config.cancelToken || config.signal) {
+          // Handle cancellation
+          // eslint-disable-next-line func-names
+          onCanceled = cancel => {
+            if (!request) {
+              return;
+            }
+            reject(!cancel || cancel.type ? new CanceledError(null, config, request) : cancel);
+            request.abort();
+            request = null;
+          };
+
+          config.cancelToken && config.cancelToken.subscribe(onCanceled);
+          if (config.signal) {
+            config.signal.aborted ? onCanceled() : config.signal.addEventListener('abort', onCanceled);
+          }
+        }
+
+        const protocol = parseProtocol(fullPath);
+
+        if (protocol && platform.protocols.indexOf(protocol) === -1) {
+          reject(new AxiosError('Unsupported protocol ' + protocol + ':', AxiosError.ERR_BAD_REQUEST, config));
+          return;
+        }
+
+
+        // Send the request
+        request.send(requestData || null);
+      });
+    };
+
+    const knownAdapters = {
+      http: httpAdapter,
+      xhr: xhrAdapter
+    };
+
+    utils.forEach(knownAdapters, (fn, value) => {
+      if(fn) {
+        try {
+          Object.defineProperty(fn, 'name', {value});
+        } catch (e) {
+          // eslint-disable-next-line no-empty
+        }
+        Object.defineProperty(fn, 'adapterName', {value});
+      }
+    });
+
+    var adapters = {
+      getAdapter: (adapters) => {
+        adapters = utils.isArray(adapters) ? adapters : [adapters];
+
+        const {length} = adapters;
+        let nameOrAdapter;
+        let adapter;
+
+        for (let i = 0; i < length; i++) {
+          nameOrAdapter = adapters[i];
+          if((adapter = utils.isString(nameOrAdapter) ? knownAdapters[nameOrAdapter.toLowerCase()] : nameOrAdapter)) {
+            break;
+          }
+        }
+
+        if (!adapter) {
+          if (adapter === false) {
+            throw new AxiosError(
+              `Adapter ${nameOrAdapter} is not supported by the environment`,
+              'ERR_NOT_SUPPORT'
+            );
+          }
+
+          throw new Error(
+            utils.hasOwnProp(knownAdapters, nameOrAdapter) ?
+              `Adapter '${nameOrAdapter}' is not available in the build` :
+              `Unknown adapter '${nameOrAdapter}'`
+          );
+        }
+
+        if (!utils.isFunction(adapter)) {
+          throw new TypeError('adapter is not a function');
+        }
+
+        return adapter;
+      },
+      adapters: knownAdapters
+    };
+
+    /**
+     * Throws a `CanceledError` if cancellation has been requested.
+     *
+     * @param {Object} config The config that is to be used for the request
+     *
+     * @returns {void}
+     */
+    function throwIfCancellationRequested(config) {
+      if (config.cancelToken) {
+        config.cancelToken.throwIfRequested();
+      }
+
+      if (config.signal && config.signal.aborted) {
+        throw new CanceledError(null, config);
+      }
+    }
+
+    /**
+     * Dispatch a request to the server using the configured adapter.
+     *
+     * @param {object} config The config that is to be used for the request
+     *
+     * @returns {Promise} The Promise to be fulfilled
+     */
+    function dispatchRequest(config) {
+      throwIfCancellationRequested(config);
+
+      config.headers = AxiosHeaders.from(config.headers);
+
+      // Transform request data
+      config.data = transformData.call(
+        config,
+        config.transformRequest
+      );
+
+      if (['post', 'put', 'patch'].indexOf(config.method) !== -1) {
+        config.headers.setContentType('application/x-www-form-urlencoded', false);
+      }
+
+      const adapter = adapters.getAdapter(config.adapter || defaults.adapter);
+
+      return adapter(config).then(function onAdapterResolution(response) {
+        throwIfCancellationRequested(config);
+
+        // Transform response data
+        response.data = transformData.call(
+          config,
+          config.transformResponse,
+          response
+        );
+
+        response.headers = AxiosHeaders.from(response.headers);
+
+        return response;
+      }, function onAdapterRejection(reason) {
+        if (!isCancel(reason)) {
+          throwIfCancellationRequested(config);
+
+          // Transform response data
+          if (reason && reason.response) {
+            reason.response.data = transformData.call(
+              config,
+              config.transformResponse,
+              reason.response
+            );
+            reason.response.headers = AxiosHeaders.from(reason.response.headers);
+          }
+        }
+
+        return Promise.reject(reason);
+      });
+    }
+
+    const headersToObject = (thing) => thing instanceof AxiosHeaders ? thing.toJSON() : thing;
+
+    /**
+     * Config-specific merge-function which creates a new config-object
+     * by merging two configuration objects together.
+     *
+     * @param {Object} config1
+     * @param {Object} config2
+     *
+     * @returns {Object} New object resulting from merging config2 to config1
+     */
+    function mergeConfig(config1, config2) {
+      // eslint-disable-next-line no-param-reassign
+      config2 = config2 || {};
+      const config = {};
+
+      function getMergedValue(target, source, caseless) {
+        if (utils.isPlainObject(target) && utils.isPlainObject(source)) {
+          return utils.merge.call({caseless}, target, source);
+        } else if (utils.isPlainObject(source)) {
+          return utils.merge({}, source);
+        } else if (utils.isArray(source)) {
+          return source.slice();
+        }
+        return source;
+      }
+
+      // eslint-disable-next-line consistent-return
+      function mergeDeepProperties(a, b, caseless) {
+        if (!utils.isUndefined(b)) {
+          return getMergedValue(a, b, caseless);
+        } else if (!utils.isUndefined(a)) {
+          return getMergedValue(undefined, a, caseless);
+        }
+      }
+
+      // eslint-disable-next-line consistent-return
+      function valueFromConfig2(a, b) {
+        if (!utils.isUndefined(b)) {
+          return getMergedValue(undefined, b);
+        }
+      }
+
+      // eslint-disable-next-line consistent-return
+      function defaultToConfig2(a, b) {
+        if (!utils.isUndefined(b)) {
+          return getMergedValue(undefined, b);
+        } else if (!utils.isUndefined(a)) {
+          return getMergedValue(undefined, a);
+        }
+      }
+
+      // eslint-disable-next-line consistent-return
+      function mergeDirectKeys(a, b, prop) {
+        if (prop in config2) {
+          return getMergedValue(a, b);
+        } else if (prop in config1) {
+          return getMergedValue(undefined, a);
+        }
+      }
+
+      const mergeMap = {
+        url: valueFromConfig2,
+        method: valueFromConfig2,
+        data: valueFromConfig2,
+        baseURL: defaultToConfig2,
+        transformRequest: defaultToConfig2,
+        transformResponse: defaultToConfig2,
+        paramsSerializer: defaultToConfig2,
+        timeout: defaultToConfig2,
+        timeoutMessage: defaultToConfig2,
+        withCredentials: defaultToConfig2,
+        adapter: defaultToConfig2,
+        responseType: defaultToConfig2,
+        xsrfCookieName: defaultToConfig2,
+        xsrfHeaderName: defaultToConfig2,
+        onUploadProgress: defaultToConfig2,
+        onDownloadProgress: defaultToConfig2,
+        decompress: defaultToConfig2,
+        maxContentLength: defaultToConfig2,
+        maxBodyLength: defaultToConfig2,
+        beforeRedirect: defaultToConfig2,
+        transport: defaultToConfig2,
+        httpAgent: defaultToConfig2,
+        httpsAgent: defaultToConfig2,
+        cancelToken: defaultToConfig2,
+        socketPath: defaultToConfig2,
+        responseEncoding: defaultToConfig2,
+        validateStatus: mergeDirectKeys,
+        headers: (a, b) => mergeDeepProperties(headersToObject(a), headersToObject(b), true)
+      };
+
+      utils.forEach(Object.keys(Object.assign({}, config1, config2)), function computeConfigValue(prop) {
+        const merge = mergeMap[prop] || mergeDeepProperties;
+        const configValue = merge(config1[prop], config2[prop], prop);
+        (utils.isUndefined(configValue) && merge !== mergeDirectKeys) || (config[prop] = configValue);
+      });
+
+      return config;
+    }
+
+    const VERSION = "1.4.0";
+
+    const validators = {};
+
+    // eslint-disable-next-line func-names
+    ['object', 'boolean', 'number', 'function', 'string', 'symbol'].forEach((type, i) => {
+      validators[type] = function validator(thing) {
+        return typeof thing === type || 'a' + (i < 1 ? 'n ' : ' ') + type;
+      };
+    });
+
+    const deprecatedWarnings = {};
+
+    /**
+     * Transitional option validator
+     *
+     * @param {function|boolean?} validator - set to false if the transitional option has been removed
+     * @param {string?} version - deprecated version / removed since version
+     * @param {string?} message - some message with additional info
+     *
+     * @returns {function}
+     */
+    validators.transitional = function transitional(validator, version, message) {
+      function formatMessage(opt, desc) {
+        return '[Axios v' + VERSION + '] Transitional option \'' + opt + '\'' + desc + (message ? '. ' + message : '');
+      }
+
+      // eslint-disable-next-line func-names
+      return (value, opt, opts) => {
+        if (validator === false) {
+          throw new AxiosError(
+            formatMessage(opt, ' has been removed' + (version ? ' in ' + version : '')),
+            AxiosError.ERR_DEPRECATED
+          );
+        }
+
+        if (version && !deprecatedWarnings[opt]) {
+          deprecatedWarnings[opt] = true;
+          // eslint-disable-next-line no-console
+          console.warn(
+            formatMessage(
+              opt,
+              ' has been deprecated since v' + version + ' and will be removed in the near future'
+            )
+          );
+        }
+
+        return validator ? validator(value, opt, opts) : true;
+      };
+    };
+
+    /**
+     * Assert object's properties type
+     *
+     * @param {object} options
+     * @param {object} schema
+     * @param {boolean?} allowUnknown
+     *
+     * @returns {object}
+     */
+
+    function assertOptions(options, schema, allowUnknown) {
+      if (typeof options !== 'object') {
+        throw new AxiosError('options must be an object', AxiosError.ERR_BAD_OPTION_VALUE);
+      }
+      const keys = Object.keys(options);
+      let i = keys.length;
+      while (i-- > 0) {
+        const opt = keys[i];
+        const validator = schema[opt];
+        if (validator) {
+          const value = options[opt];
+          const result = value === undefined || validator(value, opt, options);
+          if (result !== true) {
+            throw new AxiosError('option ' + opt + ' must be ' + result, AxiosError.ERR_BAD_OPTION_VALUE);
+          }
+          continue;
+        }
+        if (allowUnknown !== true) {
+          throw new AxiosError('Unknown option ' + opt, AxiosError.ERR_BAD_OPTION);
+        }
+      }
+    }
+
+    var validator = {
+      assertOptions,
+      validators
+    };
+
+    const validators$1 = validator.validators;
+
+    /**
+     * Create a new instance of Axios
+     *
+     * @param {Object} instanceConfig The default config for the instance
+     *
+     * @return {Axios} A new instance of Axios
+     */
+    class Axios {
+      constructor(instanceConfig) {
+        this.defaults = instanceConfig;
+        this.interceptors = {
+          request: new InterceptorManager(),
+          response: new InterceptorManager()
+        };
+      }
+
+      /**
+       * Dispatch a request
+       *
+       * @param {String|Object} configOrUrl The config specific for this request (merged with this.defaults)
+       * @param {?Object} config
+       *
+       * @returns {Promise} The Promise to be fulfilled
+       */
+      request(configOrUrl, config) {
+        /*eslint no-param-reassign:0*/
+        // Allow for axios('example/url'[, config]) a la fetch API
+        if (typeof configOrUrl === 'string') {
+          config = config || {};
+          config.url = configOrUrl;
+        } else {
+          config = configOrUrl || {};
+        }
+
+        config = mergeConfig(this.defaults, config);
+
+        const {transitional, paramsSerializer, headers} = config;
+
+        if (transitional !== undefined) {
+          validator.assertOptions(transitional, {
+            silentJSONParsing: validators$1.transitional(validators$1.boolean),
+            forcedJSONParsing: validators$1.transitional(validators$1.boolean),
+            clarifyTimeoutError: validators$1.transitional(validators$1.boolean)
+          }, false);
+        }
+
+        if (paramsSerializer != null) {
+          if (utils.isFunction(paramsSerializer)) {
+            config.paramsSerializer = {
+              serialize: paramsSerializer
+            };
+          } else {
+            validator.assertOptions(paramsSerializer, {
+              encode: validators$1.function,
+              serialize: validators$1.function
+            }, true);
+          }
+        }
+
+        // Set config.method
+        config.method = (config.method || this.defaults.method || 'get').toLowerCase();
+
+        let contextHeaders;
+
+        // Flatten headers
+        contextHeaders = headers && utils.merge(
+          headers.common,
+          headers[config.method]
+        );
+
+        contextHeaders && utils.forEach(
+          ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+          (method) => {
+            delete headers[method];
+          }
+        );
+
+        config.headers = AxiosHeaders.concat(contextHeaders, headers);
+
+        // filter out skipped interceptors
+        const requestInterceptorChain = [];
+        let synchronousRequestInterceptors = true;
+        this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+          if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) {
+            return;
+          }
+
+          synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;
+
+          requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
+        });
+
+        const responseInterceptorChain = [];
+        this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+          responseInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);
+        });
+
+        let promise;
+        let i = 0;
+        let len;
+
+        if (!synchronousRequestInterceptors) {
+          const chain = [dispatchRequest.bind(this), undefined];
+          chain.unshift.apply(chain, requestInterceptorChain);
+          chain.push.apply(chain, responseInterceptorChain);
+          len = chain.length;
+
+          promise = Promise.resolve(config);
+
+          while (i < len) {
+            promise = promise.then(chain[i++], chain[i++]);
+          }
+
+          return promise;
+        }
+
+        len = requestInterceptorChain.length;
+
+        let newConfig = config;
+
+        i = 0;
+
+        while (i < len) {
+          const onFulfilled = requestInterceptorChain[i++];
+          const onRejected = requestInterceptorChain[i++];
+          try {
+            newConfig = onFulfilled(newConfig);
+          } catch (error) {
+            onRejected.call(this, error);
+            break;
+          }
+        }
+
+        try {
+          promise = dispatchRequest.call(this, newConfig);
+        } catch (error) {
+          return Promise.reject(error);
+        }
+
+        i = 0;
+        len = responseInterceptorChain.length;
+
+        while (i < len) {
+          promise = promise.then(responseInterceptorChain[i++], responseInterceptorChain[i++]);
+        }
+
+        return promise;
+      }
+
+      getUri(config) {
+        config = mergeConfig(this.defaults, config);
+        const fullPath = buildFullPath(config.baseURL, config.url);
+        return buildURL(fullPath, config.params, config.paramsSerializer);
+      }
+    }
+
+    // Provide aliases for supported request methods
+    utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+      /*eslint func-names:0*/
+      Axios.prototype[method] = function(url, config) {
+        return this.request(mergeConfig(config || {}, {
+          method,
+          url,
+          data: (config || {}).data
+        }));
+      };
+    });
+
+    utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+      /*eslint func-names:0*/
+
+      function generateHTTPMethod(isForm) {
+        return function httpMethod(url, data, config) {
+          return this.request(mergeConfig(config || {}, {
+            method,
+            headers: isForm ? {
+              'Content-Type': 'multipart/form-data'
+            } : {},
+            url,
+            data
+          }));
+        };
+      }
+
+      Axios.prototype[method] = generateHTTPMethod();
+
+      Axios.prototype[method + 'Form'] = generateHTTPMethod(true);
+    });
+
+    /**
+     * A `CancelToken` is an object that can be used to request cancellation of an operation.
+     *
+     * @param {Function} executor The executor function.
+     *
+     * @returns {CancelToken}
+     */
+    class CancelToken {
+      constructor(executor) {
+        if (typeof executor !== 'function') {
+          throw new TypeError('executor must be a function.');
+        }
+
+        let resolvePromise;
+
+        this.promise = new Promise(function promiseExecutor(resolve) {
+          resolvePromise = resolve;
+        });
+
+        const token = this;
+
+        // eslint-disable-next-line func-names
+        this.promise.then(cancel => {
+          if (!token._listeners) return;
+
+          let i = token._listeners.length;
+
+          while (i-- > 0) {
+            token._listeners[i](cancel);
+          }
+          token._listeners = null;
+        });
+
+        // eslint-disable-next-line func-names
+        this.promise.then = onfulfilled => {
+          let _resolve;
+          // eslint-disable-next-line func-names
+          const promise = new Promise(resolve => {
+            token.subscribe(resolve);
+            _resolve = resolve;
+          }).then(onfulfilled);
+
+          promise.cancel = function reject() {
+            token.unsubscribe(_resolve);
+          };
+
+          return promise;
+        };
+
+        executor(function cancel(message, config, request) {
+          if (token.reason) {
+            // Cancellation has already been requested
+            return;
+          }
+
+          token.reason = new CanceledError(message, config, request);
+          resolvePromise(token.reason);
+        });
+      }
+
+      /**
+       * Throws a `CanceledError` if cancellation has been requested.
+       */
+      throwIfRequested() {
+        if (this.reason) {
+          throw this.reason;
+        }
+      }
+
+      /**
+       * Subscribe to the cancel signal
+       */
+
+      subscribe(listener) {
+        if (this.reason) {
+          listener(this.reason);
+          return;
+        }
+
+        if (this._listeners) {
+          this._listeners.push(listener);
+        } else {
+          this._listeners = [listener];
+        }
+      }
+
+      /**
+       * Unsubscribe from the cancel signal
+       */
+
+      unsubscribe(listener) {
+        if (!this._listeners) {
+          return;
+        }
+        const index = this._listeners.indexOf(listener);
+        if (index !== -1) {
+          this._listeners.splice(index, 1);
+        }
+      }
+
+      /**
+       * Returns an object that contains a new `CancelToken` and a function that, when called,
+       * cancels the `CancelToken`.
+       */
+      static source() {
+        let cancel;
+        const token = new CancelToken(function executor(c) {
+          cancel = c;
+        });
+        return {
+          token,
+          cancel
+        };
+      }
+    }
+
+    /**
+     * Syntactic sugar for invoking a function and expanding an array for arguments.
+     *
+     * Common use case would be to use `Function.prototype.apply`.
+     *
+     *  ```js
+     *  function f(x, y, z) {}
+     *  var args = [1, 2, 3];
+     *  f.apply(null, args);
+     *  ```
+     *
+     * With `spread` this example can be re-written.
+     *
+     *  ```js
+     *  spread(function(x, y, z) {})([1, 2, 3]);
+     *  ```
+     *
+     * @param {Function} callback
+     *
+     * @returns {Function}
+     */
+    function spread(callback) {
+      return function wrap(arr) {
+        return callback.apply(null, arr);
+      };
+    }
+
+    /**
+     * Determines whether the payload is an error thrown by Axios
+     *
+     * @param {*} payload The value to test
+     *
+     * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
+     */
+    function isAxiosError(payload) {
+      return utils.isObject(payload) && (payload.isAxiosError === true);
+    }
+
+    const HttpStatusCode = {
+      Continue: 100,
+      SwitchingProtocols: 101,
+      Processing: 102,
+      EarlyHints: 103,
+      Ok: 200,
+      Created: 201,
+      Accepted: 202,
+      NonAuthoritativeInformation: 203,
+      NoContent: 204,
+      ResetContent: 205,
+      PartialContent: 206,
+      MultiStatus: 207,
+      AlreadyReported: 208,
+      ImUsed: 226,
+      MultipleChoices: 300,
+      MovedPermanently: 301,
+      Found: 302,
+      SeeOther: 303,
+      NotModified: 304,
+      UseProxy: 305,
+      Unused: 306,
+      TemporaryRedirect: 307,
+      PermanentRedirect: 308,
+      BadRequest: 400,
+      Unauthorized: 401,
+      PaymentRequired: 402,
+      Forbidden: 403,
+      NotFound: 404,
+      MethodNotAllowed: 405,
+      NotAcceptable: 406,
+      ProxyAuthenticationRequired: 407,
+      RequestTimeout: 408,
+      Conflict: 409,
+      Gone: 410,
+      LengthRequired: 411,
+      PreconditionFailed: 412,
+      PayloadTooLarge: 413,
+      UriTooLong: 414,
+      UnsupportedMediaType: 415,
+      RangeNotSatisfiable: 416,
+      ExpectationFailed: 417,
+      ImATeapot: 418,
+      MisdirectedRequest: 421,
+      UnprocessableEntity: 422,
+      Locked: 423,
+      FailedDependency: 424,
+      TooEarly: 425,
+      UpgradeRequired: 426,
+      PreconditionRequired: 428,
+      TooManyRequests: 429,
+      RequestHeaderFieldsTooLarge: 431,
+      UnavailableForLegalReasons: 451,
+      InternalServerError: 500,
+      NotImplemented: 501,
+      BadGateway: 502,
+      ServiceUnavailable: 503,
+      GatewayTimeout: 504,
+      HttpVersionNotSupported: 505,
+      VariantAlsoNegotiates: 506,
+      InsufficientStorage: 507,
+      LoopDetected: 508,
+      NotExtended: 510,
+      NetworkAuthenticationRequired: 511,
+    };
+
+    Object.entries(HttpStatusCode).forEach(([key, value]) => {
+      HttpStatusCode[value] = key;
+    });
+
+    /**
+     * Create an instance of Axios
+     *
+     * @param {Object} defaultConfig The default config for the instance
+     *
+     * @returns {Axios} A new instance of Axios
+     */
+    function createInstance(defaultConfig) {
+      const context = new Axios(defaultConfig);
+      const instance = bind$1(Axios.prototype.request, context);
+
+      // Copy axios.prototype to instance
+      utils.extend(instance, Axios.prototype, context, {allOwnKeys: true});
+
+      // Copy context to instance
+      utils.extend(instance, context, null, {allOwnKeys: true});
+
+      // Factory for creating new instances
+      instance.create = function create(instanceConfig) {
+        return createInstance(mergeConfig(defaultConfig, instanceConfig));
+      };
+
+      return instance;
+    }
+
+    // Create the default instance to be exported
+    const axios = createInstance(defaults);
+
+    // Expose Axios class to allow class inheritance
+    axios.Axios = Axios;
+
+    // Expose Cancel & CancelToken
+    axios.CanceledError = CanceledError;
+    axios.CancelToken = CancelToken;
+    axios.isCancel = isCancel;
+    axios.VERSION = VERSION;
+    axios.toFormData = toFormData;
+
+    // Expose AxiosError class
+    axios.AxiosError = AxiosError;
+
+    // alias for CanceledError for backward compatibility
+    axios.Cancel = axios.CanceledError;
+
+    // Expose all/spread
+    axios.all = function all(promises) {
+      return Promise.all(promises);
+    };
+
+    axios.spread = spread;
+
+    // Expose isAxiosError
+    axios.isAxiosError = isAxiosError;
+
+    // Expose mergeConfig
+    axios.mergeConfig = mergeConfig;
+
+    axios.AxiosHeaders = AxiosHeaders;
+
+    axios.formToJSON = thing => formDataToJSON(utils.isHTMLForm(thing) ? new FormData(thing) : thing);
+
+    axios.HttpStatusCode = HttpStatusCode;
+
+    axios.default = axios;
+
+    /* src\pages\WebDev.svelte generated by Svelte v3.31.2 */
+    const file$9 = "src\\pages\\WebDev.svelte";
+
+    function get_each_context$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[5] = list[i];
+    	child_ctx[7] = i;
+    	return child_ctx;
+    }
+
+    // (29:6) {#each visibleProjects as project, index}
+    function create_each_block$2(ctx) {
+    	let webdevproject;
+    	let current;
+
+    	webdevproject = new WebDevProject({
+    			props: {
+    				project: /*project*/ ctx[5],
+    				right: /*index*/ ctx[7] % 2
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(webdevproject.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(webdevproject.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(webdevproject, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const webdevproject_changes = {};
+    			if (dirty & /*visibleProjects*/ 2) webdevproject_changes.project = /*project*/ ctx[5];
+    			webdevproject.$set(webdevproject_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(webdevproject.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(webdevproject.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(webdevproject, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$2.name,
+    		type: "each",
+    		source: "(29:6) {#each visibleProjects as project, index}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (42:6) {:else}
+    function create_else_block$2(ctx) {
+    	let i;
+    	let t0;
+    	let span;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			i = element("i");
+    			t0 = space();
+    			span = element("span");
+    			t1 = text("More Projects");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			i = claim_element(nodes, "I", { class: true });
+    			children(i).forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			span = claim_element(nodes, "SPAN", { class: true });
+    			var span_nodes = children(span);
+    			t1 = claim_text(span_nodes, "More Projects");
+    			span_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(i, "class", "fas fa-angle-down");
+    			add_location(i, file$9, 42, 8, 1373);
+    			attr_dev(span, "class", "group-hover:underline");
+    			add_location(span, file$9, 43, 8, 1414);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, i, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t1);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(i);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$2.name,
+    		type: "else",
+    		source: "(42:6) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (39:6) {#if expanded}
+    function create_if_block$3(ctx) {
+    	let i;
+    	let t0;
+    	let span;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			i = element("i");
+    			t0 = space();
+    			span = element("span");
+    			t1 = text("Less Projects");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			i = claim_element(nodes, "I", { class: true });
+    			children(i).forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			span = claim_element(nodes, "SPAN", { class: true });
+    			var span_nodes = children(span);
+    			t1 = claim_text(span_nodes, "Less Projects");
+    			span_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(i, "class", "fas fa-angle-up");
+    			add_location(i, file$9, 39, 8, 1253);
+    			attr_dev(span, "class", "group-hover:underline");
+    			add_location(span, file$9, 40, 8, 1292);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, i, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t1);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(i);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$3.name,
+    		type: "if",
+    		source: "(39:6) {#if expanded}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$b(ctx) {
+    	let section1;
+    	let sectionheader;
+    	let t0;
+    	let sectionnumber;
+    	let t1;
+    	let section0;
+    	let div0;
+    	let t2;
+    	let button;
+    	let hr0;
+    	let t3;
+    	let t4;
+    	let hr1;
+    	let t5;
+    	let div1;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	sectionheader = new SectionHeader({ $$inline: true });
+    	sectionnumber = new SectionNumber({ props: { number: "011" }, $$inline: true });
+    	let each_value = /*visibleProjects*/ ctx[1];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*expanded*/ ctx[0]) return create_if_block$3;
+    		return create_else_block$2;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			section1 = element("section");
+    			create_component(sectionheader.$$.fragment);
+    			t0 = space();
+    			create_component(sectionnumber.$$.fragment);
+    			t1 = space();
+    			section0 = element("section");
+    			div0 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t2 = space();
+    			button = element("button");
+    			hr0 = element("hr");
+    			t3 = space();
+    			if_block.c();
+    			t4 = space();
+    			hr1 = element("hr");
+    			t5 = space();
+    			div1 = element("div");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			section1 = claim_element(nodes, "SECTION", { id: true, class: true });
+    			var section1_nodes = children(section1);
+    			claim_component(sectionheader.$$.fragment, section1_nodes);
+    			t0 = claim_space(section1_nodes);
+    			claim_component(sectionnumber.$$.fragment, section1_nodes);
+    			t1 = claim_space(section1_nodes);
+    			section0 = claim_element(section1_nodes, "SECTION", { class: true });
+    			var section0_nodes = children(section0);
+    			div0 = claim_element(section0_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(div0_nodes);
+    			}
+
+    			div0_nodes.forEach(detach_dev);
+    			t2 = claim_space(section0_nodes);
+    			button = claim_element(section0_nodes, "BUTTON", { class: true });
+    			var button_nodes = children(button);
+    			hr0 = claim_element(button_nodes, "HR", { class: true });
+    			t3 = claim_space(button_nodes);
+    			if_block.l(button_nodes);
+    			t4 = claim_space(button_nodes);
+    			hr1 = claim_element(button_nodes, "HR", { class: true });
+    			button_nodes.forEach(detach_dev);
+    			section0_nodes.forEach(detach_dev);
+    			t5 = claim_space(section1_nodes);
+
+    			div1 = claim_element(section1_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				class: true
+    			});
+
+    			children(div1).forEach(detach_dev);
+    			section1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "class", "space-y-40");
+    			add_location(div0, file$9, 27, 4, 821);
+    			attr_dev(hr0, "class", "flex-1 mr-2 border-gray-400 dark:border-gray-500");
+    			add_location(hr0, file$9, 37, 6, 1158);
+    			attr_dev(hr1, "class", "flex-1 ml-2 border-gray-400 dark:border-gray-500");
+    			add_location(hr1, file$9, 45, 6, 1491);
+    			attr_dev(button, "class", "mt-40 w-full flex items-center gap-2 group font-semibold text-gray-700 dark:text-gray-100");
+    			add_location(button, file$9, 33, 4, 984);
+    			attr_dev(section0, "class", "main max-w-7xl pb-40 pt-32 mx-auto");
+    			add_location(section0, file$9, 26, 2, 763);
+    			attr_dev(div1, "data-aos", "slide-up");
+    			attr_dev(div1, "data-aos-offset", "200");
+    			attr_dev(div1, "class", "hidden lg:block absolute shadow-xl right-14 bottom-0 w-4 h-28 bg-gray-400 dark:bg-gray-300");
+    			add_location(div1, file$9, 49, 2, 1589);
+    			attr_dev(section1, "id", "web-development");
+    			attr_dev(section1, "class", "relative overflow-hidden snap-center bg-gray-100 bg-gradient-to-b dark:from-gray-900 dark:to-gray-800");
+    			add_location(section1, file$9, 19, 0, 554);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, section1, anchor);
+    			mount_component(sectionheader, section1, null);
+    			append_dev(section1, t0);
+    			mount_component(sectionnumber, section1, null);
+    			append_dev(section1, t1);
+    			append_dev(section1, section0);
+    			append_dev(section0, div0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div0, null);
+    			}
+
+    			append_dev(section0, t2);
+    			append_dev(section0, button);
+    			append_dev(button, hr0);
+    			append_dev(button, t3);
+    			if_block.m(button, null);
+    			append_dev(button, t4);
+    			append_dev(button, hr1);
+    			append_dev(section1, t5);
+    			append_dev(section1, div1);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[3], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*visibleProjects*/ 2) {
+    				each_value = /*visibleProjects*/ ctx[1];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$2(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block$2(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(div0, null);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+
+    			if (current_block_type !== (current_block_type = select_block_type(ctx))) {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(button, t4);
+    				}
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sectionheader.$$.fragment, local);
+    			transition_in(sectionnumber.$$.fragment, local);
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(sectionheader.$$.fragment, local);
+    			transition_out(sectionnumber.$$.fragment, local);
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(section1);
+    			destroy_component(sectionheader);
+    			destroy_component(sectionnumber);
+    			destroy_each(each_blocks, detaching);
+    			if_block.d();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$b.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$b($$self, $$props, $$invalidate) {
+    	let visibleProjects;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("WebDev", slots, []);
+    	onMount(mounted);
+    	let projects = [];
+    	let expanded = false;
+
+    	async function mounted() {
+    		const { data } = await axios("/projects_web.json");
+    		$$invalidate(2, projects = data);
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<WebDev> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => $$invalidate(0, expanded = !expanded);
+
+    	$$self.$capture_state = () => ({
+    		WebDevProject,
+    		SectionNumber,
+    		SectionHeader,
+    		onMount,
+    		axios,
+    		projects,
+    		expanded,
+    		mounted,
+    		visibleProjects
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("projects" in $$props) $$invalidate(2, projects = $$props.projects);
+    		if ("expanded" in $$props) $$invalidate(0, expanded = $$props.expanded);
+    		if ("visibleProjects" in $$props) $$invalidate(1, visibleProjects = $$props.visibleProjects);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*projects, expanded*/ 5) {
+    			 $$invalidate(1, visibleProjects = projects.slice(0, expanded ? projects.length : 4));
+    		}
+    	};
+
+    	return [expanded, visibleProjects, projects, click_handler];
+    }
+
+    class WebDev extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "WebDev",
+    			options,
+    			id: create_fragment$b.name
+    		});
+    	}
+    }
+
+    /* src\pages\Contact.svelte generated by Svelte v3.31.2 */
+    const file$a = "src\\pages\\Contact.svelte";
+
+    function create_fragment$c(ctx) {
+    	let section1;
+    	let div0;
+    	let t0;
+    	let sectionnumber;
+    	let t1;
+    	let section0;
+    	let div6;
+    	let div2;
+    	let div1;
+    	let t2;
+    	let div5;
+    	let div3;
+    	let h2;
+    	let textreveal;
+    	let t3;
+    	let h5;
+    	let t4;
+    	let button0;
+    	let t5;
+    	let t6;
+    	let form;
+    	let input0;
+    	let t7;
+    	let label;
+    	let t8;
+    	let input1;
+    	let t9;
+    	let div4;
+    	let input2;
+    	let t10;
+    	let input3;
+    	let t11;
+    	let textarea;
+    	let t12;
+    	let button1;
+    	let i0;
+    	let t13;
+    	let p;
+    	let t14;
+    	let t15;
+    	let button2;
+    	let i1;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	sectionnumber = new SectionNumber({
+    			props: {
+    				right: true,
+    				number: "110",
+    				shaftClasses: "bg-gray-700 dark:bg-gray-50",
+    				textClasses: "text-gray-700 dark:text-gray-50"
+    			},
+    			$$inline: true
+    		});
+
+    	textreveal = new TextReveal({
+    			props: { text: "CONTACT ME" },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			section1 = element("section");
+    			div0 = element("div");
+    			t0 = space();
+    			create_component(sectionnumber.$$.fragment);
+    			t1 = space();
+    			section0 = element("section");
+    			div6 = element("div");
+    			div2 = element("div");
+    			div1 = element("div");
+    			t2 = space();
+    			div5 = element("div");
+    			div3 = element("div");
+    			h2 = element("h2");
+    			create_component(textreveal.$$.fragment);
+    			t3 = space();
+    			h5 = element("h5");
+    			t4 = text("Shoot me a message and I will get back to you as soon as I can. My\r\n            email is \r\n            ");
+    			button0 = element("button");
+    			t5 = text("thechikkipatel@gmail.com");
+    			t6 = space();
+    			form = element("form");
+    			input0 = element("input");
+    			t7 = space();
+    			label = element("label");
+    			t8 = text("Don’t fill this out if you’re human: ");
+    			input1 = element("input");
+    			t9 = space();
+    			div4 = element("div");
+    			input2 = element("input");
+    			t10 = space();
+    			input3 = element("input");
+    			t11 = space();
+    			textarea = element("textarea");
+    			t12 = space();
+    			button1 = element("button");
+    			i0 = element("i");
+    			t13 = space();
+    			p = element("p");
+    			t14 = text("Send");
+    			t15 = space();
+    			button2 = element("button");
+    			i1 = element("i");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			section1 = claim_element(nodes, "SECTION", { id: true, class: true });
+    			var section1_nodes = children(section1);
+
+    			div0 = claim_element(section1_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			children(div0).forEach(detach_dev);
+    			t0 = claim_space(section1_nodes);
+    			claim_component(sectionnumber.$$.fragment, section1_nodes);
+    			t1 = claim_space(section1_nodes);
+    			section0 = claim_element(section1_nodes, "SECTION", { class: true });
+    			var section0_nodes = children(section0);
+    			div6 = claim_element(section0_nodes, "DIV", { class: true });
+    			var div6_nodes = children(div6);
+    			div2 = claim_element(div6_nodes, "DIV", {});
+    			var div2_nodes = children(div2);
+
+    			div1 = claim_element(div2_nodes, "DIV", {
+    				"data-aos": true,
+    				"data-aos-delay": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			children(div1).forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			t2 = claim_space(div6_nodes);
+    			div5 = claim_element(div6_nodes, "DIV", { class: true });
+    			var div5_nodes = children(div5);
+    			div3 = claim_element(div5_nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+    			h2 = claim_element(div3_nodes, "H2", { class: true });
+    			var h2_nodes = children(h2);
+    			claim_component(textreveal.$$.fragment, h2_nodes);
+    			h2_nodes.forEach(detach_dev);
+    			t3 = claim_space(div3_nodes);
+    			h5 = claim_element(div3_nodes, "H5", { "data-aos": true, class: true });
+    			var h5_nodes = children(h5);
+    			t4 = claim_text(h5_nodes, "Shoot me a message and I will get back to you as soon as I can. My\r\n            email is \r\n            ");
+    			button0 = claim_element(h5_nodes, "BUTTON", { class: true });
+    			var button0_nodes = children(button0);
+    			t5 = claim_text(button0_nodes, "thechikkipatel@gmail.com");
+    			button0_nodes.forEach(detach_dev);
+    			h5_nodes.forEach(detach_dev);
+    			div3_nodes.forEach(detach_dev);
+    			t6 = claim_space(div5_nodes);
+
+    			form = claim_element(div5_nodes, "FORM", {
+    				"aria-label": true,
+    				"data-aos": true,
+    				"data-aos-duration": true,
+    				"data-aos-delay": true,
+    				name: true,
+    				action: true,
+    				method: true,
+    				"data-netlify": true,
+    				"netlify-honeypot": true,
+    				class: true
+    			});
+
+    			var form_nodes = children(form);
+    			input0 = claim_element(form_nodes, "INPUT", { type: true, name: true, value: true });
+    			t7 = claim_space(form_nodes);
+    			label = claim_element(form_nodes, "LABEL", { for: true, class: true });
+    			var label_nodes = children(label);
+    			t8 = claim_text(label_nodes, "Don’t fill this out if you’re human: ");
+    			input1 = claim_element(label_nodes, "INPUT", { name: true });
+    			label_nodes.forEach(detach_dev);
+    			t9 = claim_space(form_nodes);
+    			div4 = claim_element(form_nodes, "DIV", { class: true });
+    			var div4_nodes = children(div4);
+
+    			input2 = claim_element(div4_nodes, "INPUT", {
+    				name: true,
+    				class: true,
+    				type: true,
+    				placeholder: true,
+    				required: true
+    			});
+
+    			t10 = claim_space(div4_nodes);
+
+    			input3 = claim_element(div4_nodes, "INPUT", {
+    				name: true,
+    				class: true,
+    				type: true,
+    				placeholder: true,
+    				required: true
+    			});
+
+    			div4_nodes.forEach(detach_dev);
+    			t11 = claim_space(form_nodes);
+
+    			textarea = claim_element(form_nodes, "TEXTAREA", {
+    				name: true,
+    				class: true,
+    				placeholder: true,
+    				rows: true,
+    				required: true
+    			});
+
+    			children(textarea).forEach(detach_dev);
+    			t12 = claim_space(form_nodes);
+    			button1 = claim_element(form_nodes, "BUTTON", { type: true, class: true });
+    			var button1_nodes = children(button1);
+    			i0 = claim_element(button1_nodes, "I", { class: true });
+    			children(i0).forEach(detach_dev);
+    			t13 = claim_space(button1_nodes);
+    			p = claim_element(button1_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t14 = claim_text(p_nodes, "Send");
+    			p_nodes.forEach(detach_dev);
+    			button1_nodes.forEach(detach_dev);
+    			form_nodes.forEach(detach_dev);
+    			div5_nodes.forEach(detach_dev);
+    			div6_nodes.forEach(detach_dev);
+    			section0_nodes.forEach(detach_dev);
+    			t15 = claim_space(section1_nodes);
+
+    			button2 = claim_element(section1_nodes, "BUTTON", {
+    				title: true,
+    				"aria-label": true,
+    				"data-aos": true,
+    				"data-aos-offset": true,
+    				"data-aos-duration": true,
+    				class: true
+    			});
+
+    			var button2_nodes = children(button2);
+    			i1 = claim_element(button2_nodes, "I", { class: true });
+    			children(i1).forEach(detach_dev);
+    			button2_nodes.forEach(detach_dev);
+    			section1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "data-aos", "slide-down");
+    			attr_dev(div0, "data-aos-delay", "900");
+    			attr_dev(div0, "data-aos-duration", "700");
+    			attr_dev(div0, "class", "absolute background left-0 w-2/5 h-full moving-gradient-1");
+    			add_location(div0, file$a, 35, 2, 1102);
+    			attr_dev(div1, "data-aos", "flip-up");
+    			attr_dev(div1, "data-aos-delay", "600");
+    			attr_dev(div1, "data-aos-duration", "700");
+    			attr_dev(div1, "class", "bg-purple-400 dark:bg-purple-300 shadow-purple-300/60 shadow-lg w-8 h-1.5 lg:w-10 lg:h-2 ml-0.5 mb-6");
+    			add_location(div1, file$a, 54, 8, 1596);
+    			add_location(div2, file$a, 53, 6, 1581);
+    			attr_dev(h2, "class", "text-gray-700 dark:text-gray-200 inline-block tracking-wide text-4xl md:text-5xl lg:text-6xl font-black mb-2");
+    			add_location(h2, file$a, 63, 10, 1924);
+    			attr_dev(button0, "class", "text-gray-700 dark:text-gray-100 underline");
+    			add_location(button0, file$a, 72, 12, 2330);
+    			attr_dev(h5, "data-aos", "fade");
+    			attr_dev(h5, "class", "text-gray-500 dark:text-gray-300 mb-7");
+    			add_location(h5, file$a, 69, 10, 2147);
+    			attr_dev(div3, "class", "basis-2/5");
+    			add_location(div3, file$a, 62, 8, 1889);
+    			attr_dev(input0, "type", "hidden");
+    			attr_dev(input0, "name", "form-name");
+    			input0.value = "contact";
+    			add_location(input0, file$a, 93, 10, 2974);
+    			attr_dev(input1, "name", "bot-field");
+    			add_location(input1, file$a, 95, 50, 3131);
+    			attr_dev(label, "for", "bot-field");
+    			attr_dev(label, "class", "hidden");
+    			add_location(label, file$a, 94, 10, 3042);
+    			attr_dev(input2, "name", "name");
+    			attr_dev(input2, "class", "w-full mb-3 md:mb-4 mr-4 px-4 py-2 bg-gray-300 dark:bg-gray-600 dark:text-gray-50");
+    			attr_dev(input2, "type", "text");
+    			attr_dev(input2, "placeholder", "Your name");
+    			input2.required = true;
+    			add_location(input2, file$a, 100, 12, 3282);
+    			attr_dev(input3, "name", "email");
+    			attr_dev(input3, "class", "w-full mb-3 md:mb-4 px-4 py-2 bg-gray-300 dark:bg-gray-600 dark:text-gray-50");
+    			attr_dev(input3, "type", "email");
+    			attr_dev(input3, "placeholder", "Your email");
+    			input3.required = true;
+    			add_location(input3, file$a, 107, 12, 3540);
+    			attr_dev(div4, "class", "flex flex-col md:flex-row lg:flex-col");
+    			add_location(div4, file$a, 99, 10, 3217);
+    			attr_dev(textarea, "name", "message");
+    			attr_dev(textarea, "class", "w-full px-4 py-2 mb-4 min-h-1/4 bg-gray-200 dark:bg-gray-700 dark:text-gray-50");
+    			attr_dev(textarea, "placeholder", "Tell me what you think!");
+    			attr_dev(textarea, "rows", "6");
+    			textarea.required = true;
+    			add_location(textarea, file$a, 116, 10, 3814);
+    			attr_dev(i0, "class", "far fa-paper-plane text-xs");
+    			add_location(i0, file$a, 126, 13, 4317);
+    			attr_dev(p, "class", "font-semibold font-mono");
+    			add_location(p, file$a, 127, 12, 4371);
+    			attr_dev(button1, "type", "submit");
+    			attr_dev(button1, "class", "transition-colors bg-purple-200 shadow-purple-300/20 shadow-lg rounded-sm border border-purple-400 hover:bg-purple-300 text-gray-700 py-1 px-4 flex items-center gap-3 ml-auto");
+    			add_location(button1, file$a, 123, 10, 4072);
+    			attr_dev(form, "aria-label", "contact form");
+    			attr_dev(form, "data-aos", "fade");
+    			attr_dev(form, "data-aos-duration", "700");
+    			attr_dev(form, "data-aos-delay", "200");
+    			attr_dev(form, "name", "contact");
+    			attr_dev(form, "action", "action");
+    			attr_dev(form, "method", "POST");
+    			attr_dev(form, "data-netlify", "true");
+    			attr_dev(form, "netlify-honeypot", "bot-field");
+    			attr_dev(form, "class", "basis-3/5");
+    			add_location(form, file$a, 80, 8, 2588);
+    			attr_dev(div5, "class", "lg:flex gap-10");
+    			add_location(div5, file$a, 61, 6, 1851);
+    			attr_dev(div6, "class", "bg-gray-50 dark:bg-gray-900 shadow-2xl px-5 md:px-7 py-10 lg:px-10 lg:py-14 mb-16");
+    			add_location(div6, file$a, 50, 4, 1465);
+    			attr_dev(section0, "class", "section relative");
+    			add_location(section0, file$a, 49, 2, 1425);
+    			attr_dev(i1, "class", "hover-vertical fas fa-angle-up");
+    			add_location(i1, file$a, 143, 4, 4822);
+    			attr_dev(button2, "title", "Back to top");
+    			attr_dev(button2, "aria-label", "Back to top");
+    			attr_dev(button2, "data-aos", "fade-up");
+    			attr_dev(button2, "data-aos-offset", "200");
+    			attr_dev(button2, "data-aos-duration", "700");
+    			attr_dev(button2, "class", "text-xl lg:text-3xl py-5 text-gray-700 dark:text-white w-14 mx-auto text-center absolute bottom-20 right-0 left-0");
+    			add_location(button2, file$a, 134, 2, 4498);
+    			attr_dev(section1, "id", "contact");
+    			attr_dev(section1, "class", "main overflow-hidden relative bg-gray-100 bg-gradient-to-b dark:from-gray-800 dark:to-gray-900");
+    			add_location(section1, file$a, 31, 0, 965);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, section1, anchor);
+    			append_dev(section1, div0);
+    			append_dev(section1, t0);
+    			mount_component(sectionnumber, section1, null);
+    			append_dev(section1, t1);
+    			append_dev(section1, section0);
+    			append_dev(section0, div6);
+    			append_dev(div6, div2);
+    			append_dev(div2, div1);
+    			append_dev(div6, t2);
+    			append_dev(div6, div5);
+    			append_dev(div5, div3);
+    			append_dev(div3, h2);
+    			mount_component(textreveal, h2, null);
+    			append_dev(div3, t3);
+    			append_dev(div3, h5);
+    			append_dev(h5, t4);
+    			append_dev(h5, button0);
+    			append_dev(button0, t5);
+    			append_dev(div5, t6);
+    			append_dev(div5, form);
+    			append_dev(form, input0);
+    			append_dev(form, t7);
+    			append_dev(form, label);
+    			append_dev(label, t8);
+    			append_dev(label, input1);
+    			append_dev(form, t9);
+    			append_dev(form, div4);
+    			append_dev(div4, input2);
+    			append_dev(div4, t10);
+    			append_dev(div4, input3);
+    			append_dev(form, t11);
+    			append_dev(form, textarea);
+    			append_dev(form, t12);
+    			append_dev(form, button1);
+    			append_dev(button1, i0);
+    			append_dev(button1, t13);
+    			append_dev(button1, p);
+    			append_dev(p, t14);
+    			append_dev(section1, t15);
+    			append_dev(section1, button2);
+    			append_dev(button2, i1);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*click_handler*/ ctx[0], false, false, false),
+    					listen_dev(form, "submit", prevent_default(submitForm), false, true, false),
+    					listen_dev(button2, "click", /*click_handler_1*/ ctx[1], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sectionnumber.$$.fragment, local);
+    			transition_in(textreveal.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(sectionnumber.$$.fragment, local);
+    			transition_out(textreveal.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(section1);
+    			destroy_component(sectionnumber);
+    			destroy_component(textreveal);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$c.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    async function submitForm() {
+    	let contactForm = document.querySelector("form");
+    	const formData = new FormData(contactForm);
+
+    	let res = await fetch(contactForm.getAttribute("action"), {
+    		method: "POST",
+    		headers: {
+    			Accept: "application/x-www-form-urlencoded;charset=UTF-8",
+    			"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+    		},
+    		body: new URLSearchParams(formData).toString()
+    	});
+
+    	if (res.ok) {
+    		alert("Thank you for your message! I will get back to you as soon as I can.");
+    		contactForm.reset();
+    	} else {
+    		alert("Uh oh... message failed to send. You can email me directly at thechikkipatel@gmail.com");
+    	}
+    }
+
+    function instance$c($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Contact", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Contact> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => copyToClipboard("thechikkipatel@gmail.com");
+    	const click_handler_1 = () => window.scrollTo(0, 0);
+
+    	$$self.$capture_state = () => ({
+    		copyToClipboard,
+    		SectionNumber,
+    		TextReveal,
+    		submitForm
+    	});
+
+    	return [click_handler, click_handler_1];
+    }
+
+    class Contact extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$c, create_fragment$c, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Contact",
+    			options,
+    			id: create_fragment$c.name
+    		});
+    	}
+    }
+
+    /* src\pages\Main.svelte generated by Svelte v3.31.2 */
+    const file$b = "src\\pages\\Main.svelte";
+
+    function create_fragment$d(ctx) {
+    	let main;
+    	let hero;
+    	let updating_theme;
+    	let t0;
+    	let about;
+    	let t1;
+    	let experience;
+    	let t2;
+    	let webdev;
+    	let t3;
+    	let contact;
+    	let current;
+
+    	function hero_theme_binding(value) {
+    		/*hero_theme_binding*/ ctx[1].call(null, value);
+    	}
+
+    	let hero_props = {};
+
+    	if (/*theme*/ ctx[0] !== void 0) {
+    		hero_props.theme = /*theme*/ ctx[0];
+    	}
+
+    	hero = new Hero({ props: hero_props, $$inline: true });
+    	binding_callbacks.push(() => bind(hero, "theme", hero_theme_binding));
+    	about = new About({ $$inline: true });
+    	experience = new Experience({ $$inline: true });
+    	webdev = new WebDev({ $$inline: true });
+    	contact = new Contact({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			create_component(hero.$$.fragment);
+    			t0 = space();
+    			create_component(about.$$.fragment);
+    			t1 = space();
+    			create_component(experience.$$.fragment);
+    			t2 = space();
+    			create_component(webdev.$$.fragment);
+    			t3 = space();
+    			create_component(contact.$$.fragment);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			main = claim_element(nodes, "MAIN", { class: true });
+    			var main_nodes = children(main);
+    			claim_component(hero.$$.fragment, main_nodes);
+    			t0 = claim_space(main_nodes);
+    			claim_component(about.$$.fragment, main_nodes);
+    			t1 = claim_space(main_nodes);
+    			claim_component(experience.$$.fragment, main_nodes);
+    			t2 = claim_space(main_nodes);
+    			claim_component(webdev.$$.fragment, main_nodes);
+    			t3 = claim_space(main_nodes);
+    			claim_component(contact.$$.fragment, main_nodes);
+    			main_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(main, "class", "snap-y");
+    			add_location(main, file$b, 9, 0, 253);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			mount_component(hero, main, null);
+    			append_dev(main, t0);
+    			mount_component(about, main, null);
+    			append_dev(main, t1);
+    			mount_component(experience, main, null);
+    			append_dev(main, t2);
+    			mount_component(webdev, main, null);
+    			append_dev(main, t3);
+    			mount_component(contact, main, null);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const hero_changes = {};
+
+    			if (!updating_theme && dirty & /*theme*/ 1) {
+    				updating_theme = true;
+    				hero_changes.theme = /*theme*/ ctx[0];
+    				add_flush_callback(() => updating_theme = false);
+    			}
+
+    			hero.$set(hero_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(hero.$$.fragment, local);
+    			transition_in(about.$$.fragment, local);
+    			transition_in(experience.$$.fragment, local);
+    			transition_in(webdev.$$.fragment, local);
+    			transition_in(contact.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(hero.$$.fragment, local);
+    			transition_out(about.$$.fragment, local);
+    			transition_out(experience.$$.fragment, local);
+    			transition_out(webdev.$$.fragment, local);
+    			transition_out(contact.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			destroy_component(hero);
+    			destroy_component(about);
+    			destroy_component(experience);
+    			destroy_component(webdev);
+    			destroy_component(contact);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$d.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$d($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Main", slots, []);
+    	let { theme } = $$props;
+    	const writable_props = ["theme"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Main> was created with unknown prop '${key}'`);
+    	});
+
+    	function hero_theme_binding(value) {
+    		theme = value;
+    		$$invalidate(0, theme);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ("theme" in $$props) $$invalidate(0, theme = $$props.theme);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		Hero,
+    		About,
+    		Experience,
+    		WebDev,
+    		Contact,
+    		theme
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("theme" in $$props) $$invalidate(0, theme = $$props.theme);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [theme, hero_theme_binding];
+    }
+
+    class Main extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$d, create_fragment$d, safe_not_equal, { theme: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Main",
+    			options,
+    			id: create_fragment$d.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*theme*/ ctx[0] === undefined && !("theme" in props)) {
+    			console.warn("<Main> was created without expected prop 'theme'");
+    		}
+    	}
+
+    	get theme() {
+    		throw new Error("<Main>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set theme(value) {
+    		throw new Error("<Main>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\Footer.svelte generated by Svelte v3.31.2 */
+
+    const file$c = "src\\components\\Footer.svelte";
+
+    function create_fragment$e(ctx) {
+    	let footer;
+    	let ul;
+    	let li0;
+    	let a0;
+    	let i0;
+    	let t0;
+    	let li1;
+    	let a1;
+    	let i1;
+    	let t1;
+    	let li2;
+    	let a2;
+    	let i2;
+    	let t2;
+    	let div;
+    	let a3;
+    	let t3;
+    	let time;
+    	let t4;
+
+    	const block = {
+    		c: function create() {
+    			footer = element("footer");
+    			ul = element("ul");
+    			li0 = element("li");
+    			a0 = element("a");
+    			i0 = element("i");
+    			t0 = space();
+    			li1 = element("li");
+    			a1 = element("a");
+    			i1 = element("i");
+    			t1 = space();
+    			li2 = element("li");
+    			a2 = element("a");
+    			i2 = element("i");
+    			t2 = space();
+    			div = element("div");
+    			a3 = element("a");
+    			t3 = text("Designed & Built by Chaitanya Patel © ");
+    			time = element("time");
+    			t4 = text("2023");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			footer = claim_element(nodes, "FOOTER", { class: true });
+    			var footer_nodes = children(footer);
+    			ul = claim_element(footer_nodes, "UL", { "data-aos": true, class: true });
+    			var ul_nodes = children(ul);
+    			li0 = claim_element(ul_nodes, "LI", { class: true });
+    			var li0_nodes = children(li0);
+
+    			a0 = claim_element(li0_nodes, "A", {
+    				title: true,
+    				"aria-label": true,
+    				href: true,
+    				target: true,
+    				class: true
+    			});
+
+    			var a0_nodes = children(a0);
+    			i0 = claim_element(a0_nodes, "I", { class: true });
+    			children(i0).forEach(detach_dev);
+    			a0_nodes.forEach(detach_dev);
+    			li0_nodes.forEach(detach_dev);
+    			t0 = claim_space(ul_nodes);
+    			li1 = claim_element(ul_nodes, "LI", { class: true });
+    			var li1_nodes = children(li1);
+
+    			a1 = claim_element(li1_nodes, "A", {
+    				title: true,
+    				"aria-label": true,
+    				href: true,
+    				target: true,
+    				class: true
+    			});
+
+    			var a1_nodes = children(a1);
+    			i1 = claim_element(a1_nodes, "I", { class: true });
+    			children(i1).forEach(detach_dev);
+    			a1_nodes.forEach(detach_dev);
+    			li1_nodes.forEach(detach_dev);
+    			t1 = claim_space(ul_nodes);
+    			li2 = claim_element(ul_nodes, "LI", { class: true });
+    			var li2_nodes = children(li2);
+
+    			a2 = claim_element(li2_nodes, "A", {
+    				title: true,
+    				"aria-label": true,
+    				href: true,
+    				target: true,
+    				class: true
+    			});
+
+    			var a2_nodes = children(a2);
+    			i2 = claim_element(a2_nodes, "I", { class: true });
+    			children(i2).forEach(detach_dev);
+    			a2_nodes.forEach(detach_dev);
+    			li2_nodes.forEach(detach_dev);
+    			ul_nodes.forEach(detach_dev);
+    			t2 = claim_space(footer_nodes);
+    			div = claim_element(footer_nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+
+    			a3 = claim_element(div_nodes, "A", {
+    				"data-aos": true,
+    				class: true,
+    				href: true,
+    				target: true
+    			});
+
+    			var a3_nodes = children(a3);
+    			t3 = claim_text(a3_nodes, "Designed & Built by Chaitanya Patel © ");
+    			time = claim_element(a3_nodes, "TIME", {});
+    			var time_nodes = children(time);
+    			t4 = claim_text(time_nodes, "2023");
+    			time_nodes.forEach(detach_dev);
+    			a3_nodes.forEach(detach_dev);
+    			div_nodes.forEach(detach_dev);
+    			footer_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(i0, "class", "fab fa-github fa-lg");
+    			add_location(i0, file$c, 10, 29, 427);
+    			attr_dev(a0, "title", "View my GitHub profile");
+    			attr_dev(a0, "aria-label", "See my GitHub profile");
+    			attr_dev(a0, "href", "https://github.com/War-Keeper");
+    			attr_dev(a0, "target", "_blank");
+    			attr_dev(a0, "class", "nav-text p-1");
+    			add_location(a0, file$c, 5, 6, 239);
+    			attr_dev(li0, "class", "m-0");
+    			add_location(li0, file$c, 4, 4, 215);
+    			attr_dev(i1, "class", "fab fa-linkedin-in fa-lg");
+    			add_location(i1, file$c, 21, 8, 721);
+    			attr_dev(a1, "title", "Connect on LinkedIn");
+    			attr_dev(a1, "aria-label", "Connect on LinkedIn");
+    			attr_dev(a1, "href", "https://www.linkedin.com/in/cpatel3/");
+    			attr_dev(a1, "target", "_blank");
+    			attr_dev(a1, "class", "nav-text p-1");
+    			add_location(a1, file$c, 14, 6, 513);
+    			attr_dev(li1, "class", "m-0");
+    			add_location(li1, file$c, 13, 4, 489);
+    			attr_dev(i2, "class", "far fa-envelope fa-lg");
+    			add_location(i2, file$c, 32, 8, 1009);
+    			attr_dev(a2, "title", "Send me an email");
+    			attr_dev(a2, "aria-label", "Send me an email");
+    			attr_dev(a2, "href", "mailto:thechikkipatel@gmail.com");
+    			attr_dev(a2, "target", "_blank");
+    			attr_dev(a2, "class", "nav-text p-1");
+    			add_location(a2, file$c, 25, 6, 812);
+    			attr_dev(li2, "class", "m-0");
+    			add_location(li2, file$c, 24, 4, 788);
+    			attr_dev(ul, "data-aos", "fade-down");
+    			attr_dev(ul, "class", "flex item-center justify-center gap-6 mb-8");
+    			add_location(ul, file$c, 3, 2, 133);
+    			add_location(time, file$c, 46, 49, 1350);
+    			attr_dev(a3, "data-aos", "fade-up");
+    			attr_dev(a3, "class", "nav-text text-gray-700 dark:text-gray-50");
+    			attr_dev(a3, "href", "https://github.com/War-Keeper/Chaitanya-Portfolio");
+    			attr_dev(a3, "target", "_blank");
+    			add_location(a3, file$c, 40, 4, 1121);
+    			attr_dev(div, "class", "text-center");
+    			add_location(div, file$c, 39, 2, 1090);
+    			attr_dev(footer, "class", "main shadow-2xl py-32 z-50 bg-gray-50 dark:bg-gray-700 bg-gradient-to-b dark:from-gray-800 dark:to-gray-900");
+    			add_location(footer, file$c, 0, 0, 0);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, footer, anchor);
+    			append_dev(footer, ul);
+    			append_dev(ul, li0);
+    			append_dev(li0, a0);
+    			append_dev(a0, i0);
+    			append_dev(ul, t0);
+    			append_dev(ul, li1);
+    			append_dev(li1, a1);
+    			append_dev(a1, i1);
+    			append_dev(ul, t1);
+    			append_dev(ul, li2);
+    			append_dev(li2, a2);
+    			append_dev(a2, i2);
+    			append_dev(footer, t2);
+    			append_dev(footer, div);
+    			append_dev(div, a3);
+    			append_dev(a3, t3);
+    			append_dev(a3, time);
+    			append_dev(time, t4);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(footer);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$e.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$e($$self, $$props) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Footer", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Footer> was created with unknown prop '${key}'`);
+    	});
+
+    	return [];
+    }
+
+    class Footer extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$e, create_fragment$e, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Footer",
+    			options,
+    			id: create_fragment$e.name
+    		});
+    	}
+    }
+
+    const resume = {
+      name: "Chaitanya Patel",
+      title: "Software Developer &\n Data Scientist",
+      phoneNumber: "+1 (917) 361 7430",
+      website: {
+        url: "https://www.bobng.me/",
+        label: "bobng.me",
+      },
+      email: {
+        url: "thechikkipatel@gmail.com",
+        label: "thechikkipatel@gmail.com",
+      },
+      linkedIn: {
+        url: "https://www.linkedin.com/in/cpatel3/",
+        label: "linkedin.com/in/cpatel3",
+      },
+      github: {
+        url: "https://github.com/War-Keeper",
+        label: "github.com/War-Keeper",
+      },
+      location: "Raleigh, North Carolina",
+      about:
+        // "Skilled and diligent programmer with an eye for good designs. Always seeking to learn and improve on existing ways. A resourceful and avid self-learner passionate in coding.",
+        "Accomplished and diligent software developer with a good eye for designs. Able to deliver products with high quality proven through customer satisfaction. Friendly, with strong communication skills with teammates. Seeking to learn and grow to become a professional software engineer.",
+      codingLanguages: [
+        "Python",
+        "Java",
+        "C(++)",
+        "JavaScript (ES6)", // ES6
+        "C#",
+        "SQL",
+        "Ruby",
+      ],
+      // Netlify, Github,
+      techStack: [
+        "Pytorch",
+        "SKlearn",
+        "Numpy",
+        "Pandas",
+        "NetworkX",
+        "Apache Spark",
+        "Svelte",
+        "Unity Engine",
+        "Git",
+        "MongoDB",
+        "AWS",
+        "Postgres",
+        "Docker",
+        "Django",
+        "Github Actions",
+        "Apache Kafka (in progress)",
+      ],
+      // Ukulele
+      interests: ["Kayaking", "PC Building", "Gaming"],
+      languages: ["English", "Gujarati", "Hindi"],
+      lastUpdated: "3 Aug 2023",
+      education: {
+        school: "North Carolina State University",
+        cgpa: "4.0 (Dean's List Scholar)",
+        major: "Masters in Computer Science",
+        timeline: "Aug 2021 - Dec 2022",
+        courses: [
+          { name: "Artificial Intelligence", grade: "A+" },
+          { name: "Automated Learning and Data Analysis", grade: "A+" },
+          { name: "Software Engineering", grade: "A+" },
+          { name: "High-Performance Machine Learning", grade: "A+" },
+          { name: "Database Management Systems", grade: "A+" },
+        ],
+      },
+
+      experiences: [
+        {
+          company: "Genova Diagnostics",
+          position: "Immunology Lab Tech",
+          timeline: "May 2019 – August 2021",
+          points: [
+            "Facilitated work with Human Specimens for Immunoassays using both manual and automated processes.",
+            "Assisted in the maintenance of the IT infrastructure and troubleshooting software.",
+            "Developed a streamlined approach to minimize errors and breakdown of machines and increase the throughput of systems by roughly 10%.",
+          ],
+        },
+        {
+          company: " University of North Carolina Asheville",
+          position: "Physical Chemistry Researcher",
+          timeline: "May 2016 – May 2018",
+          points: [
+            "Research involving the creation, analysis, and degradation of Halogen gases.",
+            "The equipment used involved vacuum racks, Gas Chromatography-Mass Spectrometry detector",
+            "Collaborated on the development of new techniques for trapping and detecting molecules.",
+            " Worked with various software packages designed for the analysis and detection of molecules.",
+          ],
+        },
+      ],
+      projects: [
+        {
+          name: "EcoNET - True Error Detection",
+          type: "Personal project",
+          points: [
+            "Oversaw analysis of North Carolina Weather Station Data (ECONet), apply classification techniques to determine which data points are erroneous, using multiple machine learning techniques. ",
+          "Leadership role in a small team.",
+          ],
+        },
+        {
+          name: "Database Management System",
+          type: "Personal project",
+          points: [
+            "Design a Multilevel Database Management system for a Publishing house. Everything from Database Design to deployment is taken into consideration.",
+            "Done in a Team setting.",
+          ],
+        },
+        {
+          name: "Real-time AI Video Upscaling",
+          type: "Personal project",
+          points: [
+            "Design a Real-time Video upscaling software using state-of-the-art techniques to create efficient AI systems.",
+            "Adapting various Optimization strategies and software packages to strategically cut down existing AI models for fast processing.",
+          ],
+        },
+        // {
+        //   name: "Water Chef",
+        //   type: "Personal project",
+        //   points: [
+        //     "A fast paced restaurant simulator game developed with Unity Engine and written in C#.",
+        //     "Complete with multiple levels, objectives, animations, music, and save load functionality.",
+        //   ],
+        // },
+        // {
+        //   name: "Fishackathon 2018",
+        //   type: "by HackerNest",
+        //   points: [
+        //     "Built an app to generate awareness of region specific fishing laws.",
+        //     "Presented to judges working in the fishing industry.",
+        //   ],
+        // },
+      ],
+    };
+
+    /* src\pages\Resume.svelte generated by Svelte v3.31.2 */
+    const file$d = "src\\pages\\Resume.svelte";
+
+    function get_each_context$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[2] = list[i];
+    	child_ctx[4] = i;
+    	return child_ctx;
+    }
+
+    function get_each_context_1$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[5] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[8] = list[i];
+    	child_ctx[4] = i;
+    	return child_ctx;
+    }
+
+    function get_each_context_3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[5] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[12] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_5(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[15] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_6(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[18] = list[i];
+    	return child_ctx;
+    }
+
+    // (25:6) <Link          to="/"          class="px-4 py-2 inline-block leading-4 border-green-400 border bg-green-200 hover:bg-green-300 rounded-none mr-3 text-gray-700 font-mono"        >
+    function create_default_slot$2(ctx) {
+    	let p;
+    	let i;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			i = element("i");
+    			t = text("Go Back");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			p = claim_element(nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			i = claim_element(p_nodes, "I", { class: true });
+    			children(i).forEach(detach_dev);
+    			t = claim_text(p_nodes, "Go Back");
+    			p_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(i, "class", "fas fa-arrow-left mr-3");
+    			add_location(i, file$d, 29, 10, 766);
+    			attr_dev(p, "class", "text-gray-700 font-bold font-mono");
+    			add_location(p, file$d, 28, 8, 709);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, i);
+    			append_dev(p, t);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$2.name,
+    		type: "slot",
+    		source: "(25:6) <Link          to=\\\"/\\\"          class=\\\"px-4 py-2 inline-block leading-4 border-green-400 border bg-green-200 hover:bg-green-300 rounded-none mr-3 text-gray-700 font-mono\\\"        >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (107:12) {#each resume.codingLanguages as codingLanguage}
+    function create_each_block_6(ctx) {
+    	let h4;
+    	let t0_value = /*codingLanguage*/ ctx[18] + "";
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			h4 = element("h4");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			h4 = claim_element(nodes, "H4", { class: true });
+    			var h4_nodes = children(h4);
+    			t0 = claim_text(h4_nodes, t0_value);
+    			t1 = claim_space(h4_nodes);
+    			h4_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(h4, "class", "" + (null_to_empty(`bg-${primary} px-2.5 py-1.5 font-bold text-xs text-white`) + " svelte-fue1fc"));
+    			add_location(h4, file$d, 107, 14, 3670);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h4, anchor);
+    			append_dev(h4, t0);
+    			append_dev(h4, t1);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h4);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_6.name,
+    		type: "each",
+    		source: "(107:12) {#each resume.codingLanguages as codingLanguage}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (124:12) {#each resume.techStack as framework}
+    function create_each_block_5(ctx) {
+    	let h4;
+    	let t0_value = /*framework*/ ctx[15] + "";
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			h4 = element("h4");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			h4 = claim_element(nodes, "H4", { class: true });
+    			var h4_nodes = children(h4);
+    			t0 = claim_text(h4_nodes, t0_value);
+    			t1 = claim_space(h4_nodes);
+    			h4_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(h4, "class", "" + (null_to_empty(`bg-${primary} px-2.5 py-1.5 font-bold text-xs text-white`) + " svelte-fue1fc"));
+    			add_location(h4, file$d, 124, 14, 4220);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h4, anchor);
+    			append_dev(h4, t0);
+    			append_dev(h4, t1);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h4);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_5.name,
+    		type: "each",
+    		source: "(124:12) {#each resume.techStack as framework}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (172:12) {#each resume.education.courses as course}
+    function create_each_block_4(ctx) {
+    	let li;
+    	let t0_value = /*course*/ ctx[12].name + "";
+    	let t0;
+    	let t1;
+    	let p;
+    	let raw_value = /*course*/ ctx[12].grade + "";
+    	let t2;
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			p = element("p");
+    			t2 = space();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			li = claim_element(nodes, "LI", {});
+    			var li_nodes = children(li);
+    			t0 = claim_text(li_nodes, t0_value);
+    			t1 = claim_space(li_nodes);
+    			p = claim_element(li_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			p_nodes.forEach(detach_dev);
+    			t2 = claim_space(li_nodes);
+    			li_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "class", "float-right");
+    			add_location(p, file$d, 174, 16, 5838);
+    			add_location(li, file$d, 172, 14, 5785);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, t0);
+    			append_dev(li, t1);
+    			append_dev(li, p);
+    			p.innerHTML = raw_value;
+    			append_dev(li, t2);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_4.name,
+    		type: "each",
+    		source: "(172:12) {#each resume.education.courses as course}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (203:14) {#each experience.points as point}
+    function create_each_block_3(ctx) {
+    	let li;
+    	let t_value = /*point*/ ctx[5] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			t = text(t_value);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			li = claim_element(nodes, "LI", {});
+    			var li_nodes = children(li);
+    			t = claim_text(li_nodes, t_value);
+    			li_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			add_location(li, file$d, 203, 16, 6835);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_3.name,
+    		type: "each",
+    		source: "(203:14) {#each experience.points as point}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (188:10) {#each resume.experiences as experience, i}
+    function create_each_block_2(ctx) {
+    	let h3;
+    	let t0_value = /*experience*/ ctx[8].company + "";
+    	let t0;
+    	let t1;
+    	let p0;
+    	let t2_value = /*experience*/ ctx[8].timeline + "";
+    	let t2;
+    	let t3;
+    	let p1;
+    	let t4_value = /*experience*/ ctx[8].position + "";
+    	let t4;
+    	let t5;
+    	let ul;
+    	let t6;
+    	let each_value_3 = /*experience*/ ctx[8].points;
+    	validate_each_argument(each_value_3);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		each_blocks[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			h3 = element("h3");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			p0 = element("p");
+    			t2 = text(t2_value);
+    			t3 = space();
+    			p1 = element("p");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t6 = space();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			h3 = claim_element(nodes, "H3", { class: true });
+    			var h3_nodes = children(h3);
+    			t0 = claim_text(h3_nodes, t0_value);
+    			h3_nodes.forEach(detach_dev);
+    			t1 = claim_space(nodes);
+    			p0 = claim_element(nodes, "P", { class: true });
+    			var p0_nodes = children(p0);
+    			t2 = claim_text(p0_nodes, t2_value);
+    			p0_nodes.forEach(detach_dev);
+    			t3 = claim_space(nodes);
+    			p1 = claim_element(nodes, "P", { class: true });
+    			var p1_nodes = children(p1);
+    			t4 = claim_text(p1_nodes, t4_value);
+    			p1_nodes.forEach(detach_dev);
+    			t5 = claim_space(nodes);
+    			ul = claim_element(nodes, "UL", { class: true });
+    			var ul_nodes = children(ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(ul_nodes);
+    			}
+
+    			t6 = claim_space(ul_nodes);
+    			ul_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(h3, "class", "text-gray-700 text-md font-bold");
+    			add_location(h3, file$d, 188, 12, 6241);
+    			attr_dev(p0, "class", "text-sm text-gray-400 float-right text-right");
+    			add_location(p0, file$d, 191, 12, 6354);
+    			attr_dev(p1, "class", "text-sm text-gray-400 mb-0.5 italic");
+    			add_location(p1, file$d, 194, 12, 6479);
+
+    			attr_dev(ul, "class", "" + (null_to_empty(`list-square text-gray-600 pl-5 text-xs ${/*i*/ ctx[4] == resume.experiences.length - 1
+			? "mb-0"
+			: "mb-2"}`) + " svelte-fue1fc"));
+
+    			add_location(ul, file$d, 197, 12, 6595);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h3, anchor);
+    			append_dev(h3, t0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, p0, anchor);
+    			append_dev(p0, t2);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, p1, anchor);
+    			append_dev(p1, t4);
+    			insert_dev(target, t5, anchor);
+    			insert_dev(target, ul, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(ul, null);
+    			}
+
+    			append_dev(ul, t6);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*resume*/ 0) {
+    				each_value_3 = /*experience*/ ctx[8].points;
+    				validate_each_argument(each_value_3);
+    				let i;
+
+    				for (i = 0; i < each_value_3.length; i += 1) {
+    					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_3(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, t6);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_3.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h3);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(p0);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(p1);
+    			if (detaching) detach_dev(t5);
+    			if (detaching) detach_dev(ul);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(188:10) {#each resume.experiences as experience, i}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (231:14) {#each project.points as point}
+    function create_each_block_1$1(ctx) {
+    	let li;
+    	let t_value = /*point*/ ctx[5] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			t = text(t_value);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			li = claim_element(nodes, "LI", {});
+    			var li_nodes = children(li);
+    			t = claim_text(li_nodes, t_value);
+    			li_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			add_location(li, file$d, 231, 16, 7750);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$1.name,
+    		type: "each",
+    		source: "(231:14) {#each project.points as point}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (219:10) {#each resume.projects as project, i}
+    function create_each_block$3(ctx) {
+    	let div;
+    	let h3;
+    	let t0_value = /*project*/ ctx[2].name + "";
+    	let t0;
+    	let t1;
+    	let p;
+    	let t2_value = /*project*/ ctx[2].type + "";
+    	let t2;
+    	let t3;
+    	let ul;
+    	let t4;
+    	let each_value_1 = /*project*/ ctx[2].points;
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			h3 = element("h3");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			p = element("p");
+    			t2 = text(t2_value);
+    			t3 = space();
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t4 = space();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div = claim_element(nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			h3 = claim_element(div_nodes, "H3", { class: true });
+    			var h3_nodes = children(h3);
+    			t0 = claim_text(h3_nodes, t0_value);
+    			h3_nodes.forEach(detach_dev);
+    			t1 = claim_space(div_nodes);
+    			p = claim_element(div_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t2 = claim_text(p_nodes, t2_value);
+    			p_nodes.forEach(detach_dev);
+    			div_nodes.forEach(detach_dev);
+    			t3 = claim_space(nodes);
+    			ul = claim_element(nodes, "UL", { class: true });
+    			var ul_nodes = children(ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(ul_nodes);
+    			}
+
+    			t4 = claim_space(ul_nodes);
+    			ul_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(h3, "class", "text-gray-700 text-md font-bold");
+    			add_location(h3, file$d, 220, 14, 7311);
+    			attr_dev(p, "class", "text-sm text-gray-400 italic");
+    			add_location(p, file$d, 223, 14, 7424);
+    			attr_dev(div, "class", "flex justify-between items-baseline mb-0.5");
+    			add_location(div, file$d, 219, 12, 7239);
+
+    			attr_dev(ul, "class", "" + (null_to_empty(`list-square text-gray-600 pl-5 text-xs ${/*i*/ ctx[4] == resume.projects.length - 1
+			? "mb-0"
+			: "mb-2"}`) + " svelte-fue1fc"));
+
+    			add_location(ul, file$d, 225, 12, 7516);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, h3);
+    			append_dev(h3, t0);
+    			append_dev(div, t1);
+    			append_dev(div, p);
+    			append_dev(p, t2);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, ul, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(ul, null);
+    			}
+
+    			append_dev(ul, t4);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*resume*/ 0) {
+    				each_value_1 = /*project*/ ctx[2].points;
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_1$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, t4);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_1.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(ul);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$3.name,
+    		type: "each",
+    		source: "(219:10) {#each resume.projects as project, i}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$f(ctx) {
+    	let main1;
+    	let div12;
+    	let div0;
+    	let link;
+    	let t0;
+    	let button;
+    	let i0;
+    	let t1;
+    	let t2;
+    	let main0;
+    	let section;
+    	let aside;
+    	let h1;
+    	let t3_value = resume.name + "";
+    	let t3;
+    	let t4;
+    	let h30;
+    	let t5_value = resume.title + "";
+    	let t5;
+    	let t6;
+    	let div1;
+    	let i1;
+    	let t7;
+    	let p0;
+    	let t8_value = resume.phoneNumber + "";
+    	let t8;
+    	let t9;
+    	let i2;
+    	let t10;
+    	let a0;
+    	let t11_value = resume.website.label + "";
+    	let t11;
+    	let t12;
+    	let i3;
+    	let t13;
+    	let p1;
+    	let t14_value = resume.email.label + "";
+    	let t14;
+    	let t15;
+    	let i4;
+    	let t16;
+    	let a1;
+    	let t17_value = resume.linkedIn.label + "";
+    	let t17;
+    	let t18;
+    	let i5;
+    	let t19;
+    	let a2;
+    	let t20_value = resume.github.label + "";
+    	let t20;
+    	let t21;
+    	let i6;
+    	let t22;
+    	let p2;
+    	let t23_value = resume.location + "";
+    	let t23;
+    	let t24;
+    	let div2;
+    	let h20;
+    	let t25;
+    	let t26;
+    	let p3;
+    	let q;
+    	let t27_value = resume.about + "";
+    	let t27;
+    	let t28;
+    	let div4;
+    	let h21;
+    	let t29;
+    	let t30;
+    	let div3;
+    	let t31;
+    	let div6;
+    	let h22;
+    	let t32;
+    	let t33;
+    	let div5;
+    	let t34;
+    	let div7;
+    	let h31;
+    	let t35;
+    	let span;
+    	let t36_value = resume.lastUpdated + "";
+    	let t36;
+    	let t37;
+    	let article;
+    	let div9;
+    	let h23;
+    	let t38;
+    	let t39;
+    	let div8;
+    	let h32;
+    	let t40_value = resume.education.school + "";
+    	let t40;
+    	let t41;
+    	let p4;
+    	let t42;
+    	let t43_value = resume.education.cgpa + "";
+    	let t43;
+    	let t44;
+    	let p5;
+    	let t45_value = resume.education.timeline + "";
+    	let t45;
+    	let t46;
+    	let p6;
+    	let t47_value = resume.education.major + "";
+    	let t47;
+    	let t48;
+    	let ul;
+    	let t49;
+    	let div10;
+    	let h24;
+    	let t50;
+    	let t51;
+    	let t52;
+    	let div11;
+    	let h25;
+    	let t53;
+    	let t54;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	link = new Link({
+    			props: {
+    				to: "/",
+    				class: "px-4 py-2 inline-block leading-4 border-green-400 border bg-green-200 hover:bg-green-300 rounded-none mr-3 text-gray-700 font-mono",
+    				$$slots: { default: [create_default_slot$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	let each_value_6 = resume.codingLanguages;
+    	validate_each_argument(each_value_6);
+    	let each_blocks_4 = [];
+
+    	for (let i = 0; i < each_value_6.length; i += 1) {
+    		each_blocks_4[i] = create_each_block_6(get_each_context_6(ctx, each_value_6, i));
+    	}
+
+    	let each_value_5 = resume.techStack;
+    	validate_each_argument(each_value_5);
+    	let each_blocks_3 = [];
+
+    	for (let i = 0; i < each_value_5.length; i += 1) {
+    		each_blocks_3[i] = create_each_block_5(get_each_context_5(ctx, each_value_5, i));
+    	}
+
+    	let each_value_4 = resume.education.courses;
+    	validate_each_argument(each_value_4);
+    	let each_blocks_2 = [];
+
+    	for (let i = 0; i < each_value_4.length; i += 1) {
+    		each_blocks_2[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
+    	}
+
+    	let each_value_2 = resume.experiences;
+    	validate_each_argument(each_value_2);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+    	}
+
+    	let each_value = resume.projects;
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			main1 = element("main");
+    			div12 = element("div");
+    			div0 = element("div");
+    			create_component(link.$$.fragment);
+    			t0 = space();
+    			button = element("button");
+    			i0 = element("i");
+    			t1 = text("Print");
+    			t2 = space();
+    			main0 = element("main");
+    			section = element("section");
+    			aside = element("aside");
+    			h1 = element("h1");
+    			t3 = text(t3_value);
+    			t4 = space();
+    			h30 = element("h3");
+    			t5 = text(t5_value);
+    			t6 = space();
+    			div1 = element("div");
+    			i1 = element("i");
+    			t7 = space();
+    			p0 = element("p");
+    			t8 = text(t8_value);
+    			t9 = space();
+    			i2 = element("i");
+    			t10 = space();
+    			a0 = element("a");
+    			t11 = text(t11_value);
+    			t12 = space();
+    			i3 = element("i");
+    			t13 = space();
+    			p1 = element("p");
+    			t14 = text(t14_value);
+    			t15 = space();
+    			i4 = element("i");
+    			t16 = space();
+    			a1 = element("a");
+    			t17 = text(t17_value);
+    			t18 = space();
+    			i5 = element("i");
+    			t19 = space();
+    			a2 = element("a");
+    			t20 = text(t20_value);
+    			t21 = space();
+    			i6 = element("i");
+    			t22 = space();
+    			p2 = element("p");
+    			t23 = text(t23_value);
+    			t24 = space();
+    			div2 = element("div");
+    			h20 = element("h2");
+    			t25 = text("About Me");
+    			t26 = space();
+    			p3 = element("p");
+    			q = element("q");
+    			t27 = text(t27_value);
+    			t28 = space();
+    			div4 = element("div");
+    			h21 = element("h2");
+    			t29 = text("Coding Languages");
+    			t30 = space();
+    			div3 = element("div");
+
+    			for (let i = 0; i < each_blocks_4.length; i += 1) {
+    				each_blocks_4[i].c();
+    			}
+
+    			t31 = space();
+    			div6 = element("div");
+    			h22 = element("h2");
+    			t32 = text("Tech Stack");
+    			t33 = space();
+    			div5 = element("div");
+
+    			for (let i = 0; i < each_blocks_3.length; i += 1) {
+    				each_blocks_3[i].c();
+    			}
+
+    			t34 = space();
+    			div7 = element("div");
+    			h31 = element("h3");
+    			t35 = text("Last updated on: ");
+    			span = element("span");
+    			t36 = text(t36_value);
+    			t37 = space();
+    			article = element("article");
+    			div9 = element("div");
+    			h23 = element("h2");
+    			t38 = text("Education");
+    			t39 = space();
+    			div8 = element("div");
+    			h32 = element("h3");
+    			t40 = text(t40_value);
+    			t41 = space();
+    			p4 = element("p");
+    			t42 = text("CGPA: ");
+    			t43 = text(t43_value);
+    			t44 = space();
+    			p5 = element("p");
+    			t45 = text(t45_value);
+    			t46 = space();
+    			p6 = element("p");
+    			t47 = text(t47_value);
+    			t48 = space();
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].c();
+    			}
+
+    			t49 = space();
+    			div10 = element("div");
+    			h24 = element("h2");
+    			t50 = text("Experience");
+    			t51 = space();
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t52 = space();
+    			div11 = element("div");
+    			h25 = element("h2");
+    			t53 = text("Projects");
+    			t54 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			main1 = claim_element(nodes, "MAIN", { class: true });
+    			var main1_nodes = children(main1);
+    			div12 = claim_element(main1_nodes, "DIV", { class: true });
+    			var div12_nodes = children(div12);
+    			div0 = claim_element(div12_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			claim_component(link.$$.fragment, div0_nodes);
+    			t0 = claim_space(div0_nodes);
+    			button = claim_element(div0_nodes, "BUTTON", { class: true });
+    			var button_nodes = children(button);
+    			i0 = claim_element(button_nodes, "I", { class: true });
+    			children(i0).forEach(detach_dev);
+    			t1 = claim_text(button_nodes, "Print");
+    			button_nodes.forEach(detach_dev);
+    			div0_nodes.forEach(detach_dev);
+    			t2 = claim_space(div12_nodes);
+    			main0 = claim_element(div12_nodes, "MAIN", { class: true });
+    			var main0_nodes = children(main0);
+    			section = claim_element(main0_nodes, "SECTION", { class: true });
+    			var section_nodes = children(section);
+    			aside = claim_element(section_nodes, "ASIDE", { class: true });
+    			var aside_nodes = children(aside);
+    			h1 = claim_element(aside_nodes, "H1", { class: true, fstyle: true });
+    			var h1_nodes = children(h1);
+    			t3 = claim_text(h1_nodes, t3_value);
+    			h1_nodes.forEach(detach_dev);
+    			t4 = claim_space(aside_nodes);
+    			h30 = claim_element(aside_nodes, "H3", { class: true });
+    			var h30_nodes = children(h30);
+    			t5 = claim_text(h30_nodes, t5_value);
+    			h30_nodes.forEach(detach_dev);
+    			t6 = claim_space(aside_nodes);
+    			div1 = claim_element(aside_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			i1 = claim_element(div1_nodes, "I", { class: true });
+    			children(i1).forEach(detach_dev);
+    			t7 = claim_space(div1_nodes);
+    			p0 = claim_element(div1_nodes, "P", { class: true });
+    			var p0_nodes = children(p0);
+    			t8 = claim_text(p0_nodes, t8_value);
+    			p0_nodes.forEach(detach_dev);
+    			t9 = claim_space(div1_nodes);
+    			i2 = claim_element(div1_nodes, "I", { class: true });
+    			children(i2).forEach(detach_dev);
+    			t10 = claim_space(div1_nodes);
+    			a0 = claim_element(div1_nodes, "A", { href: true, target: true, class: true });
+    			var a0_nodes = children(a0);
+    			t11 = claim_text(a0_nodes, t11_value);
+    			a0_nodes.forEach(detach_dev);
+    			t12 = claim_space(div1_nodes);
+    			i3 = claim_element(div1_nodes, "I", { class: true });
+    			children(i3).forEach(detach_dev);
+    			t13 = claim_space(div1_nodes);
+    			p1 = claim_element(div1_nodes, "P", { class: true });
+    			var p1_nodes = children(p1);
+    			t14 = claim_text(p1_nodes, t14_value);
+    			p1_nodes.forEach(detach_dev);
+    			t15 = claim_space(div1_nodes);
+    			i4 = claim_element(div1_nodes, "I", { class: true });
+    			children(i4).forEach(detach_dev);
+    			t16 = claim_space(div1_nodes);
+    			a1 = claim_element(div1_nodes, "A", { href: true, target: true, class: true });
+    			var a1_nodes = children(a1);
+    			t17 = claim_text(a1_nodes, t17_value);
+    			a1_nodes.forEach(detach_dev);
+    			t18 = claim_space(div1_nodes);
+    			i5 = claim_element(div1_nodes, "I", { class: true });
+    			children(i5).forEach(detach_dev);
+    			t19 = claim_space(div1_nodes);
+    			a2 = claim_element(div1_nodes, "A", { href: true, target: true, class: true });
+    			var a2_nodes = children(a2);
+    			t20 = claim_text(a2_nodes, t20_value);
+    			a2_nodes.forEach(detach_dev);
+    			t21 = claim_space(div1_nodes);
+    			i6 = claim_element(div1_nodes, "I", { class: true });
+    			children(i6).forEach(detach_dev);
+    			t22 = claim_space(div1_nodes);
+    			p2 = claim_element(div1_nodes, "P", { class: true });
+    			var p2_nodes = children(p2);
+    			t23 = claim_text(p2_nodes, t23_value);
+    			p2_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			aside_nodes.forEach(detach_dev);
+    			t24 = claim_space(section_nodes);
+    			div2 = claim_element(section_nodes, "DIV", {});
+    			var div2_nodes = children(div2);
+    			h20 = claim_element(div2_nodes, "H2", { class: true });
+    			var h20_nodes = children(h20);
+    			t25 = claim_text(h20_nodes, "About Me");
+    			h20_nodes.forEach(detach_dev);
+    			t26 = claim_space(div2_nodes);
+    			p3 = claim_element(div2_nodes, "P", { class: true });
+    			var p3_nodes = children(p3);
+    			q = claim_element(p3_nodes, "Q", {});
+    			var q_nodes = children(q);
+    			t27 = claim_text(q_nodes, t27_value);
+    			q_nodes.forEach(detach_dev);
+    			p3_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			t28 = claim_space(section_nodes);
+    			div4 = claim_element(section_nodes, "DIV", {});
+    			var div4_nodes = children(div4);
+    			h21 = claim_element(div4_nodes, "H2", { class: true });
+    			var h21_nodes = children(h21);
+    			t29 = claim_text(h21_nodes, "Coding Languages");
+    			h21_nodes.forEach(detach_dev);
+    			t30 = claim_space(div4_nodes);
+    			div3 = claim_element(div4_nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+
+    			for (let i = 0; i < each_blocks_4.length; i += 1) {
+    				each_blocks_4[i].l(div3_nodes);
+    			}
+
+    			div3_nodes.forEach(detach_dev);
+    			div4_nodes.forEach(detach_dev);
+    			t31 = claim_space(section_nodes);
+    			div6 = claim_element(section_nodes, "DIV", {});
+    			var div6_nodes = children(div6);
+    			h22 = claim_element(div6_nodes, "H2", { class: true });
+    			var h22_nodes = children(h22);
+    			t32 = claim_text(h22_nodes, "Tech Stack");
+    			h22_nodes.forEach(detach_dev);
+    			t33 = claim_space(div6_nodes);
+    			div5 = claim_element(div6_nodes, "DIV", { class: true });
+    			var div5_nodes = children(div5);
+
+    			for (let i = 0; i < each_blocks_3.length; i += 1) {
+    				each_blocks_3[i].l(div5_nodes);
+    			}
+
+    			div5_nodes.forEach(detach_dev);
+    			div6_nodes.forEach(detach_dev);
+    			t34 = claim_space(section_nodes);
+    			div7 = claim_element(section_nodes, "DIV", { class: true });
+    			var div7_nodes = children(div7);
+    			h31 = claim_element(div7_nodes, "H3", { class: true });
+    			var h31_nodes = children(h31);
+    			t35 = claim_text(h31_nodes, "Last updated on: ");
+    			span = claim_element(h31_nodes, "SPAN", { class: true });
+    			var span_nodes = children(span);
+    			t36 = claim_text(span_nodes, t36_value);
+    			span_nodes.forEach(detach_dev);
+    			h31_nodes.forEach(detach_dev);
+    			div7_nodes.forEach(detach_dev);
+    			section_nodes.forEach(detach_dev);
+    			t37 = claim_space(main0_nodes);
+    			article = claim_element(main0_nodes, "ARTICLE", { class: true });
+    			var article_nodes = children(article);
+    			div9 = claim_element(article_nodes, "DIV", {});
+    			var div9_nodes = children(div9);
+    			h23 = claim_element(div9_nodes, "H2", { class: true });
+    			var h23_nodes = children(h23);
+    			t38 = claim_text(h23_nodes, "Education");
+    			h23_nodes.forEach(detach_dev);
+    			t39 = claim_space(div9_nodes);
+    			div8 = claim_element(div9_nodes, "DIV", { class: true });
+    			var div8_nodes = children(div8);
+    			h32 = claim_element(div8_nodes, "H3", { class: true });
+    			var h32_nodes = children(h32);
+    			t40 = claim_text(h32_nodes, t40_value);
+    			h32_nodes.forEach(detach_dev);
+    			t41 = claim_space(div8_nodes);
+    			p4 = claim_element(div8_nodes, "P", { class: true });
+    			var p4_nodes = children(p4);
+    			t42 = claim_text(p4_nodes, "CGPA: ");
+    			t43 = claim_text(p4_nodes, t43_value);
+    			p4_nodes.forEach(detach_dev);
+    			div8_nodes.forEach(detach_dev);
+    			t44 = claim_space(div9_nodes);
+    			p5 = claim_element(div9_nodes, "P", { class: true });
+    			var p5_nodes = children(p5);
+    			t45 = claim_text(p5_nodes, t45_value);
+    			p5_nodes.forEach(detach_dev);
+    			t46 = claim_space(div9_nodes);
+    			p6 = claim_element(div9_nodes, "P", { class: true });
+    			var p6_nodes = children(p6);
+    			t47 = claim_text(p6_nodes, t47_value);
+    			p6_nodes.forEach(detach_dev);
+    			t48 = claim_space(div9_nodes);
+    			ul = claim_element(div9_nodes, "UL", { class: true });
+    			var ul_nodes = children(ul);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].l(ul_nodes);
+    			}
+
+    			ul_nodes.forEach(detach_dev);
+    			div9_nodes.forEach(detach_dev);
+    			t49 = claim_space(article_nodes);
+    			div10 = claim_element(article_nodes, "DIV", {});
+    			var div10_nodes = children(div10);
+    			h24 = claim_element(div10_nodes, "H2", { class: true });
+    			var h24_nodes = children(h24);
+    			t50 = claim_text(h24_nodes, "Experience");
+    			h24_nodes.forEach(detach_dev);
+    			t51 = claim_space(div10_nodes);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].l(div10_nodes);
+    			}
+
+    			div10_nodes.forEach(detach_dev);
+    			t52 = claim_space(article_nodes);
+    			div11 = claim_element(article_nodes, "DIV", {});
+    			var div11_nodes = children(div11);
+    			h25 = claim_element(div11_nodes, "H2", { class: true });
+    			var h25_nodes = children(h25);
+    			t53 = claim_text(h25_nodes, "Projects");
+    			h25_nodes.forEach(detach_dev);
+    			t54 = claim_space(div11_nodes);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(div11_nodes);
+    			}
+
+    			div11_nodes.forEach(detach_dev);
+    			article_nodes.forEach(detach_dev);
+    			main0_nodes.forEach(detach_dev);
+    			div12_nodes.forEach(detach_dev);
+    			main1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(i0, "class", "fas fa-print mr-3");
+    			add_location(i0, file$d, 35, 9, 1018);
+    			attr_dev(button, "class", "px-4 py-1 font-bold font-mono border-blue-400 border bg-blue-200 hover:bg-blue-300 rounded-none");
+    			add_location(button, file$d, 32, 6, 846);
+    			attr_dev(div0, "class", "mb-5");
+    			add_location(div0, file$d, 23, 4, 495);
+    			attr_dev(h1, "class", "text-gray-700 text-5xl font-extrabold mb-1");
+    			attr_dev(h1, "fstyle", "font-size: 2.5rem; line-height: 1");
+    			add_location(h1, file$d, 44, 10, 1316);
+    			attr_dev(h30, "class", "" + (null_to_empty(`text-${primary} font-semibold text-lg mb-3 leading-5`) + " svelte-fue1fc"));
+    			add_location(h30, file$d, 50, 10, 1508);
+    			attr_dev(i1, "class", "text-gray-700 text-center fas fa-phone");
+    			add_location(i1, file$d, 54, 12, 1682);
+    			attr_dev(p0, "class", "text-gray-700 text-sm");
+    			add_location(p0, file$d, 55, 12, 1748);
+    			attr_dev(i2, "class", "text-gray-700 text-center fas fa-globe");
+    			add_location(i2, file$d, 57, 12, 1821);
+    			attr_dev(a0, "href", resume.website.url);
+    			attr_dev(a0, "target", "_blank");
+    			attr_dev(a0, "class", "text-gray-700 text-sm svelte-fue1fc");
+    			add_location(a0, file$d, 58, 12, 1887);
+    			attr_dev(i3, "class", "text-gray-700 text-center fas fa-envelope");
+    			add_location(i3, file$d, 64, 12, 2063);
+    			attr_dev(p1, "class", "text-gray-700 text-sm cursor-pointer");
+    			add_location(p1, file$d, 65, 12, 2132);
+    			attr_dev(i4, "class", "text-gray-700 text-center fab fa-linkedin");
+    			add_location(i4, file$d, 71, 12, 2343);
+    			attr_dev(a1, "href", resume.linkedIn.url);
+    			attr_dev(a1, "target", "_blank");
+    			attr_dev(a1, "class", "text-gray-700 text-sm svelte-fue1fc");
+    			add_location(a1, file$d, 72, 12, 2412);
+    			attr_dev(i5, "class", "text-gray-700 text-center fab fa-github");
+    			add_location(i5, file$d, 77, 12, 2588);
+    			attr_dev(a2, "href", resume.github.url);
+    			attr_dev(a2, "target", "_blank");
+    			attr_dev(a2, "class", "text-gray-700 text-sm svelte-fue1fc");
+    			add_location(a2, file$d, 78, 12, 2655);
+    			attr_dev(i6, "class", "text-gray-700 text-center fas fa-map-marker-alt");
+    			add_location(i6, file$d, 83, 12, 2827);
+    			attr_dev(p2, "class", "text-gray-700 text-sm");
+    			add_location(p2, file$d, 84, 12, 2902);
+    			attr_dev(div1, "class", "grid info items-center svelte-fue1fc");
+    			add_location(div1, file$d, 53, 10, 1632);
+    			attr_dev(aside, "class", "" + (null_to_empty(`bg-${light} px-5 pt-5 pb-6 border-${primary} border-t-4`) + " svelte-fue1fc"));
+    			add_location(aside, file$d, 41, 8, 1210);
+    			attr_dev(h20, "class", "" + (null_to_empty(`text-${primary} bg-${light} w-full border-${primary} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`) + " svelte-fue1fc"));
+    			add_location(h20, file$d, 89, 10, 3021);
+    			add_location(q, file$d, 95, 12, 3264);
+    			attr_dev(p3, "class", "text-gray-600 text-sm pl-1");
+    			add_location(p3, file$d, 94, 10, 3212);
+    			add_location(div2, file$d, 88, 8, 3004);
+    			attr_dev(h21, "class", "" + (null_to_empty(`text-${primary} bg-${light} w-full border-${primary} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`) + " svelte-fue1fc"));
+    			add_location(h21, file$d, 100, 10, 3346);
+    			attr_dev(div3, "class", "tags flex flex-wrap justify-start svelte-fue1fc");
+    			add_location(div3, file$d, 105, 10, 3545);
+    			add_location(div4, file$d, 99, 8, 3329);
+    			attr_dev(h22, "class", "" + (null_to_empty(`text-${primary} bg-${light} w-full border-${primary} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`) + " svelte-fue1fc"));
+    			add_location(h22, file$d, 117, 10, 3913);
+    			attr_dev(div5, "class", "tags flex flex-wrap justify-start svelte-fue1fc");
+    			add_location(div5, file$d, 122, 10, 4106);
+    			add_location(div6, file$d, 116, 8, 3896);
+    			attr_dev(span, "class", "italic font-semibold");
+    			add_location(span, file$d, 137, 29, 4625);
+    			attr_dev(h31, "class", "" + (null_to_empty(`text-${primary} text-sm`) + " svelte-fue1fc"));
+    			add_location(h31, file$d, 136, 10, 4556);
+    			attr_dev(div7, "class", "" + (null_to_empty(`bg-${light} border-${primary} border-b-4 px-5 pt-1.5 pb-1.5 w-full`) + " svelte-fue1fc"));
+    			add_location(div7, file$d, 133, 8, 4441);
+    			attr_dev(section, "class", "sidebar flex flex-col justify-between gap-2 svelte-fue1fc");
+    			add_location(section, file$d, 40, 6, 1139);
+    			attr_dev(h23, "class", "" + (null_to_empty(`text-${primary} bg-${light} w-full border-${primary} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`) + " svelte-fue1fc"));
+    			add_location(h23, file$d, 148, 10, 4900);
+    			attr_dev(h32, "class", "text-gray-700 text-md font-bold");
+    			add_location(h32, file$d, 155, 12, 5162);
+    			attr_dev(p4, "class", "text-xs text-gray-700 font-semibold");
+    			add_location(p4, file$d, 158, 12, 5280);
+    			attr_dev(div8, "class", "flex justify-between items-baseline mb-0");
+    			add_location(div8, file$d, 154, 10, 5094);
+    			attr_dev(p5, "class", "text-sm text-gray-400 float-right text-right");
+    			add_location(p5, file$d, 163, 10, 5422);
+    			attr_dev(p6, "class", "text-sm text-gray-400 mb-0.5 italic");
+    			add_location(p6, file$d, 166, 10, 5547);
+    			attr_dev(ul, "class", "list-square text-gray-700 pl-5 text-xs");
+    			add_location(ul, file$d, 170, 10, 5662);
+    			add_location(div9, file$d, 147, 8, 4883);
+    			attr_dev(h24, "class", "" + (null_to_empty(`text-${primary} bg-${light} w-full border-${primary} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`) + " svelte-fue1fc"));
+    			add_location(h24, file$d, 181, 10, 5989);
+    			add_location(div10, file$d, 180, 8, 5972);
+    			attr_dev(h25, "class", "" + (null_to_empty(`text-${primary} bg-${light} w-full border-${primary} pl-4 py-1 border-l-4 font-semibold text-xl mb-2`) + " svelte-fue1fc"));
+    			add_location(h25, file$d, 212, 10, 6995);
+    			add_location(div11, file$d, 211, 8, 6978);
+    			attr_dev(article, "class", "content flex flex-col justify-between gap-2 svelte-fue1fc");
+    			add_location(article, file$d, 146, 6, 4812);
+    			attr_dev(main0, "class", "resume bg-white shadow-xl svelte-fue1fc");
+    			add_location(main0, file$d, 39, 4, 1091);
+    			attr_dev(div12, "class", "m-auto");
+    			add_location(div12, file$d, 22, 2, 469);
+    			attr_dev(main1, "class", "bg-gray-500 dark:bg-gray-700 pt-32 pb-20 overflow-auto flex");
+    			add_location(main1, file$d, 21, 0, 391);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main1, anchor);
+    			append_dev(main1, div12);
+    			append_dev(div12, div0);
+    			mount_component(link, div0, null);
+    			append_dev(div0, t0);
+    			append_dev(div0, button);
+    			append_dev(button, i0);
+    			append_dev(button, t1);
+    			append_dev(div12, t2);
+    			append_dev(div12, main0);
+    			append_dev(main0, section);
+    			append_dev(section, aside);
+    			append_dev(aside, h1);
+    			append_dev(h1, t3);
+    			append_dev(aside, t4);
+    			append_dev(aside, h30);
+    			append_dev(h30, t5);
+    			append_dev(aside, t6);
+    			append_dev(aside, div1);
+    			append_dev(div1, i1);
+    			append_dev(div1, t7);
+    			append_dev(div1, p0);
+    			append_dev(p0, t8);
+    			append_dev(div1, t9);
+    			append_dev(div1, i2);
+    			append_dev(div1, t10);
+    			append_dev(div1, a0);
+    			append_dev(a0, t11);
+    			append_dev(div1, t12);
+    			append_dev(div1, i3);
+    			append_dev(div1, t13);
+    			append_dev(div1, p1);
+    			append_dev(p1, t14);
+    			append_dev(div1, t15);
+    			append_dev(div1, i4);
+    			append_dev(div1, t16);
+    			append_dev(div1, a1);
+    			append_dev(a1, t17);
+    			append_dev(div1, t18);
+    			append_dev(div1, i5);
+    			append_dev(div1, t19);
+    			append_dev(div1, a2);
+    			append_dev(a2, t20);
+    			append_dev(div1, t21);
+    			append_dev(div1, i6);
+    			append_dev(div1, t22);
+    			append_dev(div1, p2);
+    			append_dev(p2, t23);
+    			append_dev(section, t24);
+    			append_dev(section, div2);
+    			append_dev(div2, h20);
+    			append_dev(h20, t25);
+    			append_dev(div2, t26);
+    			append_dev(div2, p3);
+    			append_dev(p3, q);
+    			append_dev(q, t27);
+    			append_dev(section, t28);
+    			append_dev(section, div4);
+    			append_dev(div4, h21);
+    			append_dev(h21, t29);
+    			append_dev(div4, t30);
+    			append_dev(div4, div3);
+
+    			for (let i = 0; i < each_blocks_4.length; i += 1) {
+    				each_blocks_4[i].m(div3, null);
+    			}
+
+    			append_dev(section, t31);
+    			append_dev(section, div6);
+    			append_dev(div6, h22);
+    			append_dev(h22, t32);
+    			append_dev(div6, t33);
+    			append_dev(div6, div5);
+
+    			for (let i = 0; i < each_blocks_3.length; i += 1) {
+    				each_blocks_3[i].m(div5, null);
+    			}
+
+    			append_dev(section, t34);
+    			append_dev(section, div7);
+    			append_dev(div7, h31);
+    			append_dev(h31, t35);
+    			append_dev(h31, span);
+    			append_dev(span, t36);
+    			append_dev(main0, t37);
+    			append_dev(main0, article);
+    			append_dev(article, div9);
+    			append_dev(div9, h23);
+    			append_dev(h23, t38);
+    			append_dev(div9, t39);
+    			append_dev(div9, div8);
+    			append_dev(div8, h32);
+    			append_dev(h32, t40);
+    			append_dev(div8, t41);
+    			append_dev(div8, p4);
+    			append_dev(p4, t42);
+    			append_dev(p4, t43);
+    			append_dev(div9, t44);
+    			append_dev(div9, p5);
+    			append_dev(p5, t45);
+    			append_dev(div9, t46);
+    			append_dev(div9, p6);
+    			append_dev(p6, t47);
+    			append_dev(div9, t48);
+    			append_dev(div9, ul);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].m(ul, null);
+    			}
+
+    			append_dev(article, t49);
+    			append_dev(article, div10);
+    			append_dev(div10, h24);
+    			append_dev(h24, t50);
+    			append_dev(div10, t51);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(div10, null);
+    			}
+
+    			append_dev(article, t52);
+    			append_dev(article, div11);
+    			append_dev(div11, h25);
+    			append_dev(h25, t53);
+    			append_dev(div11, t54);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div11, null);
+    			}
+
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*click_handler*/ ctx[0], false, false, false),
+    					listen_dev(p1, "click", /*click_handler_1*/ ctx[1], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const link_changes = {};
+
+    			if (dirty & /*$$scope*/ 2097152) {
+    				link_changes.$$scope = { dirty, ctx };
+    			}
+
+    			link.$set(link_changes);
+
+    			if (dirty & /*primary, resume*/ 0) {
+    				each_value_6 = resume.codingLanguages;
+    				validate_each_argument(each_value_6);
+    				let i;
+
+    				for (i = 0; i < each_value_6.length; i += 1) {
+    					const child_ctx = get_each_context_6(ctx, each_value_6, i);
+
+    					if (each_blocks_4[i]) {
+    						each_blocks_4[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_4[i] = create_each_block_6(child_ctx);
+    						each_blocks_4[i].c();
+    						each_blocks_4[i].m(div3, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_4.length; i += 1) {
+    					each_blocks_4[i].d(1);
+    				}
+
+    				each_blocks_4.length = each_value_6.length;
+    			}
+
+    			if (dirty & /*primary, resume*/ 0) {
+    				each_value_5 = resume.techStack;
+    				validate_each_argument(each_value_5);
+    				let i;
+
+    				for (i = 0; i < each_value_5.length; i += 1) {
+    					const child_ctx = get_each_context_5(ctx, each_value_5, i);
+
+    					if (each_blocks_3[i]) {
+    						each_blocks_3[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_3[i] = create_each_block_5(child_ctx);
+    						each_blocks_3[i].c();
+    						each_blocks_3[i].m(div5, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_3.length; i += 1) {
+    					each_blocks_3[i].d(1);
+    				}
+
+    				each_blocks_3.length = each_value_5.length;
+    			}
+
+    			if (dirty & /*resume*/ 0) {
+    				each_value_4 = resume.education.courses;
+    				validate_each_argument(each_value_4);
+    				let i;
+
+    				for (i = 0; i < each_value_4.length; i += 1) {
+    					const child_ctx = get_each_context_4(ctx, each_value_4, i);
+
+    					if (each_blocks_2[i]) {
+    						each_blocks_2[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_2[i] = create_each_block_4(child_ctx);
+    						each_blocks_2[i].c();
+    						each_blocks_2[i].m(ul, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_2.length; i += 1) {
+    					each_blocks_2[i].d(1);
+    				}
+
+    				each_blocks_2.length = each_value_4.length;
+    			}
+
+    			if (dirty & /*resume*/ 0) {
+    				each_value_2 = resume.experiences;
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_2(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(div10, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_2.length;
+    			}
+
+    			if (dirty & /*resume*/ 0) {
+    				each_value = resume.projects;
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$3(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$3(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div11, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(link.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(link.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main1);
+    			destroy_component(link);
+    			destroy_each(each_blocks_4, detaching);
+    			destroy_each(each_blocks_3, detaching);
+    			destroy_each(each_blocks_2, detaching);
+    			destroy_each(each_blocks_1, detaching);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$f.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const primary = "teal-600";
+    const light = "teal-50";
+
+    function instance$f($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Resume", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Resume> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => window.print();
+    	const click_handler_1 = () => copyToClipboard(resume.email.url);
+
+    	$$self.$capture_state = () => ({
+    		Link,
+    		copyToClipboard,
+    		resume,
+    		primary,
+    		light
+    	});
+
+    	return [click_handler, click_handler_1];
+    }
+
+    class Resume extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$f, create_fragment$f, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Resume",
+    			options,
+    			id: create_fragment$f.name
+    		});
+    	}
+    }
+
+    var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+    function createCommonjsModule(fn, basedir, module) {
+    	return module = {
+    		path: basedir,
+    		exports: {},
+    		require: function (path, base) {
+    			return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
+    		}
+    	}, fn(module, module.exports), module.exports;
+    }
+
+    function commonjsRequire () {
+    	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
+    }
+
+    var marked = createCommonjsModule(function (module, exports) {
+    /**
+     * marked - a markdown parser
+     * Copyright (c) 2011-2021, Christopher Jeffrey. (MIT Licensed)
+     * https://github.com/markedjs/marked
+     */
+
+    /**
+     * DO NOT EDIT THIS FILE
+     * The code in this file is generated from files in ./src/
+     */
+
+    (function (global, factory) {
+       module.exports = factory() ;
+    }(commonjsGlobal, (function () {
+      function _defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+          var descriptor = props[i];
+          descriptor.enumerable = descriptor.enumerable || false;
+          descriptor.configurable = true;
+          if ("value" in descriptor) descriptor.writable = true;
+          Object.defineProperty(target, descriptor.key, descriptor);
+        }
+      }
+
+      function _createClass(Constructor, protoProps, staticProps) {
+        if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+        if (staticProps) _defineProperties(Constructor, staticProps);
+        return Constructor;
+      }
+
+      function _unsupportedIterableToArray(o, minLen) {
+        if (!o) return;
+        if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+        var n = Object.prototype.toString.call(o).slice(8, -1);
+        if (n === "Object" && o.constructor) n = o.constructor.name;
+        if (n === "Map" || n === "Set") return Array.from(o);
+        if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+      }
+
+      function _arrayLikeToArray(arr, len) {
+        if (len == null || len > arr.length) len = arr.length;
+
+        for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+        return arr2;
+      }
+
+      function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+        var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+        if (it) return (it = it.call(o)).next.bind(it);
+
+        if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+          if (it) o = it;
+          var i = 0;
+          return function () {
+            if (i >= o.length) return {
+              done: true
+            };
+            return {
+              done: false,
+              value: o[i++]
+            };
+          };
+        }
+
+        throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+      }
+
+      var defaults$5 = {exports: {}};
+
+      function getDefaults$1() {
+        return {
+          baseUrl: null,
+          breaks: false,
+          extensions: null,
+          gfm: true,
+          headerIds: true,
+          headerPrefix: '',
+          highlight: null,
+          langPrefix: 'language-',
+          mangle: true,
+          pedantic: false,
+          renderer: null,
+          sanitize: false,
+          sanitizer: null,
+          silent: false,
+          smartLists: false,
+          smartypants: false,
+          tokenizer: null,
+          walkTokens: null,
+          xhtml: false
+        };
+      }
+
+      function changeDefaults$1(newDefaults) {
+        defaults$5.exports.defaults = newDefaults;
+      }
+
+      defaults$5.exports = {
+        defaults: getDefaults$1(),
+        getDefaults: getDefaults$1,
+        changeDefaults: changeDefaults$1
+      };
+
+      /**
+       * Helpers
+       */
+      var escapeTest = /[&<>"']/;
+      var escapeReplace = /[&<>"']/g;
+      var escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
+      var escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
+      var escapeReplacements = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      };
+
+      var getEscapeReplacement = function getEscapeReplacement(ch) {
+        return escapeReplacements[ch];
+      };
+
+      function escape$2(html, encode) {
+        if (encode) {
+          if (escapeTest.test(html)) {
+            return html.replace(escapeReplace, getEscapeReplacement);
+          }
+        } else {
+          if (escapeTestNoEncode.test(html)) {
+            return html.replace(escapeReplaceNoEncode, getEscapeReplacement);
+          }
+        }
+
+        return html;
+      }
+
+      var unescapeTest = /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig;
+
+      function unescape$1(html) {
+        // explicitly match decimal, hex, and named HTML entities
+        return html.replace(unescapeTest, function (_, n) {
+          n = n.toLowerCase();
+          if (n === 'colon') return ':';
+
+          if (n.charAt(0) === '#') {
+            return n.charAt(1) === 'x' ? String.fromCharCode(parseInt(n.substring(2), 16)) : String.fromCharCode(+n.substring(1));
+          }
+
+          return '';
+        });
+      }
+
+      var caret = /(^|[^\[])\^/g;
+
+      function edit$1(regex, opt) {
+        regex = regex.source || regex;
+        opt = opt || '';
+        var obj = {
+          replace: function replace(name, val) {
+            val = val.source || val;
+            val = val.replace(caret, '$1');
+            regex = regex.replace(name, val);
+            return obj;
+          },
+          getRegex: function getRegex() {
+            return new RegExp(regex, opt);
+          }
+        };
+        return obj;
+      }
+
+      var nonWordAndColonTest = /[^\w:]/g;
+      var originIndependentUrl = /^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;
+
+      function cleanUrl$1(sanitize, base, href) {
+        if (sanitize) {
+          var prot;
+
+          try {
+            prot = decodeURIComponent(unescape$1(href)).replace(nonWordAndColonTest, '').toLowerCase();
+          } catch (e) {
+            return null;
+          }
+
+          if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0 || prot.indexOf('data:') === 0) {
+            return null;
+          }
+        }
+
+        if (base && !originIndependentUrl.test(href)) {
+          href = resolveUrl(base, href);
+        }
+
+        try {
+          href = encodeURI(href).replace(/%25/g, '%');
+        } catch (e) {
+          return null;
+        }
+
+        return href;
+      }
+
+      var baseUrls = {};
+      var justDomain = /^[^:]+:\/*[^/]*$/;
+      var protocol = /^([^:]+:)[\s\S]*$/;
+      var domain = /^([^:]+:\/*[^/]*)[\s\S]*$/;
+
+      function resolveUrl(base, href) {
+        if (!baseUrls[' ' + base]) {
+          // we can ignore everything in base after the last slash of its path component,
+          // but we might need to add _that_
+          // https://tools.ietf.org/html/rfc3986#section-3
+          if (justDomain.test(base)) {
+            baseUrls[' ' + base] = base + '/';
+          } else {
+            baseUrls[' ' + base] = rtrim$1(base, '/', true);
+          }
+        }
+
+        base = baseUrls[' ' + base];
+        var relativeBase = base.indexOf(':') === -1;
+
+        if (href.substring(0, 2) === '//') {
+          if (relativeBase) {
+            return href;
+          }
+
+          return base.replace(protocol, '$1') + href;
+        } else if (href.charAt(0) === '/') {
+          if (relativeBase) {
+            return href;
+          }
+
+          return base.replace(domain, '$1') + href;
+        } else {
+          return base + href;
+        }
+      }
+
+      var noopTest$1 = {
+        exec: function noopTest() {}
+      };
+
+      function merge$2(obj) {
+        var i = 1,
+            target,
+            key;
+
+        for (; i < arguments.length; i++) {
+          target = arguments[i];
+
+          for (key in target) {
+            if (Object.prototype.hasOwnProperty.call(target, key)) {
+              obj[key] = target[key];
+            }
+          }
+        }
+
+        return obj;
+      }
+
+      function splitCells$1(tableRow, count) {
+        // ensure that every cell-delimiting pipe has a space
+        // before it to distinguish it from an escaped pipe
+        var row = tableRow.replace(/\|/g, function (match, offset, str) {
+          var escaped = false,
+              curr = offset;
+
+          while (--curr >= 0 && str[curr] === '\\') {
+            escaped = !escaped;
+          }
+
+          if (escaped) {
+            // odd number of slashes means | is escaped
+            // so we leave it alone
+            return '|';
+          } else {
+            // add space before unescaped |
+            return ' |';
+          }
+        }),
+            cells = row.split(/ \|/);
+        var i = 0; // First/last cell in a row cannot be empty if it has no leading/trailing pipe
+
+        if (!cells[0].trim()) {
+          cells.shift();
+        }
+
+        if (!cells[cells.length - 1].trim()) {
+          cells.pop();
+        }
+
+        if (cells.length > count) {
+          cells.splice(count);
+        } else {
+          while (cells.length < count) {
+            cells.push('');
+          }
+        }
+
+        for (; i < cells.length; i++) {
+          // leading or trailing whitespace is ignored per the gfm spec
+          cells[i] = cells[i].trim().replace(/\\\|/g, '|');
+        }
+
+        return cells;
+      } // Remove trailing 'c's. Equivalent to str.replace(/c*$/, '').
+      // /c*$/ is vulnerable to REDOS.
+      // invert: Remove suffix of non-c chars instead. Default falsey.
+
+
+      function rtrim$1(str, c, invert) {
+        var l = str.length;
+
+        if (l === 0) {
+          return '';
+        } // Length of suffix matching the invert condition.
+
+
+        var suffLen = 0; // Step left until we fail to match the invert condition.
+
+        while (suffLen < l) {
+          var currChar = str.charAt(l - suffLen - 1);
+
+          if (currChar === c && !invert) {
+            suffLen++;
+          } else if (currChar !== c && invert) {
+            suffLen++;
+          } else {
+            break;
+          }
+        }
+
+        return str.substr(0, l - suffLen);
+      }
+
+      function findClosingBracket$1(str, b) {
+        if (str.indexOf(b[1]) === -1) {
+          return -1;
+        }
+
+        var l = str.length;
+        var level = 0,
+            i = 0;
+
+        for (; i < l; i++) {
+          if (str[i] === '\\') {
+            i++;
+          } else if (str[i] === b[0]) {
+            level++;
+          } else if (str[i] === b[1]) {
+            level--;
+
+            if (level < 0) {
+              return i;
+            }
+          }
+        }
+
+        return -1;
+      }
+
+      function checkSanitizeDeprecation$1(opt) {
+        if (opt && opt.sanitize && !opt.silent) {
+          console.warn('marked(): sanitize and sanitizer parameters are deprecated since version 0.7.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/#/USING_ADVANCED.md#options');
+        }
+      } // copied from https://stackoverflow.com/a/5450113/806777
+
+
+      function repeatString$1(pattern, count) {
+        if (count < 1) {
+          return '';
+        }
+
+        var result = '';
+
+        while (count > 1) {
+          if (count & 1) {
+            result += pattern;
+          }
+
+          count >>= 1;
+          pattern += pattern;
+        }
+
+        return result + pattern;
+      }
+
+      var helpers = {
+        escape: escape$2,
+        unescape: unescape$1,
+        edit: edit$1,
+        cleanUrl: cleanUrl$1,
+        resolveUrl: resolveUrl,
+        noopTest: noopTest$1,
+        merge: merge$2,
+        splitCells: splitCells$1,
+        rtrim: rtrim$1,
+        findClosingBracket: findClosingBracket$1,
+        checkSanitizeDeprecation: checkSanitizeDeprecation$1,
+        repeatString: repeatString$1
+      };
+
+      var defaults$4 = defaults$5.exports.defaults;
+      var rtrim = helpers.rtrim,
+          splitCells = helpers.splitCells,
+          _escape = helpers.escape,
+          findClosingBracket = helpers.findClosingBracket;
+
+      function outputLink(cap, link, raw, lexer) {
+        var href = link.href;
+        var title = link.title ? _escape(link.title) : null;
+        var text = cap[1].replace(/\\([\[\]])/g, '$1');
+
+        if (cap[0].charAt(0) !== '!') {
+          lexer.state.inLink = true;
+          var token = {
+            type: 'link',
+            raw: raw,
+            href: href,
+            title: title,
+            text: text,
+            tokens: lexer.inlineTokens(text, [])
+          };
+          lexer.state.inLink = false;
+          return token;
+        } else {
+          return {
+            type: 'image',
+            raw: raw,
+            href: href,
+            title: title,
+            text: _escape(text)
+          };
+        }
+      }
+
+      function indentCodeCompensation(raw, text) {
+        var matchIndentToCode = raw.match(/^(\s+)(?:```)/);
+
+        if (matchIndentToCode === null) {
+          return text;
+        }
+
+        var indentToCode = matchIndentToCode[1];
+        return text.split('\n').map(function (node) {
+          var matchIndentInNode = node.match(/^\s+/);
+
+          if (matchIndentInNode === null) {
+            return node;
+          }
+
+          var indentInNode = matchIndentInNode[0];
+
+          if (indentInNode.length >= indentToCode.length) {
+            return node.slice(indentToCode.length);
+          }
+
+          return node;
+        }).join('\n');
+      }
+      /**
+       * Tokenizer
+       */
+
+
+      var Tokenizer_1 = /*#__PURE__*/function () {
+        function Tokenizer(options) {
+          this.options = options || defaults$4;
+        }
+
+        var _proto = Tokenizer.prototype;
+
+        _proto.space = function space(src) {
+          var cap = this.rules.block.newline.exec(src);
+
+          if (cap) {
+            if (cap[0].length > 1) {
+              return {
+                type: 'space',
+                raw: cap[0]
+              };
+            }
+
+            return {
+              raw: '\n'
+            };
+          }
+        };
+
+        _proto.code = function code(src) {
+          var cap = this.rules.block.code.exec(src);
+
+          if (cap) {
+            var text = cap[0].replace(/^ {1,4}/gm, '');
+            return {
+              type: 'code',
+              raw: cap[0],
+              codeBlockStyle: 'indented',
+              text: !this.options.pedantic ? rtrim(text, '\n') : text
+            };
+          }
+        };
+
+        _proto.fences = function fences(src) {
+          var cap = this.rules.block.fences.exec(src);
+
+          if (cap) {
+            var raw = cap[0];
+            var text = indentCodeCompensation(raw, cap[3] || '');
+            return {
+              type: 'code',
+              raw: raw,
+              lang: cap[2] ? cap[2].trim() : cap[2],
+              text: text
+            };
+          }
+        };
+
+        _proto.heading = function heading(src) {
+          var cap = this.rules.block.heading.exec(src);
+
+          if (cap) {
+            var text = cap[2].trim(); // remove trailing #s
+
+            if (/#$/.test(text)) {
+              var trimmed = rtrim(text, '#');
+
+              if (this.options.pedantic) {
+                text = trimmed.trim();
+              } else if (!trimmed || / $/.test(trimmed)) {
+                // CommonMark requires space before trailing #s
+                text = trimmed.trim();
+              }
+            }
+
+            var token = {
+              type: 'heading',
+              raw: cap[0],
+              depth: cap[1].length,
+              text: text,
+              tokens: []
+            };
+            this.lexer.inline(token.text, token.tokens);
+            return token;
+          }
+        };
+
+        _proto.hr = function hr(src) {
+          var cap = this.rules.block.hr.exec(src);
+
+          if (cap) {
+            return {
+              type: 'hr',
+              raw: cap[0]
+            };
+          }
+        };
+
+        _proto.blockquote = function blockquote(src) {
+          var cap = this.rules.block.blockquote.exec(src);
+
+          if (cap) {
+            var text = cap[0].replace(/^ *> ?/gm, '');
+            return {
+              type: 'blockquote',
+              raw: cap[0],
+              tokens: this.lexer.blockTokens(text, []),
+              text: text
+            };
+          }
+        };
+
+        _proto.list = function list(src) {
+          var cap = this.rules.block.list.exec(src);
+
+          if (cap) {
+            var raw, istask, ischecked, indent, i, blankLine, endsWithBlankLine, line, lines, itemContents;
+            var bull = cap[1].trim();
+            var isordered = bull.length > 1;
+            var list = {
+              type: 'list',
+              raw: '',
+              ordered: isordered,
+              start: isordered ? +bull.slice(0, -1) : '',
+              loose: false,
+              items: []
+            };
+            bull = isordered ? "\\d{1,9}\\" + bull.slice(-1) : "\\" + bull;
+
+            if (this.options.pedantic) {
+              bull = isordered ? bull : '[*+-]';
+            } // Get next list item
+
+
+            var itemRegex = new RegExp("^( {0,3}" + bull + ")((?: [^\\n]*| *)(?:\\n[^\\n]*)*(?:\\n|$))"); // Get each top-level item
+
+            while (src) {
+              if (this.rules.block.hr.test(src)) {
+                // End list if we encounter an HR (possibly move into itemRegex?)
+                break;
+              }
+
+              if (!(cap = itemRegex.exec(src))) {
+                break;
+              }
+
+              lines = cap[2].split('\n');
+
+              if (this.options.pedantic) {
+                indent = 2;
+                itemContents = lines[0].trimLeft();
+              } else {
+                indent = cap[2].search(/[^ ]/); // Find first non-space char
+
+                indent = cap[1].length + (indent > 4 ? 1 : indent); // intented code blocks after 4 spaces; indent is always 1
+
+                itemContents = lines[0].slice(indent - cap[1].length);
+              }
+
+              blankLine = false;
+              raw = cap[0];
+
+              if (!lines[0] && /^ *$/.test(lines[1])) {
+                // items begin with at most one blank line
+                raw = cap[1] + lines.slice(0, 2).join('\n') + '\n';
+                list.loose = true;
+                lines = [];
+              }
+
+              var nextBulletRegex = new RegExp("^ {0," + Math.min(3, indent - 1) + "}(?:[*+-]|\\d{1,9}[.)])");
+
+              for (i = 1; i < lines.length; i++) {
+                line = lines[i];
+
+                if (this.options.pedantic) {
+                  // Re-align to follow commonmark nesting rules
+                  line = line.replace(/^ {1,4}(?=( {4})*[^ ])/g, '  ');
+                } // End list item if found start of new bullet
+
+
+                if (nextBulletRegex.test(line)) {
+                  raw = cap[1] + lines.slice(0, i).join('\n') + '\n';
+                  break;
+                } // Until we encounter a blank line, item contents do not need indentation
+
+
+                if (!blankLine) {
+                  if (!line.trim()) {
+                    // Check if current line is empty
+                    blankLine = true;
+                  } // Dedent if possible
+
+
+                  if (line.search(/[^ ]/) >= indent) {
+                    itemContents += '\n' + line.slice(indent);
+                  } else {
+                    itemContents += '\n' + line;
+                  }
+
+                  continue;
+                } // Dedent this line
+
+
+                if (line.search(/[^ ]/) >= indent || !line.trim()) {
+                  itemContents += '\n' + line.slice(indent);
+                  continue;
+                } else {
+                  // Line was not properly indented; end of this item
+                  raw = cap[1] + lines.slice(0, i).join('\n') + '\n';
+                  break;
+                }
+              }
+
+              if (!list.loose) {
+                // If the previous item ended with a blank line, the list is loose
+                if (endsWithBlankLine) {
+                  list.loose = true;
+                } else if (/\n *\n *$/.test(raw)) {
+                  endsWithBlankLine = true;
+                }
+              } // Check for task list items
+
+
+              if (this.options.gfm) {
+                istask = /^\[[ xX]\] /.exec(itemContents);
+
+                if (istask) {
+                  ischecked = istask[0] !== '[ ] ';
+                  itemContents = itemContents.replace(/^\[[ xX]\] +/, '');
+                }
+              }
+
+              list.items.push({
+                type: 'list_item',
+                raw: raw,
+                task: !!istask,
+                checked: ischecked,
+                loose: false,
+                text: itemContents
+              });
+              list.raw += raw;
+              src = src.slice(raw.length);
+            } // Do not consume newlines at end of final item. Alternatively, make itemRegex *start* with any newlines to simplify/speed up endsWithBlankLine logic
+
+
+            list.items[list.items.length - 1].raw = raw.trimRight();
+            list.items[list.items.length - 1].text = itemContents.trimRight();
+            list.raw = list.raw.trimRight();
+            var l = list.items.length; // Item child tokens handled here at end because we needed to have the final item to trim it first
+
+            for (i = 0; i < l; i++) {
+              this.lexer.state.top = false;
+              list.items[i].tokens = this.lexer.blockTokens(list.items[i].text, []);
+
+              if (list.items[i].tokens.some(function (t) {
+                return t.type === 'space';
+              })) {
+                list.loose = true;
+                list.items[i].loose = true;
+              }
+            }
+
+            return list;
+          }
+        };
+
+        _proto.html = function html(src) {
+          var cap = this.rules.block.html.exec(src);
+
+          if (cap) {
+            var token = {
+              type: 'html',
+              raw: cap[0],
+              pre: !this.options.sanitizer && (cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style'),
+              text: cap[0]
+            };
+
+            if (this.options.sanitize) {
+              token.type = 'paragraph';
+              token.text = this.options.sanitizer ? this.options.sanitizer(cap[0]) : _escape(cap[0]);
+              token.tokens = [];
+              this.lexer.inline(token.text, token.tokens);
+            }
+
+            return token;
+          }
+        };
+
+        _proto.def = function def(src) {
+          var cap = this.rules.block.def.exec(src);
+
+          if (cap) {
+            if (cap[3]) cap[3] = cap[3].substring(1, cap[3].length - 1);
+            var tag = cap[1].toLowerCase().replace(/\s+/g, ' ');
+            return {
+              type: 'def',
+              tag: tag,
+              raw: cap[0],
+              href: cap[2],
+              title: cap[3]
+            };
+          }
+        };
+
+        _proto.table = function table(src) {
+          var cap = this.rules.block.table.exec(src);
+
+          if (cap) {
+            var item = {
+              type: 'table',
+              header: splitCells(cap[1]).map(function (c) {
+                return {
+                  text: c
+                };
+              }),
+              align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+              rows: cap[3] ? cap[3].replace(/\n$/, '').split('\n') : []
+            };
+
+            if (item.header.length === item.align.length) {
+              item.raw = cap[0];
+              var l = item.align.length;
+              var i, j, k, row;
+
+              for (i = 0; i < l; i++) {
+                if (/^ *-+: *$/.test(item.align[i])) {
+                  item.align[i] = 'right';
+                } else if (/^ *:-+: *$/.test(item.align[i])) {
+                  item.align[i] = 'center';
+                } else if (/^ *:-+ *$/.test(item.align[i])) {
+                  item.align[i] = 'left';
+                } else {
+                  item.align[i] = null;
+                }
+              }
+
+              l = item.rows.length;
+
+              for (i = 0; i < l; i++) {
+                item.rows[i] = splitCells(item.rows[i], item.header.length).map(function (c) {
+                  return {
+                    text: c
+                  };
+                });
+              } // parse child tokens inside headers and cells
+              // header child tokens
+
+
+              l = item.header.length;
+
+              for (j = 0; j < l; j++) {
+                item.header[j].tokens = [];
+                this.lexer.inlineTokens(item.header[j].text, item.header[j].tokens);
+              } // cell child tokens
+
+
+              l = item.rows.length;
+
+              for (j = 0; j < l; j++) {
+                row = item.rows[j];
+
+                for (k = 0; k < row.length; k++) {
+                  row[k].tokens = [];
+                  this.lexer.inlineTokens(row[k].text, row[k].tokens);
+                }
+              }
+
+              return item;
+            }
+          }
+        };
+
+        _proto.lheading = function lheading(src) {
+          var cap = this.rules.block.lheading.exec(src);
+
+          if (cap) {
+            var token = {
+              type: 'heading',
+              raw: cap[0],
+              depth: cap[2].charAt(0) === '=' ? 1 : 2,
+              text: cap[1],
+              tokens: []
+            };
+            this.lexer.inline(token.text, token.tokens);
+            return token;
+          }
+        };
+
+        _proto.paragraph = function paragraph(src) {
+          var cap = this.rules.block.paragraph.exec(src);
+
+          if (cap) {
+            var token = {
+              type: 'paragraph',
+              raw: cap[0],
+              text: cap[1].charAt(cap[1].length - 1) === '\n' ? cap[1].slice(0, -1) : cap[1],
+              tokens: []
+            };
+            this.lexer.inline(token.text, token.tokens);
+            return token;
+          }
+        };
+
+        _proto.text = function text(src) {
+          var cap = this.rules.block.text.exec(src);
+
+          if (cap) {
+            var token = {
+              type: 'text',
+              raw: cap[0],
+              text: cap[0],
+              tokens: []
+            };
+            this.lexer.inline(token.text, token.tokens);
+            return token;
+          }
+        };
+
+        _proto.escape = function escape(src) {
+          var cap = this.rules.inline.escape.exec(src);
+
+          if (cap) {
+            return {
+              type: 'escape',
+              raw: cap[0],
+              text: _escape(cap[1])
+            };
+          }
+        };
+
+        _proto.tag = function tag(src) {
+          var cap = this.rules.inline.tag.exec(src);
+
+          if (cap) {
+            if (!this.lexer.state.inLink && /^<a /i.test(cap[0])) {
+              this.lexer.state.inLink = true;
+            } else if (this.lexer.state.inLink && /^<\/a>/i.test(cap[0])) {
+              this.lexer.state.inLink = false;
+            }
+
+            if (!this.lexer.state.inRawBlock && /^<(pre|code|kbd|script)(\s|>)/i.test(cap[0])) {
+              this.lexer.state.inRawBlock = true;
+            } else if (this.lexer.state.inRawBlock && /^<\/(pre|code|kbd|script)(\s|>)/i.test(cap[0])) {
+              this.lexer.state.inRawBlock = false;
+            }
+
+            return {
+              type: this.options.sanitize ? 'text' : 'html',
+              raw: cap[0],
+              inLink: this.lexer.state.inLink,
+              inRawBlock: this.lexer.state.inRawBlock,
+              text: this.options.sanitize ? this.options.sanitizer ? this.options.sanitizer(cap[0]) : _escape(cap[0]) : cap[0]
+            };
+          }
+        };
+
+        _proto.link = function link(src) {
+          var cap = this.rules.inline.link.exec(src);
+
+          if (cap) {
+            var trimmedUrl = cap[2].trim();
+
+            if (!this.options.pedantic && /^</.test(trimmedUrl)) {
+              // commonmark requires matching angle brackets
+              if (!/>$/.test(trimmedUrl)) {
+                return;
+              } // ending angle bracket cannot be escaped
+
+
+              var rtrimSlash = rtrim(trimmedUrl.slice(0, -1), '\\');
+
+              if ((trimmedUrl.length - rtrimSlash.length) % 2 === 0) {
+                return;
+              }
+            } else {
+              // find closing parenthesis
+              var lastParenIndex = findClosingBracket(cap[2], '()');
+
+              if (lastParenIndex > -1) {
+                var start = cap[0].indexOf('!') === 0 ? 5 : 4;
+                var linkLen = start + cap[1].length + lastParenIndex;
+                cap[2] = cap[2].substring(0, lastParenIndex);
+                cap[0] = cap[0].substring(0, linkLen).trim();
+                cap[3] = '';
+              }
+            }
+
+            var href = cap[2];
+            var title = '';
+
+            if (this.options.pedantic) {
+              // split pedantic href and title
+              var link = /^([^'"]*[^\s])\s+(['"])(.*)\2/.exec(href);
+
+              if (link) {
+                href = link[1];
+                title = link[3];
+              }
+            } else {
+              title = cap[3] ? cap[3].slice(1, -1) : '';
+            }
+
+            href = href.trim();
+
+            if (/^</.test(href)) {
+              if (this.options.pedantic && !/>$/.test(trimmedUrl)) {
+                // pedantic allows starting angle bracket without ending angle bracket
+                href = href.slice(1);
+              } else {
+                href = href.slice(1, -1);
+              }
+            }
+
+            return outputLink(cap, {
+              href: href ? href.replace(this.rules.inline._escapes, '$1') : href,
+              title: title ? title.replace(this.rules.inline._escapes, '$1') : title
+            }, cap[0], this.lexer);
+          }
+        };
+
+        _proto.reflink = function reflink(src, links) {
+          var cap;
+
+          if ((cap = this.rules.inline.reflink.exec(src)) || (cap = this.rules.inline.nolink.exec(src))) {
+            var link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
+            link = links[link.toLowerCase()];
+
+            if (!link || !link.href) {
+              var text = cap[0].charAt(0);
+              return {
+                type: 'text',
+                raw: text,
+                text: text
+              };
+            }
+
+            return outputLink(cap, link, cap[0], this.lexer);
+          }
+        };
+
+        _proto.emStrong = function emStrong(src, maskedSrc, prevChar) {
+          if (prevChar === void 0) {
+            prevChar = '';
+          }
+
+          var match = this.rules.inline.emStrong.lDelim.exec(src);
+          if (!match) return; // _ can't be between two alphanumerics. \p{L}\p{N} includes non-english alphabet/numbers as well
+
+          if (match[3] && prevChar.match(/(?:[0-9A-Za-z\xAA\xB2\xB3\xB5\xB9\xBA\xBC-\xBE\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0560-\u0588\u05D0-\u05EA\u05EF-\u05F2\u0620-\u064A\u0660-\u0669\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07C0-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u0860-\u086A\u08A0-\u08B4\u08B6-\u08C7\u0904-\u0939\u093D\u0950\u0958-\u0961\u0966-\u096F\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09E6-\u09F1\u09F4-\u09F9\u09FC\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A66-\u0A6F\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AE6-\u0AEF\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B66-\u0B6F\u0B71-\u0B77\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0BE6-\u0BF2\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C66-\u0C6F\u0C78-\u0C7E\u0C80\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CE6-\u0CEF\u0CF1\u0CF2\u0D04-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D54-\u0D56\u0D58-\u0D61\u0D66-\u0D78\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0DE6-\u0DEF\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E50-\u0E59\u0E81\u0E82\u0E84\u0E86-\u0E8A\u0E8C-\u0EA3\u0EA5\u0EA7-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0ED0-\u0ED9\u0EDC-\u0EDF\u0F00\u0F20-\u0F33\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F-\u1049\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u1090-\u1099\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1369-\u137C\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16EE-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1820-\u1878\u1880-\u1884\u1887-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1946-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u19D0-\u19DA\u1A00-\u1A16\u1A20-\u1A54\u1A80-\u1A89\u1A90-\u1A99\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B50-\u1B59\u1B83-\u1BA0\u1BAE-\u1BE5\u1C00-\u1C23\u1C40-\u1C49\u1C4D-\u1C7D\u1C80-\u1C88\u1C90-\u1CBA\u1CBD-\u1CBF\u1CE9-\u1CEC\u1CEE-\u1CF3\u1CF5\u1CF6\u1CFA\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2070\u2071\u2074-\u2079\u207F-\u2089\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2150-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2CFD\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312F\u3131-\u318E\u3192-\u3195\u31A0-\u31BF\u31F0-\u31FF\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\u3400-\u4DBF\u4E00-\u9FFC\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6EF\uA717-\uA71F\uA722-\uA788\uA78B-\uA7BF\uA7C2-\uA7CA\uA7F5-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA830-\uA835\uA840-\uA873\uA882-\uA8B3\uA8D0-\uA8D9\uA8F2-\uA8F7\uA8FB\uA8FD\uA8FE\uA900-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF-\uA9D9\uA9E0-\uA9E4\uA9E6-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA50-\uAA59\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB69\uAB70-\uABE2\uABF0-\uABF9\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B\uDC0D-\uDC26\uDC28-\uDC3A\uDC3C\uDC3D\uDC3F-\uDC4D\uDC50-\uDC5D\uDC80-\uDCFA\uDD07-\uDD33\uDD40-\uDD78\uDD8A\uDD8B\uDE80-\uDE9C\uDEA0-\uDED0\uDEE1-\uDEFB\uDF00-\uDF23\uDF2D-\uDF4A\uDF50-\uDF75\uDF80-\uDF9D\uDFA0-\uDFC3\uDFC8-\uDFCF\uDFD1-\uDFD5]|\uD801[\uDC00-\uDC9D\uDCA0-\uDCA9\uDCB0-\uDCD3\uDCD8-\uDCFB\uDD00-\uDD27\uDD30-\uDD63\uDE00-\uDF36\uDF40-\uDF55\uDF60-\uDF67]|\uD802[\uDC00-\uDC05\uDC08\uDC0A-\uDC35\uDC37\uDC38\uDC3C\uDC3F-\uDC55\uDC58-\uDC76\uDC79-\uDC9E\uDCA7-\uDCAF\uDCE0-\uDCF2\uDCF4\uDCF5\uDCFB-\uDD1B\uDD20-\uDD39\uDD80-\uDDB7\uDDBC-\uDDCF\uDDD2-\uDE00\uDE10-\uDE13\uDE15-\uDE17\uDE19-\uDE35\uDE40-\uDE48\uDE60-\uDE7E\uDE80-\uDE9F\uDEC0-\uDEC7\uDEC9-\uDEE4\uDEEB-\uDEEF\uDF00-\uDF35\uDF40-\uDF55\uDF58-\uDF72\uDF78-\uDF91\uDFA9-\uDFAF]|\uD803[\uDC00-\uDC48\uDC80-\uDCB2\uDCC0-\uDCF2\uDCFA-\uDD23\uDD30-\uDD39\uDE60-\uDE7E\uDE80-\uDEA9\uDEB0\uDEB1\uDF00-\uDF27\uDF30-\uDF45\uDF51-\uDF54\uDFB0-\uDFCB\uDFE0-\uDFF6]|\uD804[\uDC03-\uDC37\uDC52-\uDC6F\uDC83-\uDCAF\uDCD0-\uDCE8\uDCF0-\uDCF9\uDD03-\uDD26\uDD36-\uDD3F\uDD44\uDD47\uDD50-\uDD72\uDD76\uDD83-\uDDB2\uDDC1-\uDDC4\uDDD0-\uDDDA\uDDDC\uDDE1-\uDDF4\uDE00-\uDE11\uDE13-\uDE2B\uDE80-\uDE86\uDE88\uDE8A-\uDE8D\uDE8F-\uDE9D\uDE9F-\uDEA8\uDEB0-\uDEDE\uDEF0-\uDEF9\uDF05-\uDF0C\uDF0F\uDF10\uDF13-\uDF28\uDF2A-\uDF30\uDF32\uDF33\uDF35-\uDF39\uDF3D\uDF50\uDF5D-\uDF61]|\uD805[\uDC00-\uDC34\uDC47-\uDC4A\uDC50-\uDC59\uDC5F-\uDC61\uDC80-\uDCAF\uDCC4\uDCC5\uDCC7\uDCD0-\uDCD9\uDD80-\uDDAE\uDDD8-\uDDDB\uDE00-\uDE2F\uDE44\uDE50-\uDE59\uDE80-\uDEAA\uDEB8\uDEC0-\uDEC9\uDF00-\uDF1A\uDF30-\uDF3B]|\uD806[\uDC00-\uDC2B\uDCA0-\uDCF2\uDCFF-\uDD06\uDD09\uDD0C-\uDD13\uDD15\uDD16\uDD18-\uDD2F\uDD3F\uDD41\uDD50-\uDD59\uDDA0-\uDDA7\uDDAA-\uDDD0\uDDE1\uDDE3\uDE00\uDE0B-\uDE32\uDE3A\uDE50\uDE5C-\uDE89\uDE9D\uDEC0-\uDEF8]|\uD807[\uDC00-\uDC08\uDC0A-\uDC2E\uDC40\uDC50-\uDC6C\uDC72-\uDC8F\uDD00-\uDD06\uDD08\uDD09\uDD0B-\uDD30\uDD46\uDD50-\uDD59\uDD60-\uDD65\uDD67\uDD68\uDD6A-\uDD89\uDD98\uDDA0-\uDDA9\uDEE0-\uDEF2\uDFB0\uDFC0-\uDFD4]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E\uDC80-\uDD43]|[\uD80C\uD81C-\uD820\uD822\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883][\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38\uDE40-\uDE5E\uDE60-\uDE69\uDED0-\uDEED\uDF00-\uDF2F\uDF40-\uDF43\uDF50-\uDF59\uDF5B-\uDF61\uDF63-\uDF77\uDF7D-\uDF8F]|\uD81B[\uDE40-\uDE96\uDF00-\uDF4A\uDF50\uDF93-\uDF9F\uDFE0\uDFE1\uDFE3]|\uD821[\uDC00-\uDFF7]|\uD823[\uDC00-\uDCD5\uDD00-\uDD08]|\uD82C[\uDC00-\uDD1E\uDD50-\uDD52\uDD64-\uDD67\uDD70-\uDEFB]|\uD82F[\uDC00-\uDC6A\uDC70-\uDC7C\uDC80-\uDC88\uDC90-\uDC99]|\uD834[\uDEE0-\uDEF3\uDF60-\uDF78]|\uD835[\uDC00-\uDC54\uDC56-\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDEA5\uDEA8-\uDEC0\uDEC2-\uDEDA\uDEDC-\uDEFA\uDEFC-\uDF14\uDF16-\uDF34\uDF36-\uDF4E\uDF50-\uDF6E\uDF70-\uDF88\uDF8A-\uDFA8\uDFAA-\uDFC2\uDFC4-\uDFCB\uDFCE-\uDFFF]|\uD838[\uDD00-\uDD2C\uDD37-\uDD3D\uDD40-\uDD49\uDD4E\uDEC0-\uDEEB\uDEF0-\uDEF9]|\uD83A[\uDC00-\uDCC4\uDCC7-\uDCCF\uDD00-\uDD43\uDD4B\uDD50-\uDD59]|\uD83B[\uDC71-\uDCAB\uDCAD-\uDCAF\uDCB1-\uDCB4\uDD01-\uDD2D\uDD2F-\uDD3D\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB]|\uD83C[\uDD00-\uDD0C]|\uD83E[\uDFF0-\uDFF9]|\uD869[\uDC00-\uDEDD\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A])/)) return;
+          var nextChar = match[1] || match[2] || '';
+
+          if (!nextChar || nextChar && (prevChar === '' || this.rules.inline.punctuation.exec(prevChar))) {
+            var lLength = match[0].length - 1;
+            var rDelim,
+                rLength,
+                delimTotal = lLength,
+                midDelimTotal = 0;
+            var endReg = match[0][0] === '*' ? this.rules.inline.emStrong.rDelimAst : this.rules.inline.emStrong.rDelimUnd;
+            endReg.lastIndex = 0; // Clip maskedSrc to same section of string as src (move to lexer?)
+
+            maskedSrc = maskedSrc.slice(-1 * src.length + lLength);
+
+            while ((match = endReg.exec(maskedSrc)) != null) {
+              rDelim = match[1] || match[2] || match[3] || match[4] || match[5] || match[6];
+              if (!rDelim) continue; // skip single * in __abc*abc__
+
+              rLength = rDelim.length;
+
+              if (match[3] || match[4]) {
+                // found another Left Delim
+                delimTotal += rLength;
+                continue;
+              } else if (match[5] || match[6]) {
+                // either Left or Right Delim
+                if (lLength % 3 && !((lLength + rLength) % 3)) {
+                  midDelimTotal += rLength;
+                  continue; // CommonMark Emphasis Rules 9-10
+                }
+              }
+
+              delimTotal -= rLength;
+              if (delimTotal > 0) continue; // Haven't found enough closing delimiters
+              // Remove extra characters. *a*** -> *a*
+
+              rLength = Math.min(rLength, rLength + delimTotal + midDelimTotal); // Create `em` if smallest delimiter has odd char count. *a***
+
+              if (Math.min(lLength, rLength) % 2) {
+                var _text = src.slice(1, lLength + match.index + rLength);
+
+                return {
+                  type: 'em',
+                  raw: src.slice(0, lLength + match.index + rLength + 1),
+                  text: _text,
+                  tokens: this.lexer.inlineTokens(_text, [])
+                };
+              } // Create 'strong' if smallest delimiter has even char count. **a***
+
+
+              var text = src.slice(2, lLength + match.index + rLength - 1);
+              return {
+                type: 'strong',
+                raw: src.slice(0, lLength + match.index + rLength + 1),
+                text: text,
+                tokens: this.lexer.inlineTokens(text, [])
+              };
+            }
+          }
+        };
+
+        _proto.codespan = function codespan(src) {
+          var cap = this.rules.inline.code.exec(src);
+
+          if (cap) {
+            var text = cap[2].replace(/\n/g, ' ');
+            var hasNonSpaceChars = /[^ ]/.test(text);
+            var hasSpaceCharsOnBothEnds = /^ /.test(text) && / $/.test(text);
+
+            if (hasNonSpaceChars && hasSpaceCharsOnBothEnds) {
+              text = text.substring(1, text.length - 1);
+            }
+
+            text = _escape(text, true);
+            return {
+              type: 'codespan',
+              raw: cap[0],
+              text: text
+            };
+          }
+        };
+
+        _proto.br = function br(src) {
+          var cap = this.rules.inline.br.exec(src);
+
+          if (cap) {
+            return {
+              type: 'br',
+              raw: cap[0]
+            };
+          }
+        };
+
+        _proto.del = function del(src) {
+          var cap = this.rules.inline.del.exec(src);
+
+          if (cap) {
+            return {
+              type: 'del',
+              raw: cap[0],
+              text: cap[2],
+              tokens: this.lexer.inlineTokens(cap[2], [])
+            };
+          }
+        };
+
+        _proto.autolink = function autolink(src, mangle) {
+          var cap = this.rules.inline.autolink.exec(src);
+
+          if (cap) {
+            var text, href;
+
+            if (cap[2] === '@') {
+              text = _escape(this.options.mangle ? mangle(cap[1]) : cap[1]);
+              href = 'mailto:' + text;
+            } else {
+              text = _escape(cap[1]);
+              href = text;
+            }
+
+            return {
+              type: 'link',
+              raw: cap[0],
+              text: text,
+              href: href,
+              tokens: [{
+                type: 'text',
+                raw: text,
+                text: text
+              }]
+            };
+          }
+        };
+
+        _proto.url = function url(src, mangle) {
+          var cap;
+
+          if (cap = this.rules.inline.url.exec(src)) {
+            var text, href;
+
+            if (cap[2] === '@') {
+              text = _escape(this.options.mangle ? mangle(cap[0]) : cap[0]);
+              href = 'mailto:' + text;
+            } else {
+              // do extended autolink path validation
+              var prevCapZero;
+
+              do {
+                prevCapZero = cap[0];
+                cap[0] = this.rules.inline._backpedal.exec(cap[0])[0];
+              } while (prevCapZero !== cap[0]);
+
+              text = _escape(cap[0]);
+
+              if (cap[1] === 'www.') {
+                href = 'http://' + text;
+              } else {
+                href = text;
+              }
+            }
+
+            return {
+              type: 'link',
+              raw: cap[0],
+              text: text,
+              href: href,
+              tokens: [{
+                type: 'text',
+                raw: text,
+                text: text
+              }]
+            };
+          }
+        };
+
+        _proto.inlineText = function inlineText(src, smartypants) {
+          var cap = this.rules.inline.text.exec(src);
+
+          if (cap) {
+            var text;
+
+            if (this.lexer.state.inRawBlock) {
+              text = this.options.sanitize ? this.options.sanitizer ? this.options.sanitizer(cap[0]) : _escape(cap[0]) : cap[0];
+            } else {
+              text = _escape(this.options.smartypants ? smartypants(cap[0]) : cap[0]);
+            }
+
+            return {
+              type: 'text',
+              raw: cap[0],
+              text: text
+            };
+          }
+        };
+
+        return Tokenizer;
+      }();
+
+      var noopTest = helpers.noopTest,
+          edit = helpers.edit,
+          merge$1 = helpers.merge;
+      /**
+       * Block-Level Grammar
+       */
+
+      var block$1 = {
+        newline: /^(?: *(?:\n|$))+/,
+        code: /^( {4}[^\n]+(?:\n(?: *(?:\n|$))*)?)+/,
+        fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~`]* *(?=\n|$)|$)/,
+        hr: /^ {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\* *){3,})(?:\n+|$)/,
+        heading: /^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/,
+        blockquote: /^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/,
+        list: /^( {0,3}bull)( [^\n]+?)?(?:\n|$)/,
+        html: '^ {0,3}(?:' // optional indentation
+        + '<(script|pre|style|textarea)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)' // (1)
+        + '|comment[^\\n]*(\\n+|$)' // (2)
+        + '|<\\?[\\s\\S]*?(?:\\?>\\n*|$)' // (3)
+        + '|<![A-Z][\\s\\S]*?(?:>\\n*|$)' // (4)
+        + '|<!\\[CDATA\\[[\\s\\S]*?(?:\\]\\]>\\n*|$)' // (5)
+        + '|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:(?:\\n *)+\\n|$)' // (6)
+        + '|<(?!script|pre|style|textarea)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n *)+\\n|$)' // (7) open tag
+        + '|</(?!script|pre|style|textarea)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n *)+\\n|$)' // (7) closing tag
+        + ')',
+        def: /^ {0,3}\[(label)\]: *\n? *<?([^\s>]+)>?(?:(?: +\n? *| *\n *)(title))? *(?:\n+|$)/,
+        table: noopTest,
+        lheading: /^([^\n]+)\n {0,3}(=+|-+) *(?:\n+|$)/,
+        // regex template, placeholders will be replaced according to different paragraph
+        // interruption rules of commonmark and the original markdown spec:
+        _paragraph: /^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html| +\n)[^\n]+)*)/,
+        text: /^[^\n]+/
+      };
+      block$1._label = /(?!\s*\])(?:\\[\[\]]|[^\[\]])+/;
+      block$1._title = /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/;
+      block$1.def = edit(block$1.def).replace('label', block$1._label).replace('title', block$1._title).getRegex();
+      block$1.bullet = /(?:[*+-]|\d{1,9}[.)])/;
+      block$1.listItemStart = edit(/^( *)(bull) */).replace('bull', block$1.bullet).getRegex();
+      block$1.list = edit(block$1.list).replace(/bull/g, block$1.bullet).replace('hr', '\\n+(?=\\1?(?:(?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$))').replace('def', '\\n+(?=' + block$1.def.source + ')').getRegex();
+      block$1._tag = 'address|article|aside|base|basefont|blockquote|body|caption' + '|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption' + '|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe' + '|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option' + '|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr' + '|track|ul';
+      block$1._comment = /<!--(?!-?>)[\s\S]*?(?:-->|$)/;
+      block$1.html = edit(block$1.html, 'i').replace('comment', block$1._comment).replace('tag', block$1._tag).replace('attribute', / +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/).getRegex();
+      block$1.paragraph = edit(block$1._paragraph).replace('hr', block$1.hr).replace('heading', ' {0,3}#{1,6} ').replace('|lheading', '') // setex headings don't interrupt commonmark paragraphs
+      .replace('blockquote', ' {0,3}>').replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n').replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
+      .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)').replace('tag', block$1._tag) // pars can be interrupted by type (6) html blocks
+      .getRegex();
+      block$1.blockquote = edit(block$1.blockquote).replace('paragraph', block$1.paragraph).getRegex();
+      /**
+       * Normal Block Grammar
+       */
+
+      block$1.normal = merge$1({}, block$1);
+      /**
+       * GFM Block Grammar
+       */
+
+      block$1.gfm = merge$1({}, block$1.normal, {
+        table: '^ *([^\\n ].*\\|.*)\\n' // Header
+        + ' {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)\\|?' // Align
+        + '(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)' // Cells
+
+      });
+      block$1.gfm.table = edit(block$1.gfm.table).replace('hr', block$1.hr).replace('heading', ' {0,3}#{1,6} ').replace('blockquote', ' {0,3}>').replace('code', ' {4}[^\\n]').replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n').replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
+      .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)').replace('tag', block$1._tag) // tables can be interrupted by type (6) html blocks
+      .getRegex();
+      /**
+       * Pedantic grammar (original John Gruber's loose markdown specification)
+       */
+
+      block$1.pedantic = merge$1({}, block$1.normal, {
+        html: edit('^ *(?:comment *(?:\\n|\\s*$)' + '|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)' // closed tag
+        + '|<tag(?:"[^"]*"|\'[^\']*\'|\\s[^\'"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))').replace('comment', block$1._comment).replace(/tag/g, '(?!(?:' + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub' + '|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)' + '\\b)\\w+(?!:|[^\\w\\s@]*@)\\b').getRegex(),
+        def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,
+        heading: /^(#{1,6})(.*)(?:\n+|$)/,
+        fences: noopTest,
+        // fences not supported
+        paragraph: edit(block$1.normal._paragraph).replace('hr', block$1.hr).replace('heading', ' *#{1,6} *[^\n]').replace('lheading', block$1.lheading).replace('blockquote', ' {0,3}>').replace('|fences', '').replace('|list', '').replace('|html', '').getRegex()
+      });
+      /**
+       * Inline-Level Grammar
+       */
+
+      var inline$1 = {
+        escape: /^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/,
+        autolink: /^<(scheme:[^\s\x00-\x1f<>]*|email)>/,
+        url: noopTest,
+        tag: '^comment' + '|^</[a-zA-Z][\\w:-]*\\s*>' // self-closing tag
+        + '|^<[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?>' // open tag
+        + '|^<\\?[\\s\\S]*?\\?>' // processing instruction, e.g. <?php ?>
+        + '|^<![a-zA-Z]+\\s[\\s\\S]*?>' // declaration, e.g. <!DOCTYPE html>
+        + '|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>',
+        // CDATA section
+        link: /^!?\[(label)\]\(\s*(href)(?:\s+(title))?\s*\)/,
+        reflink: /^!?\[(label)\]\[(?!\s*\])((?:\\[\[\]]?|[^\[\]\\])+)\]/,
+        nolink: /^!?\[(?!\s*\])((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\](?:\[\])?/,
+        reflinkSearch: 'reflink|nolink(?!\\()',
+        emStrong: {
+          lDelim: /^(?:\*+(?:([punct_])|[^\s*]))|^_+(?:([punct*])|([^\s_]))/,
+          //        (1) and (2) can only be a Right Delimiter. (3) and (4) can only be Left.  (5) and (6) can be either Left or Right.
+          //        () Skip other delimiter (1) #***                   (2) a***#, a***                   (3) #***a, ***a                 (4) ***#              (5) #***#                 (6) a***a
+          rDelimAst: /\_\_[^_*]*?\*[^_*]*?\_\_|[punct_](\*+)(?=[\s]|$)|[^punct*_\s](\*+)(?=[punct_\s]|$)|[punct_\s](\*+)(?=[^punct*_\s])|[\s](\*+)(?=[punct_])|[punct_](\*+)(?=[punct_])|[^punct*_\s](\*+)(?=[^punct*_\s])/,
+          rDelimUnd: /\*\*[^_*]*?\_[^_*]*?\*\*|[punct*](\_+)(?=[\s]|$)|[^punct*_\s](\_+)(?=[punct*\s]|$)|[punct*\s](\_+)(?=[^punct*_\s])|[\s](\_+)(?=[punct*])|[punct*](\_+)(?=[punct*])/ // ^- Not allowed for _
+
+        },
+        code: /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,
+        br: /^( {2,}|\\)\n(?!\s*$)/,
+        del: noopTest,
+        text: /^(`+|[^`])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*_]|\b_|$)|[^ ](?= {2,}\n)))/,
+        punctuation: /^([\spunctuation])/
+      }; // list of punctuation marks from CommonMark spec
+      // without * and _ to handle the different emphasis markers * and _
+
+      inline$1._punctuation = '!"#$%&\'()+\\-.,/:;<=>?@\\[\\]`^{|}~';
+      inline$1.punctuation = edit(inline$1.punctuation).replace(/punctuation/g, inline$1._punctuation).getRegex(); // sequences em should skip over [title](link), `code`, <html>
+
+      inline$1.blockSkip = /\[[^\]]*?\]\([^\)]*?\)|`[^`]*?`|<[^>]*?>/g;
+      inline$1.escapedEmSt = /\\\*|\\_/g;
+      inline$1._comment = edit(block$1._comment).replace('(?:-->|$)', '-->').getRegex();
+      inline$1.emStrong.lDelim = edit(inline$1.emStrong.lDelim).replace(/punct/g, inline$1._punctuation).getRegex();
+      inline$1.emStrong.rDelimAst = edit(inline$1.emStrong.rDelimAst, 'g').replace(/punct/g, inline$1._punctuation).getRegex();
+      inline$1.emStrong.rDelimUnd = edit(inline$1.emStrong.rDelimUnd, 'g').replace(/punct/g, inline$1._punctuation).getRegex();
+      inline$1._escapes = /\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/g;
+      inline$1._scheme = /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/;
+      inline$1._email = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/;
+      inline$1.autolink = edit(inline$1.autolink).replace('scheme', inline$1._scheme).replace('email', inline$1._email).getRegex();
+      inline$1._attribute = /\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/;
+      inline$1.tag = edit(inline$1.tag).replace('comment', inline$1._comment).replace('attribute', inline$1._attribute).getRegex();
+      inline$1._label = /(?:\[(?:\\.|[^\[\]\\])*\]|\\.|`[^`]*`|[^\[\]\\`])*?/;
+      inline$1._href = /<(?:\\.|[^\n<>\\])+>|[^\s\x00-\x1f]*/;
+      inline$1._title = /"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/;
+      inline$1.link = edit(inline$1.link).replace('label', inline$1._label).replace('href', inline$1._href).replace('title', inline$1._title).getRegex();
+      inline$1.reflink = edit(inline$1.reflink).replace('label', inline$1._label).getRegex();
+      inline$1.reflinkSearch = edit(inline$1.reflinkSearch, 'g').replace('reflink', inline$1.reflink).replace('nolink', inline$1.nolink).getRegex();
+      /**
+       * Normal Inline Grammar
+       */
+
+      inline$1.normal = merge$1({}, inline$1);
+      /**
+       * Pedantic Inline Grammar
+       */
+
+      inline$1.pedantic = merge$1({}, inline$1.normal, {
+        strong: {
+          start: /^__|\*\*/,
+          middle: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
+          endAst: /\*\*(?!\*)/g,
+          endUnd: /__(?!_)/g
+        },
+        em: {
+          start: /^_|\*/,
+          middle: /^()\*(?=\S)([\s\S]*?\S)\*(?!\*)|^_(?=\S)([\s\S]*?\S)_(?!_)/,
+          endAst: /\*(?!\*)/g,
+          endUnd: /_(?!_)/g
+        },
+        link: edit(/^!?\[(label)\]\((.*?)\)/).replace('label', inline$1._label).getRegex(),
+        reflink: edit(/^!?\[(label)\]\s*\[([^\]]*)\]/).replace('label', inline$1._label).getRegex()
+      });
+      /**
+       * GFM Inline Grammar
+       */
+
+      inline$1.gfm = merge$1({}, inline$1.normal, {
+        escape: edit(inline$1.escape).replace('])', '~|])').getRegex(),
+        _extended_email: /[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/,
+        url: /^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/,
+        _backpedal: /(?:[^?!.,:;*_~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_~)]+(?!$))+/,
+        del: /^(~~?)(?=[^\s~])([\s\S]*?[^\s~])\1(?=[^~]|$)/,
+        text: /^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|https?:\/\/|ftp:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/
+      });
+      inline$1.gfm.url = edit(inline$1.gfm.url, 'i').replace('email', inline$1.gfm._extended_email).getRegex();
+      /**
+       * GFM + Line Breaks Inline Grammar
+       */
+
+      inline$1.breaks = merge$1({}, inline$1.gfm, {
+        br: edit(inline$1.br).replace('{2,}', '*').getRegex(),
+        text: edit(inline$1.gfm.text).replace('\\b_', '\\b_| {2,}\\n').replace(/\{2,\}/g, '*').getRegex()
+      });
+      var rules = {
+        block: block$1,
+        inline: inline$1
+      };
+
+      var Tokenizer$1 = Tokenizer_1;
+      var defaults$3 = defaults$5.exports.defaults;
+      var block = rules.block,
+          inline = rules.inline;
+      var repeatString = helpers.repeatString;
+      /**
+       * smartypants text replacement
+       */
+
+      function smartypants(text) {
+        return text // em-dashes
+        .replace(/---/g, "\u2014") // en-dashes
+        .replace(/--/g, "\u2013") // opening singles
+        .replace(/(^|[-\u2014/(\[{"\s])'/g, "$1\u2018") // closing singles & apostrophes
+        .replace(/'/g, "\u2019") // opening doubles
+        .replace(/(^|[-\u2014/(\[{\u2018\s])"/g, "$1\u201C") // closing doubles
+        .replace(/"/g, "\u201D") // ellipses
+        .replace(/\.{3}/g, "\u2026");
+      }
+      /**
+       * mangle email addresses
+       */
+
+
+      function mangle(text) {
+        var out = '',
+            i,
+            ch;
+        var l = text.length;
+
+        for (i = 0; i < l; i++) {
+          ch = text.charCodeAt(i);
+
+          if (Math.random() > 0.5) {
+            ch = 'x' + ch.toString(16);
+          }
+
+          out += '&#' + ch + ';';
+        }
+
+        return out;
+      }
+      /**
+       * Block Lexer
+       */
+
+
+      var Lexer_1 = /*#__PURE__*/function () {
+        function Lexer(options) {
+          this.tokens = [];
+          this.tokens.links = Object.create(null);
+          this.options = options || defaults$3;
+          this.options.tokenizer = this.options.tokenizer || new Tokenizer$1();
+          this.tokenizer = this.options.tokenizer;
+          this.tokenizer.options = this.options;
+          this.tokenizer.lexer = this;
+          this.inlineQueue = [];
+          this.state = {
+            inLink: false,
+            inRawBlock: false,
+            top: true
+          };
+          var rules = {
+            block: block.normal,
+            inline: inline.normal
+          };
+
+          if (this.options.pedantic) {
+            rules.block = block.pedantic;
+            rules.inline = inline.pedantic;
+          } else if (this.options.gfm) {
+            rules.block = block.gfm;
+
+            if (this.options.breaks) {
+              rules.inline = inline.breaks;
+            } else {
+              rules.inline = inline.gfm;
+            }
+          }
+
+          this.tokenizer.rules = rules;
+        }
+        /**
+         * Expose Rules
+         */
+
+
+        /**
+         * Static Lex Method
+         */
+        Lexer.lex = function lex(src, options) {
+          var lexer = new Lexer(options);
+          return lexer.lex(src);
+        }
+        /**
+         * Static Lex Inline Method
+         */
+        ;
+
+        Lexer.lexInline = function lexInline(src, options) {
+          var lexer = new Lexer(options);
+          return lexer.inlineTokens(src);
+        }
+        /**
+         * Preprocessing
+         */
+        ;
+
+        var _proto = Lexer.prototype;
+
+        _proto.lex = function lex(src) {
+          src = src.replace(/\r\n|\r/g, '\n').replace(/\t/g, '    ');
+          this.blockTokens(src, this.tokens);
+          var next;
+
+          while (next = this.inlineQueue.shift()) {
+            this.inlineTokens(next.src, next.tokens);
+          }
+
+          return this.tokens;
+        }
+        /**
+         * Lexing
+         */
+        ;
+
+        _proto.blockTokens = function blockTokens(src, tokens) {
+          var _this = this;
+
+          if (tokens === void 0) {
+            tokens = [];
+          }
+
+          if (this.options.pedantic) {
+            src = src.replace(/^ +$/gm, '');
+          }
+
+          var token, lastToken, cutSrc, lastParagraphClipped;
+
+          while (src) {
+            if (this.options.extensions && this.options.extensions.block && this.options.extensions.block.some(function (extTokenizer) {
+              if (token = extTokenizer.call({
+                lexer: _this
+              }, src, tokens)) {
+                src = src.substring(token.raw.length);
+                tokens.push(token);
+                return true;
+              }
+
+              return false;
+            })) {
+              continue;
+            } // newline
+
+
+            if (token = this.tokenizer.space(src)) {
+              src = src.substring(token.raw.length);
+
+              if (token.type) {
+                tokens.push(token);
+              }
+
+              continue;
+            } // code
+
+
+            if (token = this.tokenizer.code(src)) {
+              src = src.substring(token.raw.length);
+              lastToken = tokens[tokens.length - 1]; // An indented code block cannot interrupt a paragraph.
+
+              if (lastToken && (lastToken.type === 'paragraph' || lastToken.type === 'text')) {
+                lastToken.raw += '\n' + token.raw;
+                lastToken.text += '\n' + token.text;
+                this.inlineQueue[this.inlineQueue.length - 1].src = lastToken.text;
+              } else {
+                tokens.push(token);
+              }
+
+              continue;
+            } // fences
+
+
+            if (token = this.tokenizer.fences(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // heading
+
+
+            if (token = this.tokenizer.heading(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // hr
+
+
+            if (token = this.tokenizer.hr(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // blockquote
+
+
+            if (token = this.tokenizer.blockquote(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // list
+
+
+            if (token = this.tokenizer.list(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // html
+
+
+            if (token = this.tokenizer.html(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // def
+
+
+            if (token = this.tokenizer.def(src)) {
+              src = src.substring(token.raw.length);
+              lastToken = tokens[tokens.length - 1];
+
+              if (lastToken && (lastToken.type === 'paragraph' || lastToken.type === 'text')) {
+                lastToken.raw += '\n' + token.raw;
+                lastToken.text += '\n' + token.raw;
+                this.inlineQueue[this.inlineQueue.length - 1].src = lastToken.text;
+              } else if (!this.tokens.links[token.tag]) {
+                this.tokens.links[token.tag] = {
+                  href: token.href,
+                  title: token.title
+                };
+              }
+
+              continue;
+            } // table (gfm)
+
+
+            if (token = this.tokenizer.table(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // lheading
+
+
+            if (token = this.tokenizer.lheading(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // top-level paragraph
+            // prevent paragraph consuming extensions by clipping 'src' to extension start
+
+
+            cutSrc = src;
+
+            if (this.options.extensions && this.options.extensions.startBlock) {
+              (function () {
+                var startIndex = Infinity;
+                var tempSrc = src.slice(1);
+                var tempStart = void 0;
+
+                _this.options.extensions.startBlock.forEach(function (getStartIndex) {
+                  tempStart = getStartIndex.call({
+                    lexer: this
+                  }, tempSrc);
+
+                  if (typeof tempStart === 'number' && tempStart >= 0) {
+                    startIndex = Math.min(startIndex, tempStart);
+                  }
+                });
+
+                if (startIndex < Infinity && startIndex >= 0) {
+                  cutSrc = src.substring(0, startIndex + 1);
+                }
+              })();
+            }
+
+            if (this.state.top && (token = this.tokenizer.paragraph(cutSrc))) {
+              lastToken = tokens[tokens.length - 1];
+
+              if (lastParagraphClipped && lastToken.type === 'paragraph') {
+                lastToken.raw += '\n' + token.raw;
+                lastToken.text += '\n' + token.text;
+                this.inlineQueue.pop();
+                this.inlineQueue[this.inlineQueue.length - 1].src = lastToken.text;
+              } else {
+                tokens.push(token);
+              }
+
+              lastParagraphClipped = cutSrc.length !== src.length;
+              src = src.substring(token.raw.length);
+              continue;
+            } // text
+
+
+            if (token = this.tokenizer.text(src)) {
+              src = src.substring(token.raw.length);
+              lastToken = tokens[tokens.length - 1];
+
+              if (lastToken && lastToken.type === 'text') {
+                lastToken.raw += '\n' + token.raw;
+                lastToken.text += '\n' + token.text;
+                this.inlineQueue.pop();
+                this.inlineQueue[this.inlineQueue.length - 1].src = lastToken.text;
+              } else {
+                tokens.push(token);
+              }
+
+              continue;
+            }
+
+            if (src) {
+              var errMsg = 'Infinite loop on byte: ' + src.charCodeAt(0);
+
+              if (this.options.silent) {
+                console.error(errMsg);
+                break;
+              } else {
+                throw new Error(errMsg);
+              }
+            }
+          }
+
+          this.state.top = true;
+          return tokens;
+        };
+
+        _proto.inline = function inline(src, tokens) {
+          this.inlineQueue.push({
+            src: src,
+            tokens: tokens
+          });
+        }
+        /**
+         * Lexing/Compiling
+         */
+        ;
+
+        _proto.inlineTokens = function inlineTokens(src, tokens) {
+          var _this2 = this;
+
+          if (tokens === void 0) {
+            tokens = [];
+          }
+
+          var token, lastToken, cutSrc; // String with links masked to avoid interference with em and strong
+
+          var maskedSrc = src;
+          var match;
+          var keepPrevChar, prevChar; // Mask out reflinks
+
+          if (this.tokens.links) {
+            var links = Object.keys(this.tokens.links);
+
+            if (links.length > 0) {
+              while ((match = this.tokenizer.rules.inline.reflinkSearch.exec(maskedSrc)) != null) {
+                if (links.includes(match[0].slice(match[0].lastIndexOf('[') + 1, -1))) {
+                  maskedSrc = maskedSrc.slice(0, match.index) + '[' + repeatString('a', match[0].length - 2) + ']' + maskedSrc.slice(this.tokenizer.rules.inline.reflinkSearch.lastIndex);
+                }
+              }
+            }
+          } // Mask out other blocks
+
+
+          while ((match = this.tokenizer.rules.inline.blockSkip.exec(maskedSrc)) != null) {
+            maskedSrc = maskedSrc.slice(0, match.index) + '[' + repeatString('a', match[0].length - 2) + ']' + maskedSrc.slice(this.tokenizer.rules.inline.blockSkip.lastIndex);
+          } // Mask out escaped em & strong delimiters
+
+
+          while ((match = this.tokenizer.rules.inline.escapedEmSt.exec(maskedSrc)) != null) {
+            maskedSrc = maskedSrc.slice(0, match.index) + '++' + maskedSrc.slice(this.tokenizer.rules.inline.escapedEmSt.lastIndex);
+          }
+
+          while (src) {
+            if (!keepPrevChar) {
+              prevChar = '';
+            }
+
+            keepPrevChar = false; // extensions
+
+            if (this.options.extensions && this.options.extensions.inline && this.options.extensions.inline.some(function (extTokenizer) {
+              if (token = extTokenizer.call({
+                lexer: _this2
+              }, src, tokens)) {
+                src = src.substring(token.raw.length);
+                tokens.push(token);
+                return true;
+              }
+
+              return false;
+            })) {
+              continue;
+            } // escape
+
+
+            if (token = this.tokenizer.escape(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // tag
+
+
+            if (token = this.tokenizer.tag(src)) {
+              src = src.substring(token.raw.length);
+              lastToken = tokens[tokens.length - 1];
+
+              if (lastToken && token.type === 'text' && lastToken.type === 'text') {
+                lastToken.raw += token.raw;
+                lastToken.text += token.text;
+              } else {
+                tokens.push(token);
+              }
+
+              continue;
+            } // link
+
+
+            if (token = this.tokenizer.link(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // reflink, nolink
+
+
+            if (token = this.tokenizer.reflink(src, this.tokens.links)) {
+              src = src.substring(token.raw.length);
+              lastToken = tokens[tokens.length - 1];
+
+              if (lastToken && token.type === 'text' && lastToken.type === 'text') {
+                lastToken.raw += token.raw;
+                lastToken.text += token.text;
+              } else {
+                tokens.push(token);
+              }
+
+              continue;
+            } // em & strong
+
+
+            if (token = this.tokenizer.emStrong(src, maskedSrc, prevChar)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // code
+
+
+            if (token = this.tokenizer.codespan(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // br
+
+
+            if (token = this.tokenizer.br(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // del (gfm)
+
+
+            if (token = this.tokenizer.del(src)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // autolink
+
+
+            if (token = this.tokenizer.autolink(src, mangle)) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // url (gfm)
+
+
+            if (!this.state.inLink && (token = this.tokenizer.url(src, mangle))) {
+              src = src.substring(token.raw.length);
+              tokens.push(token);
+              continue;
+            } // text
+            // prevent inlineText consuming extensions by clipping 'src' to extension start
+
+
+            cutSrc = src;
+
+            if (this.options.extensions && this.options.extensions.startInline) {
+              (function () {
+                var startIndex = Infinity;
+                var tempSrc = src.slice(1);
+                var tempStart = void 0;
+
+                _this2.options.extensions.startInline.forEach(function (getStartIndex) {
+                  tempStart = getStartIndex.call({
+                    lexer: this
+                  }, tempSrc);
+
+                  if (typeof tempStart === 'number' && tempStart >= 0) {
+                    startIndex = Math.min(startIndex, tempStart);
+                  }
+                });
+
+                if (startIndex < Infinity && startIndex >= 0) {
+                  cutSrc = src.substring(0, startIndex + 1);
+                }
+              })();
+            }
+
+            if (token = this.tokenizer.inlineText(cutSrc, smartypants)) {
+              src = src.substring(token.raw.length);
+
+              if (token.raw.slice(-1) !== '_') {
+                // Track prevChar before string of ____ started
+                prevChar = token.raw.slice(-1);
+              }
+
+              keepPrevChar = true;
+              lastToken = tokens[tokens.length - 1];
+
+              if (lastToken && lastToken.type === 'text') {
+                lastToken.raw += token.raw;
+                lastToken.text += token.text;
+              } else {
+                tokens.push(token);
+              }
+
+              continue;
+            }
+
+            if (src) {
+              var errMsg = 'Infinite loop on byte: ' + src.charCodeAt(0);
+
+              if (this.options.silent) {
+                console.error(errMsg);
+                break;
+              } else {
+                throw new Error(errMsg);
+              }
+            }
+          }
+
+          return tokens;
+        };
+
+        _createClass(Lexer, null, [{
+          key: "rules",
+          get: function get() {
+            return {
+              block: block,
+              inline: inline
+            };
+          }
+        }]);
+
+        return Lexer;
+      }();
+
+      var defaults$2 = defaults$5.exports.defaults;
+      var cleanUrl = helpers.cleanUrl,
+          escape$1 = helpers.escape;
+      /**
+       * Renderer
+       */
+
+      var Renderer_1 = /*#__PURE__*/function () {
+        function Renderer(options) {
+          this.options = options || defaults$2;
+        }
+
+        var _proto = Renderer.prototype;
+
+        _proto.code = function code(_code, infostring, escaped) {
+          var lang = (infostring || '').match(/\S*/)[0];
+
+          if (this.options.highlight) {
+            var out = this.options.highlight(_code, lang);
+
+            if (out != null && out !== _code) {
+              escaped = true;
+              _code = out;
+            }
+          }
+
+          _code = _code.replace(/\n$/, '') + '\n';
+
+          if (!lang) {
+            return '<pre><code>' + (escaped ? _code : escape$1(_code, true)) + '</code></pre>\n';
+          }
+
+          return '<pre><code class="' + this.options.langPrefix + escape$1(lang, true) + '">' + (escaped ? _code : escape$1(_code, true)) + '</code></pre>\n';
+        };
+
+        _proto.blockquote = function blockquote(quote) {
+          return '<blockquote>\n' + quote + '</blockquote>\n';
+        };
+
+        _proto.html = function html(_html) {
+          return _html;
+        };
+
+        _proto.heading = function heading(text, level, raw, slugger) {
+          if (this.options.headerIds) {
+            return '<h' + level + ' id="' + this.options.headerPrefix + slugger.slug(raw) + '">' + text + '</h' + level + '>\n';
+          } // ignore IDs
+
+
+          return '<h' + level + '>' + text + '</h' + level + '>\n';
+        };
+
+        _proto.hr = function hr() {
+          return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
+        };
+
+        _proto.list = function list(body, ordered, start) {
+          var type = ordered ? 'ol' : 'ul',
+              startatt = ordered && start !== 1 ? ' start="' + start + '"' : '';
+          return '<' + type + startatt + '>\n' + body + '</' + type + '>\n';
+        };
+
+        _proto.listitem = function listitem(text) {
+          return '<li>' + text + '</li>\n';
+        };
+
+        _proto.checkbox = function checkbox(checked) {
+          return '<input ' + (checked ? 'checked="" ' : '') + 'disabled="" type="checkbox"' + (this.options.xhtml ? ' /' : '') + '> ';
+        };
+
+        _proto.paragraph = function paragraph(text) {
+          return '<p>' + text + '</p>\n';
+        };
+
+        _proto.table = function table(header, body) {
+          if (body) body = '<tbody>' + body + '</tbody>';
+          return '<table>\n' + '<thead>\n' + header + '</thead>\n' + body + '</table>\n';
+        };
+
+        _proto.tablerow = function tablerow(content) {
+          return '<tr>\n' + content + '</tr>\n';
+        };
+
+        _proto.tablecell = function tablecell(content, flags) {
+          var type = flags.header ? 'th' : 'td';
+          var tag = flags.align ? '<' + type + ' align="' + flags.align + '">' : '<' + type + '>';
+          return tag + content + '</' + type + '>\n';
+        } // span level renderer
+        ;
+
+        _proto.strong = function strong(text) {
+          return '<strong>' + text + '</strong>';
+        };
+
+        _proto.em = function em(text) {
+          return '<em>' + text + '</em>';
+        };
+
+        _proto.codespan = function codespan(text) {
+          return '<code>' + text + '</code>';
+        };
+
+        _proto.br = function br() {
+          return this.options.xhtml ? '<br/>' : '<br>';
+        };
+
+        _proto.del = function del(text) {
+          return '<del>' + text + '</del>';
+        };
+
+        _proto.link = function link(href, title, text) {
+          href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
+
+          if (href === null) {
+            return text;
+          }
+
+          var out = '<a href="' + escape$1(href) + '"';
+
+          if (title) {
+            out += ' title="' + title + '"';
+          }
+
+          out += '>' + text + '</a>';
+          return out;
+        };
+
+        _proto.image = function image(href, title, text) {
+          href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
+
+          if (href === null) {
+            return text;
+          }
+
+          var out = '<img src="' + href + '" alt="' + text + '"';
+
+          if (title) {
+            out += ' title="' + title + '"';
+          }
+
+          out += this.options.xhtml ? '/>' : '>';
+          return out;
+        };
+
+        _proto.text = function text(_text) {
+          return _text;
+        };
+
+        return Renderer;
+      }();
+
+      /**
+       * TextRenderer
+       * returns only the textual part of the token
+       */
+
+      var TextRenderer_1 = /*#__PURE__*/function () {
+        function TextRenderer() {}
+
+        var _proto = TextRenderer.prototype;
+
+        // no need for block level renderers
+        _proto.strong = function strong(text) {
+          return text;
+        };
+
+        _proto.em = function em(text) {
+          return text;
+        };
+
+        _proto.codespan = function codespan(text) {
+          return text;
+        };
+
+        _proto.del = function del(text) {
+          return text;
+        };
+
+        _proto.html = function html(text) {
+          return text;
+        };
+
+        _proto.text = function text(_text) {
+          return _text;
+        };
+
+        _proto.link = function link(href, title, text) {
+          return '' + text;
+        };
+
+        _proto.image = function image(href, title, text) {
+          return '' + text;
+        };
+
+        _proto.br = function br() {
+          return '';
+        };
+
+        return TextRenderer;
+      }();
+
+      /**
+       * Slugger generates header id
+       */
+
+      var Slugger_1 = /*#__PURE__*/function () {
+        function Slugger() {
+          this.seen = {};
+        }
+
+        var _proto = Slugger.prototype;
+
+        _proto.serialize = function serialize(value) {
+          return value.toLowerCase().trim() // remove html tags
+          .replace(/<[!\/a-z].*?>/ig, '') // remove unwanted chars
+          .replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,./:;<=>?@[\]^`{|}~]/g, '').replace(/\s/g, '-');
+        }
+        /**
+         * Finds the next safe (unique) slug to use
+         */
+        ;
+
+        _proto.getNextSafeSlug = function getNextSafeSlug(originalSlug, isDryRun) {
+          var slug = originalSlug;
+          var occurenceAccumulator = 0;
+
+          if (this.seen.hasOwnProperty(slug)) {
+            occurenceAccumulator = this.seen[originalSlug];
+
+            do {
+              occurenceAccumulator++;
+              slug = originalSlug + '-' + occurenceAccumulator;
+            } while (this.seen.hasOwnProperty(slug));
+          }
+
+          if (!isDryRun) {
+            this.seen[originalSlug] = occurenceAccumulator;
+            this.seen[slug] = 0;
+          }
+
+          return slug;
+        }
+        /**
+         * Convert string to unique id
+         * @param {object} options
+         * @param {boolean} options.dryrun Generates the next unique slug without updating the internal accumulator.
+         */
+        ;
+
+        _proto.slug = function slug(value, options) {
+          if (options === void 0) {
+            options = {};
+          }
+
+          var slug = this.serialize(value);
+          return this.getNextSafeSlug(slug, options.dryrun);
+        };
+
+        return Slugger;
+      }();
+
+      var Renderer$1 = Renderer_1;
+      var TextRenderer$1 = TextRenderer_1;
+      var Slugger$1 = Slugger_1;
+      var defaults$1 = defaults$5.exports.defaults;
+      var unescape = helpers.unescape;
+      /**
+       * Parsing & Compiling
+       */
+
+      var Parser_1 = /*#__PURE__*/function () {
+        function Parser(options) {
+          this.options = options || defaults$1;
+          this.options.renderer = this.options.renderer || new Renderer$1();
+          this.renderer = this.options.renderer;
+          this.renderer.options = this.options;
+          this.textRenderer = new TextRenderer$1();
+          this.slugger = new Slugger$1();
+        }
+        /**
+         * Static Parse Method
+         */
+
+
+        Parser.parse = function parse(tokens, options) {
+          var parser = new Parser(options);
+          return parser.parse(tokens);
+        }
+        /**
+         * Static Parse Inline Method
+         */
+        ;
+
+        Parser.parseInline = function parseInline(tokens, options) {
+          var parser = new Parser(options);
+          return parser.parseInline(tokens);
+        }
+        /**
+         * Parse Loop
+         */
+        ;
+
+        var _proto = Parser.prototype;
+
+        _proto.parse = function parse(tokens, top) {
+          if (top === void 0) {
+            top = true;
+          }
+
+          var out = '',
+              i,
+              j,
+              k,
+              l2,
+              l3,
+              row,
+              cell,
+              header,
+              body,
+              token,
+              ordered,
+              start,
+              loose,
+              itemBody,
+              item,
+              checked,
+              task,
+              checkbox,
+              ret;
+          var l = tokens.length;
+
+          for (i = 0; i < l; i++) {
+            token = tokens[i]; // Run any renderer extensions
+
+            if (this.options.extensions && this.options.extensions.renderers && this.options.extensions.renderers[token.type]) {
+              ret = this.options.extensions.renderers[token.type].call({
+                parser: this
+              }, token);
+
+              if (ret !== false || !['space', 'hr', 'heading', 'code', 'table', 'blockquote', 'list', 'html', 'paragraph', 'text'].includes(token.type)) {
+                out += ret || '';
+                continue;
+              }
+            }
+
+            switch (token.type) {
+              case 'space':
+                {
+                  continue;
+                }
+
+              case 'hr':
+                {
+                  out += this.renderer.hr();
+                  continue;
+                }
+
+              case 'heading':
+                {
+                  out += this.renderer.heading(this.parseInline(token.tokens), token.depth, unescape(this.parseInline(token.tokens, this.textRenderer)), this.slugger);
+                  continue;
+                }
+
+              case 'code':
+                {
+                  out += this.renderer.code(token.text, token.lang, token.escaped);
+                  continue;
+                }
+
+              case 'table':
+                {
+                  header = ''; // header
+
+                  cell = '';
+                  l2 = token.header.length;
+
+                  for (j = 0; j < l2; j++) {
+                    cell += this.renderer.tablecell(this.parseInline(token.header[j].tokens), {
+                      header: true,
+                      align: token.align[j]
+                    });
+                  }
+
+                  header += this.renderer.tablerow(cell);
+                  body = '';
+                  l2 = token.rows.length;
+
+                  for (j = 0; j < l2; j++) {
+                    row = token.rows[j];
+                    cell = '';
+                    l3 = row.length;
+
+                    for (k = 0; k < l3; k++) {
+                      cell += this.renderer.tablecell(this.parseInline(row[k].tokens), {
+                        header: false,
+                        align: token.align[k]
+                      });
+                    }
+
+                    body += this.renderer.tablerow(cell);
+                  }
+
+                  out += this.renderer.table(header, body);
+                  continue;
+                }
+
+              case 'blockquote':
+                {
+                  body = this.parse(token.tokens);
+                  out += this.renderer.blockquote(body);
+                  continue;
+                }
+
+              case 'list':
+                {
+                  ordered = token.ordered;
+                  start = token.start;
+                  loose = token.loose;
+                  l2 = token.items.length;
+                  body = '';
+
+                  for (j = 0; j < l2; j++) {
+                    item = token.items[j];
+                    checked = item.checked;
+                    task = item.task;
+                    itemBody = '';
+
+                    if (item.task) {
+                      checkbox = this.renderer.checkbox(checked);
+
+                      if (loose) {
+                        if (item.tokens.length > 0 && item.tokens[0].type === 'paragraph') {
+                          item.tokens[0].text = checkbox + ' ' + item.tokens[0].text;
+
+                          if (item.tokens[0].tokens && item.tokens[0].tokens.length > 0 && item.tokens[0].tokens[0].type === 'text') {
+                            item.tokens[0].tokens[0].text = checkbox + ' ' + item.tokens[0].tokens[0].text;
+                          }
+                        } else {
+                          item.tokens.unshift({
+                            type: 'text',
+                            text: checkbox
+                          });
+                        }
+                      } else {
+                        itemBody += checkbox;
+                      }
+                    }
+
+                    itemBody += this.parse(item.tokens, loose);
+                    body += this.renderer.listitem(itemBody, task, checked);
+                  }
+
+                  out += this.renderer.list(body, ordered, start);
+                  continue;
+                }
+
+              case 'html':
+                {
+                  // TODO parse inline content if parameter markdown=1
+                  out += this.renderer.html(token.text);
+                  continue;
+                }
+
+              case 'paragraph':
+                {
+                  out += this.renderer.paragraph(this.parseInline(token.tokens));
+                  continue;
+                }
+
+              case 'text':
+                {
+                  body = token.tokens ? this.parseInline(token.tokens) : token.text;
+
+                  while (i + 1 < l && tokens[i + 1].type === 'text') {
+                    token = tokens[++i];
+                    body += '\n' + (token.tokens ? this.parseInline(token.tokens) : token.text);
+                  }
+
+                  out += top ? this.renderer.paragraph(body) : body;
+                  continue;
+                }
+
+              default:
+                {
+                  var errMsg = 'Token with "' + token.type + '" type was not found.';
+
+                  if (this.options.silent) {
+                    console.error(errMsg);
+                    return;
+                  } else {
+                    throw new Error(errMsg);
+                  }
+                }
+            }
+          }
+
+          return out;
+        }
+        /**
+         * Parse Inline Tokens
+         */
+        ;
+
+        _proto.parseInline = function parseInline(tokens, renderer) {
+          renderer = renderer || this.renderer;
+          var out = '',
+              i,
+              token,
+              ret;
+          var l = tokens.length;
+
+          for (i = 0; i < l; i++) {
+            token = tokens[i]; // Run any renderer extensions
+
+            if (this.options.extensions && this.options.extensions.renderers && this.options.extensions.renderers[token.type]) {
+              ret = this.options.extensions.renderers[token.type].call({
+                parser: this
+              }, token);
+
+              if (ret !== false || !['escape', 'html', 'link', 'image', 'strong', 'em', 'codespan', 'br', 'del', 'text'].includes(token.type)) {
+                out += ret || '';
+                continue;
+              }
+            }
+
+            switch (token.type) {
+              case 'escape':
+                {
+                  out += renderer.text(token.text);
+                  break;
+                }
+
+              case 'html':
+                {
+                  out += renderer.html(token.text);
+                  break;
+                }
+
+              case 'link':
+                {
+                  out += renderer.link(token.href, token.title, this.parseInline(token.tokens, renderer));
+                  break;
+                }
+
+              case 'image':
+                {
+                  out += renderer.image(token.href, token.title, token.text);
+                  break;
+                }
+
+              case 'strong':
+                {
+                  out += renderer.strong(this.parseInline(token.tokens, renderer));
+                  break;
+                }
+
+              case 'em':
+                {
+                  out += renderer.em(this.parseInline(token.tokens, renderer));
+                  break;
+                }
+
+              case 'codespan':
+                {
+                  out += renderer.codespan(token.text);
+                  break;
+                }
+
+              case 'br':
+                {
+                  out += renderer.br();
+                  break;
+                }
+
+              case 'del':
+                {
+                  out += renderer.del(this.parseInline(token.tokens, renderer));
+                  break;
+                }
+
+              case 'text':
+                {
+                  out += renderer.text(token.text);
+                  break;
+                }
+
+              default:
+                {
+                  var errMsg = 'Token with "' + token.type + '" type was not found.';
+
+                  if (this.options.silent) {
+                    console.error(errMsg);
+                    return;
+                  } else {
+                    throw new Error(errMsg);
+                  }
+                }
+            }
+          }
+
+          return out;
+        };
+
+        return Parser;
+      }();
+
+      var Lexer = Lexer_1;
+      var Parser = Parser_1;
+      var Tokenizer = Tokenizer_1;
+      var Renderer = Renderer_1;
+      var TextRenderer = TextRenderer_1;
+      var Slugger = Slugger_1;
+      var merge = helpers.merge,
+          checkSanitizeDeprecation = helpers.checkSanitizeDeprecation,
+          escape = helpers.escape;
+      var getDefaults = defaults$5.exports.getDefaults,
+          changeDefaults = defaults$5.exports.changeDefaults,
+          defaults = defaults$5.exports.defaults;
+      /**
+       * Marked
+       */
+
+      function marked(src, opt, callback) {
+        // throw error in case of non string input
+        if (typeof src === 'undefined' || src === null) {
+          throw new Error('marked(): input parameter is undefined or null');
+        }
+
+        if (typeof src !== 'string') {
+          throw new Error('marked(): input parameter is of type ' + Object.prototype.toString.call(src) + ', string expected');
+        }
+
+        if (typeof opt === 'function') {
+          callback = opt;
+          opt = null;
+        }
+
+        opt = merge({}, marked.defaults, opt || {});
+        checkSanitizeDeprecation(opt);
+
+        if (callback) {
+          var highlight = opt.highlight;
+          var tokens;
+
+          try {
+            tokens = Lexer.lex(src, opt);
+          } catch (e) {
+            return callback(e);
+          }
+
+          var done = function done(err) {
+            var out;
+
+            if (!err) {
+              try {
+                if (opt.walkTokens) {
+                  marked.walkTokens(tokens, opt.walkTokens);
+                }
+
+                out = Parser.parse(tokens, opt);
+              } catch (e) {
+                err = e;
+              }
+            }
+
+            opt.highlight = highlight;
+            return err ? callback(err) : callback(null, out);
+          };
+
+          if (!highlight || highlight.length < 3) {
+            return done();
+          }
+
+          delete opt.highlight;
+          if (!tokens.length) return done();
+          var pending = 0;
+          marked.walkTokens(tokens, function (token) {
+            if (token.type === 'code') {
+              pending++;
+              setTimeout(function () {
+                highlight(token.text, token.lang, function (err, code) {
+                  if (err) {
+                    return done(err);
+                  }
+
+                  if (code != null && code !== token.text) {
+                    token.text = code;
+                    token.escaped = true;
+                  }
+
+                  pending--;
+
+                  if (pending === 0) {
+                    done();
+                  }
+                });
+              }, 0);
+            }
+          });
+
+          if (pending === 0) {
+            done();
+          }
+
+          return;
+        }
+
+        try {
+          var _tokens = Lexer.lex(src, opt);
+
+          if (opt.walkTokens) {
+            marked.walkTokens(_tokens, opt.walkTokens);
+          }
+
+          return Parser.parse(_tokens, opt);
+        } catch (e) {
+          e.message += '\nPlease report this to https://github.com/markedjs/marked.';
+
+          if (opt.silent) {
+            return '<p>An error occurred:</p><pre>' + escape(e.message + '', true) + '</pre>';
+          }
+
+          throw e;
+        }
+      }
+      /**
+       * Options
+       */
+
+
+      marked.options = marked.setOptions = function (opt) {
+        merge(marked.defaults, opt);
+        changeDefaults(marked.defaults);
+        return marked;
+      };
+
+      marked.getDefaults = getDefaults;
+      marked.defaults = defaults;
+      /**
+       * Use Extension
+       */
+
+      marked.use = function () {
+        var _this = this;
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        var opts = merge.apply(void 0, [{}].concat(args));
+        var extensions = marked.defaults.extensions || {
+          renderers: {},
+          childTokens: {}
+        };
+        var hasExtensions;
+        args.forEach(function (pack) {
+          // ==-- Parse "addon" extensions --== //
+          if (pack.extensions) {
+            hasExtensions = true;
+            pack.extensions.forEach(function (ext) {
+              if (!ext.name) {
+                throw new Error('extension name required');
+              }
+
+              if (ext.renderer) {
+                // Renderer extensions
+                var prevRenderer = extensions.renderers ? extensions.renderers[ext.name] : null;
+
+                if (prevRenderer) {
+                  // Replace extension with func to run new extension but fall back if false
+                  extensions.renderers[ext.name] = function () {
+                    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                      args[_key2] = arguments[_key2];
+                    }
+
+                    var ret = ext.renderer.apply(this, args);
+
+                    if (ret === false) {
+                      ret = prevRenderer.apply(this, args);
+                    }
+
+                    return ret;
+                  };
+                } else {
+                  extensions.renderers[ext.name] = ext.renderer;
+                }
+              }
+
+              if (ext.tokenizer) {
+                // Tokenizer Extensions
+                if (!ext.level || ext.level !== 'block' && ext.level !== 'inline') {
+                  throw new Error("extension level must be 'block' or 'inline'");
+                }
+
+                if (extensions[ext.level]) {
+                  extensions[ext.level].unshift(ext.tokenizer);
+                } else {
+                  extensions[ext.level] = [ext.tokenizer];
+                }
+
+                if (ext.start) {
+                  // Function to check for start of token
+                  if (ext.level === 'block') {
+                    if (extensions.startBlock) {
+                      extensions.startBlock.push(ext.start);
+                    } else {
+                      extensions.startBlock = [ext.start];
+                    }
+                  } else if (ext.level === 'inline') {
+                    if (extensions.startInline) {
+                      extensions.startInline.push(ext.start);
+                    } else {
+                      extensions.startInline = [ext.start];
+                    }
+                  }
+                }
+              }
+
+              if (ext.childTokens) {
+                // Child tokens to be visited by walkTokens
+                extensions.childTokens[ext.name] = ext.childTokens;
+              }
+            });
+          } // ==-- Parse "overwrite" extensions --== //
+
+
+          if (pack.renderer) {
+            (function () {
+              var renderer = marked.defaults.renderer || new Renderer();
+
+              var _loop = function _loop(prop) {
+                var prevRenderer = renderer[prop]; // Replace renderer with func to run extension, but fall back if false
+
+                renderer[prop] = function () {
+                  for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+                    args[_key3] = arguments[_key3];
+                  }
+
+                  var ret = pack.renderer[prop].apply(renderer, args);
+
+                  if (ret === false) {
+                    ret = prevRenderer.apply(renderer, args);
+                  }
+
+                  return ret;
+                };
+              };
+
+              for (var prop in pack.renderer) {
+                _loop(prop);
+              }
+
+              opts.renderer = renderer;
+            })();
+          }
+
+          if (pack.tokenizer) {
+            (function () {
+              var tokenizer = marked.defaults.tokenizer || new Tokenizer();
+
+              var _loop2 = function _loop2(prop) {
+                var prevTokenizer = tokenizer[prop]; // Replace tokenizer with func to run extension, but fall back if false
+
+                tokenizer[prop] = function () {
+                  for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+                    args[_key4] = arguments[_key4];
+                  }
+
+                  var ret = pack.tokenizer[prop].apply(tokenizer, args);
+
+                  if (ret === false) {
+                    ret = prevTokenizer.apply(tokenizer, args);
+                  }
+
+                  return ret;
+                };
+              };
+
+              for (var prop in pack.tokenizer) {
+                _loop2(prop);
+              }
+
+              opts.tokenizer = tokenizer;
+            })();
+          } // ==-- Parse WalkTokens extensions --== //
+
+
+          if (pack.walkTokens) {
+            var walkTokens = marked.defaults.walkTokens;
+
+            opts.walkTokens = function (token) {
+              pack.walkTokens.call(_this, token);
+
+              if (walkTokens) {
+                walkTokens(token);
+              }
+            };
+          }
+
+          if (hasExtensions) {
+            opts.extensions = extensions;
+          }
+
+          marked.setOptions(opts);
+        });
+      };
+      /**
+       * Run callback for every token
+       */
+
+
+      marked.walkTokens = function (tokens, callback) {
+        var _loop3 = function _loop3() {
+          var token = _step.value;
+          callback(token);
+
+          switch (token.type) {
+            case 'table':
+              {
+                for (var _iterator2 = _createForOfIteratorHelperLoose(token.header), _step2; !(_step2 = _iterator2()).done;) {
+                  var cell = _step2.value;
+                  marked.walkTokens(cell.tokens, callback);
+                }
+
+                for (var _iterator3 = _createForOfIteratorHelperLoose(token.rows), _step3; !(_step3 = _iterator3()).done;) {
+                  var row = _step3.value;
+
+                  for (var _iterator4 = _createForOfIteratorHelperLoose(row), _step4; !(_step4 = _iterator4()).done;) {
+                    var _cell = _step4.value;
+                    marked.walkTokens(_cell.tokens, callback);
+                  }
+                }
+
+                break;
+              }
+
+            case 'list':
+              {
+                marked.walkTokens(token.items, callback);
+                break;
+              }
+
+            default:
+              {
+                if (marked.defaults.extensions && marked.defaults.extensions.childTokens && marked.defaults.extensions.childTokens[token.type]) {
+                  // Walk any extensions
+                  marked.defaults.extensions.childTokens[token.type].forEach(function (childTokens) {
+                    marked.walkTokens(token[childTokens], callback);
+                  });
+                } else if (token.tokens) {
+                  marked.walkTokens(token.tokens, callback);
+                }
+              }
+          }
+        };
+
+        for (var _iterator = _createForOfIteratorHelperLoose(tokens), _step; !(_step = _iterator()).done;) {
+          _loop3();
+        }
+      };
+      /**
+       * Parse Inline
+       */
+
+
+      marked.parseInline = function (src, opt) {
+        // throw error in case of non string input
+        if (typeof src === 'undefined' || src === null) {
+          throw new Error('marked.parseInline(): input parameter is undefined or null');
+        }
+
+        if (typeof src !== 'string') {
+          throw new Error('marked.parseInline(): input parameter is of type ' + Object.prototype.toString.call(src) + ', string expected');
+        }
+
+        opt = merge({}, marked.defaults, opt || {});
+        checkSanitizeDeprecation(opt);
+
+        try {
+          var tokens = Lexer.lexInline(src, opt);
+
+          if (opt.walkTokens) {
+            marked.walkTokens(tokens, opt.walkTokens);
+          }
+
+          return Parser.parseInline(tokens, opt);
+        } catch (e) {
+          e.message += '\nPlease report this to https://github.com/markedjs/marked.';
+
+          if (opt.silent) {
+            return '<p>An error occurred:</p><pre>' + escape(e.message + '', true) + '</pre>';
+          }
+
+          throw e;
+        }
+      };
+      /**
+       * Expose
+       */
+
+
+      marked.Parser = Parser;
+      marked.parser = Parser.parse;
+      marked.Renderer = Renderer;
+      marked.TextRenderer = TextRenderer;
+      marked.Lexer = Lexer;
+      marked.lexer = Lexer.lex;
+      marked.Tokenizer = Tokenizer;
+      marked.Slugger = Slugger;
+      marked.parse = marked;
+      var marked_1 = marked;
+
+      return marked_1;
+
+    })));
+    });
+
+    /* src\pages\Article.svelte generated by Svelte v3.31.2 */
+    const file$e = "src\\pages\\Article.svelte";
+
+    function get_each_context$4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[3] = list[i];
+    	return child_ctx;
+    }
+
+    // (33:4) {#each articleLinks as articleLink}
+    function create_each_block$4(ctx) {
+    	let a;
+    	let t_value = /*articleLink*/ ctx[3].label + "";
+    	let t;
+    	let a_href_value;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			t = text(t_value);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			a = claim_element(nodes, "A", { class: true, href: true });
+    			var a_nodes = children(a);
+    			t = claim_text(a_nodes, t_value);
+    			a_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(a, "class", "article-content-link");
+    			attr_dev(a, "href", a_href_value = /*articleLink*/ ctx[3].link);
+    			add_location(a, file$e, 33, 6, 1014);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*articleLinks*/ 2 && t_value !== (t_value = /*articleLink*/ ctx[3].label + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*articleLinks*/ 2 && a_href_value !== (a_href_value = /*articleLink*/ ctx[3].link)) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$4.name,
+    		type: "each",
+    		source: "(33:4) {#each articleLinks as articleLink}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (48:4) <Link        to="/"        class="px-4 py-2 inline-block leading-4 border-green-400 border bg-green-200 hover:bg-green-300 rounded-none mr-3 text-gray-700 font-mono"      >
+    function create_default_slot$3(ctx) {
+    	let p;
+    	let i;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			i = element("i");
+    			t = text("Go Back");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			p = claim_element(nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			i = claim_element(p_nodes, "I", { class: true });
+    			children(i).forEach(detach_dev);
+    			t = claim_text(p_nodes, "Go Back");
+    			p_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(i, "class", "fas fa-arrow-left mr-3");
+    			add_location(i, file$e, 52, 8, 1738);
+    			attr_dev(p, "class", "text-gray-700 font-bold font-mono");
+    			add_location(p, file$e, 51, 6, 1683);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, i);
+    			append_dev(p, t);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$3.name,
+    		type: "slot",
+    		source: "(48:4) <Link        to=\\\"/\\\"        class=\\\"px-4 py-2 inline-block leading-4 border-green-400 border bg-green-200 hover:bg-green-300 rounded-none mr-3 text-gray-700 font-mono\\\"      >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$g(ctx) {
+    	let main;
+    	let div0;
+    	let t0;
+    	let article_1;
+    	let h1;
+    	let t1;
+    	let t2;
+    	let p;
+    	let t3;
+    	let t4;
+    	let hr;
+    	let t5;
+    	let link;
+    	let t6;
+    	let div1;
+    	let current;
+    	let each_value = /*articleLinks*/ ctx[1];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$4(get_each_context$4(ctx, each_value, i));
+    	}
+
+    	link = new Link({
+    			props: {
+    				to: "/",
+    				class: "px-4 py-2 inline-block leading-4 border-green-400 border bg-green-200 hover:bg-green-300 rounded-none mr-3 text-gray-700 font-mono",
+    				$$slots: { default: [create_default_slot$3] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			div0 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t0 = space();
+    			article_1 = element("article");
+    			h1 = element("h1");
+    			t1 = text("How I Made My Own Cryptocurrency");
+    			t2 = space();
+    			p = element("p");
+    			t3 = text("by Ng Bob Shoaun  ∙  2 August 2021  ∙  8 minute read");
+    			t4 = space();
+    			hr = element("hr");
+    			t5 = space();
+    			create_component(link.$$.fragment);
+    			t6 = space();
+    			div1 = element("div");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			main = claim_element(nodes, "MAIN", { class: true });
+    			var main_nodes = children(main);
+    			div0 = claim_element(main_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(div0_nodes);
+    			}
+
+    			div0_nodes.forEach(detach_dev);
+    			t0 = claim_space(main_nodes);
+    			article_1 = claim_element(main_nodes, "ARTICLE", { class: true });
+    			var article_1_nodes = children(article_1);
+    			h1 = claim_element(article_1_nodes, "H1", { class: true });
+    			var h1_nodes = children(h1);
+    			t1 = claim_text(h1_nodes, "How I Made My Own Cryptocurrency");
+    			h1_nodes.forEach(detach_dev);
+    			t2 = claim_space(article_1_nodes);
+    			p = claim_element(article_1_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t3 = claim_text(p_nodes, "by Ng Bob Shoaun  ∙  2 August 2021  ∙  8 minute read");
+    			p_nodes.forEach(detach_dev);
+    			t4 = claim_space(article_1_nodes);
+    			hr = claim_element(article_1_nodes, "HR", { class: true });
+    			t5 = claim_space(article_1_nodes);
+    			claim_component(link.$$.fragment, article_1_nodes);
+    			t6 = claim_space(article_1_nodes);
+    			div1 = claim_element(article_1_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			div1_nodes.forEach(detach_dev);
+    			article_1_nodes.forEach(detach_dev);
+    			main_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "class", "sticky top-16 text-gray-100 hidden lg:block ml-auto self-start");
+    			add_location(div0, file$e, 31, 2, 889);
+    			attr_dev(h1, "class", "text-3xl lg:text-5xl font-bold mb-4");
+    			add_location(h1, file$e, 39, 4, 1209);
+    			attr_dev(p, "class", "text-gray-500 dark:text-gray-300 mb-3");
+    			add_location(p, file$e, 42, 4, 1314);
+    			attr_dev(hr, "class", "mb-5 border-gray-400 ");
+    			add_location(hr, file$e, 45, 4, 1459);
+    			attr_dev(div1, "class", "article-content");
+    			add_location(div1, file$e, 56, 4, 1814);
+    			attr_dev(article_1, "class", "max-w-3xl mx-auto text-gray-700 dark:text-white");
+    			add_location(article_1, file$e, 38, 2, 1138);
+    			attr_dev(main, "class", "bg-gray-50 dark:bg-gray-800 pt-32 pb-24 px-5 lg:px-10 flex gap-5");
+    			add_location(main, file$e, 30, 0, 806);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, div0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div0, null);
+    			}
+
+    			append_dev(main, t0);
+    			append_dev(main, article_1);
+    			append_dev(article_1, h1);
+    			append_dev(h1, t1);
+    			append_dev(article_1, t2);
+    			append_dev(article_1, p);
+    			append_dev(p, t3);
+    			append_dev(article_1, t4);
+    			append_dev(article_1, hr);
+    			append_dev(article_1, t5);
+    			mount_component(link, article_1, null);
+    			append_dev(article_1, t6);
+    			append_dev(article_1, div1);
+    			div1.innerHTML = /*article*/ ctx[0];
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*articleLinks*/ 2) {
+    				each_value = /*articleLinks*/ ctx[1];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$4(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$4(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			const link_changes = {};
+
+    			if (dirty & /*$$scope*/ 64) {
+    				link_changes.$$scope = { dirty, ctx };
+    			}
+
+    			link.$set(link_changes);
+    			if (!current || dirty & /*article*/ 1) div1.innerHTML = /*article*/ ctx[0];		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(link.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(link.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			destroy_each(each_blocks, detaching);
+    			destroy_component(link);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$g.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$g($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Article", slots, []);
+    	onMount(mounted);
+    	let article = "";
+    	let articleLinks = [];
+
+    	async function mounted() {
+    		const response = await fetch("/how-i-made-my-own-cryptocurrency.md");
+    		const articleMD = await response.text();
+    		const renderer = new marked.Renderer();
+    		renderer.link = (href, title, text) => `<a target="_blank" href="${href}" title="${title}">${text}</a>`;
+    		$$invalidate(0, article = marked(articleMD, { renderer }));
+    	}
+
+    	afterUpdate(() => {
+    		const headings = document.querySelectorAll("h2");
+
+    		$$invalidate(1, articleLinks = [...headings].map(heading => ({
+    			label: heading.innerText,
+    			link: `#${heading.id}`
+    		})));
+    	});
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Article> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		Link,
+    		marked,
+    		onMount,
+    		afterUpdate,
+    		article,
+    		articleLinks,
+    		mounted
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("article" in $$props) $$invalidate(0, article = $$props.article);
+    		if ("articleLinks" in $$props) $$invalidate(1, articleLinks = $$props.articleLinks);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [article, articleLinks];
+    }
+
+    class Article extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$g, create_fragment$g, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Article",
+    			options,
+    			id: create_fragment$g.name
+    		});
+    	}
+    }
+
+    /* src\App.svelte generated by Svelte v3.31.2 */
+    const file$f = "src\\App.svelte";
+
+    // (35:4) <Route path="/">
+    function create_default_slot_1(ctx) {
+    	let main;
+    	let updating_theme;
+    	let current;
+
+    	function main_theme_binding(value) {
+    		/*main_theme_binding*/ ctx[4].call(null, value);
+    	}
+
+    	let main_props = {};
+
+    	if (/*theme*/ ctx[1] !== void 0) {
+    		main_props.theme = /*theme*/ ctx[1];
+    	}
+
+    	main = new Main({ props: main_props, $$inline: true });
+    	binding_callbacks.push(() => bind(main, "theme", main_theme_binding));
+
+    	const block = {
+    		c: function create() {
+    			create_component(main.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(main.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(main, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const main_changes = {};
+
+    			if (!updating_theme && dirty & /*theme*/ 2) {
+    				updating_theme = true;
+    				main_changes.theme = /*theme*/ ctx[1];
+    				add_flush_callback(() => updating_theme = false);
+    			}
+
+    			main.$set(main_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(main.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(main.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(main, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1.name,
+    		type: "slot",
+    		source: "(35:4) <Route path=\\\"/\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (34:2) <Router {url}>
+    function create_default_slot$4(ctx) {
+    	let route0;
+    	let t0;
+    	let route1;
+    	let t1;
+    	let route2;
+    	let t2;
+    	let route3;
+    	let current;
+
+    	route0 = new Route({
+    			props: {
+    				path: "/",
+    				$$slots: { default: [create_default_slot_1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	route1 = new Route({
+    			props: { path: "resume", component: Resume },
+    			$$inline: true
+    		});
+
+    	route2 = new Route({
+    			props: { path: "Resume", component: Resume },
+    			$$inline: true
+    		});
+
+    	route3 = new Route({
+    			props: {
+    				path: "articles/how-i-made-my-own-cryptocurrency",
+    				component: Article
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(route0.$$.fragment);
+    			t0 = space();
+    			create_component(route1.$$.fragment);
+    			t1 = space();
+    			create_component(route2.$$.fragment);
+    			t2 = space();
+    			create_component(route3.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(route0.$$.fragment, nodes);
+    			t0 = claim_space(nodes);
+    			claim_component(route1.$$.fragment, nodes);
+    			t1 = claim_space(nodes);
+    			claim_component(route2.$$.fragment, nodes);
+    			t2 = claim_space(nodes);
+    			claim_component(route3.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(route0, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(route1, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(route2, target, anchor);
+    			insert_dev(target, t2, anchor);
+    			mount_component(route3, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const route0_changes = {};
+
+    			if (dirty & /*$$scope, theme*/ 66) {
+    				route0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			route0.$set(route0_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(route0.$$.fragment, local);
+    			transition_in(route1.$$.fragment, local);
+    			transition_in(route2.$$.fragment, local);
+    			transition_in(route3.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(route0.$$.fragment, local);
+    			transition_out(route1.$$.fragment, local);
+    			transition_out(route2.$$.fragment, local);
+    			transition_out(route3.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(route0, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(route1, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(route2, detaching);
+    			if (detaching) detach_dev(t2);
+    			destroy_component(route3, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$4.name,
+    		type: "slot",
+    		source: "(34:2) <Router {url}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$h(ctx) {
+    	let div;
+    	let navbar;
+    	let updating_theme;
+    	let t0;
+    	let router;
+    	let t1;
+    	let footer;
+    	let div_class_value;
+    	let current;
+
+    	function navbar_theme_binding(value) {
+    		/*navbar_theme_binding*/ ctx[3].call(null, value);
+    	}
+
+    	let navbar_props = {};
+
+    	if (/*theme*/ ctx[1] !== void 0) {
+    		navbar_props.theme = /*theme*/ ctx[1];
+    	}
+
+    	navbar = new Navbar({ props: navbar_props, $$inline: true });
+    	binding_callbacks.push(() => bind(navbar, "theme", navbar_theme_binding));
+    	navbar.$on("toggleTheme", /*toggleTheme*/ ctx[2]);
+
+    	router = new Router({
+    			props: {
+    				url: /*url*/ ctx[0],
+    				$$slots: { default: [create_default_slot$4] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	footer = new Footer({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			create_component(navbar.$$.fragment);
+    			t0 = space();
+    			create_component(router.$$.fragment);
+    			t1 = space();
+    			create_component(footer.$$.fragment);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div = claim_element(nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			claim_component(navbar.$$.fragment, div_nodes);
+    			t0 = claim_space(div_nodes);
+    			claim_component(router.$$.fragment, div_nodes);
+    			t1 = claim_space(div_nodes);
+    			claim_component(footer.$$.fragment, div_nodes);
+    			div_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div, "class", div_class_value = "" + ((/*theme*/ ctx[1] === "dark" ? "dark" : "") + " flex flex-col"));
+    			add_location(div, file$f, 31, 0, 1051);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(navbar, div, null);
+    			append_dev(div, t0);
+    			mount_component(router, div, null);
+    			append_dev(div, t1);
+    			mount_component(footer, div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const navbar_changes = {};
+
+    			if (!updating_theme && dirty & /*theme*/ 2) {
+    				updating_theme = true;
+    				navbar_changes.theme = /*theme*/ ctx[1];
+    				add_flush_callback(() => updating_theme = false);
+    			}
+
+    			navbar.$set(navbar_changes);
+    			const router_changes = {};
+    			if (dirty & /*url*/ 1) router_changes.url = /*url*/ ctx[0];
+
+    			if (dirty & /*$$scope, theme*/ 66) {
+    				router_changes.$$scope = { dirty, ctx };
+    			}
+
+    			router.$set(router_changes);
+
+    			if (!current || dirty & /*theme*/ 2 && div_class_value !== (div_class_value = "" + ((/*theme*/ ctx[1] === "dark" ? "dark" : "") + " flex flex-col"))) {
+    				attr_dev(div, "class", div_class_value);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(navbar.$$.fragment, local);
+    			transition_in(router.$$.fragment, local);
+    			transition_in(footer.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(navbar.$$.fragment, local);
+    			transition_out(router.$$.fragment, local);
+    			transition_out(footer.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(navbar);
+    			destroy_component(router);
+    			destroy_component(footer);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$h.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$h($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("App", slots, []);
+    	let { url = "" } = $$props; //This property is necessary declare to avoid ignore the Router
+
+    	// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    	let theme = "dark";
+
+    	const setTheme = newTheme => {
+    		$$invalidate(1, theme = newTheme);
+    		localStorage.theme = newTheme;
+    		document.documentElement.style.setProperty("--theme", newTheme);
+    	};
+
+    	if ("theme" in localStorage) setTheme(localStorage.theme); else {
+    		// new visitor
+    		// localStorage.theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    		// 	? "dark"
+    		// 	: "light";
+    		setTheme("dark"); // force dark theme cuz its nicer
+    	}
+
+    	const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+    	const writable_props = ["url"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	function navbar_theme_binding(value) {
+    		theme = value;
+    		$$invalidate(1, theme);
+    	}
+
+    	function main_theme_binding(value) {
+    		theme = value;
+    		$$invalidate(1, theme);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ("url" in $$props) $$invalidate(0, url = $$props.url);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		Navbar,
+    		Main,
+    		Footer,
+    		Resume,
+    		Article,
+    		Router,
+    		Route,
+    		url,
+    		theme,
+    		setTheme,
+    		toggleTheme
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("url" in $$props) $$invalidate(0, url = $$props.url);
+    		if ("theme" in $$props) $$invalidate(1, theme = $$props.theme);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [url, theme, toggleTheme, navbar_theme_binding, main_theme_binding];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$h, create_fragment$h, safe_not_equal, { url: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment$h.name
+    		});
+    	}
+
+    	get url() {
+    		throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set url(value) {
+    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    // import "tailwindcss/tailwind.css";
+
+    const app = new App({
+    	target: document.body,
+    	props: {
+      },
+      hydrate: true,
+    });
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map
