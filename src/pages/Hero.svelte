@@ -81,14 +81,14 @@
     <a
       title="See my GitHub profile"
       aria-label="See my GitHub profile"
-      href="https://github.com/BobShoaun"
+      href="https://github.com/War-Keeper"
       target="_blank"
       class="block"><i class="fab fa-github" /></a
     >
     <a
       title="Connect on LinkedIn"
       aria-label="Connect on LinkedIn"
-      href="https://www.linkedin.com/in/ngbobshoaun/"
+      href="https://www.linkedin.com/in/cpatel3/"
       target="_blank"
       class="block"
     >
@@ -96,7 +96,7 @@
     >
 
     <!-- <a
-    href="https://www.instagram.com/n.bob.s/"
+    href="https://www.instagram.com/patellionaire/"
     target="_blank"
     class="block mb-8"
     ><i class="text-gray-800 dark:text-gray-50 fab fa-instagram fa-lg" /></a
@@ -105,14 +105,14 @@
     <a
       title="Send me an email"
       aria-label="Send me an email"
-      href="mailto:ngbobshoaun2000@gmail.com"
+      href="mailto:thechikkipatel@gmail.com"
       target="_blank"
       class="block"
     >
       <i class="far fa-envelope" />
     </a>
 
-    <!-- <a href="https://codepen.io/bobshoaun" target="_blank" class="block mb-8"
+    <!-- <a href="https://chaitanya-portfolio-zeta.vercel.app/" target="_blank" class="block mb-8"
     ><i class="fab fa-codepen fa-lg" /></a
   > -->
 
